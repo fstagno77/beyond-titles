@@ -198,11 +198,14 @@
     /**
      * Enables the CTA button with the generated URL (Scenario 1 - Match)
      * @param {string} url - The URL to assign to the button
+     * @param {number} jobOffers - Number of job offers for this role
      */
-    function enableCtaButton(url) {
+    function enableCtaButton(url, jobOffers) {
         if (!elements.ctaButton) return;
 
         elements.ctaButton.href = url;
+        const offerText = jobOffers === 1 ? '1 offerta di lavoro' : `${jobOffers} offerte di lavoro`;
+        elements.ctaButton.textContent = `Abbiamo ${offerText} per te`;
         elements.ctaButton.classList.remove('cta-button--disabled', 'cta-button--warning');
         elements.ctaButton.classList.add('cta-button--active');
         elements.ctaButton.setAttribute('aria-disabled', 'false');
@@ -221,6 +224,7 @@
         if (!elements.ctaButton) return;
 
         elements.ctaButton.href = url;
+        elements.ctaButton.textContent = 'Scopri le nostre offerte di lavoro per te';
         elements.ctaButton.classList.remove('cta-button--disabled', 'cta-button--active');
         elements.ctaButton.classList.add('cta-button--warning');
         elements.ctaButton.setAttribute('aria-disabled', 'false');
@@ -238,6 +242,7 @@
         if (!elements.ctaButton) return;
 
         elements.ctaButton.href = '#';
+        elements.ctaButton.textContent = 'Vedi Offerte';
         elements.ctaButton.classList.remove('cta-button--active', 'cta-button--warning');
         elements.ctaButton.classList.add('cta-button--disabled');
         elements.ctaButton.setAttribute('aria-disabled', 'true');
@@ -320,7 +325,7 @@
     /**
      * Filters mansioniPadre based on user query
      * @param {string} query - User search query
-     * @returns {string[]} Filtered and limited results
+     * @returns {Object[]} Filtered and limited results (objects with nome and jobOffers)
      */
     function filterMansioniPadre(query) {
         if (!query || query.length < CONFIG.minQueryLength) {
@@ -330,7 +335,7 @@
         const normalizedQuery = query.toLowerCase().trim();
 
         const matches = state.mansioniPadre.filter((mansione) =>
-            mansione.toLowerCase().includes(normalizedQuery)
+            mansione.nome.toLowerCase().includes(normalizedQuery)
         );
 
         return matches.slice(0, CONFIG.maxSuggestions);
@@ -343,8 +348,19 @@
      */
     function isExactMatch(jobTitle) {
         return state.mansioniPadre.some(
-            (mansione) => mansione.toLowerCase() === jobTitle.toLowerCase()
+            (mansione) => mansione.nome.toLowerCase() === jobTitle.toLowerCase()
         );
+    }
+
+    /**
+     * Finds a mansione object by name
+     * @param {string} jobTitle - The job title to find
+     * @returns {Object|null} The mansione object or null
+     */
+    function findMansione(jobTitle) {
+        return state.mansioniPadre.find(
+            (mansione) => mansione.nome.toLowerCase() === jobTitle.toLowerCase()
+        ) || null;
     }
 
     /**
@@ -370,7 +386,7 @@
 
     /**
      * Renders suggestions dropdown
-     * @param {string[]} suggestions - Array of matching job titles
+     * @param {Object[]} suggestions - Array of matching mansione objects
      * @param {string} query - Original query for highlighting
      */
     function renderSuggestions(suggestions, query) {
@@ -390,7 +406,7 @@
             li.setAttribute('role', 'option');
             li.setAttribute('id', `suggestion-${index}`);
             li.setAttribute('aria-selected', 'false');
-            li.innerHTML = highlightMatch(suggestion, query);
+            li.innerHTML = highlightMatch(suggestion.nome, query);
 
             li.addEventListener('click', () => selectSuggestion(suggestion));
             li.addEventListener('mouseenter', () => setActiveSuggestion(index));
@@ -449,21 +465,21 @@
 
     /**
      * Selects a suggestion and processes Scenario 1
-     * @param {string} suggestion - Selected job title
+     * @param {Object} suggestion - Selected mansione object with nome and jobOffers
      */
     function selectSuggestion(suggestion) {
-        elements.input.value = suggestion;
+        elements.input.value = suggestion.nome;
         hideSuggestions();
 
         // Log Event A: Selection
-        logActivity(LogType.INPUT, `User selected "${suggestion}".`);
+        logActivity(LogType.INPUT, `User selected "${suggestion.nome}".`);
 
         // Validate against database (Scenario 1)
-        if (isExactMatch(suggestion)) {
-            processScenario1(suggestion);
+        if (isExactMatch(suggestion.nome)) {
+            processScenario1(suggestion.nome, suggestion.jobOffers);
         } else {
             // This shouldn't happen if selected from suggestions, but handle it
-            processScenario3(suggestion, 'selection');
+            processScenario3(suggestion.nome, 'selection');
         }
 
         elements.input.focus();
@@ -472,8 +488,9 @@
     /**
      * Processes Scenario 1: Exact Match
      * @param {string} jobTitle - The matched job title
+     * @param {number} jobOffers - Number of job offers for this role
      */
-    function processScenario1(jobTitle) {
+    function processScenario1(jobTitle, jobOffers) {
         // Log Event B: Analysis
         logActivity(LogType.LOGIC, 'Exact Match found in DB (Scenario 1).');
 
@@ -485,12 +502,12 @@
         // Log Event C: Routing
         logActivity(LogType.ROUTING, 'Generated Deep Link:', deepLink);
 
-        // Enable CTA (green state)
-        enableCtaButton(deepLink);
+        // Enable CTA (green state) with job offers count
+        enableCtaButton(deepLink, jobOffers);
         setInputMatchState();
 
         // Log Event D: UI Ready
-        logActivity(LogType.UI, 'CTA Enabled.');
+        logActivity(LogType.UI, `CTA Enabled with ${jobOffers} job offers.`);
 
         // Update status message
         showStatus(
@@ -546,10 +563,11 @@
         }
 
         // Check if it's an exact match (Scenario 1)
-        if (isExactMatch(inputValue)) {
+        const mansione = findMansione(inputValue);
+        if (mansione) {
             // Log and process as Scenario 1
             logActivity(LogType.INPUT, `User submitted "${inputValue}" (${trigger === 'enter' ? 'Enter Key' : 'Focus Out'}).`);
-            processScenario1(inputValue);
+            processScenario1(mansione.nome, mansione.jobOffers);
         } else {
             // Process as Scenario 3 (No Match)
             processScenario3(inputValue, trigger);
@@ -792,7 +810,7 @@
         try {
             initializeElements();
 
-            logActivity(LogType.INFO, 'Beyond Titles v0.3 initializing...');
+            logActivity(LogType.INFO, 'Beyond Titles v0.4 initializing...');
 
             await loadMansioniPadreData();
             bindEvents();

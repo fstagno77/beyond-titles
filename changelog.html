@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beyond Titles - Changelog">
+    <title>Changelog | Beyond Titles</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .main--changelog {
+            justify-content: flex-start;
+        }
+
+        .changelog {
+            max-width: 700px;
+            padding: 0;
+        }
+
+        .changelog__title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .changelog__version {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .changelog__version-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .changelog__version-number {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+        }
+
+        .changelog__version-date {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
+        }
+
+        .changelog__list {
+            list-style: disc;
+            padding-left: var(--spacing-lg);
+            color: var(--color-text-secondary);
+        }
+
+        .changelog__list li {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+        }
+
+        .changelog__back {
+            display: inline-block;
+            margin-bottom: var(--spacing-lg);
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+        }
+
+        .changelog__back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container header__container--left">
+            <a href="index.html" class="header__logo-link">
+                <img src="assets/logoBeyondTitles.png" alt="Beyond Titles" class="header__logo">
+            </a>
+        </div>
+    </header>
+
+    <main class="main main--changelog">
+        <div class="changelog">
+            <a href="index.html" class="changelog__back">&larr; Torna alla Home</a>
+
+            <h2 class="changelog__title">Changelog</h2>
+
+            <article class="changelog__version">
+                <div class="changelog__version-header">
+                    <span class="changelog__version-number">v0.3</span>
+                    <span class="changelog__version-date">17 Dicembre 2025</span>
+                </div>
+                <ul class="changelog__list">
+                    <li>Implementato Scenario 3: No Match con ricerca libera</li>
+                    <li>Gestione tasto Enter per submit input personalizzato</li>
+                    <li>Gestione blur event per submit automatico</li>
+                    <li>Generazione URL di ricerca con parametro ?job=</li>
+                    <li>Nuovo tipo di log NO MATCH (arancione)</li>
+                    <li>Stato CTA arancione per scenario No Match</li>
+                    <li>Bordo input arancione quando No Match attivo</li>
+                    <li>Messaggio status: "Premi Invio per ricerca libera"</li>
+                    <li>Aggiunto logo Beyond Titles nell'header</li>
+                </ul>
+            </article>
+
+            <article class="changelog__version">
+                <div class="changelog__version-header">
+                    <span class="changelog__version-number">v0.2</span>
+                    <span class="changelog__version-date">17 Dicembre 2025</span>
+                </div>
+                <ul class="changelog__list">
+                    <li>Implementato Scenario 1: Unique Match con generazione Deep Link</li>
+                    <li>Aggiunto pulsante CTA "Vedi Offerte" con stati disabled/active</li>
+                    <li>Creato pannello System Activity Log per debugging/demo</li>
+                    <li>Generazione URL dinamica (lowercase, spazi -> trattini, suffisso -jo)</li>
+                    <li>Log eventi in tempo reale: INPUT, LOGIC, ROUTING, UI</li>
+                    <li>Stile terminale per il log (monospace, tema scuro)</li>
+                    <li>Layout responsive a due colonne (hero + log panel)</li>
+                </ul>
+            </article>
+
+            <article class="changelog__version">
+                <div class="changelog__version-header">
+                    <span class="changelog__version-number">v0.1</span>
+                    <span class="changelog__version-date">17 Dicembre 2025</span>
+                </div>
+                <ul class="changelog__list">
+                    <li>Struttura progetto refactored: separazione HTML, CSS e JS</li>
+                    <li>Database mansioni padre estratto in file JSON esterno</li>
+                    <li>Caricamento asincrono dati con fetch API</li>
+                    <li>Autocomplete con highlight delle corrispondenze</li>
+                    <li>Gestione scenari Match e No Match con feedback visivo</li>
+                    <li>Navigazione tastiera nelle suggestions (frecce, Enter, Escape)</li>
+                    <li>UI con branding Gi Group (palette colori, tipografia)</li>
+                    <li>Layout responsive per dispositivi mobile</li>
+                    <li>Accessibilita migliorata con attributi ARIA</li>
+                </ul>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">Beyond Titles v0.3</p>
+    </footer>
+</body>
+</html>

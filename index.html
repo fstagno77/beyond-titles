@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beyond Titles - Intelligent Job Title Matching System">
+    <title>Beyond Titles</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container header__container--left">
+            <a href="index.html" class="header__logo-link">
+                <img src="assets/logoBeyondTitles.png" alt="Beyond Titles" class="header__logo">
+            </a>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="hero__container">
+                <h2 class="hero__title">Qual è il tuo ruolo?</h2>
+                <p class="hero__subtitle">
+                    Digita la tua mansione attuale per verificare la corrispondenza con il nostro database.
+                </p>
+
+                <div class="search">
+                    <div class="search__wrapper">
+                        <input
+                            type="text"
+                            id="jobInput"
+                            class="search__input"
+                            placeholder="Inizia a scrivere (es. Magazziniere, Barista...)"
+                            autocomplete="off"
+                            aria-label="Inserisci il tuo ruolo lavorativo"
+                            aria-describedby="statusMessage"
+                            aria-controls="suggestions"
+                            aria-autocomplete="list"
+                        >
+                        <ul
+                            id="suggestions"
+                            class="search__suggestions"
+                            role="listbox"
+                            aria-label="Suggerimenti mansioni"
+                        ></ul>
+                    </div>
+
+                    <div id="statusMessage" class="search__status" role="status" aria-live="polite"></div>
+
+                    <a
+                        id="ctaButton"
+                        href="#"
+                        class="cta-button cta-button--disabled"
+                        aria-disabled="true"
+                        tabindex="-1"
+                    >
+                        Vedi Offerte
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <aside class="system-log">
+            <div class="system-log__header">
+                <span class="system-log__title">System Activity Log</span>
+                <button id="clearLogBtn" class="system-log__clear" aria-label="Pulisci log">Clear</button>
+            </div>
+            <div id="systemLog" class="system-log__content" role="log" aria-live="polite" aria-label="Log attività sistema"></div>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">Beyond Titles v0.3 | <a href="changelog.html" class="footer__link">Changelog</a></p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

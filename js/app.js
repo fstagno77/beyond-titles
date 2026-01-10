@@ -19,10 +19,8 @@
     // ==========================================================================
 
     const CONFIG = {
-        dataUrl: './data/mansioniPadre.json',
-        baseUrl: 'https://www.gigroup.it/offerte-lavoro/',
+        dataUrl: './data/mansioni_database.json',
         searchUrl: 'https://www.gigroup.it/offerte-lavoro/',
-        urlSuffix: '-jo',
         maxSuggestions: 15,
         minQueryLength: 1,
         debounceDelay: 100,
@@ -53,6 +51,10 @@
         ctaButton: null,
         systemLog: null,
         clearLogBtn: null,
+        suggestionsLink: null,
+        suggestionsModal: null,
+        modalCloseBtn: null,
+        modalBackdrop: null,
     };
 
     // ==========================================================================
@@ -163,25 +165,6 @@
     // ==========================================================================
 
     /**
-     * Generates a Deep Link URL from a job title (Scenario 1)
-     * Rules: lowercase, spaces -> hyphens, append -jo
-     * @param {string} jobTitle - The job title to convert
-     * @returns {string} The generated URL
-     */
-    function generateDeepLink(jobTitle) {
-        const slug = jobTitle
-            .toLowerCase()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '') // Remove accents
-            .replace(/[^a-z0-9\s-]/g, '') // Remove special chars except spaces and hyphens
-            .replace(/\s+/g, '-') // Replace spaces with hyphens
-            .replace(/-+/g, '-') // Replace multiple hyphens with single
-            .replace(/^-|-$/g, ''); // Trim hyphens from start/end
-
-        return `${CONFIG.baseUrl}${slug}${CONFIG.urlSuffix}`;
-    }
-
-    /**
      * Generates a search query URL for free-text search (Scenario 3)
      * @param {string} searchTerm - The user's search term
      * @returns {string} The search URL with query parameter
@@ -285,11 +268,11 @@
     // ==========================================================================
 
     /**
-     * Fetches mansioniPadre data from JSON file
-     * @returns {Promise<string[]>} Array of job titles
+     * Fetches mansioni database from JSON file
+     * @returns {Promise<Object[]>} Array of mansione objects
      */
-    async function loadMansioniPadreData() {
-        logActivity(LogType.INFO, 'Loading mansioniPadre database...');
+    async function loadMansioniData() {
+        logActivity(LogType.INFO, 'Loading mansioni database...');
 
         try {
             const response = await fetch(CONFIG.dataUrl);
@@ -300,18 +283,24 @@
 
             const data = await response.json();
 
-            if (!data.mansioniPadre || !Array.isArray(data.mansioniPadre)) {
-                throw new Error('Invalid data format: expected { mansioniPadre: [] }');
+            if (!data.database_mansioni || !Array.isArray(data.database_mansioni)) {
+                throw new Error('Invalid data format: expected { database_mansioni: [] }');
             }
 
-            state.mansioniPadre = data.mansioniPadre;
+            state.mansioniPadre = data.database_mansioni;
             state.isDataLoaded = true;
 
-            logActivity(LogType.INFO, `Database loaded: ${state.mansioniPadre.length} job titles available.`);
+            // Log statistics from metadata
+            const stats = data.metadata?.statistiche_mapping;
+            if (stats) {
+                logActivity(LogType.INFO, `Database loaded: ${stats.totale_mansioni} mansioni (${stats.match_categoria_principale} dirette, ${stats.match_alias} alias, ${stats.fallback_applicato} fallback).`);
+            } else {
+                logActivity(LogType.INFO, `Database loaded: ${state.mansioniPadre.length} job titles available.`);
+            }
 
             return state.mansioniPadre;
         } catch (error) {
-            console.error('[Beyond Titles] Failed to load mansioniPadre data:', error);
+            console.error('[Beyond Titles] Failed to load mansioni data:', error);
             logActivity(LogType.INFO, `Error loading database: ${error.message}`);
             showStatus('Errore nel caricamento dei dati. Riprova più tardi.', 'error');
             throw error;
@@ -465,7 +454,7 @@
 
     /**
      * Selects a suggestion and processes Scenario 1
-     * @param {Object} suggestion - Selected mansione object with nome and jobOffers
+     * @param {Object} suggestion - Selected mansione object
      */
     function selectSuggestion(suggestion) {
         elements.input.value = suggestion.nome;
@@ -474,44 +463,52 @@
         // Log Event A: Selection
         logActivity(LogType.INPUT, `User selected "${suggestion.nome}".`);
 
-        // Validate against database (Scenario 1)
-        if (isExactMatch(suggestion.nome)) {
-            processScenario1(suggestion.nome, suggestion.jobOffers);
-        } else {
-            // This shouldn't happen if selected from suggestions, but handle it
-            processScenario3(suggestion.nome, 'selection');
-        }
+        // Process as Scenario 1 (match found)
+        processScenario1(suggestion);
 
         elements.input.focus();
     }
 
     /**
-     * Processes Scenario 1: Exact Match
-     * @param {string} jobTitle - The matched job title
-     * @param {number} jobOffers - Number of job offers for this role
+     * Formats mapping type for display
+     * @param {string} mappingType - The mapping type from database
+     * @returns {string} Human-readable mapping type
      */
-    function processScenario1(jobTitle, jobOffers) {
-        // Log Event B: Analysis
-        logActivity(LogType.LOGIC, 'Exact Match found in DB (Scenario 1).');
+    function formatMappingType(mappingType) {
+        const mappingLabels = {
+            'categoria_principale': 'Categoria Principale',
+            'alias': 'Alias',
+            'fallback': 'Fallback'
+        };
+        return mappingLabels[mappingType] || mappingType;
+    }
 
-        // Generate Deep Link
-        const deepLink = generateDeepLink(jobTitle);
-        state.selectedRole = jobTitle;
-        state.generatedUrl = deepLink;
+    /**
+     * Processes Scenario 1: Exact Match
+     * @param {Object} mansione - The matched mansione object
+     */
+    function processScenario1(mansione) {
+        const { nome, numero_offerte, url, soft_skills, mapping_type } = mansione;
 
-        // Log Event C: Routing
-        logActivity(LogType.ROUTING, 'Generated Deep Link:', deepLink);
+        // Build consolidated log message
+        const mappingLabel = formatMappingType(mapping_type);
+        const skillsList = soft_skills && soft_skills.length > 0
+            ? soft_skills.join(', ')
+            : 'N/A';
+
+        const consolidatedMessage = `Match found - Tipo: ${mappingLabel} | Soft Skills: ${skillsList} | Offerte: ${numero_offerte}`;
+        logActivity(LogType.LOGIC, consolidatedMessage, url);
+
+        state.selectedRole = nome;
+        state.generatedUrl = url;
 
         // Enable CTA (green state) with job offers count
-        enableCtaButton(deepLink, jobOffers);
+        enableCtaButton(url, numero_offerte);
         setInputMatchState();
-
-        // Log Event D: UI Ready
-        logActivity(LogType.UI, `CTA Enabled with ${jobOffers} job offers.`);
 
         // Update status message
         showStatus(
-            `Ruolo identificato: ${jobTitle} (Match Tecnico Valido)`,
+            `Ruolo identificato: ${nome} (${mappingLabel})`,
             'match'
         );
     }
@@ -567,7 +564,7 @@
         if (mansione) {
             // Log and process as Scenario 1
             logActivity(LogType.INPUT, `User submitted "${inputValue}" (${trigger === 'enter' ? 'Enter Key' : 'Focus Out'}).`);
-            processScenario1(mansione.nome, mansione.jobOffers);
+            processScenario1(mansione);
         } else {
             // Process as Scenario 3 (No Match)
             processScenario3(inputValue, trigger);
@@ -760,9 +757,69 @@
         elements.ctaButton = document.getElementById('ctaButton');
         elements.systemLog = document.getElementById('systemLog');
         elements.clearLogBtn = document.getElementById('clearLogBtn');
+        elements.suggestionsLink = document.getElementById('suggestionsLink');
+        elements.suggestionsModal = document.getElementById('suggestionsModal');
+        elements.modalCloseBtn = document.getElementById('modalCloseBtn');
+        elements.modalBackdrop = elements.suggestionsModal?.querySelector('.modal__backdrop');
 
         if (!elements.input || !elements.suggestions || !elements.status) {
             throw new Error('[Beyond Titles] Required DOM elements not found');
+        }
+    }
+
+    // ==========================================================================
+    // Modal Management
+    // ==========================================================================
+
+    /**
+     * Opens the suggestions modal
+     */
+    function openModal() {
+        if (elements.suggestionsModal) {
+            elements.suggestionsModal.classList.add('modal--visible');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    /**
+     * Closes the suggestions modal
+     */
+    function closeModal() {
+        if (elements.suggestionsModal) {
+            elements.suggestionsModal.classList.remove('modal--visible');
+            document.body.style.overflow = '';
+        }
+    }
+
+    /**
+     * Copies text to input field, closes modal and triggers search
+     * @param {string} text - Text to insert in input
+     */
+    function copyToInput(text) {
+        // Close the modal
+        closeModal();
+
+        // Set the text in the input field
+        elements.input.value = text;
+
+        // Focus the input
+        elements.input.focus();
+
+        // Reset states and trigger the search flow
+        disableCtaButton();
+        resetInputState();
+
+        // Check if it matches a mansione and process accordingly
+        const mansione = findMansione(text);
+        if (mansione) {
+            logActivity(LogType.INPUT, `User selected "${text}" from suggestions modal.`);
+            processScenario1(mansione);
+        } else {
+            // If no match, show the suggestions dropdown
+            const matches = filterMansioniPadre(text);
+            if (matches.length > 0) {
+                renderSuggestions(matches, text);
+            }
         }
     }
 
@@ -801,6 +858,42 @@
                 }
             });
         }
+
+        // Modal events
+        if (elements.suggestionsLink) {
+            elements.suggestionsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        }
+
+        if (elements.modalCloseBtn) {
+            elements.modalCloseBtn.addEventListener('click', closeModal);
+        }
+
+        if (elements.modalBackdrop) {
+            elements.modalBackdrop.addEventListener('click', closeModal);
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && elements.suggestionsModal?.classList.contains('modal--visible')) {
+                closeModal();
+            }
+        });
+
+        // Copy buttons in modal
+        if (elements.suggestionsModal) {
+            elements.suggestionsModal.addEventListener('click', (e) => {
+                const copyBtn = e.target.closest('.modal__copy-btn');
+                if (copyBtn) {
+                    const textToCopy = copyBtn.dataset.copy;
+                    if (textToCopy) {
+                        copyToInput(textToCopy);
+                    }
+                }
+            });
+        }
     }
 
     /**
@@ -810,9 +903,9 @@
         try {
             initializeElements();
 
-            logActivity(LogType.INFO, 'Beyond Titles v0.4 initializing...');
+            logActivity(LogType.INFO, 'Beyond Titles v0.5 initializing...');
 
-            await loadMansioniPadreData();
+            await loadMansioniData();
             bindEvents();
 
             logActivity(LogType.INFO, 'Application ready. Waiting for user input...');

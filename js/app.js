@@ -9,10 +9,14 @@
  * - Scenario 3: No Match with free-text search URL
  * - System Activity Log for debugging/demo
  * - Keyboard navigation support
+ * - Internationalization (i18n) - IT/EN language support
  */
 
 (function () {
     'use strict';
+
+    // Initialize i18n
+    const i18n = new window.I18n();
 
     // ==========================================================================
     // Configuration
@@ -55,6 +59,7 @@
         suggestionsModal: null,
         modalCloseBtn: null,
         modalBackdrop: null,
+        langToggle: null,
     };
 
     // ==========================================================================
@@ -102,6 +107,99 @@
     function getTimestamp() {
         const now = new Date();
         return now.toTimeString().slice(0, 8);
+    }
+
+    // ==========================================================================
+    // Internationalization (i18n) Functions
+    // ==========================================================================
+
+    /**
+     * Updates all UI text with current language translations
+     */
+    function updateUILanguage() {
+        // Update all elements with data-i18n attribute (textContent)
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            element.textContent = i18n.t(key);
+        });
+
+        // Update all elements with data-i18n-placeholder attribute
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+            const key = element.getAttribute('data-i18n-placeholder');
+            element.placeholder = i18n.t(key);
+        });
+
+        // Update all elements with data-i18n-aria-label attribute
+        document.querySelectorAll('[data-i18n-aria-label]').forEach(element => {
+            const key = element.getAttribute('data-i18n-aria-label');
+            element.setAttribute('aria-label', i18n.t(key));
+        });
+
+        // Update language toggle button
+        updateLanguageToggle();
+
+        // If there's a selected role, update the CTA button
+        if (state.selectedRole && state.currentScenario === 'match') {
+            const mansione = findMansione(state.selectedRole);
+            if (mansione) {
+                const offerText = mansione.numero_offerte === 1
+                    ? i18n.t('cta_active_single')
+                    : i18n.t('cta_active_multiple', { count: mansione.numero_offerte });
+                elements.ctaButton.textContent = offerText;
+            }
+        } else if (state.currentScenario === 'no-match') {
+            elements.ctaButton.textContent = i18n.t('cta_warning');
+        } else {
+            elements.ctaButton.textContent = i18n.t('cta_default');
+        }
+
+        // Update status message if present
+        if (elements.status.textContent) {
+            const statusClasses = elements.status.className;
+            if (statusClasses.includes('search__status--match') && state.selectedRole) {
+                const mansione = findMansione(state.selectedRole);
+                if (mansione) {
+                    const mappingLabel = i18n.t(`mapping_${mansione.mapping_type}`);
+                    showStatus(
+                        i18n.t('status_match', { role: mansione.nome, type: mappingLabel }),
+                        'match'
+                    );
+                }
+            } else if (statusClasses.includes('search__status--no-match')) {
+                showStatus(i18n.t('status_no_match'), 'no-match');
+            }
+        }
+    }
+
+    /**
+     * Updates the language toggle button display
+     */
+    function updateLanguageToggle() {
+        if (!elements.langToggle) return;
+
+        const currentLang = i18n.getLanguage();
+        const flagSpan = elements.langToggle.querySelector('.lang-toggle__flag');
+        const textSpan = elements.langToggle.querySelector('.lang-toggle__text');
+
+        if (currentLang === 'it') {
+            flagSpan.textContent = '🇮🇹';
+            textSpan.textContent = 'IT';
+            elements.langToggle.setAttribute('aria-label', i18n.t('lang_toggle_aria'));
+        } else {
+            flagSpan.textContent = '🇬🇧';
+            textSpan.textContent = 'EN';
+            elements.langToggle.setAttribute('aria-label', i18n.t('lang_toggle_aria'));
+        }
+    }
+
+    /**
+     * Toggles between Italian and English
+     */
+    function toggleLanguage() {
+        const currentLang = i18n.getLanguage();
+        const newLang = currentLang === 'it' ? 'en' : 'it';
+        i18n.setLanguage(newLang);
+        updateUILanguage();
     }
 
     // ==========================================================================
@@ -156,7 +254,7 @@
     function clearLog() {
         if (elements.systemLog) {
             elements.systemLog.innerHTML = '';
-            logActivity(LogType.INFO, 'Log cleared.');
+            logActivity(LogType.INFO, i18n.t('log_cleared'));
         }
     }
 
@@ -187,8 +285,10 @@
         if (!elements.ctaButton) return;
 
         elements.ctaButton.href = url;
-        const offerText = jobOffers === 1 ? '1 offerta di lavoro' : `${jobOffers} offerte di lavoro`;
-        elements.ctaButton.textContent = `Abbiamo ${offerText} per te`;
+        const offerText = jobOffers === 1
+            ? i18n.t('cta_active_single')
+            : i18n.t('cta_active_multiple', { count: jobOffers });
+        elements.ctaButton.textContent = offerText;
         elements.ctaButton.classList.remove('cta-button--disabled', 'cta-button--warning');
         elements.ctaButton.classList.add('cta-button--active');
         elements.ctaButton.setAttribute('aria-disabled', 'false');
@@ -207,7 +307,7 @@
         if (!elements.ctaButton) return;
 
         elements.ctaButton.href = url;
-        elements.ctaButton.textContent = 'Scopri le nostre offerte di lavoro per te';
+        elements.ctaButton.textContent = i18n.t('cta_warning');
         elements.ctaButton.classList.remove('cta-button--disabled', 'cta-button--active');
         elements.ctaButton.classList.add('cta-button--warning');
         elements.ctaButton.setAttribute('aria-disabled', 'false');
@@ -225,7 +325,7 @@
         if (!elements.ctaButton) return;
 
         elements.ctaButton.href = '#';
-        elements.ctaButton.textContent = 'Vedi Offerte';
+        elements.ctaButton.textContent = i18n.t('cta_default');
         elements.ctaButton.classList.remove('cta-button--active', 'cta-button--warning');
         elements.ctaButton.classList.add('cta-button--disabled');
         elements.ctaButton.setAttribute('aria-disabled', 'true');
@@ -272,7 +372,7 @@
      * @returns {Promise<Object[]>} Array of mansione objects
      */
     async function loadMansioniData() {
-        logActivity(LogType.INFO, 'Loading mansioni database...');
+        logActivity(LogType.INFO, i18n.t('log_loading'));
 
         try {
             const response = await fetch(CONFIG.dataUrl);
@@ -293,16 +393,21 @@
             // Log statistics from metadata
             const stats = data.metadata?.statistiche_mapping;
             if (stats) {
-                logActivity(LogType.INFO, `Database loaded: ${stats.totale_mansioni} mansioni (${stats.match_categoria_principale} dirette, ${stats.match_alias} alias, ${stats.fallback_applicato} fallback).`);
+                logActivity(LogType.INFO, i18n.t('log_loaded_stats', {
+                    total: stats.totale_mansioni,
+                    main: stats.match_categoria_principale,
+                    alias: stats.match_alias,
+                    fallback: stats.fallback_applicato
+                }));
             } else {
-                logActivity(LogType.INFO, `Database loaded: ${state.mansioniPadre.length} job titles available.`);
+                logActivity(LogType.INFO, i18n.t('log_loaded', { count: state.mansioniPadre.length }));
             }
 
             return state.mansioniPadre;
         } catch (error) {
             console.error('[Beyond Titles] Failed to load mansioni data:', error);
-            logActivity(LogType.INFO, `Error loading database: ${error.message}`);
-            showStatus('Errore nel caricamento dei dati. Riprova più tardi.', 'error');
+            logActivity(LogType.INFO, i18n.t('log_error', { error: error.message }));
+            showStatus(i18n.t('status_error'), 'error');
             throw error;
         }
     }
@@ -461,7 +566,7 @@
         hideSuggestions();
 
         // Log Event A: Selection
-        logActivity(LogType.INPUT, `User selected "${suggestion.nome}".`);
+        logActivity(LogType.INPUT, i18n.t('log_user_selected', { role: suggestion.nome }));
 
         // Process as Scenario 1 (match found)
         processScenario1(suggestion);
@@ -475,12 +580,7 @@
      * @returns {string} Human-readable mapping type
      */
     function formatMappingType(mappingType) {
-        const mappingLabels = {
-            'categoria_principale': 'Categoria Principale',
-            'alias': 'Alias',
-            'fallback': 'Fallback'
-        };
-        return mappingLabels[mappingType] || mappingType;
+        return i18n.t(`mapping_${mappingType}`) || mappingType;
     }
 
     /**
@@ -496,7 +596,11 @@
             ? soft_skills.join(', ')
             : 'N/A';
 
-        const consolidatedMessage = `Match found - Tipo: ${mappingLabel} | Soft Skills: ${skillsList} | Offerte: ${numero_offerte}`;
+        const consolidatedMessage = i18n.t('log_match_found', {
+            type: mappingLabel,
+            skills: skillsList,
+            offers: numero_offerte
+        });
         logActivity(LogType.LOGIC, consolidatedMessage, url);
 
         state.selectedRole = nome;
@@ -508,7 +612,7 @@
 
         // Update status message
         showStatus(
-            `Ruolo identificato: ${nome} (${mappingLabel})`,
+            i18n.t('status_match', { role: nome, type: mappingLabel }),
             'match'
         );
     }
@@ -520,11 +624,11 @@
      */
     function processScenario3(searchTerm, trigger) {
         // Log Event A: Input
-        const triggerText = trigger === 'enter' ? 'Enter Key' : trigger === 'blur' ? 'Focus Out' : 'Selection';
-        logActivity(LogType.INPUT, `User submitted custom text "${searchTerm}" (${triggerText}).`);
+        const triggerText = i18n.t(`trigger_${trigger}`);
+        logActivity(LogType.INPUT, i18n.t('log_user_submitted', { term: searchTerm, trigger: triggerText }));
 
         // Log Event B: Check
-        logActivity(LogType.LOGIC, 'Check DB... No Match Found.');
+        logActivity(LogType.LOGIC, i18n.t('log_check_no_match'));
 
         // Generate search URL
         const searchUrl = generateSearchUrl(searchTerm);
@@ -532,18 +636,18 @@
         state.generatedUrl = searchUrl;
 
         // Log Event C: No Match routing
-        logActivity(LogType.NOMATCH, 'Generating Standard Search Query.', searchUrl);
+        logActivity(LogType.NOMATCH, i18n.t('log_generating_search'), searchUrl);
 
         // Enable CTA (orange/warning state)
         enableCtaButtonWarning(searchUrl);
         setInputNoMatchState();
 
         // Log Event D: UI Ready
-        logActivity(LogType.UI, 'CTA Enabled (Orange State).');
+        logActivity(LogType.UI, i18n.t('log_cta_enabled'));
 
         // Update status message
         showStatus(
-            'Nessun match esatto. Attivazione ricerca libera.',
+            i18n.t('status_no_match'),
             'no-match'
         );
     }
@@ -563,7 +667,8 @@
         const mansione = findMansione(inputValue);
         if (mansione) {
             // Log and process as Scenario 1
-            logActivity(LogType.INPUT, `User submitted "${inputValue}" (${trigger === 'enter' ? 'Enter Key' : 'Focus Out'}).`);
+            const triggerText = i18n.t(`trigger_${trigger}`);
+            logActivity(LogType.INPUT, i18n.t('log_user_submitted', { term: inputValue, trigger: triggerText }));
             processScenario1(mansione);
         } else {
             // Process as Scenario 3 (No Match)
@@ -621,7 +726,7 @@
         if (matches.length === 0) {
             hideSuggestions();
             showStatus(
-                `Nessuna corrispondenza esatta. Premi Invio per attivare la ricerca libera.`,
+                i18n.t('status_no_exact_match'),
                 'no-match'
             );
             return;
@@ -761,6 +866,7 @@
         elements.suggestionsModal = document.getElementById('suggestionsModal');
         elements.modalCloseBtn = document.getElementById('modalCloseBtn');
         elements.modalBackdrop = elements.suggestionsModal?.querySelector('.modal__backdrop');
+        elements.langToggle = document.getElementById('langToggle');
 
         if (!elements.input || !elements.suggestions || !elements.status) {
             throw new Error('[Beyond Titles] Required DOM elements not found');
@@ -812,7 +918,7 @@
         // Check if it matches a mansione and process accordingly
         const mansione = findMansione(text);
         if (mansione) {
-            logActivity(LogType.INPUT, `User selected "${text}" from suggestions modal.`);
+            logActivity(LogType.INPUT, i18n.t('log_user_modal', { role: text }));
             processScenario1(mansione);
         } else {
             // If no match, show the suggestions dropdown
@@ -894,6 +1000,11 @@
                 }
             });
         }
+
+        // Language toggle
+        if (elements.langToggle) {
+            elements.langToggle.addEventListener('click', toggleLanguage);
+        }
     }
 
     /**
@@ -903,12 +1014,18 @@
         try {
             initializeElements();
 
-            logActivity(LogType.INFO, 'Beyond Titles v0.5 initializing...');
+            // Set initial language
+            document.documentElement.lang = i18n.getLanguage();
+
+            // Update UI with current language
+            updateUILanguage();
+
+            logActivity(LogType.INFO, i18n.t('log_init'));
 
             await loadMansioniData();
             bindEvents();
 
-            logActivity(LogType.INFO, 'Application ready. Waiting for user input...');
+            logActivity(LogType.INFO, i18n.t('log_ready'));
 
             console.log('[Beyond Titles] Application initialized successfully');
         } catch (error) {

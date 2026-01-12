@@ -75,19 +75,31 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header__container header__container--left">
-            <a href="index.html" class="header__logo-link">
-                <img src="assets/logoBeyondTitles.png" alt="Beyond Titles" class="header__logo">
-            </a>
-        </div>
-    </header>
+    <!-- Header injected by components.js -->
 
     <main class="main main--changelog">
         <div class="changelog">
             <a href="index.html" class="changelog__back">&larr; Torna alla Home</a>
 
             <h2 class="changelog__title">Changelog</h2>
+
+            <article class="changelog__version">
+                <div class="changelog__version-header">
+                    <span class="changelog__version-number">v0.6</span>
+                    <span class="changelog__version-date">12 Gennaio 2026</span>
+                </div>
+                <ul class="changelog__list">
+                    <li>Implementato sistema completo di internazionalizzazione (i18n)</li>
+                    <li>Supporto lingue: Italiano (IT) e Inglese (EN)</li>
+                    <li>Rilevamento automatico lingua utente basato su browser language</li>
+                    <li>Toggle lingua nell'header per cambio manuale IT/EN</li>
+                    <li>Persistenza preferenza lingua in localStorage</li>
+                    <li>Traduzioni complete per tutte le sezioni (hero, search, CTA, log, modal, status messages)</li>
+                    <li>Gestione centralizzata header e footer in components.js</li>
+                    <li>Header e footer ora identici su tutte le pagine</li>
+                    <li>Sistema di versioning centralizzato</li>
+                </ul>
+            </article>
 
             <article class="changelog__version">
                 <div class="changelog__version-header">
@@ -172,8 +184,9 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <p class="footer__text">Beyond Titles v0.5</p>
-    </footer>
+    <!-- Footer injected by components.js -->
+
+    <script src="js/components.js"></script>
+    <script src="js/i18n.js"></script>
 </body>
 </html>

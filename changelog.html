@@ -79,106 +79,124 @@
 
     <main class="main main--changelog">
         <div class="changelog">
-            <a href="index.html" class="changelog__back">&larr; Torna alla Home</a>
+            <a href="index.html" class="changelog__back" data-i18n="changelog_back">← Torna alla Home</a>
 
-            <h2 class="changelog__title">Changelog</h2>
+            <h2 class="changelog__title" data-i18n="changelog_title">Changelog</h2>
+
+            <article class="changelog__version">
+                <div class="changelog__version-header">
+                    <span class="changelog__version-number">v0.6.3</span>
+                    <span class="changelog__version-date" data-i18n="changelog_v063_date">13 Gennaio 2026</span>
+                </div>
+                <ul class="changelog__list">
+                    <li data-i18n="changelog_v063_item1">Changelog multilingua (IT/EN)</li>
+                    <li data-i18n="changelog_v063_item2">Traduzioni changelog sincronizzate con selettore lingua</li>
+                </ul>
+            </article>
+
+            <article class="changelog__version">
+                <div class="changelog__version-header">
+                    <span class="changelog__version-number">v0.6.2</span>
+                    <span class="changelog__version-date" data-i18n="changelog_v062_date">13 Gennaio 2026</span>
+                </div>
+                <ul class="changelog__list">
+                    <li data-i18n="changelog_v062_item1">Gestione centralizzata header e footer</li>
+                    <li data-i18n="changelog_v062_item2">Header e footer identici su tutte le pagine</li>
+                    <li data-i18n="changelog_v062_item3">Sistema di versioning unificato</li>
+                </ul>
+            </article>
 
             <article class="changelog__version">
                 <div class="changelog__version-header">
                     <span class="changelog__version-number">v0.6</span>
-                    <span class="changelog__version-date">12 Gennaio 2026</span>
+                    <span class="changelog__version-date" data-i18n="changelog_v06_date">12 Gennaio 2026</span>
                 </div>
                 <ul class="changelog__list">
-                    <li>Implementato sistema completo di internazionalizzazione (i18n)</li>
-                    <li>Supporto lingue: Italiano (IT) e Inglese (EN)</li>
-                    <li>Rilevamento automatico lingua utente basato su browser language</li>
-                    <li>Toggle lingua nell'header per cambio manuale IT/EN</li>
-                    <li>Persistenza preferenza lingua in localStorage</li>
-                    <li>Traduzioni complete per tutte le sezioni (hero, search, CTA, log, modal, status messages)</li>
-                    <li>Gestione centralizzata header e footer in components.js</li>
-                    <li>Header e footer ora identici su tutte le pagine</li>
-                    <li>Sistema di versioning centralizzato</li>
+                    <li data-i18n="changelog_v06_item1">Sistema multilingua italiano e inglese</li>
+                    <li data-i18n="changelog_v06_item2">Rilevamento automatico lingua browser</li>
+                    <li data-i18n="changelog_v06_item3">Toggle per cambio lingua manuale</li>
+                    <li data-i18n="changelog_v06_item4">Traduzioni complete interfaccia utente</li>
                 </ul>
             </article>
 
             <article class="changelog__version">
                 <div class="changelog__version-header">
                     <span class="changelog__version-number">v0.5</span>
-                    <span class="changelog__version-date">10 Gennaio 2026</span>
+                    <span class="changelog__version-date" data-i18n="changelog_v05_date">10 Gennaio 2026</span>
                 </div>
                 <ul class="changelog__list">
-                    <li>Integrazione nuovo database mansioni_database.json con 445 mansioni</li>
-                    <li>Sistema di mapping a 3 livelli: categoria principale, alias, fallback</li>
-                    <li>Visualizzazione tipo di mapping nel System Log (Categoria Principale, Alias, Fallback)</li>
-                    <li>Visualizzazione soft skills richieste per ogni mansione nel log</li>
-                    <li>URL delle offerte ora letti direttamente dal database (non più generati)</li>
-                    <li>Statistiche del database mostrate al caricamento</li>
+                    <li data-i18n="changelog_v05_item1">Integrazione nuovo database mansioni_database.json con 445 mansioni</li>
+                    <li data-i18n="changelog_v05_item2">Sistema di mapping a 3 livelli: categoria principale, alias, fallback</li>
+                    <li data-i18n="changelog_v05_item3">Visualizzazione tipo di mapping nel System Log (Categoria Principale, Alias, Fallback)</li>
+                    <li data-i18n="changelog_v05_item4">Visualizzazione soft skills richieste per ogni mansione nel log</li>
+                    <li data-i18n="changelog_v05_item5">URL delle offerte ora letti direttamente dal database (non più generati)</li>
+                    <li data-i18n="changelog_v05_item6">Statistiche del database mostrate al caricamento</li>
                 </ul>
             </article>
 
             <article class="changelog__version">
                 <div class="changelog__version-header">
                     <span class="changelog__version-number">v0.4</span>
-                    <span class="changelog__version-date">17 Dicembre 2025</span>
+                    <span class="changelog__version-date" data-i18n="changelog_v04_date">17 Dicembre 2025</span>
                 </div>
                 <ul class="changelog__list">
-                    <li>Aggiunto conteggio job offers per ogni mansione nel database</li>
-                    <li>CTA dinamica per Match: "Abbiamo XX offerte di lavoro per te"</li>
-                    <li>CTA dinamica per No Match: "Scopri le nostre offerte di lavoro per te"</li>
-                    <li>Struttura dati JSON aggiornata con oggetti {nome, jobOffers}</li>
+                    <li data-i18n="changelog_v04_item1">Aggiunto conteggio job offers per ogni mansione nel database</li>
+                    <li data-i18n="changelog_v04_item2">CTA dinamica per Match: "Abbiamo XX offerte di lavoro per te"</li>
+                    <li data-i18n="changelog_v04_item3">CTA dinamica per No Match: "Scopri le nostre offerte di lavoro per te"</li>
+                    <li data-i18n="changelog_v04_item4">Struttura dati JSON aggiornata con oggetti {nome, jobOffers}</li>
                 </ul>
             </article>
 
             <article class="changelog__version">
                 <div class="changelog__version-header">
                     <span class="changelog__version-number">v0.3</span>
-                    <span class="changelog__version-date">17 Dicembre 2025</span>
+                    <span class="changelog__version-date" data-i18n="changelog_v03_date">17 Dicembre 2025</span>
                 </div>
                 <ul class="changelog__list">
-                    <li>Implementato Scenario 3: No Match con ricerca libera</li>
-                    <li>Gestione tasto Enter per submit input personalizzato</li>
-                    <li>Gestione blur event per submit automatico</li>
-                    <li>Generazione URL di ricerca con parametro ?job=</li>
-                    <li>Nuovo tipo di log NO MATCH (arancione)</li>
-                    <li>Stato CTA arancione per scenario No Match</li>
-                    <li>Bordo input arancione quando No Match attivo</li>
-                    <li>Messaggio status: "Premi Invio per ricerca libera"</li>
-                    <li>Aggiunto logo Beyond Titles nell'header</li>
-                    <li>Aggiunta favicon</li>
+                    <li data-i18n="changelog_v03_item1">Implementato Scenario 3: No Match con ricerca libera</li>
+                    <li data-i18n="changelog_v03_item2">Gestione tasto Enter per submit input personalizzato</li>
+                    <li data-i18n="changelog_v03_item3">Gestione blur event per submit automatico</li>
+                    <li data-i18n="changelog_v03_item4">Generazione URL di ricerca con parametro ?job=</li>
+                    <li data-i18n="changelog_v03_item5">Nuovo tipo di log NO MATCH (arancione)</li>
+                    <li data-i18n="changelog_v03_item6">Stato CTA arancione per scenario No Match</li>
+                    <li data-i18n="changelog_v03_item7">Bordo input arancione quando No Match attivo</li>
+                    <li data-i18n="changelog_v03_item8">Messaggio status: "Premi Invio per ricerca libera"</li>
+                    <li data-i18n="changelog_v03_item9">Aggiunto logo Beyond Titles nell'header</li>
+                    <li data-i18n="changelog_v03_item10">Aggiunta favicon</li>
                 </ul>
             </article>
 
             <article class="changelog__version">
                 <div class="changelog__version-header">
                     <span class="changelog__version-number">v0.2</span>
-                    <span class="changelog__version-date">17 Dicembre 2025</span>
+                    <span class="changelog__version-date" data-i18n="changelog_v02_date">17 Dicembre 2025</span>
                 </div>
                 <ul class="changelog__list">
-                    <li>Implementato Scenario 1: Unique Match con generazione Deep Link</li>
-                    <li>Aggiunto pulsante CTA "Vedi Offerte" con stati disabled/active</li>
-                    <li>Creato pannello System Activity Log per debugging/demo</li>
-                    <li>Generazione URL dinamica (lowercase, spazi -> trattini, suffisso -jo)</li>
-                    <li>Log eventi in tempo reale: INPUT, LOGIC, ROUTING, UI</li>
-                    <li>Stile terminale per il log (monospace, tema scuro)</li>
-                    <li>Layout responsive a due colonne (hero + log panel)</li>
+                    <li data-i18n="changelog_v02_item1">Implementato Scenario 1: Unique Match con generazione Deep Link</li>
+                    <li data-i18n="changelog_v02_item2">Aggiunto pulsante CTA "Vedi Offerte" con stati disabled/active</li>
+                    <li data-i18n="changelog_v02_item3">Creato pannello System Activity Log per debugging/demo</li>
+                    <li data-i18n="changelog_v02_item4">Generazione URL dinamica (lowercase, spazi -> trattini, suffisso -jo)</li>
+                    <li data-i18n="changelog_v02_item5">Log eventi in tempo reale: INPUT, LOGIC, ROUTING, UI</li>
+                    <li data-i18n="changelog_v02_item6">Stile terminale per il log (monospace, tema scuro)</li>
+                    <li data-i18n="changelog_v02_item7">Layout responsive a due colonne (hero + log panel)</li>
                 </ul>
             </article>
 
             <article class="changelog__version">
                 <div class="changelog__version-header">
                     <span class="changelog__version-number">v0.1</span>
-                    <span class="changelog__version-date">17 Dicembre 2025</span>
+                    <span class="changelog__version-date" data-i18n="changelog_v01_date">17 Dicembre 2025</span>
                 </div>
                 <ul class="changelog__list">
-                    <li>Struttura progetto refactored: separazione HTML, CSS e JS</li>
-                    <li>Database mansioni padre estratto in file JSON esterno</li>
-                    <li>Caricamento asincrono dati con fetch API</li>
-                    <li>Autocomplete con highlight delle corrispondenze</li>
-                    <li>Gestione scenari Match e No Match con feedback visivo</li>
-                    <li>Navigazione tastiera nelle suggestions (frecce, Enter, Escape)</li>
-                    <li>UI con branding Gi Group (palette colori, tipografia)</li>
-                    <li>Layout responsive per dispositivi mobile</li>
-                    <li>Accessibilita migliorata con attributi ARIA</li>
+                    <li data-i18n="changelog_v01_item1">Struttura progetto refactored: separazione HTML, CSS e JS</li>
+                    <li data-i18n="changelog_v01_item2">Database mansioni padre estratto in file JSON esterno</li>
+                    <li data-i18n="changelog_v01_item3">Caricamento asincrono dati con fetch API</li>
+                    <li data-i18n="changelog_v01_item4">Autocomplete con highlight delle corrispondenze</li>
+                    <li data-i18n="changelog_v01_item5">Gestione scenari Match e No Match con feedback visivo</li>
+                    <li data-i18n="changelog_v01_item6">Navigazione tastiera nelle suggestions (frecce, Enter, Escape)</li>
+                    <li data-i18n="changelog_v01_item7">UI con branding Gi Group (palette colori, tipografia)</li>
+                    <li data-i18n="changelog_v01_item8">Layout responsive per dispositivi mobile</li>
+                    <li data-i18n="changelog_v01_item9">Accessibilità migliorata con attributi ARIA</li>
                 </ul>
             </article>
         </div>

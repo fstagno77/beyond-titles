@@ -3,7 +3,7 @@
  * Centralized header and footer management
  */
 
-const CURRENT_VERSION = '0.6.2';
+const CURRENT_VERSION = '0.6.3';
 
 /**
  * Renders the header component
@@ -43,6 +43,33 @@ function renderFooter() {
 }
 
 /**
+ * Updates all elements with data-i18n attributes
+ * @param {I18n} i18n - The i18n instance
+ */
+function applyTranslations(i18n) {
+    // Update all elements with data-i18n attribute (textContent)
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const translation = i18n.t(key);
+        if (translation && translation !== key) {
+            element.textContent = translation;
+        }
+    });
+
+    // Update all elements with data-i18n-placeholder attribute
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        element.placeholder = i18n.t(key);
+    });
+
+    // Update all elements with data-i18n-aria-label attribute
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(element => {
+        const key = element.getAttribute('data-i18n-aria-label');
+        element.setAttribute('aria-label', i18n.t(key));
+    });
+}
+
+/**
  * Initializes language toggle functionality
  */
 function initLanguageToggle() {
@@ -60,17 +87,22 @@ function initLanguageToggle() {
     // Set initial flag and text
     updateLanguageToggle(i18n.getLanguage());
 
+    // Apply initial translations (for pages without app.js)
+    applyTranslations(i18n);
+
     // Handle toggle click
     langToggle.addEventListener('click', () => {
         const currentLang = i18n.getLanguage();
         const newLang = currentLang === 'it' ? 'en' : 'it';
         i18n.setLanguage(newLang);
         updateLanguageToggle(newLang);
+        applyTranslations(i18n);
     });
 
     // Listen for language changes from other sources
     window.addEventListener('languageChanged', (e) => {
         updateLanguageToggle(e.detail.lang);
+        applyTranslations(i18n);
     });
 }
 

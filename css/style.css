@@ -153,6 +153,9 @@ ul {
     font-weight: var(--font-weight-medium);
     cursor: pointer;
     transition: all var(--transition-base);
+    /* Align right edge with system-log right edge */
+    /* Container 1152px - hero 550px - gap 24px - log 500px = 78px */
+    margin-right: 78px;
 }
 
 .lang-toggle:hover {
@@ -815,6 +818,9 @@ ul {
         max-height: 300px;
     }
 
+    .lang-toggle {
+        margin-right: 0;
+    }
 }
 
 @media (max-width: 600px) {

@@ -95,6 +95,7 @@ const translations = {
         changelog_v063_date: "13 Gennaio 2026",
         changelog_v063_item1: "Changelog multilingua (IT/EN)",
         changelog_v063_item2: "Traduzioni changelog sincronizzate con selettore lingua",
+        changelog_v063_item3: "Allineamento toggle lingua con pannello System Log",
 
         changelog_v062_date: "13 Gennaio 2026",
         changelog_v062_item1: "Gestione centralizzata header e footer",
@@ -245,6 +246,7 @@ const translations = {
         changelog_v063_date: "January 13, 2026",
         changelog_v063_item1: "Multilingual changelog (IT/EN)",
         changelog_v063_item2: "Changelog translations synchronized with language selector",
+        changelog_v063_item3: "Language toggle aligned with System Log panel",
 
         changelog_v062_date: "January 13, 2026",
         changelog_v062_item1: "Centralized header and footer management",

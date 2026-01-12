@@ -9,21 +9,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="header">
-        <div class="header__wrapper">
-            <div class="header__container header__container--left">
-                <a href="index.html" class="header__logo-link">
-                    <img src="assets/logoBeyondTitles.png" alt="Beyond Titles" class="header__logo">
-                </a>
-            </div>
-            <div class="header__container header__container--right">
-                <button id="langToggle" class="lang-toggle" aria-label="Switch language">
-                    <span class="lang-toggle__flag">🇮🇹</span>
-                    <span class="lang-toggle__text">IT</span>
-                </button>
-            </div>
-        </div>
-    </header>
+    <div class="header-wrap">
+        <header class="header">
+            <a href="index.html" class="header__logo-link">
+                <img src="assets/logoBeyondTitles.png" alt="Beyond Titles" class="header__logo">
+            </a>
+            <button id="langToggle" class="lang-toggle" aria-label="Switch language">
+                <span class="lang-toggle__flag">🇮🇹</span>
+                <span class="lang-toggle__text">IT</span>
+            </button>
+        </header>
+    </div>
 
     <main class="main">
         <section class="hero">
@@ -84,7 +80,7 @@
     </main>
 
     <footer class="footer">
-        <p class="footer__text">Beyond Titles v0.6.2 | <a href="changelog.html" class="footer__link" data-i18n="footer_changelog">Changelog</a></p>
+        <p class="footer__text">Beyond Titles v0.6.3 | <a href="changelog.html" class="footer__link" data-i18n="footer_changelog">Changelog</a></p>
     </footer>
 
     <!-- Modal Suggerimenti -->

@@ -103,42 +103,22 @@ ul {
 /* --------------------------------------------------------------------------
    Header
    -------------------------------------------------------------------------- */
-.header {
+.header-wrap {
     background-color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.header {
     height: var(--header-height);
     display: flex;
     align-items: center;
-    box-shadow: var(--shadow-sm);
+    justify-content: space-between;
     position: relative;
     z-index: 100;
-}
-
-.header__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     max-width: 1200px;
     width: 100%;
     padding: 0 var(--spacing-lg);
     margin: 0 auto;
-}
-
-.header__container {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-}
-
-.header__container--centered {
-    justify-content: center;
-}
-
-.header__container--left {
-    justify-content: flex-start;
-}
-
-.header__container--right {
-    justify-content: flex-end;
 }
 
 .header__logo-link {

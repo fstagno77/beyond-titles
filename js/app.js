@@ -50,6 +50,7 @@
 
     const elements = {
         input: null,
+        clearInput: null,
         suggestions: null,
         status: null,
         ctaButton: null,
@@ -142,10 +143,15 @@
         if (state.selectedRole && state.currentScenario === 'match') {
             const mansione = findMansione(state.selectedRole);
             if (mansione) {
-                const offerText = mansione.numero_offerte === 1
-                    ? i18n.t('cta_active_single')
-                    : i18n.t('cta_active_multiple', { count: mansione.numero_offerte });
-                elements.ctaButton.textContent = offerText;
+                // Check if it's an incomplete profile
+                if (mansione.mapping_type === 'profilo_incompleto') {
+                    elements.ctaButton.textContent = i18n.t('cta_no_offers');
+                } else {
+                    const offerText = mansione.numero_offerte === 1
+                        ? i18n.t('cta_active_single')
+                        : i18n.t('cta_active_multiple', { count: mansione.numero_offerte });
+                    elements.ctaButton.textContent = offerText;
+                }
             }
         } else if (state.currentScenario === 'no-match') {
             elements.ctaButton.textContent = i18n.t('cta_warning');
@@ -411,6 +417,35 @@
      */
     function resetInputState() {
         elements.input.classList.remove('search__input--no-match');
+    }
+
+    /**
+     * Updates the clear button visibility based on input content
+     */
+    function updateClearButton() {
+        if (!elements.clearInput) return;
+
+        const hasContent = elements.input.value.length > 0;
+        if (hasContent) {
+            elements.clearInput.classList.add('search__clear--visible');
+            elements.input.classList.add('search__input--has-clear');
+        } else {
+            elements.clearInput.classList.remove('search__clear--visible');
+            elements.input.classList.remove('search__input--has-clear');
+        }
+    }
+
+    /**
+     * Clears the input field and resets all states
+     */
+    function clearInputField() {
+        elements.input.value = '';
+        hideSuggestions();
+        clearStatus();
+        disableCtaButton();
+        resetInputState();
+        updateClearButton();
+        elements.input.focus();
     }
 
     // ==========================================================================
@@ -958,6 +993,7 @@
      */
     function initializeElements() {
         elements.input = document.getElementById('jobInput');
+        elements.clearInput = document.getElementById('clearInput');
         elements.suggestions = document.getElementById('suggestions');
         elements.status = document.getElementById('statusMessage');
         elements.ctaButton = document.getElementById('ctaButton');
@@ -1036,10 +1072,18 @@
     function bindEvents() {
         const debouncedInput = debounce(handleInput, CONFIG.debounceDelay);
 
-        elements.input.addEventListener('input', debouncedInput);
+        elements.input.addEventListener('input', (e) => {
+            updateClearButton();
+            debouncedInput(e);
+        });
         elements.input.addEventListener('keydown', handleKeydown);
         elements.input.addEventListener('blur', handleBlur);
         document.addEventListener('click', handleClickOutside);
+
+        // Clear input button
+        if (elements.clearInput) {
+            elements.clearInput.addEventListener('click', clearInputField);
+        }
 
         // Focus event to show suggestions again if there's input
         elements.input.addEventListener('focus', () => {

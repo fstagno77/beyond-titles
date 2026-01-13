@@ -15,6 +15,7 @@ const translations = {
         // Search
         search_placeholder: "Inizia a scrivere (es. Magazziniere, Barista...)",
         search_aria_label: "Inserisci il tuo ruolo lavorativo",
+        search_clear: "Cancella ricerca",
         suggestions_link: "Suggerimenti",
 
         // CTA Button
@@ -75,7 +76,7 @@ const translations = {
         log_loaded: "Database loaded: {count} job titles available.",
         log_error: "Error loading database: {error}",
         log_cleared: "Log cleared.",
-        log_init: "Beyond Titles v0.7.0 initializing...",
+        log_init: "Beyond Titles v0.7.1 initializing...",
         log_ready: "Application ready. Waiting for user input...",
         log_user_selected: "User selected \"{role}\".",
         log_user_submitted: "User submitted \"{term}\" ({trigger}).",
@@ -97,7 +98,7 @@ const translations = {
         // Profilo Incompleto Messages
         no_offers_available: "Nessuna offerta attiva al momento",
         skills_not_defined: "Competenze non ancora definite",
-        cta_no_offers: "Cerca offerte simili",
+        cta_no_offers: "Scopri le nostre offerte di lavoro per te",
 
         // Log consolidated message
         log_match_found: "Match found - Tipo: {type} | Soft Skills: {skills} | Offerte: {offers}",
@@ -116,6 +117,11 @@ const translations = {
         // Changelog
         changelog_back: "← Torna alla Home",
         changelog_title: "Changelog",
+
+        changelog_v071_date: "13 Gennaio 2026",
+        changelog_v071_item1: "Aggiunto pulsante X per cancellare il contenuto del campo di ricerca",
+        changelog_v071_item2: "Il pulsante appare automaticamente quando l'utente inizia a digitare",
+        changelog_v071_item3: "Click sul pulsante resetta tutti gli stati dell'interfaccia",
 
         changelog_v07_date: "13 Gennaio 2026",
         changelog_v07_item1: "Migrazione a database mansioni v4 con 604 voci totali",
@@ -199,6 +205,7 @@ const translations = {
         // Search
         search_placeholder: "Start typing (e.g. Warehouse Worker, Barista...)",
         search_aria_label: "Enter your job role",
+        search_clear: "Clear search",
         suggestions_link: "Suggestions",
 
         // CTA Button
@@ -259,7 +266,7 @@ const translations = {
         log_loaded: "Database loaded: {count} job titles available.",
         log_error: "Error loading database: {error}",
         log_cleared: "Log cleared.",
-        log_init: "Beyond Titles v0.7.0 initializing...",
+        log_init: "Beyond Titles v0.7.1 initializing...",
         log_ready: "Application ready. Waiting for user input...",
         log_user_selected: "User selected \"{role}\".",
         log_user_submitted: "User submitted \"{term}\" ({trigger}).",
@@ -281,7 +288,7 @@ const translations = {
         // Profilo Incompleto Messages
         no_offers_available: "No active offers at the moment",
         skills_not_defined: "Skills not yet defined",
-        cta_no_offers: "Search similar offers",
+        cta_no_offers: "Discover our job offers for you",
 
         // Log consolidated message
         log_match_found: "Match found - Type: {type} | Soft Skills: {skills} | Offers: {offers}",
@@ -300,6 +307,11 @@ const translations = {
         // Changelog
         changelog_back: "← Back to Home",
         changelog_title: "Changelog",
+
+        changelog_v071_date: "January 13, 2026",
+        changelog_v071_item1: "Added X button to clear search field content",
+        changelog_v071_item2: "Button appears automatically when user starts typing",
+        changelog_v071_item3: "Clicking the button resets all interface states",
 
         changelog_v07_date: "January 13, 2026",
         changelog_v07_item1: "Migration to job database v4 with 604 total entries",

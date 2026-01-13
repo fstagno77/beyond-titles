@@ -22,7 +22,7 @@ const translations = {
         cta_default: "Vedi Offerte",
         cta_active_single: "Abbiamo 1 offerta di lavoro per te",
         cta_active_multiple: "Abbiamo {count} offerte di lavoro per te",
-        cta_warning: "Scopri le nostre offerte di lavoro per te",
+        cta_warning: "Scopri tutte le nostre offerte di lavoro",
 
         // System Log
         log_title: "System Activity Log",
@@ -98,7 +98,7 @@ const translations = {
         // Profilo Incompleto Messages
         no_offers_available: "Nessuna offerta attiva al momento",
         skills_not_defined: "Competenze non ancora definite",
-        cta_no_offers: "Scopri le nostre offerte di lavoro per te",
+        cta_no_offers: "Scopri tutte le nostre offerte di lavoro",
 
         // Log consolidated message
         log_match_found: "Match found - Tipo: {type} | Soft Skills: {skills} | Offerte: {offers}",
@@ -212,7 +212,7 @@ const translations = {
         cta_default: "View Jobs",
         cta_active_single: "We have 1 job offer for you",
         cta_active_multiple: "We have {count} job offers for you",
-        cta_warning: "Discover our job offers for you",
+        cta_warning: "Discover all our job offers",
 
         // System Log
         log_title: "System Activity Log",
@@ -288,7 +288,7 @@ const translations = {
         // Profilo Incompleto Messages
         no_offers_available: "No active offers at the moment",
         skills_not_defined: "Skills not yet defined",
-        cta_no_offers: "Discover our job offers for you",
+        cta_no_offers: "Discover all our job offers",
 
         // Log consolidated message
         log_match_found: "Match found - Type: {type} | Soft Skills: {skills} | Offers: {offers}",

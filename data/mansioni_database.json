@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "versione": "2.1.0",
+    "versione": "2.3.0",
     "data_aggiornamento": "2026-01-13T17:18:22",
     "progetto": "GI Group Digital Platform - Human Skill Report PoC",
     "fonte_dati": "mansioni-softskills-dude-20251230.xlsx",
@@ -99,7 +99,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Addetto alle operazioni ausiliarie di vendita gdo",
+      "nome": "Addetto alle operazioni ausiliarie di vendita GDO",
       "id": "addetto-alle-operazioni-ausiliarie-di-vendita-gdo",
       "numero_offerte": 66,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-alle-operazioni-ausiliarie-di-vendita-gdo-jo/",
@@ -348,7 +348,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Addetto macchine cnc junior",
+      "nome": "Addetto macchine CNC junior",
       "id": "addetto-macchine-cnc-junior",
       "numero_offerte": 35,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-macchine-cnc-junior-jo/",
@@ -463,7 +463,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Middle manager gdo (vice direttore/ capo reparto grocery)",
+      "nome": "Middle manager GDO (vice direttore/ capo reparto grocery)",
       "id": "middle-manager-gdo-vice-direttore-capo-reparto-grocery",
       "numero_offerte": 23,
       "url": "https://www.gigroup.it/offerte-lavoro/middle-manager-gdo-vice-direttore-capo-reparto-grocery-jo/",
@@ -551,7 +551,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Hr generalist",
+      "nome": "HR generalist",
       "id": "hr-generalist",
       "numero_offerte": 21,
       "url": "https://www.gigroup.it/offerte-lavoro/hr-generalist-jo/",
@@ -709,7 +709,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "Conduttore impianti automatizzati  ",
+      "nome": "Conduttore impianti automatizzati",
       "id": "conduttore-impianti-automatizzati",
       "numero_offerte": 17,
       "url": "https://www.gigroup.it/offerte-lavoro/conduttore-impianti-automatizzati- -jo/",
@@ -808,7 +808,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "Tornitore cnc",
+      "nome": "Tornitore CNC",
       "id": "tornitore-cnc",
       "numero_offerte": 15,
       "url": "https://www.gigroup.it/offerte-lavoro/tornitore-cnc-jo/",
@@ -957,7 +957,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "Addetto cassa gdo",
+      "nome": "Addetto cassa GDO",
       "id": "addetto-cassa-gdo",
       "numero_offerte": 12,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-cassa-gdo-jo/",
@@ -975,7 +975,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Addetto carico/scarico macchina cnc",
+      "nome": "Addetto carico/scarico macchina CNC",
       "id": "addetto-carico-scarico-macchina-cnc",
       "numero_offerte": 12,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-carico-scarico-macchina-cnc-jo/",
@@ -1140,7 +1140,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Fresatore cnc",
+      "nome": "Fresatore CNC",
       "id": "fresatore-cnc",
       "numero_offerte": 10,
       "url": "https://www.gigroup.it/offerte-lavoro/fresatore-cnc-jo/",
@@ -1254,7 +1254,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Addetto macchine cnc",
+      "nome": "Addetto macchine CNC",
       "id": "addetto-macchine-cnc",
       "numero_offerte": 8,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-macchine-cnc-jo/",
@@ -1637,7 +1637,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Ndt technician - tecnico cnd",
+      "nome": "NDT technician - tecnico CND",
       "id": "ndt-technician-tecnico-cnd",
       "numero_offerte": 6,
       "url": "https://www.gigroup.it/offerte-lavoro/ndt-technician-tecnico-cnd-jo/",
@@ -1719,7 +1719,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Store manager gdo",
+      "nome": "Store manager GDO",
       "id": "store-manager-gdo",
       "numero_offerte": 6,
       "url": "https://www.gigroup.it/offerte-lavoro/store-manager-gdo-jo/",
@@ -1746,7 +1746,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Addetto contabilitÀ clienti fornitori e banche",
+      "nome": "Addetto contabilità clienti fornitori e banche",
       "id": "addetto-contabilita-clienti-fornitori-e-banche",
       "numero_offerte": 6,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-contabilita-clienti-fornitori-e-banche-jo/",
@@ -2051,7 +2051,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Programmatore macchine cnc",
+      "nome": "Programmatore macchine CNC",
       "id": "programmatore-macchine-cnc",
       "numero_offerte": 4,
       "url": "https://www.gigroup.it/offerte-lavoro/programmatore-macchine-cnc-jo/",
@@ -2219,7 +2219,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Hr administration specialist",
+      "nome": "HR administration specialist",
       "id": "hr-administration-specialist",
       "numero_offerte": 4,
       "url": "https://www.gigroup.it/offerte-lavoro/hr-administration-specialist-jo/",
@@ -2232,7 +2232,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Hr business partner",
+      "nome": "HR business partner",
       "id": "hr-business-partner",
       "numero_offerte": 4,
       "url": "https://www.gigroup.it/offerte-lavoro/hr-business-partner-jo/",
@@ -2426,7 +2426,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Altro - hr",
+      "nome": "Altro - HR",
       "id": "altro-hr",
       "numero_offerte": 4,
       "url": "https://www.gigroup.it/offerte-lavoro/altro-hr-jo/",
@@ -2502,7 +2502,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "Capo reparto gdo",
+      "nome": "Capo reparto GDO",
       "id": "capo-reparto-gdo",
       "numero_offerte": 3,
       "url": "https://www.gigroup.it/offerte-lavoro/capo-reparto-gdo-jo/",
@@ -2544,7 +2544,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "Consulente applicativi erp",
+      "nome": "Consulente applicativi ERP",
       "id": "consulente-applicativi-erp",
       "numero_offerte": 3,
       "url": "https://www.gigroup.it/offerte-lavoro/consulente-applicativi-erp-jo/",
@@ -3152,7 +3152,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "Specialista gestione del personale -hr generalist",
+      "nome": "Specialista gestione del personale -HR generalist",
       "id": "specialista-gestione-del-personale-hr-generalist",
       "numero_offerte": 2,
       "url": "https://www.gigroup.it/offerte-lavoro/specialista-gestione-del-personale-hr-generalist-jo/",
@@ -3170,7 +3170,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "Tornitore cnc con programmazione bordo macchina",
+      "nome": "Tornitore CNC con programmazione bordo macchina",
       "id": "tornitore-cnc-con-programmazione-bordo-macchina",
       "numero_offerte": 2,
       "url": "https://www.gigroup.it/offerte-lavoro/tornitore-cnc-con-programmazione-bordo-macchina-jo/",
@@ -3295,7 +3295,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "Hr cost controller",
+      "nome": "HR cost controller",
       "id": "hr-cost-controller",
       "numero_offerte": 2,
       "url": "https://www.gigroup.it/offerte-lavoro/hr-cost-controller-jo/",
@@ -3428,7 +3428,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "Fresatore cnc con programmazione bordo macchina",
+      "nome": "Fresatore CNC con programmazione bordo macchina",
       "id": "fresatore-cnc-con-programmazione-bordo-macchina",
       "numero_offerte": 2,
       "url": "https://www.gigroup.it/offerte-lavoro/fresatore-cnc-con-programmazione-bordo-macchina-jo/",
@@ -3962,7 +3962,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "Analista funzionale jr",
+      "nome": "Analista funzionale JR",
       "id": "analista-funzionale-jr",
       "numero_offerte": 2,
       "url": "https://www.gigroup.it/offerte-lavoro/analista-funzionale-jr-jo/",
@@ -3989,7 +3989,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "Responsabile gdo",
+      "nome": "Responsabile GDO",
       "id": "responsabile-gdo",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/responsabile-gdo-jo/",
@@ -4605,7 +4605,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "It system architect",
+      "nome": "IT system architect",
       "id": "it-system-architect",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/it-system-architect-jo/",
@@ -5170,7 +5170,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "Addetto hr training",
+      "nome": "Addetto HR training",
       "id": "addetto-hr-training",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-hr-training-jo/",
@@ -5549,7 +5549,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Addetto servizio sicurezza e prevenzione (aspp)",
+      "nome": "Addetto servizio sicurezza e prevenzione (Aspp)",
       "id": "addetto-servizio-sicurezza-e-prevenzione-aspp",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-servizio-sicurezza-e-prevenzione-aspp-jo/",
@@ -5571,7 +5571,7 @@
       "has_custom_skills": true
     },
     {
-      "nome": "Rettificatore cnc",
+      "nome": "Rettificatore CNC",
       "id": "rettificatore-cnc",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/rettificatore-cnc-jo/",
@@ -5756,7 +5756,7 @@
       "has_custom_skills": false
     },
     {
-      "nome": "ADDETTO AL CARICO SCARICO",
+      "nome": "Addetto al carico scarico",
       "id": "addetto-al-carico-scarico",
       "numero_offerte": 60,
       "url": "https://www.gigroup.it/offerte-lavoro/magazziniere-jo/",
@@ -5768,7 +5768,7 @@
       "categoria_riferimento": "magazziniere"
     },
     {
-      "nome": "ADDETTO ALLA RISTORAZIONE",
+      "nome": "Addetto alla ristorazione",
       "id": "addetto-alla-ristorazione",
       "numero_offerte": 25,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-ristorazione-jo/",
@@ -5781,7 +5781,7 @@
       "categoria_riferimento": "addetto-ristorazione"
     },
     {
-      "nome": "BARMAN",
+      "nome": "Barman",
       "id": "barman",
       "numero_offerte": 16,
       "url": "https://www.gigroup.it/offerte-lavoro/barman-bartender-jo/",
@@ -5794,7 +5794,7 @@
       "categoria_riferimento": "barman-bartender"
     },
     {
-      "nome": "ADDETTO ALLA LOGISTICA",
+      "nome": "Addetto alla logistica",
       "id": "addetto-alla-logistica",
       "numero_offerte": 14,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-logistica-jo/",
@@ -5810,7 +5810,7 @@
       "categoria_riferimento": "addetto-logistica"
     },
     {
-      "nome": "CUCITORE TESSILE - MAGLIERIA",
+      "nome": "Cucitore tessile - maglieria",
       "id": "cucitore-tessile-maglieria",
       "numero_offerte": 10,
       "url": "https://www.gigroup.it/offerte-lavoro/cucitore-tessile-maglieria-jo/",
@@ -5823,7 +5823,7 @@
       "categoria_riferimento": "cucitore-tessile-maglieria"
     },
     {
-      "nome": "INVENTARISTA/SCAFFALISTA",
+      "nome": "Inventarista/scaffalista",
       "id": "inventarista-scaffalista",
       "numero_offerte": 8,
       "url": "https://www.gigroup.it/offerte-lavoro/inventarista-scaffalista-jo/",
@@ -5834,7 +5834,7 @@
       "categoria_riferimento": "inventarista-scaffalista"
     },
     {
-      "nome": "CAMERIERE DI SALA",
+      "nome": "Cameriere di sala",
       "id": "cameriere-di-sala",
       "numero_offerte": 7,
       "url": "https://www.gigroup.it/offerte-lavoro/cameriere-di-ristorante-jo/",
@@ -5847,7 +5847,7 @@
       "categoria_riferimento": "cameriere-di-ristorante"
     },
     {
-      "nome": "ADDETTO BANCO PANETTERIA/PASTICCERIA",
+      "nome": "Addetto banco panetteria/pasticceria",
       "id": "addetto-banco-panetteria-pasticceria",
       "numero_offerte": 5,
       "url": "https://www.gigroup.it/offerte-lavoro/panettiere-jo/",
@@ -5859,7 +5859,7 @@
       "categoria_riferimento": "panettiere"
     },
     {
-      "nome": "PRESSISTA",
+      "nome": "Pressista",
       "id": "pressista",
       "numero_offerte": 4,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-pressa-jo/",
@@ -5871,7 +5871,7 @@
       "categoria_riferimento": "addetto-alla-pressa"
     },
     {
-      "nome": "ADDETTO AL BREAKFAST",
+      "nome": "Addetto al breakfast",
       "id": "addetto-al-breakfast",
       "numero_offerte": 4,
       "url": "https://www.gigroup.it/offerte-lavoro/cameriere-di-bar-jo/",
@@ -5883,7 +5883,7 @@
       "categoria_riferimento": "cameriere-di-bar"
     },
     {
-      "nome": "PROMOTER GDO",
+      "nome": "Promoter GDO",
       "id": "promoter-gdo",
       "numero_offerte": 4,
       "url": "https://www.gigroup.it/offerte-lavoro/promoter-jo/",
@@ -5902,7 +5902,7 @@
       "categoria_riferimento": "promoter"
     },
     {
-      "nome": "FACCHINO AI PIANI",
+      "nome": "Facchino ai piani",
       "id": "facchino-ai-piani",
       "numero_offerte": 4,
       "url": "https://www.gigroup.it/offerte-lavoro/facchino-dalbergo-jo/",
@@ -5914,7 +5914,7 @@
       "categoria_riferimento": "facchino-d-albergo"
     },
     {
-      "nome": "ADDETTO ALLE LAVORAZIONI MECCANICHE",
+      "nome": "Addetto alle lavorazioni meccaniche",
       "id": "addetto-alle-lavorazioni-meccaniche",
       "numero_offerte": 3,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-lavorazioni-meccaniche-jo/",
@@ -5928,7 +5928,7 @@
       "categoria_riferimento": "addetto-lavorazioni-meccaniche"
     },
     {
-      "nome": "SPECIALISTA PRODOTTO JUNIOR",
+      "nome": "Specialista prodotto junior",
       "id": "specialista-prodotto-junior",
       "numero_offerte": 2,
       "url": "https://www.gigroup.it/offerte-lavoro/analista-tecnico-jo/",
@@ -5940,7 +5940,7 @@
       "categoria_riferimento": "analista-tecnico"
     },
     {
-      "nome": "AIUTO PIZZAIOLO",
+      "nome": "Aiuto pizzaiolo",
       "id": "aiuto-pizzaiolo",
       "numero_offerte": 2,
       "url": "https://www.gigroup.it/offerte-lavoro/aiuto-cuoco-jo/",
@@ -5951,7 +5951,7 @@
       "categoria_riferimento": "aiuto-cuoco"
     },
     {
-      "nome": "HOSTESS DI SALA",
+      "nome": "Hostess di sala",
       "id": "hostess-di-sala",
       "numero_offerte": 2,
       "url": "https://www.gigroup.it/offerte-lavoro/hostess-di-accoglienza-jo/",
@@ -5966,7 +5966,7 @@
       "categoria_riferimento": "hostess-di-accoglienza"
     },
     {
-      "nome": "ANALISTA FUNZIONALE JUNIOR",
+      "nome": "Analista funzionale junior",
       "id": "analista-funzionale-junior",
       "numero_offerte": 2,
       "url": "https://www.gigroup.it/offerte-lavoro/analista-funzionale-jr-jo/",
@@ -5986,7 +5986,7 @@
       "categoria_riferimento": "analista-funzionale-jr"
     },
     {
-      "nome": "PROGETTISTA ELETTRONICO - HARDWARE",
+      "nome": "Progettista elettronico - hardware",
       "id": "progettista-elettronico-hardware",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/progettista-elettronico-hardware-jo/",
@@ -5998,7 +5998,7 @@
       "categoria_riferimento": "progettista-elettronico-hardware"
     },
     {
-      "nome": "RECUPERO CREDITI",
+      "nome": "Recupero crediti",
       "id": "recupero-crediti",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/specialista-recupero-crediti-jo/",
@@ -6017,7 +6017,7 @@
       "categoria_riferimento": "specialista-recupero-crediti"
     },
     {
-      "nome": "ADDETTO AL FUORI MISURA",
+      "nome": "Addetto al fuori misura",
       "id": "addetto-al-fuori-misura",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/falegname-jo/",
@@ -6033,7 +6033,7 @@
       "categoria_riferimento": "falegname"
     },
     {
-      "nome": "INSEGNANTE SCUOLA DELL'INFANZIA",
+      "nome": "Insegnante scuola dell'infanzia",
       "id": "insegnante-scuola-dell-infanzia",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/insegnante-jo/",
@@ -6049,7 +6049,7 @@
       "categoria_riferimento": "insegnante"
     },
     {
-      "nome": "ADDETTO TRATTAMENTI TERMICI",
+      "nome": "Addetto trattamenti termici",
       "id": "addetto-trattamenti-termici",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/addetto-ai-trattamenti-termici-jo/",
@@ -6063,7 +6063,7 @@
       "categoria_riferimento": "addetto-ai-trattamenti-termici"
     },
     {
-      "nome": "ASSISTANT RESTAURANT MANAGER",
+      "nome": "Assistant restaurant manager",
       "id": "assistant-restaurant-manager",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/vice-responsabile-punto-vendita-jo/",
@@ -6078,7 +6078,7 @@
       "categoria_riferimento": "vice-responsabile-punto-vendita"
     },
     {
-      "nome": "SALDATORE A ELETTRODO",
+      "nome": "Saldatore a elettrodo",
       "id": "saldatore-a-elettrodo",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/saldatore-ad-elettrodo-jo/",
@@ -6091,7 +6091,7 @@
       "categoria_riferimento": "saldatore-ad-elettrodo"
     },
     {
-      "nome": "PROGETTISTA ELETTRONICO - FIRMWARE",
+      "nome": "Progettista elettronico - firmware",
       "id": "progettista-elettronico-firmware",
       "numero_offerte": 1,
       "url": "https://www.gigroup.it/offerte-lavoro/progettista-elettronico-firmware-jo/",
@@ -6103,7 +6103,7 @@
       "categoria_riferimento": "progettista-elettronico-firmware"
     },
     {
-      "nome": "ADDETTO ALLA REGISTRATURA VETRO-OCCHIALI",
+      "nome": "Addetto alla registratura vetro-occhiali",
       "id": "addetto-alla-registratura-vetro-occhiali",
       "numero_offerte": 0,
       "url": null,
@@ -6116,7 +6116,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "MIDDLE MANAGER BOUTIQUE LUXURY",
+      "nome": "Middle manager boutique luxury",
       "id": "middle-manager-boutique-luxury",
       "numero_offerte": 0,
       "url": null,
@@ -6141,7 +6141,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CONSULENTE APPLICATIVO JUNIOR",
+      "nome": "Consulente applicativo junior",
       "id": "consulente-applicativo-junior",
       "numero_offerte": 0,
       "url": null,
@@ -6155,7 +6155,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "R&D MECHANICAL ENGINEER",
+      "nome": "R&D mechanical engineer",
       "id": "r-d-mechanical-engineer",
       "numero_offerte": 0,
       "url": null,
@@ -6169,7 +6169,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTA OPERAZIONI PRELIMINARI ALLA GIUNTERIA",
+      "nome": "Addetta operazioni preliminari alla giunteria",
       "id": "addetta-operazioni-preliminari-alla-giunteria",
       "numero_offerte": 0,
       "url": null,
@@ -6183,7 +6183,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PINZINA",
+      "nome": "Pinzina",
       "id": "pinzina",
       "numero_offerte": 0,
       "url": null,
@@ -6195,7 +6195,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SALES ACCOUNT CONSULENZIALE Junior",
+      "nome": "Sales account consulenziale junior",
       "id": "sales-account-consulenziale-junior",
       "numero_offerte": 0,
       "url": null,
@@ -6220,7 +6220,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "TAGLIATORE PELLETTERIA junior",
+      "nome": "Tagliatore pelletteria junior",
       "id": "tagliatore-pelletteria-junior",
       "numero_offerte": 0,
       "url": null,
@@ -6232,7 +6232,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "JUNIOR SALES ASSISTANT LUXURY - CHINESE SPEAKER",
+      "nome": "Junior sales assistant luxury - chinese speaker",
       "id": "junior-sales-assistant-luxury-chinese-speaker",
       "numero_offerte": 0,
       "url": null,
@@ -6251,7 +6251,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PRODUCT MANAGER - MEDICAL DEVICES",
+      "nome": "Product manager - medical devices",
       "id": "product-manager-medical-devices",
       "numero_offerte": 0,
       "url": null,
@@ -6271,7 +6271,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PROJECT ENGINEER IMPIANTI",
+      "nome": "Project engineer impianti",
       "id": "project-engineer-impianti",
       "numero_offerte": 0,
       "url": null,
@@ -6279,7 +6279,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "RIFINITORE",
+      "nome": "Rifinitore",
       "id": "rifinitore",
       "numero_offerte": 0,
       "url": null,
@@ -6289,7 +6289,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SECURITY ANALIST JUNIOR",
+      "nome": "Security analist junior",
       "id": "security-analist-junior",
       "numero_offerte": 0,
       "url": null,
@@ -6304,7 +6304,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CLOUD SPECIALIST",
+      "nome": "Cloud specialist",
       "id": "cloud-specialist",
       "numero_offerte": 0,
       "url": null,
@@ -6316,7 +6316,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PROMPT ENGINEER",
+      "nome": "Prompt engineer",
       "id": "prompt-engineer",
       "numero_offerte": 0,
       "url": null,
@@ -6331,7 +6331,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO MIDDLE OFFICE",
+      "nome": "Addetto middle office",
       "id": "addetto-middle-office",
       "numero_offerte": 0,
       "url": null,
@@ -6346,7 +6346,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "MIDDLE MANAGER RETAIL/FASHION",
+      "nome": "Middle manager retail/fashion",
       "id": "middle-manager-retail-fashion",
       "numero_offerte": 0,
       "url": null,
@@ -6370,7 +6370,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PIAZZALISTA",
+      "nome": "Piazzalista",
       "id": "piazzalista",
       "numero_offerte": 0,
       "url": null,
@@ -6381,7 +6381,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SALES ASSISTANT LUXURY - CHINESE SPEAKER",
+      "nome": "Sales assistant luxury - chinese speaker",
       "id": "sales-assistant-luxury-chinese-speaker",
       "numero_offerte": 0,
       "url": null,
@@ -6400,7 +6400,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PRODUCT MANAGER - PRODOTTI CONSUMER",
+      "nome": "Product manager - prodotti consumer",
       "id": "product-manager-prodotti-consumer",
       "numero_offerte": 0,
       "url": null,
@@ -6418,7 +6418,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO ALLA RIFINITURA PELLETTERIA",
+      "nome": "Addetto alla rifinitura pelletteria",
       "id": "addetto-alla-rifinitura-pelletteria",
       "numero_offerte": 0,
       "url": null,
@@ -6430,7 +6430,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ORDITORE",
+      "nome": "Orditore",
       "id": "orditore",
       "numero_offerte": 0,
       "url": null,
@@ -6444,7 +6444,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CUOCO UNICO",
+      "nome": "Cuoco unico",
       "id": "cuoco-unico",
       "numero_offerte": 0,
       "url": null,
@@ -6457,7 +6457,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO CONFEZIONAMENTO CALZATURA",
+      "nome": "Addetto confezionamento calzatura",
       "id": "addetto-confezionamento-calzatura",
       "numero_offerte": 0,
       "url": null,
@@ -6468,7 +6468,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "BIOMEDICAL FIELD ENGINEER",
+      "nome": "Biomedical field engineer",
       "id": "biomedical-field-engineer",
       "numero_offerte": 0,
       "url": null,
@@ -6487,7 +6487,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SALES ASSISTANT FASHION",
+      "nome": "Sales assistant fashion",
       "id": "sales-assistant-fashion",
       "numero_offerte": 0,
       "url": null,
@@ -6506,7 +6506,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO PREPARAZIONE MESCOLE",
+      "nome": "Addetto preparazione mescole",
       "id": "addetto-preparazione-mescole",
       "numero_offerte": 0,
       "url": null,
@@ -6520,7 +6520,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CONSULENTE APPLICATIVI CRM",
+      "nome": "Consulente applicativi CRM",
       "id": "consulente-applicativi-crm",
       "numero_offerte": 0,
       "url": null,
@@ -6538,7 +6538,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "installatore e Collaudatore - impianti",
+      "nome": "Installatore e collaudatore - impianti",
       "id": "installatore-e-collaudatore-impianti",
       "numero_offerte": 0,
       "url": null,
@@ -6554,7 +6554,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "TECNICO CALZATURIERO/CONTROLLORE",
+      "nome": "Tecnico calzaturiero/controllore",
       "id": "tecnico-calzaturiero-controllore",
       "numero_offerte": 0,
       "url": null,
@@ -6576,7 +6576,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PASSA PEZZE",
+      "nome": "Passa pezze",
       "id": "passa-pezze",
       "numero_offerte": 0,
       "url": null,
@@ -6588,7 +6588,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "DBA ADMIN",
+      "nome": "DBA admin",
       "id": "dba-admin",
       "numero_offerte": 0,
       "url": null,
@@ -6601,7 +6601,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO AL RICEVIMENTO",
+      "nome": "Addetto al ricevimento",
       "id": "addetto-al-ricevimento",
       "numero_offerte": 0,
       "url": null,
@@ -6613,7 +6613,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SALDATORE A STAGNO",
+      "nome": "Saldatore a stagno",
       "id": "saldatore-a-stagno",
       "numero_offerte": 0,
       "url": null,
@@ -6624,7 +6624,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PROGETTISTA DI RETE FIBRA OTTICA",
+      "nome": "Progettista di rete fibra ottica",
       "id": "progettista-di-rete-fibra-ottica",
       "numero_offerte": 0,
       "url": null,
@@ -6632,7 +6632,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CUSTOMER MANAGEMENT SPECIALIST",
+      "nome": "Customer management specialist",
       "id": "customer-management-specialist",
       "numero_offerte": 0,
       "url": null,
@@ -6655,7 +6655,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "GUEST RELATION MANAGER",
+      "nome": "Guest relation manager",
       "id": "guest-relation-manager",
       "numero_offerte": 0,
       "url": null,
@@ -6669,7 +6669,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ATTACCAFILI SU RING CARDATI",
+      "nome": "Attaccafili su ring cardati",
       "id": "attaccafili-su-ring-cardati",
       "numero_offerte": 0,
       "url": null,
@@ -6680,7 +6680,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "BRAND/PRODUCT MANAGER Junior",
+      "nome": "Brand/product manager junior",
       "id": "brand-product-manager-junior",
       "numero_offerte": 0,
       "url": null,
@@ -6701,7 +6701,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "DISPOSITORE",
+      "nome": "Dispositore",
       "id": "dispositore",
       "numero_offerte": 0,
       "url": null,
@@ -6721,7 +6721,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "Installatore e Collaudatore - macchinari industriali",
+      "nome": "Installatore e collaudatore - macchinari industriali",
       "id": "installatore-e-collaudatore-macchinari-industriali",
       "numero_offerte": 0,
       "url": null,
@@ -6737,7 +6737,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO BANCA CORRISPONDENTE",
+      "nome": "Addetto banca corrispondente",
       "id": "addetto-banca-corrispondente",
       "numero_offerte": 0,
       "url": null,
@@ -6752,7 +6752,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "DATA SCIENTIST",
+      "nome": "Data scientist",
       "id": "data-scientist",
       "numero_offerte": 0,
       "url": null,
@@ -6769,7 +6769,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PROJECT ENGINEER AUTOMAZIONE LOGISTICA",
+      "nome": "Project engineer automazione logistica",
       "id": "project-engineer-automazione-logistica",
       "numero_offerte": 0,
       "url": null,
@@ -6786,7 +6786,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO AL MONTAGGIO OCCHIALI - ACCESSORI PER OCCHIALI",
+      "nome": "Addetto al montaggio occhiali - accessori per occhiali",
       "id": "addetto-al-montaggio-occhiali-accessori-per-occhiali",
       "numero_offerte": 0,
       "url": null,
@@ -6796,7 +6796,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "LIQUIDATORE",
+      "nome": "Liquidatore",
       "id": "liquidatore",
       "numero_offerte": 0,
       "url": null,
@@ -6813,7 +6813,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO ALLA CALZERA O ALLA MONTAFIANCHI",
+      "nome": "Addetto alla calzera o alla montafianchi",
       "id": "addetto-alla-calzera-o-alla-montafianchi",
       "numero_offerte": 0,
       "url": null,
@@ -6826,7 +6826,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CREDIT SPECIALIST",
+      "nome": "Credit specialist",
       "id": "credit-specialist",
       "numero_offerte": 0,
       "url": null,
@@ -6838,7 +6838,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO CASSA LUXURY (CASHIER/ADDETTO BACK OFFICE)",
+      "nome": "Addetto cassa luxury (cashier/addetto back office)",
       "id": "addetto-cassa-luxury-cashier-addetto-back-office",
       "numero_offerte": 0,
       "url": null,
@@ -6858,7 +6858,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SPACCATORE",
+      "nome": "Spaccatore",
       "id": "spaccatore",
       "numero_offerte": 0,
       "url": null,
@@ -6868,7 +6868,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "KEY ACCOUNT MANAGER PHARMACEUTICAL",
+      "nome": "Key account manager pharmaceutical",
       "id": "key-account-manager-pharmaceutical",
       "numero_offerte": 0,
       "url": null,
@@ -6886,7 +6886,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PENETRATION TESTER",
+      "nome": "Penetration tester",
       "id": "penetration-tester",
       "numero_offerte": 0,
       "url": null,
@@ -6899,7 +6899,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO FARMACOVIGILANZA",
+      "nome": "Addetto farmacovigilanza",
       "id": "addetto-farmacovigilanza",
       "numero_offerte": 0,
       "url": null,
@@ -6913,7 +6913,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO BACK OFFICE TITOLI",
+      "nome": "Addetto back office titoli",
       "id": "addetto-back-office-titoli",
       "numero_offerte": 0,
       "url": null,
@@ -6928,7 +6928,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO BACK OFFICE FINANZA",
+      "nome": "Addetto back office finanza",
       "id": "addetto-back-office-finanza",
       "numero_offerte": 0,
       "url": null,
@@ -6941,7 +6941,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "GELATAIO",
+      "nome": "Gelataio",
       "id": "gelataio",
       "numero_offerte": 0,
       "url": null,
@@ -6952,7 +6952,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO ALLA SFIBRATURA",
+      "nome": "Addetto alla sfibratura",
       "id": "addetto-alla-sfibratura",
       "numero_offerte": 0,
       "url": null,
@@ -6964,7 +6964,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ORLATRICE CALZATURE JUNIOR",
+      "nome": "Orlatrice calzature junior",
       "id": "orlatrice-calzature-junior",
       "numero_offerte": 0,
       "url": null,
@@ -6980,7 +6980,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PIPING ENGINEER",
+      "nome": "Piping engineer",
       "id": "piping-engineer",
       "numero_offerte": 0,
       "url": null,
@@ -6988,7 +6988,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": " HEALTH ECONOMICS SPECIALIST",
+      "nome": "Health economics specialist",
       "id": "health-economics-specialist",
       "numero_offerte": 0,
       "url": null,
@@ -7002,7 +7002,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "VENDITORE CANALE FARMACIE",
+      "nome": "Venditore canale farmacie",
       "id": "venditore-canale-farmacie",
       "numero_offerte": 0,
       "url": null,
@@ -7019,7 +7019,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ROOM DIVISION MANAGER",
+      "nome": "Room division manager",
       "id": "room-division-manager",
       "numero_offerte": 0,
       "url": null,
@@ -7033,7 +7033,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SQUADRATORE",
+      "nome": "Squadratore",
       "id": "squadratore",
       "numero_offerte": 0,
       "url": null,
@@ -7044,7 +7044,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "COLLAUDATORE ESTERNO PELLETTERIA",
+      "nome": "Collaudatore esterno pelletteria",
       "id": "collaudatore-esterno-pelletteria",
       "numero_offerte": 0,
       "url": null,
@@ -7057,7 +7057,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "OPERAIO CALZATURIERO",
+      "nome": "Operaio calzaturiero",
       "id": "operaio-calzaturiero",
       "numero_offerte": 0,
       "url": null,
@@ -7071,7 +7071,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO FONDI CALZATURA",
+      "nome": "Addetto fondi calzatura",
       "id": "addetto-fondi-calzatura",
       "numero_offerte": 0,
       "url": null,
@@ -7084,7 +7084,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "IAM  Specialist (Identity Access Management)",
+      "nome": "IAM specialist (identity access management)",
       "id": "iam-specialist-identity-access-management",
       "numero_offerte": 0,
       "url": null,
@@ -7098,7 +7098,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO CENTRI DI LAVORO",
+      "nome": "Addetto centri di lavoro",
       "id": "addetto-centri-di-lavoro",
       "numero_offerte": 0,
       "url": null,
@@ -7112,7 +7112,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "VERNICIATORE NAVALE SU VETRORESINA",
+      "nome": "Verniciatore navale su vetroresina",
       "id": "verniciatore-navale-su-vetroresina",
       "numero_offerte": 0,
       "url": null,
@@ -7127,7 +7127,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SOFTWARE ENGINEER JUNIOR",
+      "nome": "Software engineer junior",
       "id": "software-engineer-junior",
       "numero_offerte": 0,
       "url": null,
@@ -7135,7 +7135,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "TECHNICAL BUYER",
+      "nome": "Technical buyer",
       "id": "technical-buyer",
       "numero_offerte": 0,
       "url": null,
@@ -7151,7 +7151,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SATINATORE",
+      "nome": "Satinatore",
       "id": "satinatore",
       "numero_offerte": 0,
       "url": null,
@@ -7159,7 +7159,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CERISTA",
+      "nome": "Cerista",
       "id": "cerista",
       "numero_offerte": 0,
       "url": null,
@@ -7173,7 +7173,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO AL FINISSAGGIO PELLI",
+      "nome": "Addetto al finissaggio pelli",
       "id": "addetto-al-finissaggio-pelli",
       "numero_offerte": 0,
       "url": null,
@@ -7189,7 +7189,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PRODUCT MANAGER - FARMACO ETICO",
+      "nome": "Product manager - farmaco etico",
       "id": "product-manager-farmaco-etico",
       "numero_offerte": 0,
       "url": null,
@@ -7208,7 +7208,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO AFFARI REGOLATORI DI SEDE",
+      "nome": "Addetto affari regolatori di sede",
       "id": "addetto-affari-regolatori-di-sede",
       "numero_offerte": 0,
       "url": null,
@@ -7224,7 +7224,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "MEDICAL SCIENCE LIAISON / MEDICAL ADVISOR",
+      "nome": "Medical science liaison / medical advisor",
       "id": "medical-science-liaison-medical-advisor",
       "numero_offerte": 0,
       "url": null,
@@ -7242,7 +7242,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SALES PROMOTER MEDICAL DEVICES",
+      "nome": "Sales promoter medical devices",
       "id": "sales-promoter-medical-devices",
       "numero_offerte": 0,
       "url": null,
@@ -7262,7 +7262,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "TAGLIATORE CALZATURE JUNIOR",
+      "nome": "Tagliatore calzature junior",
       "id": "tagliatore-calzature-junior",
       "numero_offerte": 0,
       "url": null,
@@ -7275,7 +7275,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "AGENTE IN ATTIVITÀ FINANZIARIA ",
+      "nome": "Agente in attività finanziaria",
       "id": "agente-in-attivita-finanziaria",
       "numero_offerte": 0,
       "url": null,
@@ -7291,7 +7291,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SALDATORE JUNIOR",
+      "nome": "Saldatore junior",
       "id": "saldatore-junior",
       "numero_offerte": 0,
       "url": null,
@@ -7308,7 +7308,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ENERGY ENGINEER  ",
+      "nome": "Energy engineer",
       "id": "energy-engineer",
       "numero_offerte": 0,
       "url": null,
@@ -7316,7 +7316,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "WEB MARKETING EXPERT",
+      "nome": "Web marketing expert",
       "id": "web-marketing-expert",
       "numero_offerte": 0,
       "url": null,
@@ -7324,7 +7324,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO ALLA PREPARAZIONE PELLETTERIA",
+      "nome": "Addetto alla preparazione pelletteria",
       "id": "addetto-alla-preparazione-pelletteria",
       "numero_offerte": 0,
       "url": null,
@@ -7339,7 +7339,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CUCITORE DI PELLETTERIA",
+      "nome": "Cucitore di pelletteria",
       "id": "cucitore-di-pelletteria",
       "numero_offerte": 0,
       "url": null,
@@ -7350,7 +7350,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "TEAM LEADER",
+      "nome": "Team leader",
       "id": "team-leader",
       "numero_offerte": 0,
       "url": null,
@@ -7363,7 +7363,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CARROZZIERE",
+      "nome": "Carrozziere",
       "id": "carrozziere",
       "numero_offerte": 0,
       "url": null,
@@ -7377,7 +7377,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ISPETTORE GRUPPI ESTERNI PELLETTERIA",
+      "nome": "Ispettore gruppi esterni pelletteria",
       "id": "ispettore-gruppi-esterni-pelletteria",
       "numero_offerte": 0,
       "url": null,
@@ -7399,7 +7399,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SALES ACCOUNT CONSULENZIALE",
+      "nome": "Sales account consulenziale",
       "id": "sales-account-consulenziale",
       "numero_offerte": 0,
       "url": null,
@@ -7424,7 +7424,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "INSTALLATORE IMPIANTI DI CONDIZIONAMENTO",
+      "nome": "Installatore impianti di condizionamento",
       "id": "installatore-impianti-di-condizionamento",
       "numero_offerte": 0,
       "url": null,
@@ -7432,7 +7432,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "Business Intelligence Specialist",
+      "nome": "Business intelligence specialist",
       "id": "business-intelligence-specialist",
       "numero_offerte": 0,
       "url": null,
@@ -7449,7 +7449,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO ALLE TRANCE",
+      "nome": "Addetto alle trance",
       "id": "addetto-alle-trance",
       "numero_offerte": 0,
       "url": null,
@@ -7461,7 +7461,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "AUTISTA SOCCORRITORE",
+      "nome": "Autista soccorritore",
       "id": "autista-soccorritore",
       "numero_offerte": 0,
       "url": null,
@@ -7479,7 +7479,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CARROZZIERE JUNIOR",
+      "nome": "Carrozziere junior",
       "id": "carrozziere-junior",
       "numero_offerte": 0,
       "url": null,
@@ -7495,7 +7495,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SOUS CHEF",
+      "nome": "Sous chef",
       "id": "sous-chef",
       "numero_offerte": 0,
       "url": null,
@@ -7509,7 +7509,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "AGENTE CANALE FARMACIA",
+      "nome": "Agente canale farmacia",
       "id": "agente-canale-farmacia",
       "numero_offerte": 0,
       "url": null,
@@ -7524,7 +7524,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "INDUSTRIALIZZATORE",
+      "nome": "Industrializzatore",
       "id": "industrializzatore",
       "numero_offerte": 0,
       "url": null,
@@ -7538,7 +7538,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "FRONT OFFICE MANAGER",
+      "nome": "Front office manager",
       "id": "front-office-manager",
       "numero_offerte": 0,
       "url": null,
@@ -7552,7 +7552,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CAVATORE",
+      "nome": "Cavatore",
       "id": "cavatore",
       "numero_offerte": 0,
       "url": null,
@@ -7562,7 +7562,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ORAFO",
+      "nome": "Orafo",
       "id": "orafo",
       "numero_offerte": 0,
       "url": null,
@@ -7574,7 +7574,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "AGENTE DI VENDITA CONSULENZIALE PLURIMANDATARIO",
+      "nome": "Agente di vendita consulenziale plurimandatario",
       "id": "agente-di-vendita-consulenziale-plurimandatario",
       "numero_offerte": 0,
       "url": null,
@@ -7599,7 +7599,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO ALLE TRANCE JUNIOR",
+      "nome": "Addetto alle trance junior",
       "id": "addetto-alle-trance-junior",
       "numero_offerte": 0,
       "url": null,
@@ -7611,7 +7611,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "INDUSTRIALIZZATORE PELLETTERIA",
+      "nome": "Industrializzatore pelletteria",
       "id": "industrializzatore-pelletteria",
       "numero_offerte": 0,
       "url": null,
@@ -7632,7 +7632,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "TAGLIATORE CALZATURE",
+      "nome": "Tagliatore calzature",
       "id": "tagliatore-calzature",
       "numero_offerte": 0,
       "url": null,
@@ -7646,7 +7646,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SALDATORE METALLI SPECIALI-LEGHE",
+      "nome": "Saldatore metalli speciali-leghe",
       "id": "saldatore-metalli-speciali-leghe",
       "numero_offerte": 0,
       "url": null,
@@ -7656,7 +7656,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PREPARATORE ORAFO",
+      "nome": "Preparatore orafo",
       "id": "preparatore-orafo",
       "numero_offerte": 0,
       "url": null,
@@ -7666,7 +7666,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "VALIDATION SPECIALIST",
+      "nome": "Validation specialist",
       "id": "validation-specialist",
       "numero_offerte": 0,
       "url": null,
@@ -7683,7 +7683,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SMALTATORE",
+      "nome": "Smaltatore",
       "id": "smaltatore",
       "numero_offerte": 0,
       "url": null,
@@ -7694,7 +7694,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "EVENTS MANAGER",
+      "nome": "Events manager",
       "id": "events-manager",
       "numero_offerte": 0,
       "url": null,
@@ -7708,7 +7708,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "OPERATORE TRANSFER CNC",
+      "nome": "Operatore transfer CNC",
       "id": "operatore-transfer-cnc",
       "numero_offerte": 0,
       "url": null,
@@ -7722,7 +7722,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "EXECUTIVE CHEF",
+      "nome": "Executive chef",
       "id": "executive-chef",
       "numero_offerte": 0,
       "url": null,
@@ -7736,7 +7736,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO PREPARAZIONE MANOVIA",
+      "nome": "Addetto preparazione manovia",
       "id": "addetto-preparazione-manovia",
       "numero_offerte": 0,
       "url": null,
@@ -7747,7 +7747,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PROTOTIPISTA PELLETTERIA",
+      "nome": "Prototipista pelletteria",
       "id": "prototipista-pelletteria",
       "numero_offerte": 0,
       "url": null,
@@ -7771,7 +7771,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "AI STRATEGIST",
+      "nome": "AI strategist",
       "id": "ai-strategist",
       "numero_offerte": 0,
       "url": null,
@@ -7788,7 +7788,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PULITORE ORAFO",
+      "nome": "Pulitore orafo",
       "id": "pulitore-orafo",
       "numero_offerte": 0,
       "url": null,
@@ -7802,7 +7802,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "PROJECT MANAGER AUTOMAZIONE",
+      "nome": "Project manager automazione",
       "id": "project-manager-automazione",
       "numero_offerte": 0,
       "url": null,
@@ -7820,7 +7820,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "Sistemista Cybersecurity",
+      "nome": "Sistemista cybersecurity",
       "id": "sistemista-cybersecurity",
       "numero_offerte": 0,
       "url": null,
@@ -7832,7 +7832,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CLINICAL RESEARCH ASSOCIATE",
+      "nome": "Clinical research associate",
       "id": "clinical-research-associate",
       "numero_offerte": 0,
       "url": null,
@@ -7847,7 +7847,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CARDATORE",
+      "nome": "Cardatore",
       "id": "cardatore",
       "numero_offerte": 0,
       "url": null,
@@ -7861,7 +7861,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "LEAN OPERATION ENGINEER",
+      "nome": "Lean operation engineer",
       "id": "lean-operation-engineer",
       "numero_offerte": 0,
       "url": null,
@@ -7879,7 +7879,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "OPERAIO CONCIARIO",
+      "nome": "Operaio conciario",
       "id": "operaio-conciario",
       "numero_offerte": 0,
       "url": null,
@@ -7890,7 +7890,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "CYBERSECURITY ENGINEER",
+      "nome": "Cybersecurity engineer",
       "id": "cybersecurity-engineer",
       "numero_offerte": 0,
       "url": null,
@@ -7906,7 +7906,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "MACELLAIO INDUSTRIALE (DA MACELLO O DA ALLEVAMENTO)",
+      "nome": "Macellaio industriale (da macello o da allevamento)",
       "id": "macellaio-industriale-da-macello-o-da-allevamento",
       "numero_offerte": 0,
       "url": null,
@@ -7916,7 +7916,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "TRADE MARKETING SPECIALIST",
+      "nome": "Trade marketing specialist",
       "id": "trade-marketing-specialist",
       "numero_offerte": 0,
       "url": null,
@@ -7935,7 +7935,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "REVENUE MANAGER",
+      "nome": "Revenue manager",
       "id": "revenue-manager",
       "numero_offerte": 0,
       "url": null,
@@ -7947,7 +7947,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "FRIGORISTA JUNIOR",
+      "nome": "Frigorista junior",
       "id": "frigorista-junior",
       "numero_offerte": 0,
       "url": null,
@@ -7961,7 +7961,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ASSISTENTE AL RESPONSABILE DI PRODUZIONE",
+      "nome": "Assistente al responsabile di produzione",
       "id": "assistente-al-responsabile-di-produzione",
       "numero_offerte": 0,
       "url": null,
@@ -7975,7 +7975,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "SOC Engineer/Analyst",
+      "nome": "SOC engineer/analyst",
       "id": "soc-engineer-analyst",
       "numero_offerte": 0,
       "url": null,
@@ -7990,7 +7990,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO ALLO SMARCHIO",
+      "nome": "Addetto allo smarchio",
       "id": "addetto-allo-smarchio",
       "numero_offerte": 0,
       "url": null,
@@ -8001,7 +8001,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "MANUTENTORE GRANDI VEICOLI",
+      "nome": "Manutentore grandi veicoli",
       "id": "manutentore-grandi-veicoli",
       "numero_offerte": 0,
       "url": null,
@@ -8009,7 +8009,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO APPLICAZIONE FORTI E PUNTALI ",
+      "nome": "Addetto applicazione forti e puntali",
       "id": "addetto-applicazione-forti-e-puntali",
       "numero_offerte": 0,
       "url": null,
@@ -8021,7 +8021,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "AI SPECIALIST",
+      "nome": "AI specialist",
       "id": "ai-specialist",
       "numero_offerte": 0,
       "url": null,
@@ -8036,7 +8036,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "ADDETTO AFFARI REGOLATORI DI PRODUZIONE",
+      "nome": "Addetto affari regolatori di produzione",
       "id": "addetto-affari-regolatori-di-produzione",
       "numero_offerte": 0,
       "url": null,
@@ -8052,7 +8052,7 @@
       "mapping_type": "profilo_incompleto"
     },
     {
-      "nome": "DIRETTORE STRUTTURA DI MEDIE DIMENSIONI",
+      "nome": "Direttore struttura di medie dimensioni",
       "id": "direttore-struttura-di-medie-dimensioni",
       "numero_offerte": 0,
       "url": null,

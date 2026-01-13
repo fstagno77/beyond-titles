@@ -38,16 +38,30 @@ const translations = {
         modal_copy: "Copia",
 
         modal_example1_badge: "Categoria Principale",
-        modal_example1_text: "Il sistema trova il match esatto. Tratta la mansione come un nodo primario e carica il set completo di skill (Comunicazione, Orientamento al cliente, Standing, ecc.). L'utente atterra direttamente sull'URL dedicato con 74 offerte attive.",
+        modal_example1_search: "Addetto alla vendita retail",
+        modal_example1_text: "Il sistema trova il match esatto nel database delle offerte attive. La mansione è classificata come categoria_principale con has_custom_skills: true, il che significa che possiede un set di competenze specifico e verificato (Coinvolgimento, Stabilità emotiva, Flessibilità, ecc.). L'utente atterra direttamente sull'URL dedicato con 74 offerte attive.",
 
         modal_example2_badge: "Alias",
-        modal_example2_text: "Il sistema riconosce che l'utente ha usato un termine comune. Attraverso il campo rif_parent presente nel JSON, il motore \"pesca\" le skill del padre (Addetto al magazzino - gestione ordine e uscita merci) ma mantiene l'utente sul link specifico per i magazzinieri che ha 60 offerte.",
+        modal_example2_search: "Insegnante scuola dell'infanzia",
+        modal_example2_text: "Il sistema riconosce che l'utente ha cercato una variante specifica di una mansione più generica. Il mapping_type: alias indica che questa voce eredita URL e numero offerte dalla categoria principale di riferimento (categoria_riferimento: insegnante), ma mantiene le proprie soft skills distintive (Problem Solving, Coinvolgimento, Comunicazione, Ascolto, ecc.). L'utente viene indirizzato alla pagina \"Insegnante\" che contiene 1 offerta attiva, ricevendo però un profilo competenze calibrato sul ruolo specifico dell'infanzia.",
 
-        modal_example3_badge: "Fallback",
-        modal_example3_text: "Il sistema identifica una mansione esistente tra le offerte ma priva di mappatura competenze nel database della struttura. Attiva il protocollo di sicurezza caricando le skill universali per la survey, ma mantiene il puntamento al link specifico per massaggiatori presente nel JSON, tutelando la conversione finale nonostante l'assenza di dati psicometrici originali.",
+        modal_example3_badge: "Profilo Incompleto",
+        modal_example3_search: "Data Scientist",
+        modal_example3_text: "Il sistema identifica una mansione presente nel database delle competenze ma priva di offerte attive sul sito Gi Group. Il mapping_type: profilo_incompleto segnala che url: null e numero_offerte: 0. Il motore carica comunque le 8 soft skills associate al ruolo (Iniziativa, Problem Solving, Analisi, Innovazione, ecc.) per completare il profilo dell'utente nella survey. Il frontend gestisce l'assenza di link mostrando un messaggio \"Nessuna offerta attiva al momento\", mantenendo il valore informativo delle competenze.",
 
         modal_example4_badge: "No Match",
-        modal_example4_text: "L'input non trova alcun riscontro nei database delle offerte o delle competenze. Il motore carica il set di skill di base per completare il racconto dell'archetipo e genera dinamicamente una ricerca generica sul sito Gi Group basata sul termine inserito, evitando che l'utente finisca in un vicolo cieco tecnologico e garantendo continuita all'esperienza.",
+        modal_example4_search: "Influencer",
+        modal_example4_text: "L'input non trova alcun riscontro nel database delle mansioni. Il frontend rileva l'assenza di match e attiva il protocollo di fallback caricando le skill universali (Problem Solving, Affidabilità, Collaborazione Teamwork) per completare comunque la survey, generando dinamicamente una ricerca generica sul sito Gi Group basata sul termine inserito. Questo evita che l'utente finisca in un vicolo cieco e garantisce continuità all'esperienza.",
+
+        modal_extra_title: "Casi Aggiuntivi da Verificare",
+
+        modal_example5_badge: "Skills Mancanti",
+        modal_example5_search: "Magazziniere",
+        modal_example5_text: "Il sistema trova la mansione tra le offerte attive (60 posizioni disponibili), ma il campo has_custom_skills: false e soft_skills: null indicano che non esistono competenze specifiche mappate nel database della struttura. Il frontend rileva il valore null e applica il set di skill universali per la survey, mantenendo l'URL valido verso le offerte reali.",
+
+        modal_example6_badge: "Doppio Null",
+        modal_example6_search: "Web Marketing Expert",
+        modal_example6_text: "Caso limite: la mansione esiste nel database struttura ma con url: null, soft_skills: null e numero_offerte: 0. Il frontend gestisce il doppio null mostrando \"Nessuna offerta attiva\" e applicando il fallback delle skill universali a livello di visualizzazione per garantire il completamento della survey.",
 
         // Status Messages
         status_match: "Ruolo identificato: {role} ({type})",
@@ -57,11 +71,11 @@ const translations = {
 
         // Log Messages
         log_loading: "Loading mansioni database...",
-        log_loaded_stats: "Database loaded: {total} mansioni ({main} dirette, {alias} alias, {fallback} fallback).",
+        log_loaded_stats: "Database loaded: {total} mansioni ({main} principali, {alias} alias, {incomplete} profili incompleti).",
         log_loaded: "Database loaded: {count} job titles available.",
         log_error: "Error loading database: {error}",
         log_cleared: "Log cleared.",
-        log_init: "Beyond Titles v0.6.3 initializing...",
+        log_init: "Beyond Titles v0.7.0 initializing...",
         log_ready: "Application ready. Waiting for user input...",
         log_user_selected: "User selected \"{role}\".",
         log_user_submitted: "User submitted \"{term}\" ({trigger}).",
@@ -73,10 +87,21 @@ const translations = {
         // Mapping Types
         mapping_categoria_principale: "Categoria Principale",
         mapping_alias: "Alias",
-        mapping_fallback: "Fallback",
+        mapping_profilo_incompleto: "Profilo Incompleto",
+
+        // Mapping Types (short for suggestions dropdown)
+        mapping_short_categoria_principale: "Principale",
+        mapping_short_alias: "Alias",
+        mapping_short_profilo_incompleto: "Incompleto",
+
+        // Profilo Incompleto Messages
+        no_offers_available: "Nessuna offerta attiva al momento",
+        skills_not_defined: "Competenze non ancora definite",
+        cta_no_offers: "Cerca offerte simili",
 
         // Log consolidated message
         log_match_found: "Match found - Tipo: {type} | Soft Skills: {skills} | Offerte: {offers}",
+        log_match_found_html: "Match found - Tipo: {type} | Soft Skills: {skills} | Offerte: {offers}",
 
         // Triggers
         trigger_enter: "Enter Key",
@@ -91,6 +116,14 @@ const translations = {
         // Changelog
         changelog_back: "← Torna alla Home",
         changelog_title: "Changelog",
+
+        changelog_v07_date: "13 Gennaio 2026",
+        changelog_v07_item1: "Migrazione a database mansioni v4 con 604 voci totali",
+        changelog_v07_item2: "Nuovo mapping_type: profilo_incompleto (134 mansioni senza offerte attive)",
+        changelog_v07_item3: "Gestione URL null per profili incompleti con ricerca automatica",
+        changelog_v07_item4: "Gestione soft_skills null (9 profili senza competenze definite)",
+        changelog_v07_item5: "Nuovo stato CTA viola per profili incompleti",
+        changelog_v07_item6: "Rimosso mapping_type fallback, sostituito con has_custom_skills",
 
         changelog_v063_date: "13 Gennaio 2026",
         changelog_v063_item1: "Changelog multilingua (IT/EN)",
@@ -189,16 +222,30 @@ const translations = {
         modal_copy: "Copy",
 
         modal_example1_badge: "Main Category",
-        modal_example1_text: "The system finds an exact match. It treats the job as a primary node and loads the complete skill set (Communication, Customer Orientation, Standing, etc.). The user lands directly on the dedicated URL with 74 active offers.",
+        modal_example1_search: "Addetto alla vendita retail",
+        modal_example1_text: "The system finds an exact match in the active offers database. The job is classified as categoria_principale with has_custom_skills: true, meaning it has a specific and verified skill set (Engagement, Emotional Stability, Flexibility, etc.). The user lands directly on the dedicated URL with 74 active offers.",
 
         modal_example2_badge: "Alias",
-        modal_example2_text: "The system recognizes that the user has used a common term. Through the rif_parent field in the JSON, the engine \"fetches\" the skills from the parent job (Warehouse Associate - order and shipment management) but keeps the user on the specific link for warehouse workers which has 60 offers.",
+        modal_example2_search: "Insegnante scuola dell'infanzia",
+        modal_example2_text: "The system recognizes that the user searched for a specific variant of a more generic job. The mapping_type: alias indicates that this entry inherits URL and offer count from the main reference category (categoria_riferimento: insegnante), but maintains its own distinctive soft skills (Problem Solving, Engagement, Communication, Listening, etc.). The user is directed to the \"Teacher\" page containing 1 active offer, while receiving a skills profile calibrated for the specific early childhood role.",
 
-        modal_example3_badge: "Fallback",
-        modal_example3_text: "The system identifies an existing job among the offers but without competency mapping in the database structure. It activates the safety protocol by loading universal skills for the survey, but maintains the pointer to the specific link for massage therapists in the JSON, protecting the final conversion despite the absence of original psychometric data.",
+        modal_example3_badge: "Incomplete Profile",
+        modal_example3_search: "Data Scientist",
+        modal_example3_text: "The system identifies a job present in the skills database but without active offers on the Gi Group site. The mapping_type: profilo_incompleto signals that url: null and numero_offerte: 0. The engine still loads the 8 soft skills associated with the role (Initiative, Problem Solving, Analysis, Innovation, etc.) to complete the user's survey profile. The frontend handles the missing link by showing a \"No active offers at the moment\" message, maintaining the informational value of the skills.",
 
         modal_example4_badge: "No Match",
-        modal_example4_text: "The input finds no match in the offers or competencies databases. The engine loads the basic skill set to complete the archetype story and dynamically generates a generic search on the Gi Group site based on the entered term, preventing the user from hitting a technological dead-end and ensuring experience continuity.",
+        modal_example4_search: "Influencer",
+        modal_example4_text: "The input finds no match in the job database. The frontend detects the absence of a match and activates the fallback protocol, loading universal skills (Problem Solving, Reliability, Teamwork Collaboration) to complete the survey anyway, dynamically generating a generic search on the Gi Group site based on the entered term. This prevents the user from hitting a dead-end and ensures experience continuity.",
+
+        modal_extra_title: "Additional Test Cases",
+
+        modal_example5_badge: "Missing Skills",
+        modal_example5_search: "Magazziniere",
+        modal_example5_text: "The system finds the job among active offers (60 available positions), but the fields has_custom_skills: false and soft_skills: null indicate that no specific skills are mapped in the structure database. The frontend detects the null value and applies the universal skill set for the survey, maintaining the valid URL to real offers.",
+
+        modal_example6_badge: "Double Null",
+        modal_example6_search: "Web Marketing Expert",
+        modal_example6_text: "Edge case: the job exists in the structure database but with url: null, soft_skills: null and numero_offerte: 0. The frontend handles the double null by showing \"No active offers\" and applying the universal skills fallback at the display level to ensure survey completion.",
 
         // Status Messages
         status_match: "Role identified: {role} ({type})",
@@ -208,11 +255,11 @@ const translations = {
 
         // Log Messages
         log_loading: "Loading job titles database...",
-        log_loaded_stats: "Database loaded: {total} job titles ({main} direct, {alias} aliases, {fallback} fallback).",
+        log_loaded_stats: "Database loaded: {total} job titles ({main} main, {alias} aliases, {incomplete} incomplete profiles).",
         log_loaded: "Database loaded: {count} job titles available.",
         log_error: "Error loading database: {error}",
         log_cleared: "Log cleared.",
-        log_init: "Beyond Titles v0.6.3 initializing...",
+        log_init: "Beyond Titles v0.7.0 initializing...",
         log_ready: "Application ready. Waiting for user input...",
         log_user_selected: "User selected \"{role}\".",
         log_user_submitted: "User submitted \"{term}\" ({trigger}).",
@@ -224,10 +271,21 @@ const translations = {
         // Mapping Types
         mapping_categoria_principale: "Main Category",
         mapping_alias: "Alias",
-        mapping_fallback: "Fallback",
+        mapping_profilo_incompleto: "Incomplete Profile",
+
+        // Mapping Types (short for suggestions dropdown)
+        mapping_short_categoria_principale: "Main",
+        mapping_short_alias: "Alias",
+        mapping_short_profilo_incompleto: "Incomplete",
+
+        // Profilo Incompleto Messages
+        no_offers_available: "No active offers at the moment",
+        skills_not_defined: "Skills not yet defined",
+        cta_no_offers: "Search similar offers",
 
         // Log consolidated message
         log_match_found: "Match found - Type: {type} | Soft Skills: {skills} | Offers: {offers}",
+        log_match_found_html: "Match found - Type: {type} | Soft Skills: {skills} | Offers: {offers}",
 
         // Triggers
         trigger_enter: "Enter Key",
@@ -242,6 +300,14 @@ const translations = {
         // Changelog
         changelog_back: "← Back to Home",
         changelog_title: "Changelog",
+
+        changelog_v07_date: "January 13, 2026",
+        changelog_v07_item1: "Migration to job database v4 with 604 total entries",
+        changelog_v07_item2: "New mapping_type: profilo_incompleto (134 jobs without active offers)",
+        changelog_v07_item3: "Null URL handling for incomplete profiles with automatic search",
+        changelog_v07_item4: "Null soft_skills handling (9 profiles without defined skills)",
+        changelog_v07_item5: "New purple CTA state for incomplete profiles",
+        changelog_v07_item6: "Removed mapping_type fallback, replaced with has_custom_skills",
 
         changelog_v063_date: "January 13, 2026",
         changelog_v063_item1: "Multilingual changelog (IT/EN)",

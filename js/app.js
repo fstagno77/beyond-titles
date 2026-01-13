@@ -249,6 +249,36 @@
     }
 
     /**
+     * Adds an entry to the System Activity Log with HTML content (no escaping)
+     * @param {string} type - Log type (INPUT, LOGIC, ROUTING, UI, INFO, NOMATCH)
+     * @param {string} htmlMessage - Log message with HTML formatting
+     * @param {string} [url] - Optional URL to display
+     */
+    function logActivityHtml(type, htmlMessage, url = null) {
+        if (!elements.systemLog) return;
+
+        const entry = document.createElement('div');
+        entry.className = 'system-log__entry';
+
+        const timestamp = `<span class="system-log__timestamp">[${getTimestamp()}]</span>`;
+        const displayType = type === 'nomatch' ? 'NO MATCH' : type.toUpperCase();
+        const typeLabel = `<span class="system-log__type--${type}">${displayType}:</span>`;
+        const messageSpan = `<span class="system-log__message">${htmlMessage}</span>`;
+
+        let html = `${timestamp} ${typeLabel} ${messageSpan}`;
+
+        if (url) {
+            html += `<br><span class="system-log__url">${escapeHtml(url)}</span>`;
+        }
+
+        entry.innerHTML = html;
+        elements.systemLog.appendChild(entry);
+
+        // Auto-scroll to bottom
+        elements.systemLog.scrollTop = elements.systemLog.scrollHeight;
+    }
+
+    /**
      * Clears all entries from the System Activity Log
      */
     function clearLog() {
@@ -289,7 +319,7 @@
             ? i18n.t('cta_active_single')
             : i18n.t('cta_active_multiple', { count: jobOffers });
         elements.ctaButton.textContent = offerText;
-        elements.ctaButton.classList.remove('cta-button--disabled', 'cta-button--warning');
+        elements.ctaButton.classList.remove('cta-button--disabled', 'cta-button--warning', 'cta-button--incomplete');
         elements.ctaButton.classList.add('cta-button--active');
         elements.ctaButton.setAttribute('aria-disabled', 'false');
         elements.ctaButton.setAttribute('tabindex', '0');
@@ -308,7 +338,7 @@
 
         elements.ctaButton.href = url;
         elements.ctaButton.textContent = i18n.t('cta_warning');
-        elements.ctaButton.classList.remove('cta-button--disabled', 'cta-button--active');
+        elements.ctaButton.classList.remove('cta-button--disabled', 'cta-button--active', 'cta-button--incomplete');
         elements.ctaButton.classList.add('cta-button--warning');
         elements.ctaButton.setAttribute('aria-disabled', 'false');
         elements.ctaButton.setAttribute('tabindex', '0');
@@ -319,6 +349,26 @@
     }
 
     /**
+     * Enables the CTA button for incomplete profiles (profilo_incompleto)
+     * Shows special state - profile found but no active offers
+     * @param {string} url - The search URL to assign to the button
+     */
+    function enableCtaButtonIncomplete(url) {
+        if (!elements.ctaButton) return;
+
+        elements.ctaButton.href = url;
+        elements.ctaButton.textContent = i18n.t('cta_no_offers');
+        elements.ctaButton.classList.remove('cta-button--disabled', 'cta-button--active', 'cta-button--warning');
+        elements.ctaButton.classList.add('cta-button--incomplete');
+        elements.ctaButton.setAttribute('aria-disabled', 'false');
+        elements.ctaButton.setAttribute('tabindex', '0');
+        elements.ctaButton.setAttribute('target', '_blank');
+        elements.ctaButton.setAttribute('rel', 'noopener noreferrer');
+
+        state.currentScenario = 'match';
+    }
+
+    /**
      * Disables the CTA button
      */
     function disableCtaButton() {
@@ -326,7 +376,7 @@
 
         elements.ctaButton.href = '#';
         elements.ctaButton.textContent = i18n.t('cta_default');
-        elements.ctaButton.classList.remove('cta-button--active', 'cta-button--warning');
+        elements.ctaButton.classList.remove('cta-button--active', 'cta-button--warning', 'cta-button--incomplete');
         elements.ctaButton.classList.add('cta-button--disabled');
         elements.ctaButton.setAttribute('aria-disabled', 'true');
         elements.ctaButton.setAttribute('tabindex', '-1');
@@ -390,14 +440,14 @@
             state.mansioniPadre = data.database_mansioni;
             state.isDataLoaded = true;
 
-            // Log statistics from metadata
-            const stats = data.metadata?.statistiche_mapping;
+            // Log statistics from metadata (v4 format)
+            const stats = data.metadata?.statistiche;
             if (stats) {
                 logActivity(LogType.INFO, i18n.t('log_loaded_stats', {
-                    total: stats.totale_mansioni,
-                    main: stats.match_categoria_principale,
-                    alias: stats.match_alias,
-                    fallback: stats.fallback_applicato
+                    total: stats.totale_voci,
+                    main: stats.categoria_principale?.totale || 0,
+                    alias: stats.alias || 0,
+                    incomplete: stats.profilo_incompleto?.totale || 0
                 }));
             } else {
                 logActivity(LogType.INFO, i18n.t('log_loaded', { count: state.mansioniPadre.length }));
@@ -479,6 +529,20 @@
     // ==========================================================================
 
     /**
+     * Returns the CSS class for a mapping type badge
+     * @param {string} mappingType - The mapping type (categoria_principale, alias, profilo_incompleto)
+     * @returns {string} CSS class for the badge
+     */
+    function getBadgeClass(mappingType) {
+        const classMap = {
+            'categoria_principale': 'search__suggestion-badge--primary',
+            'alias': 'search__suggestion-badge--alias',
+            'profilo_incompleto': 'search__suggestion-badge--incomplete'
+        };
+        return classMap[mappingType] || '';
+    }
+
+    /**
      * Renders suggestions dropdown
      * @param {Object[]} suggestions - Array of matching mansione objects
      * @param {string} query - Original query for highlighting
@@ -500,7 +564,15 @@
             li.setAttribute('role', 'option');
             li.setAttribute('id', `suggestion-${index}`);
             li.setAttribute('aria-selected', 'false');
-            li.innerHTML = highlightMatch(suggestion.nome, query);
+
+            // Build suggestion HTML with name and badge
+            const nameHtml = highlightMatch(suggestion.nome, query);
+            const badgeClass = getBadgeClass(suggestion.mapping_type);
+            const badgeText = i18n.t(`mapping_short_${suggestion.mapping_type}`);
+            li.innerHTML = `
+                <span class="search__suggestion-name">${nameHtml}</span>
+                <span class="search__suggestion-badge ${badgeClass}">${badgeText}</span>
+            `;
 
             li.addEventListener('click', () => selectSuggestion(suggestion));
             li.addEventListener('mouseenter', () => setActiveSuggestion(index));
@@ -585,36 +657,59 @@
 
     /**
      * Processes Scenario 1: Exact Match
+     * Handles three mapping types: categoria_principale, alias, profilo_incompleto
      * @param {Object} mansione - The matched mansione object
      */
     function processScenario1(mansione) {
         const { nome, numero_offerte, url, soft_skills, mapping_type } = mansione;
 
-        // Build consolidated log message
-        const mappingLabel = formatMappingType(mapping_type);
-        const skillsList = soft_skills && soft_skills.length > 0
-            ? soft_skills.join(', ')
-            : 'N/A';
+        // Check if soft skills are missing
+        const hasSkills = soft_skills && soft_skills.length > 0;
 
-        const consolidatedMessage = i18n.t('log_match_found', {
-            type: mappingLabel,
+        // Build consolidated log message with HTML formatting
+        const mappingLabel = formatMappingType(mapping_type);
+        const skillsList = hasSkills
+            ? soft_skills.join(', ')
+            : `<span class="system-log__warning">${i18n.t('skills_not_defined')}</span>`;
+
+        const consolidatedMessage = i18n.t('log_match_found_html', {
+            type: `<strong>${mappingLabel}</strong>`,
             skills: skillsList,
             offers: numero_offerte
         });
-        logActivity(LogType.LOGIC, consolidatedMessage, url);
+        logActivityHtml(LogType.LOGIC, consolidatedMessage, url || 'N/A');
 
         state.selectedRole = nome;
-        state.generatedUrl = url;
 
-        // Enable CTA (green state) with job offers count
-        enableCtaButton(url, numero_offerte);
-        setInputMatchState();
+        // Handle based on mapping_type
+        if (mapping_type === 'profilo_incompleto') {
+            // profilo_incompleto: URL is null, redirect to generic offers page
+            const fallbackUrl = CONFIG.searchUrl;
+            state.generatedUrl = fallbackUrl;
 
-        // Update status message
-        showStatus(
-            i18n.t('status_match', { role: nome, type: mappingLabel }),
-            'match'
-        );
+            // Enable CTA with special state for incomplete profiles
+            enableCtaButtonIncomplete(fallbackUrl);
+            setInputMatchState();
+
+            // Update status message (no warning in UI)
+            showStatus(
+                i18n.t('status_match', { role: nome, type: mappingLabel }),
+                'match'
+            );
+        } else {
+            // categoria_principale or alias: URL is always present
+            state.generatedUrl = url;
+
+            // Enable CTA (green state) with job offers count
+            enableCtaButton(url, numero_offerte);
+            setInputMatchState();
+
+            // Update status message (no warning in UI)
+            showStatus(
+                i18n.t('status_match', { role: nome, type: mappingLabel }),
+                'match'
+            );
+        }
     }
 
     /**
@@ -630,16 +725,16 @@
         // Log Event B: Check
         logActivity(LogType.LOGIC, i18n.t('log_check_no_match'));
 
-        // Generate search URL
-        const searchUrl = generateSearchUrl(searchTerm);
+        // Use generic offers page URL for no-match scenario
+        const fallbackUrl = CONFIG.searchUrl;
         state.selectedRole = searchTerm;
-        state.generatedUrl = searchUrl;
+        state.generatedUrl = fallbackUrl;
 
         // Log Event C: No Match routing
-        logActivity(LogType.NOMATCH, i18n.t('log_generating_search'), searchUrl);
+        logActivity(LogType.NOMATCH, i18n.t('log_generating_search'), fallbackUrl);
 
         // Enable CTA (orange/warning state)
-        enableCtaButtonWarning(searchUrl);
+        enableCtaButtonWarning(fallbackUrl);
         setInputNoMatchState();
 
         // Log Event D: UI Ready
@@ -680,10 +775,16 @@
      * Shows a status message
      * @param {string} message - Message to display
      * @param {'match' | 'no-match' | 'error' | ''} type - Message type
+     * @param {string} [warning] - Optional warning message to display in red
      */
-    function showStatus(message, type = '') {
-        elements.status.textContent = message;
+    function showStatus(message, type = '', warning = '') {
         elements.status.className = 'search__status';
+
+        if (warning) {
+            elements.status.innerHTML = `${escapeHtml(message)} <span class="search__status-warning">${escapeHtml(warning)}</span>`;
+        } else {
+            elements.status.textContent = message;
+        }
 
         if (type === 'match') {
             elements.status.classList.add('search__status--match');

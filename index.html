@@ -82,8 +82,8 @@
             <div class="modal__body">
                 <div class="modal__example">
                     <h4 class="modal__example-title">
-                        <span class="modal__example-badge modal__example-badge--primary" data-i18n="modal_example1_badge">Mansione Padre</span>
-                        <span class="modal__example-name">Addetto alla vendita retail</span>
+                        <span class="modal__example-badge modal__example-badge--primary" data-i18n="modal_example1_badge">Categoria Principale</span>
+                        <span class="modal__example-name" data-i18n="modal_example1_search">Addetto alla vendita retail</span>
                         <button class="modal__copy-btn" data-copy="Addetto alla vendita retail" data-i18n-aria-label="modal_copy" aria-label="Copia">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -91,41 +91,41 @@
                             </svg>
                         </button>
                     </h4>
-                    <p class="modal__example-text" data-i18n="modal_example1_text">Il sistema trova il match esatto. Tratta la mansione come un nodo primario e carica il set completo di skill (Comunicazione, Orientamento al cliente, Standing, ecc.). L'utente atterra direttamente sull'URL dedicato con 74 offerte attive.</p>
+                    <p class="modal__example-text" data-i18n="modal_example1_text">Il sistema trova il match esatto nel database delle offerte attive. La mansione è classificata come categoria_principale con has_custom_skills: true, il che significa che possiede un set di competenze specifico e verificato (Coinvolgimento, Stabilità emotiva, Flessibilità, ecc.). L'utente atterra direttamente sull'URL dedicato con 74 offerte attive.</p>
                 </div>
 
                 <div class="modal__example">
                     <h4 class="modal__example-title">
                         <span class="modal__example-badge modal__example-badge--alias" data-i18n="modal_example2_badge">Alias</span>
-                        <span class="modal__example-name">Magazziniere</span>
-                        <button class="modal__copy-btn" data-copy="Magazziniere" data-i18n-aria-label="modal_copy" aria-label="Copia">
+                        <span class="modal__example-name" data-i18n="modal_example2_search">Insegnante scuola dell'infanzia</span>
+                        <button class="modal__copy-btn" data-copy="Insegnante scuola dell'infanzia" data-i18n-aria-label="modal_copy" aria-label="Copia">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                             </svg>
                         </button>
                     </h4>
-                    <p class="modal__example-text" data-i18n="modal_example2_text">Il sistema riconosce che l'utente ha usato un termine comune. Attraverso il campo rif_parent presente nel JSON, il motore "pesca" le skill del padre (Addetto al magazzino - gestione ordine e uscita merci) ma mantiene l'utente sul link specifico per i magazzinieri che ha 60 offerte.</p>
+                    <p class="modal__example-text" data-i18n="modal_example2_text">Il sistema riconosce che l'utente ha cercato una variante specifica di una mansione più generica. Il mapping_type: alias indica che questa voce eredita URL e numero offerte dalla categoria principale di riferimento (categoria_riferimento: insegnante), ma mantiene le proprie soft skills distintive (Problem Solving, Coinvolgimento, Comunicazione, Ascolto, ecc.). L'utente viene indirizzato alla pagina "Insegnante" che contiene 1 offerta attiva, ricevendo però un profilo competenze calibrato sul ruolo specifico dell'infanzia.</p>
                 </div>
 
                 <div class="modal__example">
                     <h4 class="modal__example-title">
-                        <span class="modal__example-badge modal__example-badge--fallback" data-i18n="modal_example3_badge">Fallback</span>
-                        <span class="modal__example-name">Massaggiatore estetico</span>
-                        <button class="modal__copy-btn" data-copy="Massaggiatore estetico" data-i18n-aria-label="modal_copy" aria-label="Copia">
+                        <span class="modal__example-badge modal__example-badge--incomplete" data-i18n="modal_example3_badge">Profilo Incompleto</span>
+                        <span class="modal__example-name" data-i18n="modal_example3_search">Data Scientist</span>
+                        <button class="modal__copy-btn" data-copy="Data Scientist" data-i18n-aria-label="modal_copy" aria-label="Copia">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                             </svg>
                         </button>
                     </h4>
-                    <p class="modal__example-text" data-i18n="modal_example3_text">Il sistema identifica una mansione esistente tra le offerte ma priva di mappatura competenze nel database della struttura. Attiva il protocollo di sicurezza caricando le skill universali per la survey, ma mantiene il puntamento al link specifico per massaggiatori presente nel JSON, tutelando la conversione finale nonostante l'assenza di dati psicometrici originali.</p>
+                    <p class="modal__example-text" data-i18n="modal_example3_text">Il sistema identifica una mansione presente nel database delle competenze ma priva di offerte attive sul sito Gi Group. Il mapping_type: profilo_incompleto segnala che url: null e numero_offerte: 0. Il motore carica comunque le 8 soft skills associate al ruolo (Iniziativa, Problem Solving, Analisi, Innovazione, ecc.) per completare il profilo dell'utente nella survey. Il frontend gestisce l'assenza di link mostrando un messaggio "Nessuna offerta attiva al momento", mantenendo il valore informativo delle competenze.</p>
                 </div>
 
                 <div class="modal__example">
                     <h4 class="modal__example-title">
                         <span class="modal__example-badge modal__example-badge--nomatch" data-i18n="modal_example4_badge">No Match</span>
-                        <span class="modal__example-name">Influencer</span>
+                        <span class="modal__example-name" data-i18n="modal_example4_search">Influencer</span>
                         <button class="modal__copy-btn" data-copy="Influencer" data-i18n-aria-label="modal_copy" aria-label="Copia">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -133,7 +133,37 @@
                             </svg>
                         </button>
                     </h4>
-                    <p class="modal__example-text" data-i18n="modal_example4_text">L'input non trova alcun riscontro nei database delle offerte o delle competenze. Il motore carica il set di skill di base per completare il racconto dell'archetipo e genera dinamicamente una ricerca generica sul sito Gi Group basata sul termine inserito, evitando che l'utente finisca in un vicolo cieco tecnologico e garantendo continuita all'esperienza.</p>
+                    <p class="modal__example-text" data-i18n="modal_example4_text">L'input non trova alcun riscontro nel database delle mansioni. Il frontend rileva l'assenza di match e attiva il protocollo di fallback caricando le skill universali (Problem Solving, Affidabilità, Collaborazione Teamwork) per completare comunque la survey, generando dinamicamente una ricerca generica sul sito Gi Group basata sul termine inserito. Questo evita che l'utente finisca in un vicolo cieco e garantisce continuità all'esperienza.</p>
+                </div>
+
+                <h4 class="modal__section-title" data-i18n="modal_extra_title">Casi Aggiuntivi da Verificare</h4>
+
+                <div class="modal__example">
+                    <h4 class="modal__example-title">
+                        <span class="modal__example-badge modal__example-badge--warning" data-i18n="modal_example5_badge">Skills Mancanti</span>
+                        <span class="modal__example-name" data-i18n="modal_example5_search">Magazziniere</span>
+                        <button class="modal__copy-btn" data-copy="Magazziniere" data-i18n-aria-label="modal_copy" aria-label="Copia">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </h4>
+                    <p class="modal__example-text" data-i18n="modal_example5_text">Il sistema trova la mansione tra le offerte attive (60 posizioni disponibili), ma il campo has_custom_skills: false e soft_skills: null indicano che non esistono competenze specifiche mappate nel database della struttura. Il frontend rileva il valore null e applica il set di skill universali per la survey, mantenendo l'URL valido verso le offerte reali.</p>
+                </div>
+
+                <div class="modal__example">
+                    <h4 class="modal__example-title">
+                        <span class="modal__example-badge modal__example-badge--error" data-i18n="modal_example6_badge">Doppio Null</span>
+                        <span class="modal__example-name" data-i18n="modal_example6_search">Web Marketing Expert</span>
+                        <button class="modal__copy-btn" data-copy="Web Marketing Expert" data-i18n-aria-label="modal_copy" aria-label="Copia">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </h4>
+                    <p class="modal__example-text" data-i18n="modal_example6_text">Caso limite: la mansione esiste nel database struttura ma con url: null, soft_skills: null e numero_offerte: 0. Il frontend gestisce il doppio null mostrando "Nessuna offerta attiva" e applicando il fallback delle skill universali a livello di visualizzazione per garantire il completamento della survey.</p>
                 </div>
             </div>
         </div>

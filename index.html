@@ -14,13 +14,37 @@
     <main class="main">
         <section class="hero">
             <div class="hero__container">
-                <h2 class="hero__title" data-i18n="hero_title">Qual è il tuo ruolo?</h2>
-                <p class="hero__subtitle" data-i18n="hero_subtitle">
-                    Digita la tua mansione attuale per verificare la corrispondenza con il nostro database.
-                </p>
+                <!-- Segmented Control -->
+                <div class="segmented-control" role="tablist" aria-label="Tipo di ricerca">
+                    <button
+                        class="segmented-control__button segmented-control__button--active"
+                        role="tab"
+                        aria-selected="true"
+                        aria-controls="panel-sondaggio"
+                        id="tab-sondaggio"
+                        data-panel="sondaggio"
+                        data-i18n="tab_sondaggio"
+                    >Sondaggio</button>
+                    <button
+                        class="segmented-control__button"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="panel-ruolo"
+                        id="tab-ruolo"
+                        data-panel="ruolo"
+                        data-i18n="tab_ruolo"
+                    >Ruolo</button>
+                </div>
 
-                <div class="search">
-                    <div class="search__wrapper">
+                <!-- Panel Ruolo -->
+                <div id="panel-ruolo" class="panel" role="tabpanel" aria-labelledby="tab-ruolo" hidden>
+                    <h2 class="hero__title" data-i18n="hero_title">Qual è il tuo ruolo?</h2>
+                    <p class="hero__subtitle" data-i18n="hero_subtitle">
+                        Digita la tua mansione attuale per verificare la corrispondenza con il nostro database.
+                    </p>
+
+                    <div class="search">
+                        <div class="search__wrapper">
                         <input
                             type="text"
                             id="jobInput"
@@ -63,6 +87,58 @@
                     >
                         Vedi Offerte
                     </a>
+                    </div>
+                </div>
+
+                <!-- Panel Sondaggio (default) -->
+                <div id="panel-sondaggio" class="panel panel--active" role="tabpanel" aria-labelledby="tab-sondaggio">
+                    <div class="survey">
+                        <!-- Survey Intro -->
+                        <div id="survey-intro" class="survey__intro">
+                            <h2 class="hero__title" data-i18n="survey_title">Scopri il tuo Archetipo</h2>
+                            <p class="hero__subtitle" data-i18n="survey_subtitle">
+                                Rispondi a 10 domande per scoprire il tuo profilo professionale e le tue soft skill distintive.
+                            </p>
+                            <button id="survey-start" class="survey__start-btn" data-i18n="survey_start">
+                                Inizia il Sondaggio
+                            </button>
+                            <a href="#" id="surveyPresetsLink" class="search__suggestions-link" data-i18n="survey_presets_link">Suggerimenti</a>
+                        </div>
+
+                        <!-- Survey Questions -->
+                        <div id="survey-questions" class="survey__questions" hidden>
+                            <div class="survey__progress">
+                                <div class="survey__progress-bar">
+                                    <div id="survey-progress-fill" class="survey__progress-fill"></div>
+                                </div>
+                                <span id="survey-progress-text" class="survey__progress-text">Domanda 1 di 10</span>
+                            </div>
+
+                            <div id="survey-question-container" class="survey__question-container">
+                                <!-- Question will be rendered here -->
+                            </div>
+
+                            <div class="survey__instructions">
+                                <span class="survey__instruction survey__instruction--plus" data-i18n="survey_instruction_plus">Seleziona PIU simile a te</span>
+                                <span class="survey__instruction survey__instruction--minus" data-i18n="survey_instruction_minus">Seleziona MENO simile a te</span>
+                            </div>
+
+                            <div class="survey__navigation">
+                                <button id="survey-prev" class="survey__nav-btn survey__nav-btn--secondary" disabled data-i18n="survey_prev">Indietro</button>
+                                <button id="survey-next" class="survey__nav-btn survey__nav-btn--primary" disabled data-i18n="survey_next">Avanti</button>
+                            </div>
+                        </div>
+
+                        <!-- Survey Results -->
+                        <div id="survey-results" class="survey__results" hidden>
+                            <div id="survey-results-content">
+                                <!-- Results will be rendered here -->
+                            </div>
+                            <button id="survey-restart" class="survey__restart-btn" data-i18n="survey_restart">
+                                Rifai il Test
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -176,8 +252,33 @@
         </div>
     </div>
 
+    <!-- Modal Survey Presets -->
+    <div id="surveyPresetsModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="surveyPresetsModalTitle">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content modal__content--presets">
+            <div class="modal__header">
+                <h3 id="surveyPresetsModalTitle" class="modal__title" data-i18n="survey_presets_modal_title">Simula Risultato</h3>
+                <button id="surveyPresetsCloseBtn" class="modal__close" data-i18n-aria-label="modal_close" aria-label="Chiudi">&times;</button>
+            </div>
+            <div class="modal__body">
+                <p class="survey-presets__description" data-i18n="survey_presets_description">Seleziona un archetipo per simulare il risultato del sondaggio.</p>
+                <div class="survey-presets__blend-toggle">
+                    <label class="survey-presets__blend-label">
+                        <input type="checkbox" id="surveyPresetsBlendToggle">
+                        <span class="survey-presets__toggle-slider"></span>
+                        <span data-i18n="survey_presets_blend">Blend</span>
+                    </label>
+                </div>
+                <div id="surveyPresetsGrid" class="survey-presets__grid">
+                    <!-- Archetype cards will be rendered here by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/components.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/survey.js"></script>
 </body>
 </html>

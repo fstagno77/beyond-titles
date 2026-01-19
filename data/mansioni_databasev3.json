@@ -1,0 +1,6195 @@
+{
+  "metadata": {
+    "versione": "1.2.0",
+    "data_aggiornamento": "2026-01-10T17:35:25",
+    "progetto": "GI Group Digital Platform - Human Skill Report PoC",
+    "fonte_dati": "mansioni-softskills-dude-20251230.xlsx",
+    "descrizione": "Database mansioni con mapping soft skills per il motore di calcolo dello Human Skill Report",
+    "statistiche_mapping": {
+      "totale_mansioni": 445,
+      "match_categoria_principale": 230,
+      "match_alias": 47,
+      "fallback_applicato": 168,
+      "soft_skills_uniche": 34
+    },
+    "soft_skills_fallback": [
+      "Problem Solving",
+      "Affidabilità",
+      "Collaborazione Teamwork"
+    ],
+    "note_tecniche": {
+      "algoritmo_matching": "Cascata a 3 livelli: (1) match esatto categoria principale, (2) match esatto alias, (3) fallback",
+      "normalizzazione": "Unicode NFD, rimozione diacritici, lowercase, trim spazi",
+      "correzioni_applicate": {
+        "nomi_mansioni": "5 nomi corretti (apostrofi → accenti)",
+        "soft_skills": "Normalizzazione MAIUSCOLO → Title Case, apostrofi → accenti"
+      }
+    }
+  },
+  "database_mansioni": [
+    {
+      "nome": "Operaio generico",
+      "id": "operaio-generico",
+      "numero_offerte": 167,
+      "url": "https://www.gigroup.it/offerte-lavoro/operaio-generico-jo/",
+      "soft_skills": [
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto al magazzino - gestione ordine e uscita merci",
+      "id": "addetto-al-magazzino-gestione-ordine-e-uscita-merci",
+      "numero_offerte": 92,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-al-magazzino-gestione-ordine-e-uscita-merci-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Scrupolosità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto al magazzino - entrata merci",
+      "id": "addetto-al-magazzino-entrata-merci",
+      "numero_offerte": 79,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-al-magazzino-entrata-merci-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto alla vendita retail",
+      "id": "addetto-alla-vendita-retail",
+      "numero_offerte": 74,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-vendita-retail-jo/",
+      "soft_skills": [
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Collaborazione Teamwork",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Manutentore elettromeccanico",
+      "id": "manutentore-elettromeccanico",
+      "numero_offerte": 72,
+      "url": "https://www.gigroup.it/offerte-lavoro/manutentore-elettromeccanico-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Orientamento al cliente",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto alle operazioni ausiliarie di vendita gdo",
+      "id": "addetto-alle-operazioni-ausiliarie-di-vendita-gdo",
+      "numero_offerte": 66,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alle-operazioni-ausiliarie-di-vendita-gdo-jo/",
+      "soft_skills": [
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Orientamento al cliente",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Magazziniere",
+      "id": "magazziniere",
+      "numero_offerte": 60,
+      "url": "https://www.gigroup.it/offerte-lavoro/magazziniere-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Tecnico commerciale",
+      "id": "tecnico-commerciale",
+      "numero_offerte": 59,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnico-commerciale-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Coinvolgimento",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Negoziazione",
+        "Concretezza",
+        "Affidabilità",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Manutentore meccanico",
+      "id": "manutentore-meccanico",
+      "numero_offerte": 58,
+      "url": "https://www.gigroup.it/offerte-lavoro/manutentore-meccanico-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Orientamento al cliente",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Autista",
+      "id": "autista",
+      "numero_offerte": 49,
+      "url": "https://www.gigroup.it/offerte-lavoro/autista-jo/",
+      "soft_skills": [
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Comunicazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Operatore linea di produzione",
+      "id": "operatore-linea-di-produzione",
+      "numero_offerte": 49,
+      "url": "https://www.gigroup.it/offerte-lavoro/operatore-linea-di-produzione-jo/",
+      "soft_skills": [
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Banconiere di prodotti di gastronomici",
+      "id": "banconiere-di-prodotti-di-gastronomici",
+      "numero_offerte": 47,
+      "url": "https://www.gigroup.it/offerte-lavoro/banconiere-di-prodotti-di-gastronomici-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Manutentore elettrico",
+      "id": "manutentore-elettrico",
+      "numero_offerte": 42,
+      "url": "https://www.gigroup.it/offerte-lavoro/manutentore-elettrico-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Orientamento al cliente",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Restaurant manager",
+      "id": "restaurant-manager",
+      "numero_offerte": 41,
+      "url": "https://www.gigroup.it/offerte-lavoro/restaurant-manager-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Guida / Team Leadership",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Manutentore elettrico junior",
+      "id": "manutentore-elettrico-junior",
+      "numero_offerte": 39,
+      "url": "https://www.gigroup.it/offerte-lavoro/manutentore-elettrico-junior-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Concretezza",
+        "Affidabilità",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Sales assistant luxury - boutique",
+      "id": "sales-assistant-luxury-boutique",
+      "numero_offerte": 38,
+      "url": "https://www.gigroup.it/offerte-lavoro/sales-assistant-luxury-boutique-jo/",
+      "soft_skills": [
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Negoziazione",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Agente di vendita monomandatario",
+      "id": "agente-di-vendita-monomandatario",
+      "numero_offerte": 38,
+      "url": "https://www.gigroup.it/offerte-lavoro/agente-di-vendita-monomandatario-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Negoziazione",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto alle vendite-sales assistant",
+      "id": "addetto-alle-vendite-sales-assistant",
+      "numero_offerte": 37,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alle-vendite-sales-assistant-jo/",
+      "soft_skills": [
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Orientamento al cliente",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Montatore meccanico",
+      "id": "montatore-meccanico",
+      "numero_offerte": 37,
+      "url": "https://www.gigroup.it/offerte-lavoro/montatore-meccanico-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Collaborazione Teamwork",
+        "Autonomia operativa",
+        "Sensibilità manuale",
+        "Visualizzazione spaziale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Agente di vendita consulenziale monomandatario",
+      "id": "agente-di-vendita-consulenziale-monomandatario",
+      "numero_offerte": 37,
+      "url": "https://www.gigroup.it/offerte-lavoro/agente-di-vendita-consulenziale-monomandatario-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Sintesi",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Negoziazione",
+        "Innovazione",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto macchine cnc junior",
+      "id": "addetto-macchine-cnc-junior",
+      "numero_offerte": 35,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-macchine-cnc-junior-jo/",
+      "soft_skills": [
+        "Analisi",
+        "Scrupolosità",
+        "Ascolto",
+        "Comunicazione",
+        "Concretezza",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa",
+        "Autonomia operativa",
+        "Visualizzazione spaziale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto all'assemblaggio",
+      "id": "addetto-all-assemblaggio",
+      "numero_offerte": 34,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-allassemblaggio-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Meccanico",
+      "id": "meccanico",
+      "numero_offerte": 34,
+      "url": "https://www.gigroup.it/offerte-lavoro/meccanico-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto alle pulizie",
+      "id": "addetto-alle-pulizie",
+      "numero_offerte": 30,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alle-pulizie-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Montatore meccanico junior",
+      "id": "montatore-meccanico-junior",
+      "numero_offerte": 26,
+      "url": "https://www.gigroup.it/offerte-lavoro/montatore-meccanico-junior-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Collaborazione Teamwork",
+        "Autonomia operativa",
+        "Sensibilità manuale",
+        "Visualizzazione spaziale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto contabilita generale",
+      "id": "addetto-contabilita-generale",
+      "numero_offerte": 26,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-contabilita-generale-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Decisionalità",
+        "Ascolto",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Coordinamento operativo / Controllo",
+        "Affidabilità",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto ristorazione",
+      "id": "addetto-ristorazione",
+      "numero_offerte": 25,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-ristorazione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Stabilità emotiva / Gestione dello stress",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Manutentore elettronico",
+      "id": "manutentore-elettronico",
+      "numero_offerte": 23,
+      "url": "https://www.gigroup.it/offerte-lavoro/manutentore-elettronico-jo/",
+      "soft_skills": [
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Senso di appartenenza"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Middle manager gdo (vice direttore/ capo reparto grocery)",
+      "id": "middle-manager-gdo-vice-direttore-capo-reparto-grocery",
+      "numero_offerte": 23,
+      "url": "https://www.gigroup.it/offerte-lavoro/middle-manager-gdo-vice-direttore-capo-reparto-grocery-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza",
+        "Guida / Team Leadership",
+        "Flessibilità operativa",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Manutentore elettromeccanico junior",
+      "id": "manutentore-elettromeccanico-junior",
+      "numero_offerte": 23,
+      "url": "https://www.gigroup.it/offerte-lavoro/manutentore-elettromeccanico-junior-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Concretezza",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Chef de rang",
+      "id": "chef-de-rang",
+      "numero_offerte": 22,
+      "url": "https://www.gigroup.it/offerte-lavoro/chef-de-rang-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Ottico",
+      "id": "ottico",
+      "numero_offerte": 22,
+      "url": "https://www.gigroup.it/offerte-lavoro/ottico-jo/",
+      "soft_skills": [
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto call center inbound",
+      "id": "addetto-call-center-inbound",
+      "numero_offerte": 21,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-call-center-inbound-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Hr generalist",
+      "id": "hr-generalist",
+      "numero_offerte": 21,
+      "url": "https://www.gigroup.it/offerte-lavoro/hr-generalist-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Decisionalità",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Affidabilità",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto banco pesce",
+      "id": "addetto-banco-pesce",
+      "numero_offerte": 20,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-banco-pesce-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Capo squadra manutenzione",
+      "id": "capo-squadra-manutenzione",
+      "numero_offerte": 20,
+      "url": "https://www.gigroup.it/offerte-lavoro/capo-squadra-manutenzione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Help desk i livello",
+      "id": "help-desk-i-livello",
+      "numero_offerte": 20,
+      "url": "https://www.gigroup.it/offerte-lavoro/help-desk-i-livello-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Comunicazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Back office commerciale",
+      "id": "back-office-commerciale",
+      "numero_offerte": 19,
+      "url": "https://www.gigroup.it/offerte-lavoro/back-office-commerciale-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Gestione dei conflitti",
+        "Problem Setting"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto controllo qualità meccatronica",
+      "id": "addetto-controllo-qualita-meccatronica",
+      "numero_offerte": 19,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-controllo-qualita-meccatronica-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Concretezza",
+        "Sensibilità manuale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Specialista fiscale",
+      "id": "specialista-fiscale",
+      "numero_offerte": 19,
+      "url": "https://www.gigroup.it/offerte-lavoro/specialista-fiscale-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Disegnatore meccanico",
+      "id": "disegnatore-meccanico",
+      "numero_offerte": 19,
+      "url": "https://www.gigroup.it/offerte-lavoro/disegnatore-meccanico-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Impiegato amministrativo",
+      "id": "impiegato-amministrativo",
+      "numero_offerte": 19,
+      "url": "https://www.gigroup.it/offerte-lavoro/impiegato-amministrativo-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Sintesi",
+        "Scrupolosità"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Addetto controllo qualità",
+      "id": "addetto-controllo-qualita",
+      "numero_offerte": 19,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-controllo-qualita-jo/",
+      "soft_skills": [
+        "Analisi",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Tecnico di manutenzione impianti",
+      "id": "tecnico-di-manutenzione-impianti",
+      "numero_offerte": 18,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnico-di-manutenzione-impianti-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Elettricista civile",
+      "id": "elettricista-civile",
+      "numero_offerte": 17,
+      "url": "https://www.gigroup.it/offerte-lavoro/elettricista-civile-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Flessibilità / Pensare per alternative"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto al confezionamento",
+      "id": "addetto-al-confezionamento",
+      "numero_offerte": 17,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-al-confezionamento-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Scrupolosità"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Conduttore impianti automatizzati",
+      "id": "conduttore-impianti-automatizzati",
+      "numero_offerte": 17,
+      "url": "https://www.gigroup.it/offerte-lavoro/conduttore-impianti-automatizzati- -jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Orientamento al risultato",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Saldatore a filo",
+      "id": "saldatore-a-filo",
+      "numero_offerte": 17,
+      "url": "https://www.gigroup.it/offerte-lavoro/saldatore-a-filo-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto amministrativo",
+      "id": "addetto-amministrativo",
+      "numero_offerte": 17,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-amministrativo-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Sintesi",
+        "Scrupolosità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Barman-bartender",
+      "id": "barman-bartender",
+      "numero_offerte": 16,
+      "url": "https://www.gigroup.it/offerte-lavoro/barman-bartender-jo/",
+      "soft_skills": [
+        "Stabilità emotiva / Gestione dello stress",
+        "Comunicazione",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Carrellista",
+      "id": "carrellista",
+      "numero_offerte": 16,
+      "url": "https://www.gigroup.it/offerte-lavoro/carrellista-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Receptionist",
+      "id": "receptionist",
+      "numero_offerte": 16,
+      "url": "https://www.gigroup.it/offerte-lavoro/receptionist-jo/",
+      "soft_skills": [
+        "Ascolto",
+        "Comunicazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Sales account",
+      "id": "sales-account",
+      "numero_offerte": 15,
+      "url": "https://www.gigroup.it/offerte-lavoro/sales-account-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Negoziazione",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Banconiere di prodotti di macelleria",
+      "id": "banconiere-di-prodotti-di-macelleria",
+      "numero_offerte": 15,
+      "url": "https://www.gigroup.it/offerte-lavoro/banconiere-di-prodotti-di-macelleria-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Tornitore cnc",
+      "id": "tornitore-cnc",
+      "numero_offerte": 15,
+      "url": "https://www.gigroup.it/offerte-lavoro/tornitore-cnc-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Chef de partie",
+      "id": "chef-de-partie",
+      "numero_offerte": 15,
+      "url": "https://www.gigroup.it/offerte-lavoro/chef-de-partie-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Capo reparto ortofrutta",
+      "id": "capo-reparto-ortofrutta",
+      "numero_offerte": 15,
+      "url": "https://www.gigroup.it/offerte-lavoro/capo-reparto-ortofrutta-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza",
+        "Guida / Team Leadership",
+        "Flessibilità operativa",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Governante",
+      "id": "governante",
+      "numero_offerte": 14,
+      "url": "https://www.gigroup.it/offerte-lavoro/governante-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Guida / Team Leadership",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto logistica",
+      "id": "addetto-logistica",
+      "numero_offerte": 14,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-logistica-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Segretaria/addetto di segreteria",
+      "id": "segretaria-addetto-di-segreteria",
+      "numero_offerte": 14,
+      "url": "https://www.gigroup.it/offerte-lavoro/segretaria-addetto-di-segreteria-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Scrupolosità",
+        "Ascolto",
+        "Comunicazione",
+        "Collaborazione Teamwork",
+        "Concretezza",
+        "Affidabilità",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Montatore elettromeccanico",
+      "id": "montatore-elettromeccanico",
+      "numero_offerte": 14,
+      "url": "https://www.gigroup.it/offerte-lavoro/montatore-elettromeccanico-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Collaborazione Teamwork",
+        "Autonomia operativa",
+        "Sensibilità manuale",
+        "Visualizzazione spaziale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto/a ufficio acquisti",
+      "id": "addetto-a-ufficio-acquisti",
+      "numero_offerte": 14,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-a-ufficio-acquisti-jo/",
+      "soft_skills": [
+        "Analisi",
+        "Comunicazione",
+        "Coordinamento operativo / Controllo",
+        "Affidabilità",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Barista",
+      "id": "barista",
+      "numero_offerte": 13,
+      "url": "https://www.gigroup.it/offerte-lavoro/barista-jo/",
+      "soft_skills": [
+        "Stabilità emotiva / Gestione dello stress",
+        "Comunicazione",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Montatore elettrico",
+      "id": "montatore-elettrico",
+      "numero_offerte": 12,
+      "url": "https://www.gigroup.it/offerte-lavoro/montatore-elettrico-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto cassa gdo",
+      "id": "addetto-cassa-gdo",
+      "numero_offerte": 12,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-cassa-gdo-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Coinvolgimento",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto carico/scarico macchina cnc",
+      "id": "addetto-carico-scarico-macchina-cnc",
+      "numero_offerte": 12,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-carico-scarico-macchina-cnc-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto paghe e contributi",
+      "id": "addetto-paghe-e-contributi",
+      "numero_offerte": 12,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-paghe-e-contributi-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Ascolto",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Affidabilità",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Elettricista industriale",
+      "id": "elettricista-industriale",
+      "numero_offerte": 12,
+      "url": "https://www.gigroup.it/offerte-lavoro/elettricista-industriale-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Docente",
+      "id": "docente",
+      "numero_offerte": 12,
+      "url": "https://www.gigroup.it/offerte-lavoro/docente-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto carico-scarico",
+      "id": "addetto-carico-scarico",
+      "numero_offerte": 11,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-carico-scarico-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Addetto alla laminazione",
+      "id": "addetto-alla-laminazione",
+      "numero_offerte": 11,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-laminazione-jo/",
+      "soft_skills": [
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Sales account junior - procacciatore d'affari",
+      "id": "sales-account-junior-procacciatore-d-affari",
+      "numero_offerte": 11,
+      "url": "https://www.gigroup.it/offerte-lavoro/sales-account-junior-procacciatore-daffari-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Negoziazione",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto all'assemblaggio - componenti elettronici su schede",
+      "id": "addetto-all-assemblaggio-componenti-elettronici-su-schede",
+      "numero_offerte": 11,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-allassemblaggio-componenti-elettronici-su-schede-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto mensa",
+      "id": "addetto-mensa",
+      "numero_offerte": 10,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-mensa-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto front office bancario",
+      "id": "addetto-front-office-bancario",
+      "numero_offerte": 10,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-front-office-bancario-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Capo reparto macelleria",
+      "id": "capo-reparto-macelleria",
+      "numero_offerte": 10,
+      "url": "https://www.gigroup.it/offerte-lavoro/capo-reparto-macelleria-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza",
+        "Guida / Team Leadership",
+        "Flessibilità operativa",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Fresatore cnc",
+      "id": "fresatore-cnc",
+      "numero_offerte": 10,
+      "url": "https://www.gigroup.it/offerte-lavoro/fresatore-cnc-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Infermiere professionale",
+      "id": "infermiere-professionale",
+      "numero_offerte": 10,
+      "url": "https://www.gigroup.it/offerte-lavoro/infermiere-professionale-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Tubista",
+      "id": "tubista",
+      "numero_offerte": 10,
+      "url": "https://www.gigroup.it/offerte-lavoro/tubista-jo/",
+      "soft_skills": [
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Idraulico",
+      "id": "idraulico",
+      "numero_offerte": 10,
+      "url": "https://www.gigroup.it/offerte-lavoro/idraulico-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Cucitore tessile-maglieria",
+      "id": "cucitore-tessile-maglieria",
+      "numero_offerte": 10,
+      "url": "https://www.gigroup.it/offerte-lavoro/cucitore-tessile-maglieria-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Manutentore meccanico junior",
+      "id": "manutentore-meccanico-junior",
+      "numero_offerte": 9,
+      "url": "https://www.gigroup.it/offerte-lavoro/manutentore-meccanico-junior-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Concretezza",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Developer junior",
+      "id": "developer-junior",
+      "numero_offerte": 9,
+      "url": "https://www.gigroup.it/offerte-lavoro/developer-junior-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Collaborazione Teamwork",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Impiantista termoidraulico",
+      "id": "impiantista-termoidraulico",
+      "numero_offerte": 9,
+      "url": "https://www.gigroup.it/offerte-lavoro/impiantista-termoidraulico-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto macchine cnc",
+      "id": "addetto-macchine-cnc",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-macchine-cnc-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Carpentiere officina",
+      "id": "carpentiere-officina",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/carpentiere-officina-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Comunicazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Geometra di cantiere",
+      "id": "geometra-di-cantiere",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/geometra-di-cantiere-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Stock keeper - retail",
+      "id": "stock-keeper-retail",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/stock-keeper-retail-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Agente di vendita plurimandatario",
+      "id": "agente-di-vendita-plurimandatario",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/agente-di-vendita-plurimandatario-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Negoziazione",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto stampaggio materie plastiche",
+      "id": "addetto-stampaggio-materie-plastiche",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-stampaggio-materie-plastiche-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Flessibilità / Pensare per alternative"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Assistente di direzione",
+      "id": "assistente-di-direzione",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/assistente-di-direzione-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Sintesi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Comunicazione",
+        "Coordinamento operativo / Controllo",
+        "Affidabilità",
+        "Flessibilità operativa",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Collaudatore elettromeccanico",
+      "id": "collaudatore-elettromeccanico",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/collaudatore-elettromeccanico-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Decisionalità",
+        "Concretezza",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Cablatore automazione / quadrista",
+      "id": "cablatore-automazione-quadrista",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/cablatore-automazione-quadrista-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Autonomia operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Manutentore caldaie",
+      "id": "manutentore-caldaie",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/manutentore-caldaie-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Saldatore a tig",
+      "id": "saldatore-a-tig",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/saldatore-a-tig-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Oss",
+      "id": "oss",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/oss-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Ascolto"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Inventarista-scaffalista",
+      "id": "inventarista-scaffalista",
+      "numero_offerte": 8,
+      "url": "https://www.gigroup.it/offerte-lavoro/inventarista-scaffalista-jo/",
+      "soft_skills": [
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Farmacista",
+      "id": "farmacista",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/farmacista-jo/",
+      "soft_skills": [
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Inside sales",
+      "id": "inside-sales",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/inside-sales-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Negoziazione",
+        "Concretezza",
+        "Affidabilità",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto controllo di gestione",
+      "id": "addetto-controllo-di-gestione",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-controllo-di-gestione-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Sintesi",
+        "Analisi",
+        "Ascolto",
+        "Orientamento al risultato",
+        "Affidabilità",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Cameriere di ristorante",
+      "id": "cameriere-di-ristorante",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/cameriere-di-ristorante-jo/",
+      "soft_skills": [
+        "Stabilità emotiva / Gestione dello stress",
+        "Comunicazione",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Process engineer",
+      "id": "process-engineer",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/process-engineer-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Sales assistant luxury - outlet",
+      "id": "sales-assistant-luxury-outlet",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/sales-assistant-luxury-outlet-jo/",
+      "soft_skills": [
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Impiegato amministrativo di magazzino",
+      "id": "impiegato-amministrativo-di-magazzino",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/impiegato-amministrativo-di-magazzino-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Attrezzista",
+      "id": "attrezzista",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/attrezzista-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Innovazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Auditor qualità",
+      "id": "auditor-qualita",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/auditor-qualita-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto call center outbound",
+      "id": "addetto-call-center-outbound",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-call-center-outbound-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Analisi",
+        "Decisionalità",
+        "Comunicazione",
+        "Influenza",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Preventivista",
+      "id": "preventivista",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/preventivista-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Progettista meccanico impianti",
+      "id": "progettista-meccanico-impianti",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/progettista-meccanico-impianti-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Ascolto",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Cameriere ai piani",
+      "id": "cameriere-ai-piani",
+      "numero_offerte": 7,
+      "url": "https://www.gigroup.it/offerte-lavoro/cameriere-ai-piani-jo/",
+      "soft_skills": [
+        "Stabilità emotiva / Gestione dello stress",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto ufficio tecnico",
+      "id": "addetto-ufficio-tecnico",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-ufficio-tecnico-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Carpentiere metallico",
+      "id": "carpentiere-metallico",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/carpentiere-metallico-jo/",
+      "soft_skills": [
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Ndt technician - tecnico cnd",
+      "id": "ndt-technician-tecnico-cnd",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/ndt-technician-tecnico-cnd-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto imballaggio",
+      "id": "addetto-imballaggio",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-imballaggio-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Scrupolosità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Responsabile della manutenzione",
+      "id": "responsabile-della-manutenzione",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/responsabile-della-manutenzione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Operatore fiscale per la dichiarazione dei redditi",
+      "id": "operatore-fiscale-per-la-dichiarazione-dei-redditi",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/operatore-fiscale-per-la-dichiarazione-dei-redditi-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Frigorista",
+      "id": "frigorista",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/frigorista-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Store manager retail/fashion",
+      "id": "store-manager-retail-fashion",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/store-manager-retail-fashion-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Sintesi",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza",
+        "Guida / Team Leadership",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Store manager gdo",
+      "id": "store-manager-gdo",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/store-manager-gdo-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza",
+        "Guida / Team Leadership",
+        "Flessibilità operativa",
+        "Standing",
+        "Problem Setting"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto contabilitÀ clienti fornitori e banche",
+      "id": "addetto-contabilita-clienti-fornitori-e-banche",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-contabilita-clienti-fornitori-e-banche-jo/",
+      "soft_skills": [
+        "Analisi"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Customer service specialist",
+      "id": "customer-service-specialist",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/customer-service-specialist-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Gestione dei conflitti",
+        "Problem Setting"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Manovale edile",
+      "id": "manovale-edile",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/manovale-edile-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Cuoco",
+      "id": "cuoco",
+      "numero_offerte": 6,
+      "url": "https://www.gigroup.it/offerte-lavoro/cuoco-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Commesso",
+      "id": "commesso",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/commesso-jo/",
+      "soft_skills": [
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Orientamento al cliente",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Mulettista",
+      "id": "mulettista",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/mulettista-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Rspp/aspp/hse",
+      "id": "rspp-aspp-hse",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/rspp-aspp-hse-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Ascolto",
+        "Comunicazione",
+        "Concretezza",
+        "Affidabilità",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Piegatore di lamiere",
+      "id": "piegatore-di-lamiere",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/piegatore-di-lamiere-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Panettiere",
+      "id": "panettiere",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/panettiere-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Addetto banco pelletteria junior",
+      "id": "addetto-banco-pelletteria-junior",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-banco-pelletteria-junior-jo/",
+      "soft_skills": [
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork",
+        "Standing",
+        "Sensibilità manuale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Maintenance engineer",
+      "id": "maintenance-engineer",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/maintenance-engineer-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Analisi",
+        "Decisionalità",
+        "Coordinamento operativo / Controllo",
+        "Concretezza",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto sportello cup",
+      "id": "addetto-sportello-cup",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-sportello-cup-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Tecnico operatore sala controllo",
+      "id": "tecnico-operatore-sala-controllo",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnico-operatore-sala-controllo-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Aiuto cucina",
+      "id": "aiuto-cucina",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/aiuto-cucina-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto assemblaggio gruppi meccanici",
+      "id": "addetto-assemblaggio-gruppi-meccanici",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-assemblaggio-gruppi-meccanici-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Addetto alla stagionatura alimentare",
+      "id": "addetto-alla-stagionatura-alimentare",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-stagionatura-alimentare-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Developer fullstack java",
+      "id": "developer-fullstack-java",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/developer-fullstack-java-jo/",
+      "soft_skills": [
+        "Analisi",
+        "Ascolto",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Capo reparto",
+      "id": "capo-reparto",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/capo-reparto-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Tecnico di laboratorio",
+      "id": "tecnico-di-laboratorio",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnico-di-laboratorio-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Programmatori plc",
+      "id": "programmatori-plc",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/programmatori-plc-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto al montaggio a banco pelletteria",
+      "id": "addetto-al-montaggio-a-banco-pelletteria",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-al-montaggio-a-banco-pelletteria-jo/",
+      "soft_skills": [
+        "Scrupolosità",
+        "Collaborazione Teamwork",
+        "Sensibilità manuale",
+        "Visualizzazione spaziale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Assistente sociale",
+      "id": "assistente-sociale",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/assistente-sociale-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto back office ufficio estero",
+      "id": "addetto-back-office-ufficio-estero",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-back-office-ufficio-estero-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Orientamento al risultato",
+        "Affidabilità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Commis de rang",
+      "id": "commis-de-rang",
+      "numero_offerte": 5,
+      "url": "https://www.gigroup.it/offerte-lavoro/commis-de-rang-jo/",
+      "soft_skills": [
+        "Stabilità emotiva / Gestione dello stress",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Facchino d'albergo",
+      "id": "facchino-d-albergo",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/facchino-dalbergo-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Tecnico commerciale - perito tecnico",
+      "id": "tecnico-commerciale-perito-tecnico",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnico-commerciale-perito-tecnico-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Problem Solving",
+        "Analisi",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Influenza",
+        "Orientamento al risultato",
+        "Negoziazione",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Programmatore macchine cnc",
+      "id": "programmatore-macchine-cnc",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/programmatore-macchine-cnc-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Capo turno",
+      "id": "capo-turno",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/capo-turno-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Flessibilità / Pensare per alternative",
+        "Comunicazione",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Negoziazione",
+        "Guida / Team Leadership"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Project manager produzione",
+      "id": "project-manager-produzione",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/project-manager-produzione-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Comunicazione",
+        "Collaborazione Teamwork",
+        "Negoziazione",
+        "Guida / Team Leadership",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Tecnico impianti automatizzati",
+      "id": "tecnico-impianti-automatizzati",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnico-impianti-automatizzati-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Decisionalità",
+        "Orientamento al risultato",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Responsabile logistica",
+      "id": "responsabile-logistica",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/responsabile-logistica-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Promoter",
+      "id": "promoter",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/promoter-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Negoziazione"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Progettista meccanico macchine complesse / macchinari industriali",
+      "id": "progettista-meccanico-macchine-complesse-macchinari-industriali",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/progettista-meccanico-macchine-complesse-macchinari-industriali-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Ascolto",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Macellaio di negozio",
+      "id": "macellaio-di-negozio",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/macellaio-di-negozio-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto ufficio gare",
+      "id": "addetto-ufficio-gare",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-ufficio-gare-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Comunicazione",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Coordinamento operativo / Controllo",
+        "Negoziazione",
+        "Affidabilità",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto alla pressa",
+      "id": "addetto-alla-pressa",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-pressa-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Sales assistant retail",
+      "id": "sales-assistant-retail",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/sales-assistant-retail-jo/",
+      "soft_skills": [
+        "Stabilità emotiva / Gestione dello stress",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Negoziazione",
+        "Concretezza",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Hr administration specialist",
+      "id": "hr-administration-specialist",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/hr-administration-specialist-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Affidabilità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Hr business partner",
+      "id": "hr-business-partner",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/hr-business-partner-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Analisi",
+        "Flessibilità / Pensare per alternative",
+        "Senso di appartenenza",
+        "Affidabilità",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa",
+        "Motivazione allo sviluppo"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto contabilità clienti",
+      "id": "addetto-contabilita-clienti",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-contabilita-clienti-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Ascolto",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Affidabilità",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto estrusione",
+      "id": "addetto-estrusione",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-estrusione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Document controller",
+      "id": "document-controller",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/document-controller-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Scrupolosità",
+        "Ascolto",
+        "Comunicazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Sistemista junior",
+      "id": "sistemista-junior",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/sistemista-junior-jo/",
+      "soft_skills": [
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Ascolto",
+        "Comunicazione",
+        "Concretezza",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Operatore chimico",
+      "id": "operatore-chimico",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/operatore-chimico-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Operatori distributori benzina",
+      "id": "operatori-distributori-benzina",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/operatori-distributori-benzina-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Informatore scientifico del farmaco",
+      "id": "informatore-scientifico-del-farmaco",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/informatore-scientifico-del-farmaco-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Sintesi",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto alle consegne",
+      "id": "addetto-alle-consegne",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alle-consegne-jo/",
+      "soft_skills": [
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Comunicazione"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Cameriere di bar",
+      "id": "cameriere-di-bar",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/cameriere-di-bar-jo/",
+      "soft_skills": [
+        "Comunicazione",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Addetto contabilità fornitori",
+      "id": "addetto-contabilita-fornitori",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-contabilita-fornitori-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Decisionalità",
+        "Ascolto",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Affidabilità",
+        "Flessibilità operativa",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Operatore ecologico",
+      "id": "operatore-ecologico",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/operatore-ecologico-jo/",
+      "soft_skills": [
+        "Orientamento al risultato",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Payroll specialist - azienda",
+      "id": "payroll-specialist-azienda",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/payroll-specialist-azienda-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Sintesi",
+        "Analisi",
+        "Ascolto",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Affidabilità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Altro - hr",
+      "id": "altro-hr",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-hr-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto controllo qualità chimico",
+      "id": "addetto-controllo-qualita-chimico",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-controllo-qualita-chimico-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Concretezza",
+        "Affidabilità",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Project manager",
+      "id": "project-manager",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/project-manager-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto tesoreria",
+      "id": "addetto-tesoreria",
+      "numero_offerte": 4,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-tesoreria-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Ascolto",
+        "Orientamento al risultato",
+        "Negoziazione",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Programmatore/sviluppatore software",
+      "id": "programmatore-sviluppatore-software",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/programmatore-sviluppatore-software-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto lavanderia",
+      "id": "addetto-lavanderia",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-lavanderia-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Capo reparto gdo",
+      "id": "capo-reparto-gdo",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/capo-reparto-gdo-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Coordinamento operativo / Controllo"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Educatore professionale",
+      "id": "educatore-professionale",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/educatore-professionale-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto al confezionamento pelletteria",
+      "id": "addetto-al-confezionamento-pelletteria",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-al-confezionamento-pelletteria-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Receptionist con lingue estere",
+      "id": "receptionist-con-lingue-estere",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/receptionist-con-lingue-estere-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Consulente applicativi erp",
+      "id": "consulente-applicativi-erp",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/consulente-applicativi-erp-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Comunicazione",
+        "Collaborazione Teamwork",
+        "Innovazione",
+        "Execution"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Educatore",
+      "id": "educatore",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/educatore-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Disegnatore elettrico",
+      "id": "disegnatore-elettrico",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/disegnatore-elettrico-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Sistemista server linux",
+      "id": "sistemista-server-linux",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/sistemista-server-linux-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Responsabile magazzino",
+      "id": "responsabile-magazzino",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/responsabile-magazzino-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Progettista elettrico",
+      "id": "progettista-elettrico",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/progettista-elettrico-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Proposal engineer",
+      "id": "proposal-engineer",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/proposal-engineer-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Affidabilità",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto alle operazioni ausiliarie alla vendita",
+      "id": "addetto-alle-operazioni-ausiliarie-alla-vendita",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alle-operazioni-ausiliarie-alla-vendita-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Production planner",
+      "id": "production-planner",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/production-planner-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto di selezione",
+      "id": "addetto-di-selezione",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-di-selezione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Beauty consultant",
+      "id": "beauty-consultant",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/beauty-consultant-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Casaro",
+      "id": "casaro",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/casaro-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Installatore e collaudatore quadri elettrici automazione",
+      "id": "installatore-e-collaudatore-quadri-elettrici-automazione",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/installatore-e-collaudatore-quadri-elettrici-automazione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Influenza",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Autonomia operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto controllo qualità tessile",
+      "id": "addetto-controllo-qualita-tessile",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-controllo-qualita-tessile-jo/",
+      "soft_skills": [
+        "Stabilità emotiva / Gestione dello stress",
+        "Senso di appartenenza"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Installatore e collaudatore macchine automatiche",
+      "id": "installatore-e-collaudatore-macchine-automatiche",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/installatore-e-collaudatore-macchine-automatiche-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork",
+        "Concretezza",
+        "Affidabilità",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Sales assistant luxury - corner",
+      "id": "sales-assistant-luxury-corner",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/sales-assistant-luxury-corner-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Altro - health care services",
+      "id": "altro-health-care-services",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-health-care-services-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Sistemista server microsoft",
+      "id": "sistemista-server-microsoft",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/sistemista-server-microsoft-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Operaio cartotecnico",
+      "id": "operaio-cartotecnico",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/operaio-cartotecnico-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Scrupolosità",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Restauratore di beni librari",
+      "id": "restauratore-di-beni-librari",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/restauratore-di-beni-librari-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Cablatore automazione junior",
+      "id": "cablatore-automazione-junior",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/cablatore-automazione-junior-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Scrupolosità",
+        "Collaborazione Teamwork",
+        "Autonomia operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Specialista selezione",
+      "id": "specialista-selezione",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/specialista-selezione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Data entry",
+      "id": "data-entry",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/data-entry-jo/",
+      "soft_skills": [
+        "Scrupolosità",
+        "Orientamento al risultato",
+        "Affidabilità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Business analyst",
+      "id": "business-analyst",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/business-analyst-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Analisi",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Collaborazione Teamwork",
+        "Innovazione",
+        "Concretezza",
+        "Gestione dei conflitti",
+        "Motivazione allo sviluppo"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto quality assurance",
+      "id": "addetto-quality-assurance",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-quality-assurance-jo/",
+      "soft_skills": [
+        "Analisi",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Capo reparto panetteria/forno",
+      "id": "capo-reparto-panetteria-forno",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/capo-reparto-panetteria-forno-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza",
+        "Guida / Team Leadership",
+        "Flessibilità operativa",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Guardia giurata",
+      "id": "guardia-giurata",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/guardia-giurata-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Help desk ii livello",
+      "id": "help-desk-ii-livello",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/help-desk-ii-livello-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Comunicazione",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Pasticciere",
+      "id": "pasticciere",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/pasticciere-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Addetto banco salumeria",
+      "id": "addetto-banco-salumeria",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-banco-salumeria-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto lavorazioni meccaniche",
+      "id": "addetto-lavorazioni-meccaniche",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-lavorazioni-meccaniche-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Muratore",
+      "id": "muratore",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/muratore-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Contabile studio commercialista",
+      "id": "contabile-studio-commercialista",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/contabile-studio-commercialista-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Ascolto",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Affidabilità",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Quality engineer",
+      "id": "quality-engineer",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/quality-engineer-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Decisionalità",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Grafico pubblicitario",
+      "id": "grafico-pubblicitario",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/grafico-pubblicitario-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Ascensorista",
+      "id": "ascensorista",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/ascensorista-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto al pantografo",
+      "id": "addetto-al-pantografo",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-al-pantografo-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto recupero crediti",
+      "id": "addetto-recupero-crediti",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-recupero-crediti-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Lean engineer",
+      "id": "lean-engineer",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/lean-engineer-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Sintesi",
+        "Analisi",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Influenza",
+        "Collaborazione Teamwork",
+        "Innovazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Tecnico installatore",
+      "id": "tecnico-installatore",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnico-installatore-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Logistic engineer",
+      "id": "logistic-engineer",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/logistic-engineer-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Sintesi",
+        "Analisi",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Specialista logistica",
+      "id": "specialista-logistica",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/specialista-logistica-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Bi consultant",
+      "id": "bi-consultant",
+      "numero_offerte": 3,
+      "url": "https://www.gigroup.it/offerte-lavoro/bi-consultant-jo/",
+      "soft_skills": [
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Comunicazione",
+        "Collaborazione Teamwork",
+        "Innovazione",
+        "Senso di appartenenza",
+        "Predisposizione all'apprendimento",
+        "Standing",
+        "Autonomia operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Operatore macchine movimento terra",
+      "id": "operatore-macchine-movimento-terra",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/operatore-macchine-movimento-terra-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Conduttore impianti farmaceutici",
+      "id": "conduttore-impianti-farmaceutici",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/conduttore-impianti-farmaceutici-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Montatore elettronico",
+      "id": "montatore-elettronico",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/montatore-elettronico-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Altro - sales",
+      "id": "altro-sales",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-sales-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Specialista gestione del personale -hr generalist",
+      "id": "specialista-gestione-del-personale-hr-generalist",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/specialista-gestione-del-personale-hr-generalist-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Ingegnere civile di cantiere",
+      "id": "ingegnere-civile-di-cantiere",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/ingegnere-civile-di-cantiere-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Tornitore cnc con programmazione bordo macchina",
+      "id": "tornitore-cnc-con-programmazione-bordo-macchina",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/tornitore-cnc-con-programmazione-bordo-macchina-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Tecnico di laboratorio microbiologico/controllo qualità",
+      "id": "tecnico-di-laboratorio-microbiologico-controllo-qualita",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnico-di-laboratorio-microbiologico-controllo-qualita-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto alla lavorazione del pesce",
+      "id": "addetto-alla-lavorazione-del-pesce",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-lavorazione-del-pesce-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Maitre",
+      "id": "maitre",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/maitre-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Orientamento al cliente",
+        "Guida / Team Leadership",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Saldatore",
+      "id": "saldatore",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/saldatore-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Disegnatore edile",
+      "id": "disegnatore-edile",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/disegnatore-edile-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto alla preparazione dell'impasto",
+      "id": "addetto-alla-preparazione-dell-impasto",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-preparazione-dellimpasto-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Attaccafili su ring pettinati",
+      "id": "attaccafili-su-ring-pettinati",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/attaccafili-su-ring-pettinati-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Tecnico di cantiere",
+      "id": "tecnico-di-cantiere",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnico-di-cantiere-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Legal and compliance specialist",
+      "id": "legal-and-compliance-specialist",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/legal-and-compliance-specialist-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Sintesi",
+        "Scrupolosità",
+        "Ascolto",
+        "Comunicazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Cantiniere",
+      "id": "cantiniere",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/cantiniere-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Hr cost controller",
+      "id": "hr-cost-controller",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/hr-cost-controller-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Ascolto",
+        "Collaborazione Teamwork",
+        "Concretezza",
+        "Affidabilità",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Tecnico per la depurazione acque",
+      "id": "tecnico-per-la-depurazione-acque",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnico-per-la-depurazione-acque-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Testing engineer",
+      "id": "testing-engineer",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/testing-engineer-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Coordinamento operativo / Controllo",
+        "Innovazione",
+        "Concretezza",
+        "Affidabilità",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Verniciatore carrozzeria",
+      "id": "verniciatore-carrozzeria",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/verniciatore-carrozzeria-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Operatore di servizi",
+      "id": "operatore-di-servizi",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/operatore-di-servizi-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Aiuto cuoco",
+      "id": "aiuto-cuoco",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/aiuto-cuoco-jo/",
+      "soft_skills": [
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Addetto spedizioni",
+      "id": "addetto-spedizioni",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-spedizioni-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Digital marketing specialist",
+      "id": "digital-marketing-specialist",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/digital-marketing-specialist-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Coordinamento operativo / Controllo",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto alla formazione",
+      "id": "addetto-alla-formazione",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-formazione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto import-export",
+      "id": "addetto-import-export",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-import-export-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Customer service estero",
+      "id": "customer-service-estero",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/customer-service-estero-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Fresatore cnc con programmazione bordo macchina",
+      "id": "fresatore-cnc-con-programmazione-bordo-macchina",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/fresatore-cnc-con-programmazione-bordo-macchina-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Tessitore",
+      "id": "tessitore",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/tessitore-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Gommista",
+      "id": "gommista",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/gommista-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto movimentazione merci",
+      "id": "addetto-movimentazione-merci",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-movimentazione-merci-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Conduttore di caldaia a vapore",
+      "id": "conduttore-di-caldaia-a-vapore",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/conduttore-di-caldaia-a-vapore-jo/",
+      "soft_skills": [
+        "Coinvolgimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Specialista di comunicazione esterna",
+      "id": "specialista-di-comunicazione-esterna",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/specialista-di-comunicazione-esterna-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Project manager impianti",
+      "id": "project-manager-impianti",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/project-manager-impianti-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Sintesi",
+        "Analisi",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Negoziazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Direttore servizi ristorazione",
+      "id": "direttore-servizi-ristorazione",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/direttore-servizi-ristorazione-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Guida / Team Leadership"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Macchinista pelletteria junior",
+      "id": "macchinista-pelletteria-junior",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/macchinista-pelletteria-junior-jo/",
+      "soft_skills": [
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Portiere",
+      "id": "portiere",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/portiere-jo/",
+      "soft_skills": [
+        "Problem Solving"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Talent acquisition specialist",
+      "id": "talent-acquisition-specialist",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/talent-acquisition-specialist-jo/",
+      "soft_skills": [
+        "Analisi",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Collaborazione Teamwork",
+        "Affidabilità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Orlatrice calzature",
+      "id": "orlatrice-calzature",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/orlatrice-calzature-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork",
+        "Sensibilità manuale",
+        "Visualizzazione spaziale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Responsabile di facility management",
+      "id": "responsabile-di-facility-management",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/responsabile-di-facility-management-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Analista tecnico",
+      "id": "analista-tecnico",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/analista-tecnico-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Buyer",
+      "id": "buyer",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/buyer-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto alla sorveglianza",
+      "id": "addetto-alla-sorveglianza",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-sorveglianza-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Rammendatrice",
+      "id": "rammendatrice",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/rammendatrice-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Affidabilità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Capo cantiere",
+      "id": "capo-cantiere",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/capo-cantiere-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Venditore",
+      "id": "venditore",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/venditore-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Altro - horeca",
+      "id": "altro-horeca",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-horeca-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Analista di tempi e metodi",
+      "id": "analista-di-tempi-e-metodi",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/analista-di-tempi-e-metodi-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto ufficio accettazione",
+      "id": "addetto-ufficio-accettazione",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-ufficio-accettazione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Receptionist di albergo",
+      "id": "receptionist-di-albergo",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/receptionist-di-albergo-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto marketing",
+      "id": "addetto-marketing",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-marketing-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Collaborazione Teamwork",
+        "Coordinamento operativo / Controllo",
+        "Innovazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Executive housekeeper",
+      "id": "executive-housekeeper",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/executive-housekeeper-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Progettista meccanico prodotto/componenti macchinari semplici",
+      "id": "progettista-meccanico-prodotto-componenti-macchinari-semplici",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/progettista-meccanico-prodotto-componenti-macchinari-semplici-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Ascolto",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Sistemista networking",
+      "id": "sistemista-networking",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/sistemista-networking-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Brand/product manager",
+      "id": "brand-product-manager",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/brand-product-manager-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Coinvolgimento",
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Innovazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Giardiniere",
+      "id": "giardiniere",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/giardiniere-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Data scientist junior",
+      "id": "data-scientist-junior",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/data-scientist-junior-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Problem Solving",
+        "Analisi",
+        "Comunicazione",
+        "Innovazione",
+        "Senso di appartenenza",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto nave",
+      "id": "addetto-nave",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-nave-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "E-commerce specialist",
+      "id": "e-commerce-specialist",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/e-commerce-specialist-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Collaborazione Teamwork",
+        "Coordinamento operativo / Controllo",
+        "Innovazione",
+        "Concretezza"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Hostess di accoglienza",
+      "id": "hostess-di-accoglienza",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/hostess-di-accoglienza-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Responsabile manutenzione di stabilimento",
+      "id": "responsabile-manutenzione-di-stabilimento",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/responsabile-manutenzione-di-stabilimento-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Food & beverage manager",
+      "id": "food-beverage-manager",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/food-beverage-manager-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Orientamento al cliente",
+        "Guida / Team Leadership",
+        "Flessibilità operativa",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto back office bancario",
+      "id": "addetto-back-office-bancario",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-back-office-bancario-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Trader",
+      "id": "trader",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/trader-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Project engineer produzione",
+      "id": "project-engineer-produzione",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/project-engineer-produzione-jo/",
+      "soft_skills": [
+        "Scrupolosità",
+        "Comunicazione",
+        "Collaborazione Teamwork",
+        "Coordinamento operativo / Controllo",
+        "Concretezza",
+        "Affidabilità",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto assistenza clienti",
+      "id": "addetto-assistenza-clienti",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-assistenza-clienti-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Orientamento al cliente"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Specialista amministrativo",
+      "id": "specialista-amministrativo",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/specialista-amministrativo-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Team leader logistica",
+      "id": "team-leader-logistica",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/team-leader-logistica-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto all'amministrazione del personale",
+      "id": "addetto-all-amministrazione-del-personale",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-allamministrazione-del-personale-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto pianificazione produzione",
+      "id": "addetto-pianificazione-produzione",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-pianificazione-produzione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Analista funzionale jr",
+      "id": "analista-funzionale-jr",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/analista-funzionale-jr-jo/",
+      "soft_skills": [
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Ascolto",
+        "Comunicazione",
+        "Collaborazione Teamwork",
+        "Innovazione",
+        "Senso di appartenenza",
+        "Predisposizione all'apprendimento",
+        "Execution"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Ostetrica",
+      "id": "ostetrica",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/ostetrica-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Progettista impianti",
+      "id": "progettista-impianti",
+      "numero_offerte": 2,
+      "url": "https://www.gigroup.it/offerte-lavoro/progettista-impianti-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Responsabile gdo",
+      "id": "responsabile-gdo",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/responsabile-gdo-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto cassa retail/fashion",
+      "id": "addetto-cassa-retail-fashion",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-cassa-retail-fashion-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Coinvolgimento",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Saldatore ad elettrodo",
+      "id": "saldatore-ad-elettrodo",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/saldatore-ad-elettrodo-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Sommelier",
+      "id": "sommelier",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/sommelier-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Orientamento al cliente",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto montaggio motori",
+      "id": "addetto-montaggio-motori",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-montaggio-motori-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Laminatore",
+      "id": "laminatore",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/laminatore-jo/",
+      "soft_skills": [
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Capo reparto salumeria",
+      "id": "capo-reparto-salumeria",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/capo-reparto-salumeria-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza",
+        "Guida / Team Leadership",
+        "Flessibilità operativa",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Insegnante",
+      "id": "insegnante",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/insegnante-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Coinvolgimento",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Tecnologo di processo",
+      "id": "tecnologo-di-processo",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnologo-di-processo-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Concretezza",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto alla lucidatura",
+      "id": "addetto-alla-lucidatura",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-lucidatura-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Organizzatore di eventi",
+      "id": "organizzatore-di-eventi",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/organizzatore-di-eventi-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Night auditor",
+      "id": "night-auditor",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/night-auditor-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Dietista",
+      "id": "dietista",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/dietista-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Trade marketing junior",
+      "id": "trade-marketing-junior",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/trade-marketing-junior-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Innovazione",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Software tester junior",
+      "id": "software-tester-junior",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/software-tester-junior-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Sintesi",
+        "Scrupolosità",
+        "Execution"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Progettista elettronico firmware",
+      "id": "progettista-elettronico-firmware",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/progettista-elettronico-firmware-jo/",
+      "soft_skills": [
+        "Analisi",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Addetto back office fondi",
+      "id": "addetto-back-office-fondi",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-back-office-fondi-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Orientamento al risultato",
+        "Affidabilità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Altro - engineering",
+      "id": "altro-engineering",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-engineering-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto vendite showroom",
+      "id": "addetto-vendite-showroom",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-vendite-showroom-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Responsabile risorse umane",
+      "id": "responsabile-risorse-umane",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/responsabile-risorse-umane-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto preparazione di filatura",
+      "id": "addetto-preparazione-di-filatura",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-preparazione-di-filatura-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Collaborazione Teamwork",
+        "Concretezza",
+        "Affidabilità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Account",
+      "id": "account",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/account-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto allo spruzzo",
+      "id": "addetto-allo-spruzzo",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-allo-spruzzo-jo/",
+      "soft_skills": [
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Customer development specialist",
+      "id": "customer-development-specialist",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/customer-development-specialist-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Negoziazione",
+        "Gestione dei conflitti",
+        "Problem Setting"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Developer web",
+      "id": "developer-web",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/developer-web-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Comunicazione",
+        "Orientamento al risultato"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Altro - customer service (post sales)",
+      "id": "altro-customer-service-post-sales",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-customer-service-post-sales-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Specialista pianificazione di produzione",
+      "id": "specialista-pianificazione-di-produzione",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/specialista-pianificazione-di-produzione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto gestione crediti",
+      "id": "addetto-gestione-crediti",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-gestione-crediti-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Impiegato chimico tintore",
+      "id": "impiegato-chimico-tintore",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/impiegato-chimico-tintore-jo/",
+      "soft_skills": [
+        "Analisi",
+        "Scrupolosità",
+        "Decisionalità",
+        "Innovazione",
+        "Affidabilità",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Assistente direzioni lavori",
+      "id": "assistente-direzioni-lavori",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/assistente-direzioni-lavori-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Vestierista",
+      "id": "vestierista",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/vestierista-jo/",
+      "soft_skills": [
+        "Coinvolgimento",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Cybersecurity analyst",
+      "id": "cybersecurity-analyst",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/cybersecurity-analyst-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Comunicazione",
+        "Influenza",
+        "Autonomia esecutiva"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Ausiliare scolastico",
+      "id": "ausiliare-scolastico",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/ausiliare-scolastico-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Developer backend java",
+      "id": "developer-backend-java",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/developer-backend-java-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Verniciatore scocca",
+      "id": "verniciatore-scocca",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/verniciatore-scocca-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Operatore alla disinfestazione",
+      "id": "operatore-alla-disinfestazione",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/operatore-alla-disinfestazione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Project engineer automazione",
+      "id": "project-engineer-automazione",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/project-engineer-automazione-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Coinvolgimento",
+        "Analisi",
+        "Orientamento al cliente",
+        "Collaborazione Teamwork",
+        "Coordinamento operativo / Controllo",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Application engineer",
+      "id": "application-engineer",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/application-engineer-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Collaborazione Teamwork",
+        "Negoziazione",
+        "Affidabilità",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto al finissaggio tessile",
+      "id": "addetto-al-finissaggio-tessile",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-al-finissaggio-tessile-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Collaborazione Teamwork",
+        "Concretezza"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto ufficio commerciale italia",
+      "id": "addetto-ufficio-commerciale-italia",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-ufficio-commerciale-italia-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Tappezziere",
+      "id": "tappezziere",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/tappezziere-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Assistant store manager",
+      "id": "assistant-store-manager",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/assistant-store-manager-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Pmo ict",
+      "id": "pmo-ict",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/pmo-ict-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Comunicazione",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto alla salatura",
+      "id": "addetto-alla-salatura",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-salatura-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Operaio cartario",
+      "id": "operaio-cartario",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/operaio-cartario-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Scrupolosità",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Sales representative",
+      "id": "sales-representative",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/sales-representative-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Negoziazione",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Lattoniere",
+      "id": "lattoniere",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/lattoniere-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Altro - contact center",
+      "id": "altro-contact-center",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-contact-center-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto alla gestione del personale",
+      "id": "addetto-alla-gestione-del-personale",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-gestione-del-personale-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Colf",
+      "id": "colf",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/colf-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "It system architect",
+      "id": "it-system-architect",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/it-system-architect-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Tagliatore pelletteria",
+      "id": "tagliatore-pelletteria",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/tagliatore-pelletteria-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork",
+        "Visualizzazione spaziale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Tubista montatore",
+      "id": "tubista-montatore",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/tubista-montatore-jo/",
+      "soft_skills": [
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Progettista elettronico hardware",
+      "id": "progettista-elettronico-hardware",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/progettista-elettronico-hardware-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Innovazione"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Altro - facilities and security",
+      "id": "altro-facilities-and-security",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-facilities-and-security-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Commis di cucina",
+      "id": "commis-di-cucina",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/commis-di-cucina-jo/",
+      "soft_skills": [
+        "Stabilità emotiva / Gestione dello stress",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Vice responsabile punto vendita",
+      "id": "vice-responsabile-punto-vendita",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/vice-responsabile-punto-vendita-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Stabilità emotiva / Gestione dello stress",
+        "Comunicazione",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Sarto",
+      "id": "sarto",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/sarto-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Specialista distinta base",
+      "id": "specialista-distinta-base",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/specialista-distinta-base-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Saldocarpentiere",
+      "id": "saldocarpentiere",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/saldocarpentiere-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Full stack developer",
+      "id": "full-stack-developer",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/full-stack-developer-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Ascolto",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Concretezza"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Hse manager delle aziende delle fer",
+      "id": "hse-manager-delle-aziende-delle-fer",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/hse-manager-delle-aziende-delle-fer-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Chef",
+      "id": "chef",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/chef-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Guida / Team Leadership",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto montaggio calzatura",
+      "id": "addetto-montaggio-calzatura",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-montaggio-calzatura-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork",
+        "Sensibilità manuale",
+        "Visualizzazione spaziale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto al bilancio",
+      "id": "addetto-al-bilancio",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-al-bilancio-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Senso di appartenenza"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Operatore cartiera",
+      "id": "operatore-cartiera",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/operatore-cartiera-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Scrupolosità",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Archivista",
+      "id": "archivista",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/archivista-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Export sales",
+      "id": "export-sales",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/export-sales-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Negoziazione",
+        "Affidabilità",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto booking",
+      "id": "addetto-booking",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-booking-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Tecnologo delle produzioni alimentari",
+      "id": "tecnologo-delle-produzioni-alimentari",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnologo-delle-produzioni-alimentari-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Altro - marketing & communication",
+      "id": "altro-marketing-communication",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-marketing-communication-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto alla pulitura su ruota",
+      "id": "addetto-alla-pulitura-su-ruota",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-pulitura-su-ruota-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Problem Solving",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Responsabile qualità",
+      "id": "responsabile-qualita",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/responsabile-qualita-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Rifinitore di calzature",
+      "id": "rifinitore-di-calzature",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/rifinitore-di-calzature-jo/",
+      "soft_skills": [
+        "Scrupolosità",
+        "Collaborazione Teamwork",
+        "Sensibilità manuale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Developer web junior",
+      "id": "developer-web-junior",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/developer-web-junior-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Problem Solving",
+        "Sintesi",
+        "Analisi",
+        "Ascolto",
+        "Comunicazione",
+        "Collaborazione Teamwork",
+        "Concretezza",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa",
+        "Autonomia operativa",
+        "Execution"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Meccanico alle presse",
+      "id": "meccanico-alle-presse",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/meccanico-alle-presse-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto alla coloritura costole pelletteria",
+      "id": "addetto-alla-coloritura-costole-pelletteria",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-coloritura-costole-pelletteria-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Collaborazione Teamwork",
+        "Sensibilità manuale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Operatore aeroportuale",
+      "id": "operatore-aeroportuale",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/operatore-aeroportuale-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Ferraiolo",
+      "id": "ferraiolo",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/ferraiolo-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Segretaria di edizione",
+      "id": "segretaria-di-edizione",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/segretaria-di-edizione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto all'assemblaggio elettronico",
+      "id": "addetto-all-assemblaggio-elettronico",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-allassemblaggio-elettronico-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Impiegato operativo (terra, mare, aereo)",
+      "id": "impiegato-operativo-terra-mare-aereo",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/impiegato-operativo-terra-mare-aereo-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Communication specialist",
+      "id": "communication-specialist",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/communication-specialist-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Sintesi",
+        "Decisionalità",
+        "Ascolto",
+        "Comunicazione",
+        "Influenza",
+        "Collaborazione Teamwork",
+        "Coordinamento operativo / Controllo",
+        "Negoziazione",
+        "Innovazione",
+        "Senso di appartenenza",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Capo reparto pescheria",
+      "id": "capo-reparto-pescheria",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/capo-reparto-pescheria-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza",
+        "Guida / Team Leadership",
+        "Flessibilità operativa",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto allo stampaggio",
+      "id": "addetto-allo-stampaggio",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-allo-stampaggio-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Flessibilità / Pensare per alternative"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Zincatore",
+      "id": "zincatore",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/zincatore-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Animatore",
+      "id": "animatore",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/animatore-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Altro - energy & power generation",
+      "id": "altro-energy-power-generation",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-energy-power-generation-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Modellista cad pelletteria",
+      "id": "modellista-cad-pelletteria",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/modellista-cad-pelletteria-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Esperto ambientali",
+      "id": "esperto-ambientali",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/esperto-ambientali-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Social media marketing expert",
+      "id": "social-media-marketing-expert",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/social-media-marketing-expert-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto ai trattamenti termici",
+      "id": "addetto-ai-trattamenti-termici",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-ai-trattamenti-termici-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Responsabile officina meccanica",
+      "id": "responsabile-officina-meccanica",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/responsabile-officina-meccanica-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Avvolgitore elettrico",
+      "id": "avvolgitore-elettrico",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/avvolgitore-elettrico-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Acconciatore-parrucchiere",
+      "id": "acconciatore-parrucchiere",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/acconciatore-parrucchiere-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Operaio cartaio",
+      "id": "operaio-cartaio",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/operaio-cartaio-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Scrupolosità",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Direttore di produzione",
+      "id": "direttore-di-produzione",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/direttore-di-produzione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Formatore",
+      "id": "formatore",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/formatore-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto hr training",
+      "id": "addetto-hr-training",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-hr-training-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Analisi",
+        "Ascolto",
+        "Comunicazione",
+        "Affidabilità",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa",
+        "Motivazione allo sviluppo"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Responsabile amministrativo",
+      "id": "responsabile-amministrativo",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/responsabile-amministrativo-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto alla movimentazione",
+      "id": "addetto-alla-movimentazione",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-alla-movimentazione-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Capo squadra-turno magazzino",
+      "id": "capo-squadra-turno-magazzino",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/capo-squadra-turno-magazzino-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Key account manager",
+      "id": "key-account-manager",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/key-account-manager-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Altro - project management",
+      "id": "altro-project-management",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-project-management-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Specialista ambiente e sicurezza",
+      "id": "specialista-ambiente-e-sicurezza",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/specialista-ambiente-e-sicurezza-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Tecnico di assistenza",
+      "id": "tecnico-di-assistenza",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnico-di-assistenza-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Specilista sviluppo e ottimizzazione supply chain",
+      "id": "specilista-sviluppo-e-ottimizzazione-supply-chain",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/specilista-sviluppo-e-ottimizzazione-supply-chain-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Shift leader",
+      "id": "shift-leader",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/shift-leader-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Guida / Team Leadership",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Altro - supply chain",
+      "id": "altro-supply-chain",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-supply-chain-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Direttore risorse umane",
+      "id": "direttore-risorse-umane",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/direttore-risorse-umane-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Falegname",
+      "id": "falegname",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/falegname-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Scrupolosità",
+        "Orientamento al cliente",
+        "Innovazione"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Responsabile finanziario",
+      "id": "responsabile-finanziario",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/responsabile-finanziario-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Allestitore - arredatore",
+      "id": "allestitore-arredatore",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/allestitore-arredatore-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Operatore macchine da stampa",
+      "id": "operatore-macchine-da-stampa",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/operatore-macchine-da-stampa-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "System engineer",
+      "id": "system-engineer",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/system-engineer-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Macchinista ferroviario",
+      "id": "macchinista-ferroviario",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/macchinista-ferroviario-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Carpentiere di bordo",
+      "id": "carpentiere-di-bordo",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/carpentiere-di-bordo-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Analisi",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Procurement coordinator",
+      "id": "procurement-coordinator",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/procurement-coordinator-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto banco pelletteria",
+      "id": "addetto-banco-pelletteria",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-banco-pelletteria-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork",
+        "Sensibilità manuale",
+        "Visualizzazione spaziale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Conduttore di macchine da stampa offset",
+      "id": "conduttore-di-macchine-da-stampa-offset",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/conduttore-di-macchine-da-stampa-offset-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Concierge",
+      "id": "concierge",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/concierge-jo/",
+      "soft_skills": [
+        "Problem Solving"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Specialista recupero crediti",
+      "id": "specialista-recupero-crediti",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/specialista-recupero-crediti-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Analisi",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Negoziazione"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Sales engineer junior",
+      "id": "sales-engineer-junior",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/sales-engineer-junior-jo/",
+      "soft_skills": [
+        "Analisi",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Plongeur",
+      "id": "plongeur",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/plongeur-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Elettricista navale",
+      "id": "elettricista-navale",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/elettricista-navale-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Product specialist",
+      "id": "product-specialist",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/product-specialist-jo/",
+      "soft_skills": [
+        "Predisposizione all'apprendimento"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Data engineer",
+      "id": "data-engineer",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/data-engineer-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Problem Solving",
+        "Analisi",
+        "Comunicazione",
+        "Innovazione",
+        "Senso di appartenenza",
+        "Predisposizione all'apprendimento",
+        "Autonomia operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Cablatore",
+      "id": "cablatore",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/cablatore-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Ingegnere civile strutturista",
+      "id": "ingegnere-civile-strutturista",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/ingegnere-civile-strutturista-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Innovazione"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Ponteggiatore",
+      "id": "ponteggiatore",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/ponteggiatore-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto montaggio calzatura junior",
+      "id": "addetto-montaggio-calzatura-junior",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-montaggio-calzatura-junior-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Scrupolosità",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork",
+        "Sensibilità manuale",
+        "Visualizzazione spaziale"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Bar manager",
+      "id": "bar-manager",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/bar-manager-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Comunicazione",
+        "Collaborazione Teamwork",
+        "Flessibilità operativa",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto servizio sicurezza e prevenzione (aspp)",
+      "id": "addetto-servizio-sicurezza-e-prevenzione-aspp",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-servizio-sicurezza-e-prevenzione-aspp-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Demand planner",
+      "id": "demand-planner",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/demand-planner-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Analisi",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Rettificatore cnc",
+      "id": "rettificatore-cnc",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/rettificatore-cnc-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Coinvolgimento",
+        "Analisi",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa",
+        "Motivazione allo sviluppo"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Pizzaiolo",
+      "id": "pizzaiolo",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/pizzaiolo-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Flessibilità operativa"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Verniciatore navale su metallo",
+      "id": "verniciatore-navale-su-metallo",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/verniciatore-navale-su-metallo-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Flessibilità / Pensare per alternative",
+        "Orientamento al risultato",
+        "Concretezza"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Store manager luxury",
+      "id": "store-manager-luxury",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/store-manager-luxury-jo/",
+      "soft_skills": [
+        "Iniziativa",
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Coinvolgimento",
+        "Sintesi",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Ascolto",
+        "Comunicazione",
+        "Orientamento al cliente",
+        "Orientamento al risultato",
+        "Collaborazione Teamwork",
+        "Senso di appartenenza",
+        "Guida / Team Leadership",
+        "Standing"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Addetto back office incassi e pagamenti",
+      "id": "addetto-back-office-incassi-e-pagamenti",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-back-office-incassi-e-pagamenti-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Problem Solving",
+        "Analisi",
+        "Stabilità emotiva / Gestione dello stress",
+        "Orientamento al risultato",
+        "Affidabilità"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Macchinista pelletteria",
+      "id": "macchinista-pelletteria",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/macchinista-pelletteria-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Stabilità emotiva / Gestione dello stress",
+        "Flessibilità / Pensare per alternative",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Massaggiatore estetico",
+      "id": "massaggiatore-estetico",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/massaggiatore-estetico-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Tecnico hardware",
+      "id": "tecnico-hardware",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/tecnico-hardware-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Mechanical field engineer",
+      "id": "mechanical-field-engineer",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/mechanical-field-engineer-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Altro - quality & safety",
+      "id": "altro-quality-safety",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/altro-quality-safety-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Addetto miscelazione ed emulsione",
+      "id": "addetto-miscelazione-ed-emulsione",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/addetto-miscelazione-ed-emulsione-jo/",
+      "soft_skills": [
+        "Pianificazione e organizzazione",
+        "Scrupolosità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "alias"
+    },
+    {
+      "nome": "Supplier quality engineer",
+      "id": "supplier-quality-engineer",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/supplier-quality-engineer-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Analisi",
+        "Decisionalità",
+        "Flessibilità / Pensare per alternative",
+        "Coordinamento operativo / Controllo",
+        "Negoziazione",
+        "Affidabilità",
+        "Predisposizione all'apprendimento",
+        "Flessibilità operativa",
+        "Gestione dei conflitti"
+      ],
+      "mapping_type": "categoria_principale"
+    },
+    {
+      "nome": "Trasport planner",
+      "id": "trasport-planner",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/trasport-planner-jo/",
+      "soft_skills": [
+        "Problem Solving",
+        "Affidabilità",
+        "Collaborazione Teamwork"
+      ],
+      "mapping_type": "fallback"
+    },
+    {
+      "nome": "Centralinista",
+      "id": "centralinista",
+      "numero_offerte": 1,
+      "url": "https://www.gigroup.it/offerte-lavoro/centralinista-jo/",
+      "soft_skills": [
+        "Ascolto",
+        "Comunicazione"
+      ],
+      "mapping_type": "alias"
+    }
+  ]
+}

@@ -118,6 +118,13 @@ const translations = {
         changelog_back: "← Torna alla Home",
         changelog_title: "Changelog",
 
+        changelog_v08_date: "19 Gennaio 2026",
+        changelog_v08_item1: "Sondaggio Archetipi Professionali con 10 domande comportamentali",
+        changelog_v08_item2: "Sistema di scoring PIÙ/MENO con rilevamento blend automatico",
+        changelog_v08_item3: "8 archetipi con profili e soft skill distintive",
+        changelog_v08_item4: "Modale Suggerimenti per simulare risultati sondaggio",
+        changelog_v08_item5: "Tabella punteggi live nel System Log durante il sondaggio",
+
         changelog_v071_date: "13 Gennaio 2026",
         changelog_v071_item1: "Aggiunto pulsante X per cancellare il contenuto del campo di ricerca",
         changelog_v071_item2: "Il pulsante appare automaticamente quando l'utente inizia a digitare",
@@ -191,7 +198,33 @@ const translations = {
         changelog_v01_item6: "Navigazione tastiera nelle suggestions (frecce, Enter, Escape)",
         changelog_v01_item7: "UI con branding Gi Group (palette colori, tipografia)",
         changelog_v01_item8: "Layout responsive per dispositivi mobile",
-        changelog_v01_item9: "Accessibilità migliorata con attributi ARIA"
+        changelog_v01_item9: "Accessibilità migliorata con attributi ARIA",
+
+        // Segmented Control
+        tab_ruolo: "Ruolo",
+        tab_sondaggio: "Sondaggio",
+
+        // Survey
+        survey_title: "Scopri il tuo Archetipo",
+        survey_subtitle: "Rispondi a 10 domande per scoprire il tuo profilo professionale e le tue soft skill distintive.",
+        survey_start: "Inizia il Sondaggio",
+        survey_progress: "Domanda {current} di {total}",
+        survey_instruction_plus: "Seleziona PIU simile a te",
+        survey_instruction_minus: "Seleziona MENO simile a te",
+        survey_prev: "Indietro",
+        survey_next: "Avanti",
+        survey_finish: "Scopri il Risultato",
+        survey_restart: "Rifai il Test",
+        survey_result_primary: "Il Tuo Archetipo",
+        survey_result_primary_blend: "Archetipo Primario",
+        survey_result_secondary: "Archetipo Secondario",
+        survey_result_blend_title: "Il tuo profilo blend",
+
+        // Survey Presets Modal
+        survey_presets_link: "Suggerimenti",
+        survey_presets_modal_title: "Simula Risultato",
+        survey_presets_description: "Seleziona un archetipo per simulare il risultato del sondaggio.",
+        survey_presets_blend: "Blend"
     },
 
     en: {
@@ -308,6 +341,13 @@ const translations = {
         changelog_back: "← Back to Home",
         changelog_title: "Changelog",
 
+        changelog_v08_date: "January 19, 2026",
+        changelog_v08_item1: "Professional Archetypes Survey with 10 behavioral questions",
+        changelog_v08_item2: "MOST/LEAST scoring system with automatic blend detection",
+        changelog_v08_item3: "8 archetypes with profiles and distinctive soft skills",
+        changelog_v08_item4: "Suggestions modal to simulate survey results",
+        changelog_v08_item5: "Live scores table in System Log during survey",
+
         changelog_v071_date: "January 13, 2026",
         changelog_v071_item1: "Added X button to clear search field content",
         changelog_v071_item2: "Button appears automatically when user starts typing",
@@ -381,7 +421,33 @@ const translations = {
         changelog_v01_item6: "Keyboard navigation in suggestions (arrows, Enter, Escape)",
         changelog_v01_item7: "UI with Gi Group branding (color palette, typography)",
         changelog_v01_item8: "Responsive layout for mobile devices",
-        changelog_v01_item9: "Improved accessibility with ARIA attributes"
+        changelog_v01_item9: "Improved accessibility with ARIA attributes",
+
+        // Segmented Control
+        tab_ruolo: "Role",
+        tab_sondaggio: "Survey",
+
+        // Survey
+        survey_title: "Discover your Archetype",
+        survey_subtitle: "Answer 10 questions to discover your professional profile and distinctive soft skills.",
+        survey_start: "Start Survey",
+        survey_progress: "Question {current} of {total}",
+        survey_instruction_plus: "Select MOST like you",
+        survey_instruction_minus: "Select LEAST like you",
+        survey_prev: "Back",
+        survey_next: "Next",
+        survey_finish: "See Results",
+        survey_restart: "Retake Test",
+        survey_result_primary: "Your Archetype",
+        survey_result_primary_blend: "Primary Archetype",
+        survey_result_secondary: "Secondary Archetype",
+        survey_result_blend_title: "Your blend profile",
+
+        // Survey Presets Modal
+        survey_presets_link: "Suggestions",
+        survey_presets_modal_title: "Simulate Result",
+        survey_presets_description: "Select an archetype to simulate the survey result.",
+        survey_presets_blend: "Blend"
     }
 };
 

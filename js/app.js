@@ -457,8 +457,6 @@
      * @returns {Promise<Object[]>} Array of mansione objects
      */
     async function loadMansioniData() {
-        logActivity(LogType.INFO, i18n.t('log_loading'));
-
         try {
             const response = await fetch(CONFIG.dataUrl);
 
@@ -1170,7 +1168,7 @@
             await loadMansioniData();
             bindEvents();
 
-            logActivity(LogType.INFO, i18n.t('log_ready'));
+            // Note: "Application ready" message is logged by survey.js after all data is loaded
 
             console.log('[Beyond Titles] Application initialized successfully');
         } catch (error) {

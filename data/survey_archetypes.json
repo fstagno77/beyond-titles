@@ -1,0 +1,347 @@
+{
+  "metadata": {
+    "versione": "v1.0",
+    "nome": "Survey Archetipi Professionali",
+    "descrizione": "Questionario comportamentale per determinare l'archetipo professionale dell'utente",
+    "numero_domande": 10,
+    "opzioni_per_domanda": 4
+  },
+  "domande": [
+    {
+      "id": 1,
+      "stem": "Quando devo far funzionare un lavoro con altri...",
+      "tema": "Chiarezza e allineamento",
+      "opzioni": [
+        {
+          "id": "1A",
+          "testo": "Creo allineamento: ascolto, riformulo, chiarisco aspettative e toni.",
+          "archetipo": "connettore"
+        },
+        {
+          "id": "1B",
+          "testo": "Metto ordine: obiettivo, criteri, priorità e \"cosa significa fatto bene\".",
+          "archetipo": "stratega"
+        },
+        {
+          "id": "1C",
+          "testo": "Definisco chi fa cosa e tengo la direzione, senza ambiguità.",
+          "archetipo": "capitano"
+        },
+        {
+          "id": "1D",
+          "testo": "Mi concentro sul risultato pratico: pochi passaggi, subito operativi.",
+          "archetipo": "pragmatico"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "stem": "Quando un imprevisto blocca il lavoro...",
+      "tema": "Gestione imprevisti",
+      "opzioni": [
+        {
+          "id": "2A",
+          "testo": "Trovo una soluzione rapida per far ripartire il flusso subito.",
+          "archetipo": "risolutore"
+        },
+        {
+          "id": "2B",
+          "testo": "Capisco la causa e imposto una correzione che eviti che ricapiti.",
+          "archetipo": "stratega"
+        },
+        {
+          "id": "2C",
+          "testo": "Coinvolgo le persone giuste e coordino l'aiuto necessario.",
+          "archetipo": "collaboratore"
+        },
+        {
+          "id": "2D",
+          "testo": "Tengo traccia e sistemo tutto in modo preciso e ordinato.",
+          "archetipo": "artigiano"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "stem": "Quando arriva una richiesta urgente che cambia le priorità...",
+      "tema": "Cambio priorità",
+      "opzioni": [
+        {
+          "id": "3A",
+          "testo": "Mi assicuro che ogni dettaglio sia curato prima di procedere.",
+          "archetipo": "artigiano"
+        },
+        {
+          "id": "3B",
+          "testo": "Riorganizzo attività e tempi in modo logico per non creare caos.",
+          "archetipo": "pragmatico"
+        },
+        {
+          "id": "3C",
+          "testo": "Decido cosa viene prima e assegno responsabilità con chiarezza.",
+          "archetipo": "capitano"
+        },
+        {
+          "id": "3D",
+          "testo": "Cerco una strada alternativa o creativa per gestire tutto.",
+          "archetipo": "pioniere"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "stem": "Quando un collega è in difficoltà e rischia di rallentare tutti...",
+      "tema": "Supporto ai colleghi",
+      "opzioni": [
+        {
+          "id": "4A",
+          "testo": "Prendo in mano la situazione e do direzione chiara.",
+          "archetipo": "capitano"
+        },
+        {
+          "id": "4B",
+          "testo": "Gli do un metodo semplice: pochi step chiari e ripetibili.",
+          "archetipo": "stratega"
+        },
+        {
+          "id": "4C",
+          "testo": "Mi concentro su ciò che sblocca e porto a casa il risultato pratico.",
+          "archetipo": "pragmatico"
+        },
+        {
+          "id": "4D",
+          "testo": "Cerco una soluzione alternativa al problema che lo blocca.",
+          "archetipo": "risolutore"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "stem": "Quando vedo che qualcosa potrebbe funzionare meglio...",
+      "tema": "Innovazione e miglioramento",
+      "opzioni": [
+        {
+          "id": "5A",
+          "testo": "Propongo un'idea nuova, anche se non è stata ancora testata.",
+          "archetipo": "pioniere"
+        },
+        {
+          "id": "5B",
+          "testo": "Analizzo i dati e costruisco un piano di miglioramento strutturato.",
+          "archetipo": "stratega"
+        },
+        {
+          "id": "5C",
+          "testo": "Mi confronto con il team per trovare insieme la soluzione migliore.",
+          "archetipo": "collaboratore"
+        },
+        {
+          "id": "5D",
+          "testo": "Perfeziono i dettagli di quello che già esiste.",
+          "archetipo": "artigiano"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "stem": "Quando ho un'idea che potrebbe cambiare le cose...",
+      "tema": "Gestione delle idee",
+      "opzioni": [
+        {
+          "id": "6A",
+          "testo": "La lancio subito, anche se non è perfetta, per vedere come va.",
+          "archetipo": "pioniere"
+        },
+        {
+          "id": "6B",
+          "testo": "La trasformo in un piano concreto con passi chiari.",
+          "archetipo": "pragmatico"
+        },
+        {
+          "id": "6C",
+          "testo": "Ne parlo con le persone giuste per costruire consenso.",
+          "archetipo": "connettore"
+        },
+        {
+          "id": "6D",
+          "testo": "La valuto con attenzione, analizzando pro e contro.",
+          "archetipo": "stratega"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "stem": "Quando qualcuno è frustrato o in tensione...",
+      "tema": "Relazione e fiducia",
+      "opzioni": [
+        {
+          "id": "7A",
+          "testo": "Ricompongo: ascolto e riporto la relazione su fiducia e rispetto.",
+          "archetipo": "connettore"
+        },
+        {
+          "id": "7B",
+          "testo": "Riporto su fatti e criteri: chiarezza, accordi, niente zone grigie.",
+          "archetipo": "stratega"
+        },
+        {
+          "id": "7C",
+          "testo": "Prendo una decisione e la comunico in modo diretto e calmo.",
+          "archetipo": "capitano"
+        },
+        {
+          "id": "7D",
+          "testo": "Trovo una soluzione praticabile che fa andare avanti.",
+          "archetipo": "risolutore"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "stem": "In un team che deve girare bene...",
+      "tema": "Lavoro di squadra",
+      "opzioni": [
+        {
+          "id": "8A",
+          "testo": "Mi viene naturale fare da ponte: connetto persone e informazioni.",
+          "archetipo": "connettore"
+        },
+        {
+          "id": "8B",
+          "testo": "Mi viene naturale definire ruoli, regole e standard condivisi.",
+          "archetipo": "artigiano"
+        },
+        {
+          "id": "8C",
+          "testo": "Mi viene naturale guidare: responsabilità chiare, ritmo e priorità.",
+          "archetipo": "capitano"
+        },
+        {
+          "id": "8D",
+          "testo": "Mi viene naturale fare execution: porto avanti pezzi concreti e chiudo task.",
+          "archetipo": "pragmatico"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "stem": "Quando qualcosa è nelle mie mani...",
+      "tema": "Autonomia e ownership",
+      "opzioni": [
+        {
+          "id": "9A",
+          "testo": "Mi assicuro che sia fatto bene nei dettagli, anche se richiede tempo.",
+          "archetipo": "artigiano"
+        },
+        {
+          "id": "9B",
+          "testo": "Tengo la rotta: obiettivi, criteri e coerenza nelle scelte.",
+          "archetipo": "stratega"
+        },
+        {
+          "id": "9C",
+          "testo": "Agisco: faccio avanzare, elimino blocchi, consegno.",
+          "archetipo": "risolutore"
+        },
+        {
+          "id": "9D",
+          "testo": "Cerco un modo migliore o nuovo per ottenere lo stesso risultato.",
+          "archetipo": "pioniere"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "stem": "Quando la pressione sale...",
+      "tema": "Comportamento sotto pressione",
+      "special": true,
+      "opzioni": [
+        {
+          "id": "10A",
+          "testo": "Mantengo il clima: comunicazione chiara e persone in squadra.",
+          "archetipo": ["collaboratore", "connettore"],
+          "punti_piu": [1, 1],
+          "punti_meno": [-0.5, -0.5]
+        },
+        {
+          "id": "10B",
+          "testo": "Metto ordine e rendo la situazione leggibile.",
+          "archetipo": "stratega"
+        },
+        {
+          "id": "10C",
+          "testo": "Decido e faccio decidere: responsabilità e direzione.",
+          "archetipo": "capitano"
+        },
+        {
+          "id": "10D",
+          "testo": "Risolvo l'imprevisto e riparto, anche con workaround intelligenti.",
+          "archetipo": "risolutore"
+        }
+      ]
+    }
+  ],
+  "archetipi": {
+    "connettore": {
+      "nome": "Il Connettore",
+      "claim": "Costruisce ponti tra le persone",
+      "profilo": "Eccelle nelle relazioni interpersonali e nella comunicazione. Sa ascoltare attivamente, coinvolgere gli interlocutori e mettere il cliente al centro. È il punto di riferimento per creare connessioni autentiche e durature tra le persone.",
+      "soft_skills": ["Comunicazione", "Ascolto", "Orientamento al cliente", "Coinvolgimento", "Standing"],
+      "colore": "#3498db"
+    },
+    "stratega": {
+      "nome": "Lo Stratega",
+      "claim": "Vede il quadro completo",
+      "profilo": "Pianifica e organizza con metodo, analizza i dati con attenzione e mantiene il focus sui risultati. Dove altri vedono caos, lui vede pattern da ottimizzare e obiettivi da raggiungere.",
+      "soft_skills": ["Pianificazione e organizzazione", "Analisi", "Orientamento al risultato", "Sintesi"],
+      "colore": "#9b59b6"
+    },
+    "pragmatico": {
+      "nome": "Il Pragmatico",
+      "claim": "Dalle idee ai fatti",
+      "profilo": "Trasforma i piani in azione concreta con scrupolosità e metodo. È affidabile, organizzato e orientato all'execution. Non si perde in teorie: porta a casa quello che serve, quando serve.",
+      "soft_skills": ["Scrupolosità", "Pianificazione e organizzazione", "Affidabilità", "Concretezza", "Execution"],
+      "colore": "#27ae60"
+    },
+    "collaboratore": {
+      "nome": "Il Collaboratore",
+      "claim": "Il valore del noi",
+      "profilo": "Mette il team al centro di tutto. Sa adattarsi, lavorare con cura e costruire senso di appartenenza. Crede che i risultati migliori nascano dal lavoro insieme e si impegna con scrupolosità per il bene comune.",
+      "soft_skills": ["Collaborazione e Teamwork", "Flessibilità", "Scrupolosità", "Senso di appartenenza"],
+      "colore": "#e67e22"
+    },
+    "risolutore": {
+      "nome": "Il Risolutore",
+      "claim": "Ogni problema ha una soluzione",
+      "profilo": "Affronta i problemi con calma e determinazione, trovando soluzioni pratiche anche sotto pressione. Mantiene la lucidità nelle situazioni difficili e trasforma gli ostacoli in opportunità con approccio concreto e operativo.",
+      "soft_skills": ["Problem Solving", "Concretezza", "Stabilità emotiva", "Flessibilità operativa"],
+      "colore": "#e74c3c"
+    },
+    "pioniere": {
+      "nome": "Il Pioniere",
+      "claim": "Apre nuove strade",
+      "profilo": "Genera nuove idee e sfida lo status quo. Prende l'iniziativa per esplorare approcci innovativi e non si accontenta delle soluzioni convenzionali. Vede possibilità dove altri vedono ostacoli.",
+      "soft_skills": ["Flessibilità", "Iniziativa", "Innovazione", "Problem Setting"],
+      "colore": "#f39c12"
+    },
+    "capitano": {
+      "nome": "Il Capitano",
+      "claim": "Guida con l'esempio",
+      "profilo": "Sa prendere decisioni e guidare il team con chiarezza. Prende l'iniziativa, negozia con efficacia e sa influenzare positivamente gli altri. Il suo esempio ispira il team a dare il meglio.",
+      "soft_skills": ["Decisionalità", "Iniziativa", "Negoziazione", "Guida e Team Leadership", "Influenza"],
+      "colore": "#5d6d7e"
+    },
+    "artigiano": {
+      "nome": "L'Artigiano",
+      "claim": "La perfezione nei dettagli",
+      "profilo": "Lavora con precisione e cura artigianale, prestando attenzione a ogni dettaglio. Possiede sensibilità tecnica e capacità di visualizzazione che gli permettono di eccellere in attività che richiedono maestria e precisione.",
+      "soft_skills": ["Scrupolosità", "Visualizzazione spaziale", "Autonomia operativa", "Sensibilità manuale"],
+      "colore": "#1abc9c"
+    }
+  },
+  "config": {
+    "punti_piu": 2,
+    "punti_meno": -1,
+    "soglia_blend": 2
+  }
+}

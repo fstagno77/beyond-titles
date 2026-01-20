@@ -667,12 +667,22 @@
 
         // Get translations if i18n is available
         if (window.i18n) {
-            const nome = window.i18n.t(`archetype_${archetypeKey}_name`) || baseData.nome;
-            const claim = window.i18n.t(`archetype_${archetypeKey}_claim`) || baseData.claim;
-            const profilo = window.i18n.t(`archetype_${archetypeKey}_profile`) || baseData.profilo;
-            const skillsStr = window.i18n.t(`archetype_${archetypeKey}_skills`);
-            const soft_skills = skillsStr && skillsStr !== `archetype_${archetypeKey}_skills`
-                ? skillsStr.split(', ')
+            const nomeKey = `archetype_${archetypeKey}_name`;
+            const claimKey = `archetype_${archetypeKey}_claim`;
+            const profileKey = `archetype_${archetypeKey}_profile`;
+            const skillsKey = `archetype_${archetypeKey}_skills`;
+
+            const nomeVal = window.i18n.t(nomeKey);
+            const claimVal = window.i18n.t(claimKey);
+            const profileVal = window.i18n.t(profileKey);
+            const skillsVal = window.i18n.t(skillsKey);
+
+            // Use translation only if it's different from the key (meaning translation exists)
+            const nome = nomeVal !== nomeKey ? nomeVal : baseData.nome;
+            const claim = claimVal !== claimKey ? claimVal : baseData.claim;
+            const profilo = profileVal !== profileKey ? profileVal : baseData.profilo;
+            const soft_skills = skillsVal !== skillsKey
+                ? skillsVal.split(', ')
                 : baseData.soft_skills;
 
             return {
@@ -1064,6 +1074,15 @@
 
         // Presets modal
         initPresetsModal();
+
+        // Re-render results when language changes
+        window.addEventListener('languageChanged', () => {
+            // Only re-render if we're on the results screen
+            if (elements.surveyResults && !elements.surveyResults.hidden) {
+                console.log('[SURVEY] Language changed, re-rendering results...');
+                showResults();
+            }
+        });
     }
 
     // =========================================================================

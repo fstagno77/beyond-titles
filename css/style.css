@@ -1452,6 +1452,23 @@ ul {
     transform: rotate(180deg);
 }
 
+/* Vertical layout for secondary/tertiary card headers */
+.survey__result-card-header--vertical {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.survey__result-card-header--vertical .survey__result-card-header-content {
+    width: 100%;
+    text-align: center;
+}
+
+.survey__result-card-chevron--bottom {
+    margin-top: var(--spacing-xs);
+    margin-left: 0;
+}
+
 .survey__result-card-details {
     margin-top: var(--spacing-lg);
     padding-top: var(--spacing-lg);

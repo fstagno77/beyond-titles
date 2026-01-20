@@ -765,13 +765,13 @@
         if (isBlend) {
             html += `
                 <div class="survey__result-card survey__result-card--secondary" style="border-color: ${secondaryArchetype.colore}" id="secondary-card">
-                    <button class="survey__result-card-header" id="secondary-toggle" aria-expanded="false" aria-controls="secondary-details">
+                    <button class="survey__result-card-header survey__result-card-header--vertical" id="secondary-toggle" aria-expanded="false" aria-controls="secondary-details">
                         <div class="survey__result-card-header-content">
                             <p class="survey__result-label" style="color: ${secondaryArchetype.colore}">${labelSecondary}</p>
                             <h2 class="survey__result-archetype">${escapeHtml(secondaryArchetype.nome)}</h2>
                             <p class="survey__result-claim">"${escapeHtml(secondaryArchetype.claim)}"</p>
                         </div>
-                        <span class="survey__result-card-chevron" style="color: ${secondaryArchetype.colore}">
+                        <span class="survey__result-card-chevron survey__result-card-chevron--bottom" style="color: ${secondaryArchetype.colore}">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
@@ -799,13 +799,13 @@
             const labelTertiary = window.i18n ? window.i18n.t('survey_result_tertiary') : 'Archetipo Terziario';
             html += `
                 <div class="survey__result-card survey__result-card--tertiary" style="border-color: ${tertiaryArchetype.colore}" id="tertiary-card">
-                    <button class="survey__result-card-header" id="tertiary-toggle" aria-expanded="false" aria-controls="tertiary-details">
+                    <button class="survey__result-card-header survey__result-card-header--vertical" id="tertiary-toggle" aria-expanded="false" aria-controls="tertiary-details">
                         <div class="survey__result-card-header-content">
                             <p class="survey__result-label" style="color: ${tertiaryArchetype.colore}">${labelTertiary}</p>
                             <h2 class="survey__result-archetype">${escapeHtml(tertiaryArchetype.nome)}</h2>
                             <p class="survey__result-claim">"${escapeHtml(tertiaryArchetype.claim)}"</p>
                         </div>
-                        <span class="survey__result-card-chevron" style="color: ${tertiaryArchetype.colore}">
+                        <span class="survey__result-card-chevron survey__result-card-chevron--bottom" style="color: ${tertiaryArchetype.colore}">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>

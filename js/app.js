@@ -15,8 +15,9 @@
 (function () {
     'use strict';
 
-    // Initialize i18n
+    // Initialize i18n and expose globally for other modules (e.g., survey.js)
     const i18n = new window.I18n();
+    window.i18n = i18n;
 
     // ==========================================================================
     // Configuration

@@ -118,6 +118,14 @@ const translations = {
         changelog_back: "← Torna alla Home",
         changelog_title: "Changelog",
 
+        changelog_v09_date: "20 Gennaio 2026",
+        changelog_v09_item1: "Nuovo sistema di scoring single-choice: una selezione per domanda",
+        changelog_v09_item2: "10 nuove domande comportamentali con mapping bilanciato (5 occorrenze per archetipo)",
+        changelog_v09_item3: "Nuove soglie blend: Δ₁₂≤1 per blend, Δ₁₂≥2 per profilo netto",
+        changelog_v09_item4: "Supporto per profilo blend a 3 archetipi in caso di parità multiple",
+        changelog_v09_item5: "Rimossa la logica tie-break Q10, ora domanda standard",
+        changelog_v09_item6: "Indice di confidenza e percentuali blend arrotondate a multipli di 5%",
+
         changelog_v08_date: "19 Gennaio 2026",
         changelog_v08_item1: "Sondaggio Archetipi Professionali con 10 domande comportamentali",
         changelog_v08_item2: "Sistema di scoring PIÙ/MENO con rilevamento blend automatico",
@@ -206,11 +214,10 @@ const translations = {
 
         // Survey
         survey_title: "Scopri il tuo Archetipo",
-        survey_subtitle: "Rispondi a 10 domande per scoprire il tuo profilo professionale e le tue soft skill distintive.",
+        survey_subtitle: "Rispondi a 10 domande per scoprire il tuo profilo professionale e le tue soft skill distintive. Per ogni domanda, seleziona l'opzione che ti rappresenta di più.",
         survey_start: "Inizia il Sondaggio",
         survey_progress: "Domanda {current} di {total}",
-        survey_instruction_plus: "Seleziona PIU simile a te",
-        survey_instruction_minus: "Seleziona MENO simile a te",
+        survey_instruction: "Seleziona l'opzione più vicina al tuo modo di agire",
         survey_prev: "Indietro",
         survey_next: "Avanti",
         survey_finish: "Scopri il Risultato",
@@ -218,13 +225,55 @@ const translations = {
         survey_result_primary: "Il Tuo Archetipo",
         survey_result_primary_blend: "Archetipo Primario",
         survey_result_secondary: "Archetipo Secondario",
+        survey_result_tertiary: "Archetipo Terziario",
         survey_result_blend_title: "Il tuo profilo blend",
 
         // Survey Presets Modal
         survey_presets_link: "Suggerimenti",
         survey_presets_modal_title: "Simula Risultato",
         survey_presets_description: "Seleziona un archetipo per simulare il risultato del sondaggio.",
-        survey_presets_blend: "Blend"
+        survey_presets_blend: "Blend",
+
+        // Archetypes
+        archetype_connettore_name: "Il Connettore",
+        archetype_connettore_claim: "Costruisce ponti tra le persone",
+        archetype_connettore_profile: "Eccelle nelle relazioni interpersonali e nella comunicazione. Sa ascoltare attivamente, coinvolgere gli interlocutori e mettere il cliente al centro. È il punto di riferimento per creare connessioni autentiche e durature tra le persone.",
+        archetype_connettore_skills: "Comunicazione, Ascolto, Orientamento al cliente, Coinvolgimento, Standing",
+
+        archetype_stratega_name: "Lo Stratega",
+        archetype_stratega_claim: "Vede il quadro completo",
+        archetype_stratega_profile: "Pianifica e organizza con metodo, analizza i dati con attenzione e mantiene il focus sui risultati. Dove altri vedono caos, lui vede pattern da ottimizzare e obiettivi da raggiungere.",
+        archetype_stratega_skills: "Pianificazione e organizzazione, Analisi, Orientamento al risultato, Sintesi",
+
+        archetype_pragmatico_name: "Il Pragmatico",
+        archetype_pragmatico_claim: "Dalle idee ai fatti",
+        archetype_pragmatico_profile: "Trasforma i piani in azione concreta con scrupolosità e metodo. È affidabile, organizzato e orientato all'execution. Non si perde in teorie: porta a casa quello che serve, quando serve.",
+        archetype_pragmatico_skills: "Scrupolosità, Pianificazione e organizzazione, Affidabilità, Concretezza, Execution",
+
+        archetype_collaboratore_name: "Il Collaboratore",
+        archetype_collaboratore_claim: "Il valore del noi",
+        archetype_collaboratore_profile: "Mette il team al centro di tutto. Sa adattarsi, lavorare con cura e costruire senso di appartenenza. Crede che i risultati migliori nascano dal lavoro insieme e si impegna con scrupolosità per il bene comune.",
+        archetype_collaboratore_skills: "Collaborazione e Teamwork, Flessibilità, Scrupolosità, Senso di appartenenza",
+
+        archetype_risolutore_name: "Il Risolutore",
+        archetype_risolutore_claim: "Ogni problema ha una soluzione",
+        archetype_risolutore_profile: "Affronta i problemi con calma e determinazione, trovando soluzioni pratiche anche sotto pressione. Mantiene la lucidità nelle situazioni difficili e trasforma gli ostacoli in opportunità con approccio concreto e operativo.",
+        archetype_risolutore_skills: "Problem Solving, Concretezza, Stabilità emotiva, Flessibilità operativa",
+
+        archetype_pioniere_name: "Il Pioniere",
+        archetype_pioniere_claim: "Apre nuove strade",
+        archetype_pioniere_profile: "Genera nuove idee e sfida lo status quo. Prende l'iniziativa per esplorare approcci innovativi e non si accontenta delle soluzioni convenzionali. Vede possibilità dove altri vedono ostacoli.",
+        archetype_pioniere_skills: "Flessibilità, Iniziativa, Innovazione, Problem Setting",
+
+        archetype_capitano_name: "Il Capitano",
+        archetype_capitano_claim: "Guida con l'esempio",
+        archetype_capitano_profile: "Sa prendere decisioni e guidare il team con chiarezza. Prende l'iniziativa, negozia con efficacia e sa influenzare positivamente gli altri. Il suo esempio ispira il team a dare il meglio.",
+        archetype_capitano_skills: "Decisionalità, Iniziativa, Negoziazione, Guida e Team Leadership, Influenza",
+
+        archetype_artigiano_name: "L'Artigiano",
+        archetype_artigiano_claim: "La perfezione nei dettagli",
+        archetype_artigiano_profile: "Lavora con precisione e cura artigianale, prestando attenzione a ogni dettaglio. Possiede sensibilità tecnica e capacità di visualizzazione che gli permettono di eccellere in attività che richiedono maestria e precisione.",
+        archetype_artigiano_skills: "Scrupolosità, Visualizzazione spaziale, Autonomia operativa, Sensibilità manuale"
     },
 
     en: {
@@ -341,6 +390,14 @@ const translations = {
         changelog_back: "← Back to Home",
         changelog_title: "Changelog",
 
+        changelog_v09_date: "January 20, 2026",
+        changelog_v09_item1: "New single-choice scoring system: one selection per question",
+        changelog_v09_item2: "10 new behavioral questions with balanced mapping (5 occurrences per archetype)",
+        changelog_v09_item3: "New blend thresholds: Δ₁₂≤1 for blend, Δ₁₂≥2 for net profile",
+        changelog_v09_item4: "Support for 3-archetype blend profile in case of multiple ties",
+        changelog_v09_item5: "Removed Q10 tie-break logic, now standard question",
+        changelog_v09_item6: "Confidence index and blend percentages rounded to multiples of 5%",
+
         changelog_v08_date: "January 19, 2026",
         changelog_v08_item1: "Professional Archetypes Survey with 10 behavioral questions",
         changelog_v08_item2: "MOST/LEAST scoring system with automatic blend detection",
@@ -429,11 +486,10 @@ const translations = {
 
         // Survey
         survey_title: "Discover your Archetype",
-        survey_subtitle: "Answer 10 questions to discover your professional profile and distinctive soft skills.",
+        survey_subtitle: "Answer 10 questions to discover your professional profile and distinctive soft skills. For each question, select the option that best represents you.",
         survey_start: "Start Survey",
         survey_progress: "Question {current} of {total}",
-        survey_instruction_plus: "Select MOST like you",
-        survey_instruction_minus: "Select LEAST like you",
+        survey_instruction: "Select the option closest to how you act",
         survey_prev: "Back",
         survey_next: "Next",
         survey_finish: "See Results",
@@ -441,13 +497,55 @@ const translations = {
         survey_result_primary: "Your Archetype",
         survey_result_primary_blend: "Primary Archetype",
         survey_result_secondary: "Secondary Archetype",
+        survey_result_tertiary: "Tertiary Archetype",
         survey_result_blend_title: "Your blend profile",
 
         // Survey Presets Modal
         survey_presets_link: "Suggestions",
         survey_presets_modal_title: "Simulate Result",
         survey_presets_description: "Select an archetype to simulate the survey result.",
-        survey_presets_blend: "Blend"
+        survey_presets_blend: "Blend",
+
+        // Archetypes
+        archetype_connettore_name: "The Connector",
+        archetype_connettore_claim: "Builds bridges between people",
+        archetype_connettore_profile: "Excels in interpersonal relationships and communication. Knows how to listen actively, engage stakeholders, and put the customer at the center. Is the reference point for creating authentic and lasting connections between people.",
+        archetype_connettore_skills: "Communication, Listening, Customer Focus, Engagement, Presence",
+
+        archetype_stratega_name: "The Strategist",
+        archetype_stratega_claim: "Sees the big picture",
+        archetype_stratega_profile: "Plans and organizes methodically, analyzes data carefully, and maintains focus on results. Where others see chaos, they see patterns to optimize and goals to achieve.",
+        archetype_stratega_skills: "Planning and Organization, Analysis, Results Orientation, Synthesis",
+
+        archetype_pragmatico_name: "The Pragmatist",
+        archetype_pragmatico_claim: "From ideas to action",
+        archetype_pragmatico_profile: "Transforms plans into concrete action with diligence and method. Is reliable, organized, and execution-oriented. Doesn't get lost in theories: delivers what's needed, when it's needed.",
+        archetype_pragmatico_skills: "Diligence, Planning and Organization, Reliability, Concreteness, Execution",
+
+        archetype_collaboratore_name: "The Collaborator",
+        archetype_collaboratore_claim: "The value of us",
+        archetype_collaboratore_profile: "Puts the team at the center of everything. Knows how to adapt, work with care, and build a sense of belonging. Believes that the best results come from working together and commits diligently for the common good.",
+        archetype_collaboratore_skills: "Collaboration and Teamwork, Flexibility, Diligence, Sense of Belonging",
+
+        archetype_risolutore_name: "The Problem Solver",
+        archetype_risolutore_claim: "Every problem has a solution",
+        archetype_risolutore_profile: "Faces problems with calm and determination, finding practical solutions even under pressure. Maintains clarity in difficult situations and transforms obstacles into opportunities with a concrete and operational approach.",
+        archetype_risolutore_skills: "Problem Solving, Concreteness, Emotional Stability, Operational Flexibility",
+
+        archetype_pioniere_name: "The Pioneer",
+        archetype_pioniere_claim: "Opens new paths",
+        archetype_pioniere_profile: "Generates new ideas and challenges the status quo. Takes initiative to explore innovative approaches and is not satisfied with conventional solutions. Sees possibilities where others see obstacles.",
+        archetype_pioniere_skills: "Flexibility, Initiative, Innovation, Problem Setting",
+
+        archetype_capitano_name: "The Captain",
+        archetype_capitano_claim: "Leads by example",
+        archetype_capitano_profile: "Knows how to make decisions and guide the team with clarity. Takes initiative, negotiates effectively, and can positively influence others. Their example inspires the team to give their best.",
+        archetype_capitano_skills: "Decision-Making, Initiative, Negotiation, Team Leadership, Influence",
+
+        archetype_artigiano_name: "The Craftsman",
+        archetype_artigiano_claim: "Perfection in details",
+        archetype_artigiano_profile: "Works with precision and craftsmanship, paying attention to every detail. Possesses technical sensitivity and visualization skills that allow them to excel in activities requiring mastery and precision.",
+        archetype_artigiano_skills: "Diligence, Spatial Visualization, Operational Autonomy, Manual Sensitivity"
     }
 };
 

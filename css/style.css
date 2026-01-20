@@ -1595,8 +1595,8 @@ ul {
 }
 
 .scores-table__value {
-    width: 32px;
-    font-size: 11px;
+    width: 42px;
+    font-size: 10px;
     font-weight: var(--font-weight-semibold);
     text-align: right;
     flex-shrink: 0;
@@ -1757,4 +1757,109 @@ ul {
 
 .survey-presets__blend-label input:checked + .survey-presets__toggle-slider:before {
     transform: translateX(18px);
+}
+
+/* --------------------------------------------------------------------------
+   Survey Single-Choice Option Styles (v2.0)
+   -------------------------------------------------------------------------- */
+.survey__options--single-choice {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.survey__option--single {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--color-background);
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.survey__option--single:hover {
+    background-color: var(--color-primary-light);
+    border-color: rgba(0, 86, 179, 0.2);
+}
+
+.survey__option--single:focus {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+.survey__option--single.survey__option--selected {
+    background-color: var(--color-primary-light);
+    border-color: var(--color-primary);
+}
+
+/* Radio button visual */
+.survey__option-radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+    margin-top: 2px;
+}
+
+.survey__option--single:hover .survey__option-radio {
+    border-color: var(--color-primary);
+}
+
+.survey__option--selected .survey__option-radio {
+    border-color: var(--color-primary);
+    background-color: var(--color-surface);
+}
+
+.survey__option-radio-dot {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+
+.survey__option-radio-dot--active {
+    background-color: var(--color-primary);
+}
+
+/* Hide old plus/minus instructions on single-choice mode */
+.survey__options--single-choice + .survey__instructions {
+    display: none;
+}
+
+/* Tertiary archetype card styling */
+.survey__result-card--tertiary {
+    margin-top: var(--spacing-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.survey__result-card--tertiary:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* Survey Single-Choice Responsive */
+@media (max-width: 600px) {
+    .survey__option--single {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .survey__option-radio {
+        width: 20px;
+        height: 20px;
+    }
+
+    .survey__option-radio-dot {
+        width: 10px;
+        height: 10px;
+    }
 }

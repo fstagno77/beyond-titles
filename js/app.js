@@ -125,6 +125,12 @@
             element.textContent = i18n.t(key);
         });
 
+        // Update all elements with data-i18n-html attribute (innerHTML for rich text)
+        document.querySelectorAll('[data-i18n-html]').forEach(element => {
+            const key = element.getAttribute('data-i18n-html');
+            element.innerHTML = i18n.t(key);
+        });
+
         // Update all elements with data-i18n-placeholder attribute
         document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
             const key = element.getAttribute('data-i18n-placeholder');

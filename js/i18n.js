@@ -213,8 +213,8 @@ const translations = {
         tab_sondaggio: "Sondaggio",
 
         // Survey
-        survey_title: "Scopri il tuo Archetipo",
-        survey_subtitle: "Rispondi a 10 domande per scoprire il tuo profilo professionale e le tue soft skill distintive. Per ogni domanda, seleziona l'opzione che ti rappresenta di più.",
+        survey_title: "Beyond Titles",
+        survey_subtitle: "<strong>Il tuo titolo non racconta tutta la storia.</strong> In 10 domande facciamo emergere le tue human skills: il modo in cui collabori, ti adatti e fai accadere le cose.",
         survey_start: "Inizia il Sondaggio",
         survey_progress: "Domanda {current} di {total}",
         survey_instruction: "Seleziona l'opzione più vicina al tuo modo di agire",
@@ -485,8 +485,8 @@ const translations = {
         tab_sondaggio: "Survey",
 
         // Survey
-        survey_title: "Discover your Archetype",
-        survey_subtitle: "Answer 10 questions to discover your professional profile and distinctive soft skills. For each question, select the option that best represents you.",
+        survey_title: "Beyond Titles",
+        survey_subtitle: "<strong>Your job title doesn't tell the whole story.</strong> In 10 questions we'll uncover your human skills: how you collaborate, adapt, and make things happen.",
         survey_start: "Start Survey",
         survey_progress: "Question {current} of {total}",
         survey_instruction: "Select the option closest to how you act",

@@ -105,10 +105,11 @@
 
         // Build table HTML
         const archetipiKeys = Object.keys(state.surveyData.archetipi);
+        const scoresTitle = window.i18n ? window.i18n.t('log_scores_title') : 'Score Archetipi';
 
         let tableHtml = `
             <div class="scores-table__header">
-                <span class="scores-table__title">Score Archetipi</span>
+                <span class="scores-table__title">${scoresTitle}</span>
                 <span class="scores-table__progress" id="scores-progress">Q0/10</span>
             </div>
             <div class="scores-table__grid">
@@ -116,10 +117,14 @@
 
         archetipiKeys.forEach(key => {
             const archetype = state.surveyData.archetipi[key];
-            const shortName = archetype.nome
+            // Get translated name if available
+            const translatedArchetype = getTranslatedArchetype(key);
+            const fullName = translatedArchetype ? translatedArchetype.nome : archetype.nome;
+            const shortName = fullName
                 .replace('Il ', '')
                 .replace('Lo ', '')
-                .replace("L'", '');
+                .replace("L'", '')
+                .replace('The ', '');
 
             tableHtml += `
                 <div class="scores-table__row" data-archetype="${key}">
@@ -259,7 +264,16 @@
         const numArchetipi = Object.keys(state.surveyData.archetipi || {}).length;
         const archetipiList = Object.keys(state.surveyData.archetipi || {}).join(', ');
 
-        const message = `Loaded survey_archetypes.json v2.0 - ${numDomande} domande, ${numArchetipi} archetipi (${archetipiList})`;
+        let message;
+        if (window.i18n) {
+            message = window.i18n.t('log_data_loaded', {
+                questions: numDomande,
+                archetypes: numArchetipi,
+                list: archetipiList
+            });
+        } else {
+            message = `Loaded survey_archetypes.json v2.0 - ${numDomande} domande, ${numArchetipi} archetipi (${archetipiList})`;
+        }
 
         entry.innerHTML = `${timestamp} ${typeLabel} <span class="system-log__message">${message}</span>`;
         elements.systemLog.appendChild(entry);
@@ -308,7 +322,8 @@
         initializeScores();
 
         // Log survey start and create scores table
-        logSurveyActivity('Sondaggio iniziato - 10 domande (single-choice)');
+        const startMsg = window.i18n ? window.i18n.t('log_survey_started') : 'Sondaggio iniziato - 10 domande (single-choice)';
+        logSurveyActivity(startMsg);
         createScoresTable();
         updateScoresTable();
 
@@ -332,8 +347,32 @@
         }
     }
 
+    function getTranslatedQuestion(question) {
+        if (!window.i18n) return question;
+
+        const qNum = question.id;
+        const stemKey = `survey_q${qNum}_stem`;
+        const stemVal = window.i18n.t(stemKey);
+
+        // Use translation only if it exists (not returning the key itself)
+        const stem = stemVal !== stemKey ? stemVal : question.stem;
+
+        const opzioni = question.opzioni.map(opt => {
+            // Option IDs are like "1A", "1B", etc. Extract the letter
+            const letter = opt.id.slice(-1).toLowerCase();
+            const optKey = `survey_q${qNum}_opt_${letter}`;
+            const optVal = window.i18n.t(optKey);
+            const testo = optVal !== optKey ? optVal : opt.testo;
+
+            return { ...opt, testo };
+        });
+
+        return { ...question, stem, opzioni };
+    }
+
     function renderQuestion() {
-        const question = state.surveyData.domande[state.currentQuestion];
+        const rawQuestion = state.surveyData.domande[state.currentQuestion];
+        const question = getTranslatedQuestion(rawQuestion);
         const answer = state.answers[state.currentQuestion] || { selectedOptionId: null };
 
         const html = `
@@ -461,7 +500,8 @@
         elements.surveyQuestions.hidden = true;
         elements.surveyResults.hidden = true;
 
-        logSurveyActivity('Tornato alla schermata iniziale');
+        const backMsg = window.i18n ? window.i18n.t('log_survey_back_to_intro') : 'Tornato alla schermata iniziale';
+        logSurveyActivity(backMsg);
     }
 
     function goToNextQuestion() {
@@ -476,7 +516,8 @@
         if (isLast) {
             calculateResults();
             showResults();
-            logSurveyActivity('Sondaggio completato!');
+            const completeMsg = window.i18n ? window.i18n.t('log_survey_completed') : 'Sondaggio completato!';
+            logSurveyActivity(completeMsg);
         } else {
             state.currentQuestion++;
             renderQuestion();
@@ -1021,13 +1062,21 @@
         }
 
         // Log simulation
-        const primaryName = state.surveyData.archetipi[primaryKey].nome;
+        const primaryArchetypeData = getTranslatedArchetype(primaryKey);
+        const primaryName = primaryArchetypeData ? primaryArchetypeData.nome : state.surveyData.archetipi[primaryKey].nome;
         if (withBlend) {
             const secondaryKey = BLEND_PAIRINGS[primaryKey];
-            const secondaryName = state.surveyData.archetipi[secondaryKey].nome;
-            logSurveyActivity(`Simulazione: ${primaryName} + ${secondaryName} (blend)`);
+            const secondaryArchetypeData = getTranslatedArchetype(secondaryKey);
+            const secondaryName = secondaryArchetypeData ? secondaryArchetypeData.nome : state.surveyData.archetipi[secondaryKey].nome;
+            const simBlendMsg = window.i18n
+                ? window.i18n.t('log_survey_simulation_blend', { primary: primaryName, secondary: secondaryName })
+                : `Simulazione: ${primaryName} + ${secondaryName} (blend)`;
+            logSurveyActivity(simBlendMsg);
         } else {
-            logSurveyActivity(`Simulazione: ${primaryName} (netto)`);
+            const simMsg = window.i18n
+                ? window.i18n.t('log_survey_simulation', { name: primaryName }) + ' (netto)'
+                : `Simulazione: ${primaryName} (netto)`;
+            logSurveyActivity(simMsg);
         }
 
         // Create fake answers array (so restart works)
@@ -1075,12 +1124,29 @@
         // Presets modal
         initPresetsModal();
 
-        // Re-render results when language changes
+        // Re-render when language changes
         window.addEventListener('languageChanged', () => {
-            // Only re-render if we're on the results screen
+            console.log('[SURVEY] Language changed, updating UI...');
+
+            // Re-render results if on results screen
             if (elements.surveyResults && !elements.surveyResults.hidden) {
-                console.log('[SURVEY] Language changed, re-rendering results...');
                 showResults();
+            }
+
+            // Re-render current question if on questions screen
+            if (elements.surveyQuestions && !elements.surveyQuestions.hidden) {
+                renderQuestion();
+                updateProgress();
+                updateNavigation();
+            }
+
+            // Re-render scores table if it exists
+            const scoresTable = document.getElementById(SCORES_TABLE_ID);
+            if (scoresTable) {
+                // Re-create scores table with translated names
+                removeScoresTable();
+                createScoresTable();
+                updateScoresTable();
             }
         });
     }

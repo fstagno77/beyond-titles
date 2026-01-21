@@ -19,6 +19,10 @@
     const i18n = new window.I18n();
     window.i18n = i18n;
 
+    // Check for internal mode (shows Role tab)
+    const urlParams = new URLSearchParams(window.location.search);
+    const isInternalMode = urlParams.get('internal') === 'true';
+
     // ==========================================================================
     // Configuration
     // ==========================================================================
@@ -1158,11 +1162,32 @@
     }
 
     /**
+     * Configures visibility of Role tab based on internal mode
+     */
+    function configureRoleTabVisibility() {
+        const tabRuolo = document.getElementById('tab-ruolo');
+        const segmentedControl = document.querySelector('.segmented-control');
+
+        if (!isInternalMode) {
+            // Hide Role tab and segmented control (only Survey visible)
+            if (tabRuolo) {
+                tabRuolo.style.display = 'none';
+            }
+            if (segmentedControl) {
+                segmentedControl.style.display = 'none';
+            }
+        }
+    }
+
+    /**
      * Main initialization function
      */
     async function init() {
         try {
             initializeElements();
+
+            // Configure Role tab visibility based on URL parameter
+            configureRoleTabVisibility();
 
             // Set initial language
             document.documentElement.lang = i18n.getLanguage();
@@ -1170,7 +1195,8 @@
             // Update UI with current language
             updateUILanguage();
 
-            logActivity(LogType.INFO, i18n.t('log_init'));
+            const version = window.BeyondTitlesComponents?.CURRENT_VERSION || '0.9.1';
+            logActivity(LogType.INFO, i18n.t('log_init', { version }));
 
             await loadMansioniData();
             bindEvents();

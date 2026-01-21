@@ -76,7 +76,7 @@ const translations = {
         log_loaded: "Database loaded: {count} job titles available.",
         log_error: "Error loading database: {error}",
         log_cleared: "Log cleared.",
-        log_init: "Beyond Titles v0.7.1 initializing...",
+        log_init: "Beyond Titles v{version} initializing...",
         log_ready: "Application ready. Waiting for user input...",
         log_user_selected: "User selected \"{role}\".",
         log_user_submitted: "User submitted \"{term}\" ({trigger}).",
@@ -117,6 +117,12 @@ const translations = {
         // Changelog
         changelog_back: "← Torna alla Home",
         changelog_title: "Changelog",
+
+        changelog_v091_date: "21 Gennaio 2026",
+        changelog_v091_item1: "Traduzioni complete sondaggio in inglese (domande e risposte)",
+        changelog_v091_item2: "Traduzione nomi archetipi nella tabella punteggi del System Log",
+        changelog_v091_item3: "Traduzione messaggi System Log (avvio, completamento, simulazione)",
+        changelog_v091_item4: "Rilevamento lingua browser: italiano per 'it', inglese per tutte le altre lingue",
 
         changelog_v09_date: "20 Gennaio 2026",
         changelog_v09_item1: "Nuovo sistema di scoring single-choice: una selezione per domanda",
@@ -273,7 +279,77 @@ const translations = {
         archetype_artigiano_name: "L'Artigiano",
         archetype_artigiano_claim: "La perfezione nei dettagli",
         archetype_artigiano_profile: "Lavora con precisione e cura artigianale, prestando attenzione a ogni dettaglio. Possiede sensibilità tecnica e capacità di visualizzazione che gli permettono di eccellere in attività che richiedono maestria e precisione.",
-        archetype_artigiano_skills: "Scrupolosità, Visualizzazione spaziale, Autonomia operativa, Sensibilità manuale"
+        archetype_artigiano_skills: "Scrupolosità, Visualizzazione spaziale, Autonomia operativa, Sensibilità manuale",
+
+        // Survey Questions
+        survey_q1_stem: "Quando devo far funzionare un lavoro con altri...",
+        survey_q1_opt_a: "Creo allineamento: ascolto, riformulo, chiarisco aspettative e toni.",
+        survey_q1_opt_b: "Metto a fuoco cosa significa \"fatto bene\": standard, controlli e dettagli che non devono sfuggire.",
+        survey_q1_opt_c: "Definisco chi fa cosa e tengo la direzione, senza ambiguità.",
+        survey_q1_opt_d: "Mi concentro sul risultato pratico: pochi passaggi, subito operativi.",
+
+        survey_q2_stem: "Quando qualcosa non va come previsto...",
+        survey_q2_opt_a: "Risolvo in fretta per rimettere in moto il flusso.",
+        survey_q2_opt_b: "Provo un approccio diverso dal solito e, se funziona, lo trasformo in un modo migliore di fare le cose.",
+        survey_q2_opt_c: "Coinvolgo le persone giuste e coordino l'intervento.",
+        survey_q2_opt_d: "Verifico dettagli e qualità prima di dichiarare \"risolto\".",
+
+        survey_q3_stem: "Quando devo consegnare qualcosa di \"critico\"...",
+        survey_q3_opt_a: "Mi guido sugli standard: controllo, coerenza, zero errori evitabili.",
+        survey_q3_opt_b: "Costruisco un modo di lavorare condiviso: procedura semplice, allineamento e adozione da parte di tutti.",
+        survey_q3_opt_c: "Tengo il punto su responsabilità e scadenze: chiarezza e commitment.",
+        survey_q3_opt_d: "Miglioro il modo di farlo: idea/aggiustamento che riduce tempi o errori.",
+
+        survey_q4_stem: "Quando ho troppe cose insieme...",
+        survey_q4_opt_a: "Scelgo una rotta: priorità nette e decisioni rapide.",
+        survey_q4_opt_b: "Riorganizzo con logica: sequenza, tempi, dipendenze.",
+        survey_q4_opt_c: "Procedo step-by-step: costanza e disciplina fino alla consegna.",
+        survey_q4_opt_d: "Sblocco i colli di bottiglia: tolgo ostacoli e faccio ripartire.",
+
+        survey_q5_stem: "Quando cambia uno strumento o un modo di lavorare...",
+        survey_q5_opt_a: "Provo subito e imparo facendo, aggiustando in corsa.",
+        survey_q5_opt_b: "Capisco la logica e costruisco un metodo per applicarla bene.",
+        survey_q5_opt_c: "Aiuto anche gli altri ad adattarsi, condividendo ciò che funziona.",
+        survey_q5_opt_d: "Mi assicuro che si applichino standard e regole correttamente.",
+
+        survey_q6_stem: "Quando vedo un modo per migliorare...",
+        survey_q6_opt_a: "Propongo una piccola sperimentazione e misuro l'impatto.",
+        survey_q6_opt_b: "Traduco l'idea in passi pratici e la rendo adottabile subito.",
+        survey_q6_opt_c: "Faccio emergere consenso: coinvolgo e porto le persone a bordo.",
+        survey_q6_opt_d: "Valuto rischi e trade-off: cosa conviene davvero e perché.",
+
+        survey_q7_stem: "Quando qualcuno è frustrato o in tensione...",
+        survey_q7_opt_a: "Ricompongo: ascolto e riporto la relazione su fiducia e rispetto.",
+        survey_q7_opt_b: "Riporto su fatti e criteri: chiarezza, accordi, niente zone grigie.",
+        survey_q7_opt_c: "Prendo una decisione e la comunico in modo diretto e calmo.",
+        survey_q7_opt_d: "Trovo una soluzione praticabile che fa andare avanti.",
+
+        survey_q8_stem: "In un team che deve \"girare bene\"...",
+        survey_q8_opt_a: "Mi viene naturale fare da ponte: connetto persone e informazioni.",
+        survey_q8_opt_b: "Mi viene naturale definire ruoli, regole e standard condivisi.",
+        survey_q8_opt_c: "Mi viene naturale guidare: responsabilità chiare, ritmo e priorità.",
+        survey_q8_opt_d: "Mi viene naturale fare execution: porto avanti pezzi concreti e chiudo task.",
+
+        survey_q9_stem: "Quando qualcosa \"è nelle mie mani\"...",
+        survey_q9_opt_a: "Mi assicuro che sia fatto bene nei dettagli, anche se richiede tempo.",
+        survey_q9_opt_b: "Tengo la rotta: obiettivi, criteri e coerenza nelle scelte.",
+        survey_q9_opt_c: "Agisco: faccio avanzare, elimino blocchi, consegno.",
+        survey_q9_opt_d: "Cerco un modo migliore o nuovo per ottenere lo stesso risultato.",
+
+        survey_q10_stem: "Quando la pressione sale...",
+        survey_q10_opt_a: "Tengo unita la squadra: supporto reciproco, coordinamento e clima che permette di lavorare insieme.",
+        survey_q10_opt_b: "Metto ordine e rendo la situazione leggibile (priorità, criteri, piano).",
+        survey_q10_opt_c: "Decido e faccio decidere: responsabilità e direzione.",
+        survey_q10_opt_d: "Risolvo l'imprevisto e riparto, anche con workaround intelligenti.",
+
+        // System Log Survey Messages
+        log_survey_started: "Sondaggio iniziato - 10 domande (single-choice)",
+        log_survey_completed: "Sondaggio completato!",
+        log_survey_back_to_intro: "Tornato alla schermata iniziale",
+        log_survey_simulation: "Simulazione: {name}",
+        log_survey_simulation_blend: "Simulazione: {primary} + {secondary} (blend)",
+        log_scores_title: "Score Archetipi",
+        log_data_loaded: "Loaded survey_archetypes.json v2.0 - {questions} domande, {archetypes} archetipi ({list})"
     },
 
     en: {
@@ -348,7 +424,7 @@ const translations = {
         log_loaded: "Database loaded: {count} job titles available.",
         log_error: "Error loading database: {error}",
         log_cleared: "Log cleared.",
-        log_init: "Beyond Titles v0.7.1 initializing...",
+        log_init: "Beyond Titles v{version} initializing...",
         log_ready: "Application ready. Waiting for user input...",
         log_user_selected: "User selected \"{role}\".",
         log_user_submitted: "User submitted \"{term}\" ({trigger}).",
@@ -389,6 +465,12 @@ const translations = {
         // Changelog
         changelog_back: "← Back to Home",
         changelog_title: "Changelog",
+
+        changelog_v091_date: "January 21, 2026",
+        changelog_v091_item1: "Complete survey translations in English (questions and answers)",
+        changelog_v091_item2: "Translated archetype names in System Log scores table",
+        changelog_v091_item3: "Translated System Log messages (start, completion, simulation)",
+        changelog_v091_item4: "Browser language detection: Italian for 'it', English for all other languages",
 
         changelog_v09_date: "January 20, 2026",
         changelog_v09_item1: "New single-choice scoring system: one selection per question",
@@ -545,7 +627,77 @@ const translations = {
         archetype_artigiano_name: "The Craftsman",
         archetype_artigiano_claim: "Perfection in details",
         archetype_artigiano_profile: "Works with precision and craftsmanship, paying attention to every detail. Possesses technical sensitivity and visualization skills that allow them to excel in activities requiring mastery and precision.",
-        archetype_artigiano_skills: "Diligence, Spatial Visualization, Operational Autonomy, Manual Sensitivity"
+        archetype_artigiano_skills: "Diligence, Spatial Visualization, Operational Autonomy, Manual Sensitivity",
+
+        // Survey Questions
+        survey_q1_stem: "When I need to make a project work with others...",
+        survey_q1_opt_a: "I create alignment: I listen, rephrase, clarify expectations and tone.",
+        survey_q1_opt_b: "I focus on what \"done right\" means: standards, checks, and details that shouldn't slip.",
+        survey_q1_opt_c: "I define who does what and keep the direction clear, without ambiguity.",
+        survey_q1_opt_d: "I focus on practical results: few steps, immediately operational.",
+
+        survey_q2_stem: "When something doesn't go as planned...",
+        survey_q2_opt_a: "I solve it quickly to get the flow moving again.",
+        survey_q2_opt_b: "I try a different approach than usual, and if it works, I turn it into a better way of doing things.",
+        survey_q2_opt_c: "I involve the right people and coordinate the intervention.",
+        survey_q2_opt_d: "I check details and quality before declaring it \"solved\".",
+
+        survey_q3_stem: "When I need to deliver something \"critical\"...",
+        survey_q3_opt_a: "I guide myself by standards: control, consistency, zero avoidable errors.",
+        survey_q3_opt_b: "I build a shared way of working: simple procedure, alignment, and adoption by everyone.",
+        survey_q3_opt_c: "I hold the line on responsibilities and deadlines: clarity and commitment.",
+        survey_q3_opt_d: "I improve how it's done: idea/adjustment that reduces time or errors.",
+
+        survey_q4_stem: "When I have too many things at once...",
+        survey_q4_opt_a: "I choose a course: clear priorities and quick decisions.",
+        survey_q4_opt_b: "I reorganize with logic: sequence, timing, dependencies.",
+        survey_q4_opt_c: "I proceed step-by-step: consistency and discipline until delivery.",
+        survey_q4_opt_d: "I unblock bottlenecks: remove obstacles and get things moving again.",
+
+        survey_q5_stem: "When a tool or way of working changes...",
+        survey_q5_opt_a: "I try right away and learn by doing, adjusting on the go.",
+        survey_q5_opt_b: "I understand the logic and build a method to apply it well.",
+        survey_q5_opt_c: "I help others adapt too, sharing what works.",
+        survey_q5_opt_d: "I make sure standards and rules are applied correctly.",
+
+        survey_q6_stem: "When I see a way to improve...",
+        survey_q6_opt_a: "I propose a small experiment and measure the impact.",
+        survey_q6_opt_b: "I translate the idea into practical steps and make it immediately adoptable.",
+        survey_q6_opt_c: "I build consensus: I involve people and bring them on board.",
+        survey_q6_opt_d: "I evaluate risks and trade-offs: what really pays off and why.",
+
+        survey_q7_stem: "When someone is frustrated or tense...",
+        survey_q7_opt_a: "I restore: I listen and bring the relationship back to trust and respect.",
+        survey_q7_opt_b: "I bring it back to facts and criteria: clarity, agreements, no gray areas.",
+        survey_q7_opt_c: "I make a decision and communicate it directly and calmly.",
+        survey_q7_opt_d: "I find a workable solution that moves things forward.",
+
+        survey_q8_stem: "In a team that needs to \"run smoothly\"...",
+        survey_q8_opt_a: "It comes naturally to me to be a bridge: I connect people and information.",
+        survey_q8_opt_b: "It comes naturally to me to define roles, rules, and shared standards.",
+        survey_q8_opt_c: "It comes naturally to me to lead: clear responsibilities, rhythm, and priorities.",
+        survey_q8_opt_d: "It comes naturally to me to execute: I move concrete pieces forward and close tasks.",
+
+        survey_q9_stem: "When something \"is in my hands\"...",
+        survey_q9_opt_a: "I make sure it's done right in the details, even if it takes time.",
+        survey_q9_opt_b: "I keep the course: objectives, criteria, and consistency in choices.",
+        survey_q9_opt_c: "I act: I move forward, remove blocks, deliver.",
+        survey_q9_opt_d: "I look for a better or new way to achieve the same result.",
+
+        survey_q10_stem: "When pressure rises...",
+        survey_q10_opt_a: "I keep the team united: mutual support, coordination, and a climate that allows working together.",
+        survey_q10_opt_b: "I create order and make the situation readable (priorities, criteria, plan).",
+        survey_q10_opt_c: "I decide and make others decide: responsibility and direction.",
+        survey_q10_opt_d: "I solve the unexpected and restart, even with smart workarounds.",
+
+        // System Log Survey Messages
+        log_survey_started: "Survey started - 10 questions (single-choice)",
+        log_survey_completed: "Survey completed!",
+        log_survey_back_to_intro: "Returned to home screen",
+        log_survey_simulation: "Simulation: {name}",
+        log_survey_simulation_blend: "Simulation: {primary} + {secondary} (blend)",
+        log_scores_title: "Archetype Scores",
+        log_data_loaded: "Loaded survey_archetypes.json v2.0 - {questions} questions, {archetypes} archetypes ({list})"
     }
 };
 

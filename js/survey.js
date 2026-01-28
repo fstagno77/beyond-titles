@@ -13,7 +13,8 @@
         surveyDataUrl: './data/survey_archetypes.json',
         TOTAL_WEIGHT: 196,  // Somma di tutti i pesi
         SOGLIA_NETTO: 10,   // delta >= 10 per profilo netto
-        totalQuestions: 10
+        totalQuestions: 10,
+        SJT_PASSWORD: 'gigroup2026'  // Password for SJT survey access
     };
 
     // =========================================================================
@@ -21,10 +22,15 @@
     // =========================================================================
     const state = {
         surveyData: null,
+        selectedSurvey: null, // 'bcb_v1' or 'sjt_v1'
         currentQuestion: 0,
         answers: [], // Array of { questionId, selectedOptionId, archetype }
         scores: {} // { archetipo: punteggio }
     };
+
+    // Storage keys for persistence
+    const SURVEY_TYPE_STORAGE_KEY = 'beyond-titles-survey-type';
+    const SJT_AUTH_STORAGE_KEY = 'beyond-titles-sjt-auth';
 
     // =========================================================================
     // DOM Elements
@@ -51,6 +57,16 @@
         elements.prevBtn = document.getElementById('survey-prev');
         elements.nextBtn = document.getElementById('survey-next');
         elements.restartBtn = document.getElementById('survey-restart');
+
+        // Survey selector
+        elements.surveySelector = document.getElementById('survey-type-selector');
+
+        // SJT Password Modal
+        elements.sjtPasswordModal = document.getElementById('sjtPasswordModal');
+        elements.sjtPasswordInput = document.getElementById('sjtPasswordInput');
+        elements.sjtPasswordError = document.getElementById('sjtPasswordError');
+        elements.sjtPasswordSubmit = document.getElementById('sjtPasswordSubmit');
+        elements.sjtPasswordCloseBtn = document.getElementById('sjtPasswordCloseBtn');
 
         // Survey content
         elements.progressFill = document.getElementById('survey-progress-fill');
@@ -241,6 +257,18 @@
             state.surveyData = await response.json();
             console.log('[SURVEY] Data loaded successfully');
 
+            // Load selected survey from localStorage or use default
+            const savedSurvey = localStorage.getItem(SURVEY_TYPE_STORAGE_KEY);
+            const availableSurveys = Object.keys(state.surveyData.surveys || {});
+
+            if (savedSurvey && availableSurveys.includes(savedSurvey)) {
+                state.selectedSurvey = savedSurvey;
+            } else {
+                state.selectedSurvey = state.surveyData.config?.default_survey || 'bcb_v1';
+            }
+
+            console.log('[SURVEY] Selected survey:', state.selectedSurvey);
+
             // Log to System Log
             logDataLoaded();
 
@@ -249,6 +277,57 @@
             console.error('[SURVEY] Failed to load survey data:', error);
             return false;
         }
+    }
+
+    /**
+     * Gets the current survey questions based on selected survey
+     * @returns {Array} Array of question objects
+     */
+    function getCurrentQuestions() {
+        if (!state.surveyData || !state.surveyData.surveys) {
+            // Fallback for old data format
+            return state.surveyData?.domande || [];
+        }
+        return state.surveyData.surveys[state.selectedSurvey]?.domande || [];
+    }
+
+    /**
+     * Sets the selected survey and persists to localStorage
+     * @param {string} surveyId - The survey ID ('bcb_v1' or 'sjt_v1')
+     */
+    function setSelectedSurvey(surveyId) {
+        if (!state.surveyData?.surveys?.[surveyId]) {
+            console.warn('[SURVEY] Invalid survey ID:', surveyId);
+            return;
+        }
+
+        state.selectedSurvey = surveyId;
+        localStorage.setItem(SURVEY_TYPE_STORAGE_KEY, surveyId);
+        console.log('[SURVEY] Survey changed to:', surveyId);
+
+        // Update selector UI if it exists
+        const selector = document.getElementById('survey-type-selector');
+        if (selector) {
+            selector.value = surveyId;
+        }
+
+        // Log the change
+        const surveyName = getSurveyDisplayName(surveyId);
+        logSurveyActivity(`Survey selezionata: ${surveyName}`);
+    }
+
+    /**
+     * Gets the display name for a survey
+     * @param {string} surveyId - The survey ID
+     * @returns {string} Display name
+     */
+    function getSurveyDisplayName(surveyId) {
+        if (window.i18n) {
+            const shortKey = `survey_${surveyId}_short`;
+            const shortVal = window.i18n.t(shortKey);
+            if (shortVal !== shortKey) return shortVal;
+        }
+        return state.surveyData?.surveys?.[surveyId]?.name || surveyId;
     }
 
     function logDataLoaded() {
@@ -260,9 +339,10 @@
         const timestamp = `<span class="system-log__timestamp">[${getTimestamp()}]</span>`;
         const typeLabel = `<span class="system-log__type--info">INFO:</span>`;
 
-        const numDomande = state.surveyData.domande?.length || 0;
+        const numDomande = getCurrentQuestions().length;
         const numArchetipi = Object.keys(state.surveyData.archetipi || {}).length;
         const archetipiList = Object.keys(state.surveyData.archetipi || {}).join(', ');
+        const numSurveys = Object.keys(state.surveyData.surveys || {}).length;
 
         let message;
         if (window.i18n) {
@@ -272,7 +352,7 @@
                 list: archetipiList
             });
         } else {
-            message = `Loaded survey_archetypes.json v2.0 - ${numDomande} domande, ${numArchetipi} archetipi (${archetipiList})`;
+            message = `Loaded survey_archetypes.json v3.0 - ${numDomande} domande, ${numArchetipi} archetipi, ${numSurveys} surveys (${archetipiList})`;
         }
 
         entry.innerHTML = `${timestamp} ${typeLabel} <span class="system-log__message">${message}</span>`;
@@ -351,7 +431,12 @@
         if (!window.i18n) return question;
 
         const qNum = question.id;
-        const stemKey = `survey_q${qNum}_stem`;
+
+        // Determine i18n key prefix based on selected survey
+        // BCB uses 'survey_q{n}' prefix, SJT uses 'sjt_q{n}' prefix
+        const prefix = state.selectedSurvey === 'sjt_v1' ? 'sjt' : 'survey';
+
+        const stemKey = `${prefix}_q${qNum}_stem`;
         const stemVal = window.i18n.t(stemKey);
 
         // Use translation only if it exists (not returning the key itself)
@@ -360,7 +445,7 @@
         const opzioni = question.opzioni.map(opt => {
             // Option IDs are like "1A", "1B", etc. Extract the letter
             const letter = opt.id.slice(-1).toLowerCase();
-            const optKey = `survey_q${qNum}_opt_${letter}`;
+            const optKey = `${prefix}_q${qNum}_opt_${letter}`;
             const optVal = window.i18n.t(optKey);
             const testo = optVal !== optKey ? optVal : opt.testo;
 
@@ -371,7 +456,8 @@
     }
 
     function renderQuestion() {
-        const rawQuestion = state.surveyData.domande[state.currentQuestion];
+        const questions = getCurrentQuestions();
+        const rawQuestion = questions[state.currentQuestion];
         const question = getTranslatedQuestion(rawQuestion);
         const answer = state.answers[state.currentQuestion] || { selectedOptionId: null };
 
@@ -422,7 +508,8 @@
         if (!optionEl) return;
 
         const optionId = optionEl.dataset.optionId;
-        const question = state.surveyData.domande[state.currentQuestion];
+        const questions = getCurrentQuestions();
+        const question = questions[state.currentQuestion];
         const selectedOption = question.opzioni.find(o => o.id === optionId);
 
         // Create or update answer for current question
@@ -438,7 +525,7 @@
     }
 
     function updateProgress() {
-        const total = state.surveyData.domande.length;
+        const total = getCurrentQuestions().length;
         const current = state.currentQuestion + 1;
         const percentage = (current / total) * 100;
 
@@ -455,7 +542,7 @@
     function updateNavigation() {
         const answer = state.answers[state.currentQuestion];
         const isComplete = answer && answer.selectedOptionId;
-        const isLast = state.currentQuestion === state.surveyData.domande.length - 1;
+        const isLast = state.currentQuestion === getCurrentQuestions().length - 1;
 
         // Prev button always enabled - on first question goes back to intro
         elements.prevBtn.disabled = false;
@@ -505,7 +592,7 @@
     }
 
     function goToNextQuestion() {
-        const isLast = state.currentQuestion === state.surveyData.domande.length - 1;
+        const isLast = state.currentQuestion === getCurrentQuestions().length - 1;
 
         // Calculate partial scores up to current question
         calculatePartialScores();
@@ -1100,12 +1187,137 @@
     }
 
     // =========================================================================
+    // SJT Password Modal
+    // =========================================================================
+    function showSjtPasswordModal() {
+        if (!elements.sjtPasswordModal) return;
+
+        // Reset state
+        if (elements.sjtPasswordInput) {
+            elements.sjtPasswordInput.value = '';
+        }
+        if (elements.sjtPasswordError) {
+            elements.sjtPasswordError.hidden = true;
+        }
+
+        elements.sjtPasswordModal.classList.add('modal--visible');
+        document.body.style.overflow = 'hidden';
+
+        // Focus on input
+        setTimeout(() => {
+            if (elements.sjtPasswordInput) {
+                elements.sjtPasswordInput.focus();
+            }
+        }, 100);
+    }
+
+    function hideSjtPasswordModal() {
+        if (!elements.sjtPasswordModal) return;
+
+        elements.sjtPasswordModal.classList.remove('modal--visible');
+        document.body.style.overflow = '';
+    }
+
+    function isSjtAuthenticated() {
+        return localStorage.getItem(SJT_AUTH_STORAGE_KEY) === 'true';
+    }
+
+    function setSjtAuthenticated() {
+        localStorage.setItem(SJT_AUTH_STORAGE_KEY, 'true');
+    }
+
+    function validateSjtPassword() {
+        if (!elements.sjtPasswordInput) return false;
+
+        const password = elements.sjtPasswordInput.value;
+
+        if (password === CONFIG.SJT_PASSWORD) {
+            setSjtAuthenticated();
+            hideSjtPasswordModal();
+            startSurvey();
+            return true;
+        } else {
+            // Show error
+            if (elements.sjtPasswordError) {
+                elements.sjtPasswordError.hidden = false;
+                // Update error text with i18n if available
+                if (window.i18n) {
+                    elements.sjtPasswordError.textContent = window.i18n.t('sjt_password_error');
+                }
+            }
+            // Shake input
+            elements.sjtPasswordInput.classList.add('sjt-password__input--error');
+            setTimeout(() => {
+                elements.sjtPasswordInput.classList.remove('sjt-password__input--error');
+            }, 500);
+            return false;
+        }
+    }
+
+    function initSjtPasswordModal() {
+        if (!elements.sjtPasswordModal) return;
+
+        // Submit button
+        if (elements.sjtPasswordSubmit) {
+            elements.sjtPasswordSubmit.addEventListener('click', validateSjtPassword);
+        }
+
+        // Enter key on input
+        if (elements.sjtPasswordInput) {
+            elements.sjtPasswordInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    validateSjtPassword();
+                }
+            });
+            // Clear error on input
+            elements.sjtPasswordInput.addEventListener('input', () => {
+                if (elements.sjtPasswordError) {
+                    elements.sjtPasswordError.hidden = true;
+                }
+            });
+        }
+
+        // Close button
+        if (elements.sjtPasswordCloseBtn) {
+            elements.sjtPasswordCloseBtn.addEventListener('click', hideSjtPasswordModal);
+        }
+
+        // Backdrop click
+        const backdrop = elements.sjtPasswordModal.querySelector('.modal__backdrop');
+        if (backdrop) {
+            backdrop.addEventListener('click', hideSjtPasswordModal);
+        }
+
+        // Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && elements.sjtPasswordModal.classList.contains('modal--visible')) {
+                hideSjtPasswordModal();
+            }
+        });
+    }
+
+    function handleStartSurveyClick() {
+        // Check if SJT survey is selected
+        if (state.selectedSurvey === 'sjt_v1') {
+            // Skip password if already authenticated
+            if (isSjtAuthenticated()) {
+                startSurvey();
+            } else {
+                showSjtPasswordModal();
+            }
+        } else {
+            startSurvey();
+        }
+    }
+
+    // =========================================================================
     // Event Binding
     // =========================================================================
     function bindEvents() {
-        // Start button
+        // Start button - intercept for SJT password check
         if (elements.startBtn) {
-            elements.startBtn.addEventListener('click', startSurvey);
+            elements.startBtn.addEventListener('click', handleStartSurveyClick);
         }
 
         // Navigation buttons
@@ -1127,6 +1339,9 @@
         // Re-render when language changes
         window.addEventListener('languageChanged', () => {
             console.log('[SURVEY] Language changed, updating UI...');
+
+            // Update survey selector text
+            updateSurveySelector();
 
             // Re-render results if on results screen
             if (elements.surveyResults && !elements.surveyResults.hidden) {
@@ -1152,10 +1367,49 @@
     }
 
     // =========================================================================
+    // Survey Selector
+    // =========================================================================
+    function initSurveySelector() {
+        if (!elements.surveySelector || !state.surveyData?.surveys) return;
+
+        // Populate selector options
+        const surveys = state.surveyData.surveys;
+        elements.surveySelector.innerHTML = '';
+
+        Object.entries(surveys).forEach(([id, survey]) => {
+            const option = document.createElement('option');
+            option.value = id;
+            // Use i18n short name if available
+            option.textContent = getSurveyDisplayName(id);
+            elements.surveySelector.appendChild(option);
+        });
+
+        // Set current selection
+        elements.surveySelector.value = state.selectedSurvey;
+
+        // Bind change event
+        elements.surveySelector.addEventListener('change', (e) => {
+            setSelectedSurvey(e.target.value);
+        });
+    }
+
+    /**
+     * Updates survey selector text when language changes
+     */
+    function updateSurveySelector() {
+        if (!elements.surveySelector) return;
+
+        const options = elements.surveySelector.querySelectorAll('option');
+        options.forEach(option => {
+            option.textContent = getSurveyDisplayName(option.value);
+        });
+    }
+
+    // =========================================================================
     // Main Init
     // =========================================================================
     async function init() {
-        console.log('[SURVEY] Initializing v2.0 (single-choice)...');
+        console.log('[SURVEY] Initializing v3.0 (multi-survey)...');
 
         initializeElements();
 
@@ -1167,6 +1421,8 @@
         }
 
         initSegmentedControl();
+        initSurveySelector();
+        initSjtPasswordModal();
         bindEvents();
 
         // Log "Application ready" as final message (after all data is loaded)

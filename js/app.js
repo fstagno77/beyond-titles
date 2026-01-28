@@ -1195,7 +1195,7 @@
             // Update UI with current language
             updateUILanguage();
 
-            const version = window.BeyondTitlesComponents?.CURRENT_VERSION || '0.9.1';
+            const version = window.BeyondTitlesComponents?.CURRENT_VERSION || '0.10.0';
             logActivity(LogType.INFO, i18n.t('log_init', { version }));
 
             await loadMansioniData();

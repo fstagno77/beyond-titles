@@ -118,6 +118,14 @@ const translations = {
         changelog_back: "← Torna alla Home",
         changelog_title: "Changelog",
 
+        changelog_v0100_date: "28 Gennaio 2026",
+        changelog_v0100_item1: "Sistema multi-survey con selettore tipo sondaggio",
+        changelog_v0100_item2: "Nuovo sondaggio Situational Judgement Test (SJT) v1.0 con 10 domande",
+        changelog_v0100_item3: "Protezione password per accesso SJT (survey in sviluppo)",
+        changelog_v0100_item4: "Persistenza autenticazione SJT in localStorage",
+        changelog_v0100_item5: "Traduzioni complete SJT italiano e inglese",
+        changelog_v0100_item6: "Ristrutturazione survey_archetypes.json a formato v3.0 multi-survey",
+
         changelog_v091_date: "21 Gennaio 2026",
         changelog_v091_item1: "Traduzioni complete sondaggio in inglese (domande e risposte)",
         changelog_v091_item2: "Traduzione nomi archetipi nella tabella punteggi del System Log",
@@ -349,7 +357,81 @@ const translations = {
         log_survey_simulation: "Simulazione: {name}",
         log_survey_simulation_blend: "Simulazione: {primary} + {secondary} (blend)",
         log_scores_title: "Score Archetipi",
-        log_data_loaded: "Loaded survey_archetypes.json v2.0 - {questions} domande, {archetypes} archetipi ({list})"
+        log_data_loaded: "Loaded survey_archetypes.json v3.0 - {questions} domande, {archetypes} archetipi ({list})",
+
+        // Survey Selector
+        survey_selector_label: "Tipo di sondaggio",
+        survey_bcb_v1_name: "Behavioural & Competency-Based",
+        survey_bcb_v1_short: "Behavioural & Competency-Based v1.0",
+        survey_sjt_v1_name: "Situational Judgement Test",
+        survey_sjt_v1_short: "Situational Judgement Test v1.0",
+
+        // SJT Password Modal
+        sjt_password_title: "Accesso Riservato",
+        sjt_password_description: "Questa survey è in fase di sviluppo. Inserisci la password per accedere.",
+        sjt_password_error: "Password non corretta",
+        sjt_password_submit: "Accedi",
+
+        // SJT Survey Questions
+        sjt_q1_stem: "Devi iniziare una cosa nuova. Le indicazioni sono poche e hai poco tempo. Cosa fai per primo?",
+        sjt_q1_opt_a: "Chiedo un chiarimento veloce a qualcuno, per capire bene.",
+        sjt_q1_opt_b: "Controllo bene quello che mi serve prima di partire.",
+        sjt_q1_opt_c: "Decido un modo chiaro di procedere e parto.",
+        sjt_q1_opt_d: "Inizio dal primo passo utile, senza complicare le cose.",
+
+        sjt_q2_stem: "Sei in fila (per esempio al supermercato o a uno sportello). La fila si blocca e non è chiaro il motivo. Di solito, cosa fai?",
+        sjt_q2_opt_a: "Cerco una soluzione veloce per sbloccare e andare avanti.",
+        sjt_q2_opt_b: "Provo un modo diverso e vedo se funziona.",
+        sjt_q2_opt_c: "Chiedo a qualcuno che può aiutare (per esempio un addetto).",
+        sjt_q2_opt_d: "Guardo bene cosa sta succedendo per capire dov'è il problema.",
+
+        sjt_q3_stem: "Devi preparare qualcosa che useranno anche altre persone. Deve venire bene. Cosa fai più probabilmente?",
+        sjt_q3_opt_a: "Controllo i dettagli e mi assicuro che sia fatto bene.",
+        sjt_q3_opt_b: "Prima mi confronto con gli altri per capire cosa serve, poi inizio a lavorare.",
+        sjt_q3_opt_c: "Scelgo il modo più semplice per farlo bene e concludere.",
+        sjt_q3_opt_d: "Provo un piccolo miglioramento per farlo meglio o più veloce.",
+
+        sjt_q4_stem: "Hai tante cose da fare e poco tempo. Non puoi fare tutto insieme. In una situazione così, cosa fai?",
+        sjt_q4_opt_a: "Decido cosa viene prima e lo dico in modo chiaro.",
+        sjt_q4_opt_b: "Mi faccio un piano semplice: cosa prima, cosa dopo.",
+        sjt_q4_opt_c: "Inizio dalla cosa più pratica e vado avanti un passo alla volta.",
+        sjt_q4_opt_d: "Risolvo subito ciò che blocca di più, così posso ripartire.",
+
+        sjt_q5_stem: "Cambia il modo di fare una cosa (una regola, uno strumento, un metodo). Di solito, cosa fai?",
+        sjt_q5_opt_a: "Provo subito e mi correggo mentre lo faccio.",
+        sjt_q5_opt_b: "Prima capisco bene come funziona, poi lo applico con metodo.",
+        sjt_q5_opt_c: "Se vedo qualcuno in difficoltà, lo aiuto a imparare a usarlo.",
+        sjt_q5_opt_d: "Seguo le regole con attenzione e controllo di farlo giusto.",
+
+        sjt_q6_stem: "Vedi un modo per fare una cosa meglio o più veloce. Cosa fai più probabilmente?",
+        sjt_q6_opt_a: "Faccio una piccola prova per vedere se funziona.",
+        sjt_q6_opt_b: "La rendo subito pratica: scelgo pochi passi chiari e parto.",
+        sjt_q6_opt_c: "Ne parlo con le persone coinvolte e ci mettiamo d'accordo.",
+        sjt_q6_opt_d: "Prima ci penso bene: vantaggi e svantaggi, poi decido.",
+
+        sjt_q7_stem: "Con una persona c'è tensione e rischiate di capirvi male. Cosa fai più probabilmente?",
+        sjt_q7_opt_a: "Ascolto e provo a riportare calma e rispetto.",
+        sjt_q7_opt_b: "Cerco un punto in comune e aiuto a chiarire cosa intende ciascuno.",
+        sjt_q7_opt_c: "Dico chiaramente cosa facciamo adesso e concludo la conversazione.",
+        sjt_q7_opt_d: "Trovo una soluzione pratica e vado avanti.",
+
+        sjt_q8_stem: "Devi fare una cosa insieme ad altre persone e serve che funzioni bene. Cosa fai più probabilmente?",
+        sjt_q8_opt_a: "Metto in contatto le persone e faccio arrivare a tutti le informazioni giuste.",
+        sjt_q8_opt_b: "Faccio la mia parte e aiuto anche gli altri quando serve.",
+        sjt_q8_opt_c: "Se manca chiarezza, dico cosa facciamo e si parte.",
+        sjt_q8_opt_d: "Mi concentro sui pezzi pratici e li concludo.",
+
+        sjt_q9_stem: "Ti accorgi che c'è una cosa da sistemare (a casa, a scuola, in un'attività). Non te l'ha chiesto nessuno, ma se la fai, la situazione migliora. Cosa fai più probabilmente?",
+        sjt_q9_opt_a: "La sistemo con cura, controllando i dettagli.",
+        sjt_q9_opt_b: "Mi chiarisco bene cosa fare e in che ordine, poi la faccio.",
+        sjt_q9_opt_c: "La sistemo in modo rapido, così non resta lì a bloccare.",
+        sjt_q9_opt_d: "Provo un modo diverso per sistemarla meglio o più facilmente.",
+
+        sjt_q10_stem: "C'è pressione: il tempo è poco e succedono più cose insieme. In una situazione così, cosa fai?",
+        sjt_q10_opt_a: "Aiuto le persone a restare unite e a darsi una mano.",
+        sjt_q10_opt_b: "Metto ordine: cosa fare prima e cosa dopo.",
+        sjt_q10_opt_c: "Decido cosa si fa adesso e lo dico chiaramente.",
+        sjt_q10_opt_d: "Sistemo l'urgenza e faccio ripartire."
     },
 
     en: {
@@ -465,6 +547,14 @@ const translations = {
         // Changelog
         changelog_back: "← Back to Home",
         changelog_title: "Changelog",
+
+        changelog_v0100_date: "January 28, 2026",
+        changelog_v0100_item1: "Multi-survey system with survey type selector",
+        changelog_v0100_item2: "New Situational Judgement Test (SJT) v1.0 survey with 10 questions",
+        changelog_v0100_item3: "Password protection for SJT access (survey under development)",
+        changelog_v0100_item4: "SJT authentication persistence in localStorage",
+        changelog_v0100_item5: "Complete SJT translations in Italian and English",
+        changelog_v0100_item6: "Restructured survey_archetypes.json to v3.0 multi-survey format",
 
         changelog_v091_date: "January 21, 2026",
         changelog_v091_item1: "Complete survey translations in English (questions and answers)",
@@ -697,7 +787,81 @@ const translations = {
         log_survey_simulation: "Simulation: {name}",
         log_survey_simulation_blend: "Simulation: {primary} + {secondary} (blend)",
         log_scores_title: "Archetype Scores",
-        log_data_loaded: "Loaded survey_archetypes.json v2.0 - {questions} questions, {archetypes} archetypes ({list})"
+        log_data_loaded: "Loaded survey_archetypes.json v3.0 - {questions} questions, {archetypes} archetypes ({list})",
+
+        // Survey Selector
+        survey_selector_label: "Survey type",
+        survey_bcb_v1_name: "Behavioural & Competency-Based",
+        survey_bcb_v1_short: "Behavioural & Competency-Based v1.0",
+        survey_sjt_v1_name: "Situational Judgement Test",
+        survey_sjt_v1_short: "Situational Judgement Test v1.0",
+
+        // SJT Password Modal
+        sjt_password_title: "Restricted Access",
+        sjt_password_description: "This survey is under development. Enter the password to access.",
+        sjt_password_error: "Incorrect password",
+        sjt_password_submit: "Access",
+
+        // SJT Survey Questions
+        sjt_q1_stem: "You need to start something new. Instructions are scarce and time is short. What do you do first?",
+        sjt_q1_opt_a: "I quickly ask someone for clarification to understand better.",
+        sjt_q1_opt_b: "I carefully check what I need before starting.",
+        sjt_q1_opt_c: "I decide a clear way to proceed and get started.",
+        sjt_q1_opt_d: "I start with the first useful step, without overcomplicating things.",
+
+        sjt_q2_stem: "You're in a queue (for example at a supermarket or service counter). The line gets stuck and it's not clear why. What do you usually do?",
+        sjt_q2_opt_a: "I look for a quick solution to unblock things and move forward.",
+        sjt_q2_opt_b: "I try a different approach and see if it works.",
+        sjt_q2_opt_c: "I ask someone who can help (like a staff member).",
+        sjt_q2_opt_d: "I carefully observe what's happening to understand where the problem is.",
+
+        sjt_q3_stem: "You need to prepare something that other people will also use. It needs to be done well. What do you most likely do?",
+        sjt_q3_opt_a: "I check the details and make sure it's done right.",
+        sjt_q3_opt_b: "First I discuss with others to understand what's needed, then I start working.",
+        sjt_q3_opt_c: "I choose the simplest way to do it well and finish.",
+        sjt_q3_opt_d: "I try a small improvement to make it better or faster.",
+
+        sjt_q4_stem: "You have many things to do and little time. You can't do everything at once. In this situation, what do you do?",
+        sjt_q4_opt_a: "I decide what comes first and say it clearly.",
+        sjt_q4_opt_b: "I make a simple plan: what first, what next.",
+        sjt_q4_opt_c: "I start with the most practical thing and move forward one step at a time.",
+        sjt_q4_opt_d: "I immediately solve what's blocking the most, so I can restart.",
+
+        sjt_q5_stem: "The way of doing something changes (a rule, a tool, a method). What do you usually do?",
+        sjt_q5_opt_a: "I try right away and adjust as I go.",
+        sjt_q5_opt_b: "First I understand how it works, then I apply it methodically.",
+        sjt_q5_opt_c: "If I see someone struggling, I help them learn to use it.",
+        sjt_q5_opt_d: "I follow the rules carefully and check that I'm doing it right.",
+
+        sjt_q6_stem: "You see a way to do something better or faster. What do you most likely do?",
+        sjt_q6_opt_a: "I run a small test to see if it works.",
+        sjt_q6_opt_b: "I make it practical right away: I choose a few clear steps and start.",
+        sjt_q6_opt_c: "I discuss it with the people involved and we agree together.",
+        sjt_q6_opt_d: "First I think it through carefully: pros and cons, then I decide.",
+
+        sjt_q7_stem: "There's tension with someone and you risk misunderstanding each other. What do you most likely do?",
+        sjt_q7_opt_a: "I listen and try to restore calm and respect.",
+        sjt_q7_opt_b: "I look for common ground and help clarify what each person means.",
+        sjt_q7_opt_c: "I clearly say what we're doing now and wrap up the conversation.",
+        sjt_q7_opt_d: "I find a practical solution and move on.",
+
+        sjt_q8_stem: "You need to do something together with other people and it needs to work well. What do you most likely do?",
+        sjt_q8_opt_a: "I connect people and make sure everyone gets the right information.",
+        sjt_q8_opt_b: "I do my part and help others when needed.",
+        sjt_q8_opt_c: "If there's no clarity, I say what we're doing and we start.",
+        sjt_q8_opt_d: "I focus on the practical pieces and complete them.",
+
+        sjt_q9_stem: "You notice something that needs fixing (at home, school, or in an activity). Nobody asked you, but if you do it, things improve. What do you most likely do?",
+        sjt_q9_opt_a: "I fix it carefully, checking the details.",
+        sjt_q9_opt_b: "I clarify what to do and in what order, then I do it.",
+        sjt_q9_opt_c: "I fix it quickly so it doesn't stay there blocking things.",
+        sjt_q9_opt_d: "I try a different way to fix it better or more easily.",
+
+        sjt_q10_stem: "There's pressure: time is short and multiple things are happening at once. In this situation, what do you do?",
+        sjt_q10_opt_a: "I help people stay united and support each other.",
+        sjt_q10_opt_b: "I create order: what to do first and what next.",
+        sjt_q10_opt_c: "I decide what we're doing now and say it clearly.",
+        sjt_q10_opt_d: "I handle the urgent issue and get things moving again."
     }
 };
 

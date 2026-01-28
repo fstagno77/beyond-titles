@@ -99,6 +99,12 @@
                             <p class="hero__subtitle" data-i18n-html="survey_subtitle">
                                 <strong>Il tuo titolo non racconta tutta la storia.</strong> In 10 domande facciamo emergere le tue human skills: il modo in cui collabori, ti adatti e fai accadere le cose.
                             </p>
+                            <div class="survey__selector">
+                                <label for="survey-type-selector" class="survey__selector-label" data-i18n="survey_selector_label">Tipo di sondaggio</label>
+                                <select id="survey-type-selector" class="survey__selector-dropdown">
+                                    <!-- Options populated by JS -->
+                                </select>
+                            </div>
                             <button id="survey-start" class="survey__start-btn" data-i18n="survey_start">
                                 Inizia il Sondaggio
                             </button>
@@ -266,6 +272,25 @@
                 </div>
                 <div id="surveyPresetsGrid" class="survey-presets__grid">
                     <!-- Archetype cards will be rendered here by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Password SJT -->
+    <div id="sjtPasswordModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="sjtPasswordModalTitle">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content modal__content--password">
+            <div class="modal__header">
+                <h3 id="sjtPasswordModalTitle" class="modal__title" data-i18n="sjt_password_title">Accesso Riservato</h3>
+                <button id="sjtPasswordCloseBtn" class="modal__close" aria-label="Chiudi">&times;</button>
+            </div>
+            <div class="modal__body">
+                <p class="sjt-password__description" data-i18n="sjt_password_description">Questa survey è in fase di sviluppo. Inserisci la password per accedere.</p>
+                <div class="sjt-password__form">
+                    <input type="password" id="sjtPasswordInput" class="sjt-password__input" placeholder="Password" autocomplete="off">
+                    <p id="sjtPasswordError" class="sjt-password__error" hidden data-i18n="sjt_password_error">Password non corretta</p>
+                    <button id="sjtPasswordSubmit" class="sjt-password__submit" data-i18n="sjt_password_submit">Accedi</button>
                 </div>
             </div>
         </div>

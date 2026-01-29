@@ -118,6 +118,11 @@ const translations = {
         changelog_back: "← Torna alla Home",
         changelog_title: "Changelog",
 
+        changelog_v0110_date: "29 Gennaio 2026",
+        changelog_v0110_item1: "Nuovo sondaggio Behavioural & Competency-Based v2.0 con 10 domande riformulate",
+        changelog_v0110_item2: "Traduzioni complete BCB v2.0 italiano e inglese",
+        changelog_v0110_item3: "Supporto multi-versione per survey BCB (v1.0 e v2.0)",
+
         changelog_v0100_date: "28 Gennaio 2026",
         changelog_v0100_item1: "Sistema multi-survey con selettore tipo sondaggio",
         changelog_v0100_item2: "Nuovo sondaggio Situational Judgement Test (SJT) v1.0 con 10 domande",
@@ -431,7 +436,72 @@ const translations = {
         sjt_q10_opt_a: "Aiuto le persone a restare unite e a darsi una mano.",
         sjt_q10_opt_b: "Metto ordine: cosa fare prima e cosa dopo.",
         sjt_q10_opt_c: "Decido cosa si fa adesso e lo dico chiaramente.",
-        sjt_q10_opt_d: "Sistemo l'urgenza e faccio ripartire."
+        sjt_q10_opt_d: "Sistemo l'urgenza e faccio ripartire.",
+
+        // BCB v2.0 Survey Selector
+        survey_bcb_v2_name: "Behavioural & Competency-Based",
+        survey_bcb_v2_short: "Behavioural & Competency-Based v2.0",
+
+        // BCB v2.0 Survey Questions
+        bcb2_q1_stem: "Quando devo iniziare qualcosa e non è tutto chiaro, di solito…",
+        bcb2_q1_opt_a: "Chiedo un chiarimento a qualcuno, così capisco meglio.",
+        bcb2_q1_opt_b: "Controllo bene cosa serve e i dettagli, prima di partire.",
+        bcb2_q1_opt_c: "Scelgo io un modo chiaro di farlo e lo seguo.",
+        bcb2_q1_opt_d: "Inizio dal primo passo utile, senza complicare le cose.",
+
+        bcb2_q2_stem: "Quando qualcosa non va come previsto, di solito…",
+        bcb2_q2_opt_a: "Trovo una soluzione pratica e vado avanti.",
+        bcb2_q2_opt_b: "Provo un modo diverso per vedere se funziona meglio.",
+        bcb2_q2_opt_c: "Chiedo aiuto alla persona giusta e decidiamo cosa fare.",
+        bcb2_q2_opt_d: "Controllo una cosa alla volta, finché capisco cosa non funziona.",
+
+        bcb2_q3_stem: "Quando preparo qualcosa che poi useranno anche altre persone, di solito…",
+        bcb2_q3_opt_a: "Controllo i dettagli e mi assicuro che sia fatto bene.",
+        bcb2_q3_opt_b: "Mi confronto con gli altri per capire cosa serve e come farlo.",
+        bcb2_q3_opt_c: "Scelgo il modo più semplice e lo porto a termine.",
+        bcb2_q3_opt_d: "Cambio un passaggio per renderlo più semplice o più veloce.",
+
+        bcb2_q4_stem: "Quando ho troppe cose da fare insieme e poco tempo, di solito…",
+        bcb2_q4_opt_a: "Scelgo la cosa più importante e la faccio per prima.",
+        bcb2_q4_opt_b: "Metto in fila 2–3 passi e un ordine semplice, poi parto.",
+        bcb2_q4_opt_c: "Inizio da una cosa che posso finire subito, così mi resta meno da fare.",
+        bcb2_q4_opt_d: "Risolvo ciò che sta bloccando tutto e poi continuo.",
+
+        bcb2_q5_stem: "Immagina di trovarti in un contesto di lavoro: a un certo punto cambia il modo di fare una cosa (una regola, uno strumento, un passaggio). Di solito, cosa fai?",
+        bcb2_q5_opt_a: "Provo subito e imparo mentre lo faccio.",
+        bcb2_q5_opt_b: "Prima capisco come funziona e mi organizzo per usarlo bene.",
+        bcb2_q5_opt_c: "Ne parlo con gli altri e ci aiutiamo a capire cosa funziona.",
+        bcb2_q5_opt_d: "Seguo le regole e controllo di farlo nel modo giusto.",
+
+        bcb2_q6_stem: "Durante un'attività ripetuta, ti accorgi che cambiando un passaggio puoi risparmiare tempo o evitare errori. Di solito…",
+        bcb2_q6_opt_a: "Faccio una piccola prova per vedere se funziona.",
+        bcb2_q6_opt_b: "La rendo subito pratica: scelgo pochi passi chiari e parto.",
+        bcb2_q6_opt_c: "Ne parlo con le persone coinvolte e ci mettiamo d'accordo.",
+        bcb2_q6_opt_d: "Prima ci penso bene: vantaggi e svantaggi, poi decido.",
+
+        bcb2_q7_stem: "Stai facendo qualcosa con un'altra persona. C'è confusione su come procedere e nasce tensione. Di solito…",
+        bcb2_q7_opt_a: "Ascolto e provo a riportare calma e rispetto.",
+        bcb2_q7_opt_b: "Cerco un punto in comune e aiuto a capire cosa intende ciascuno.",
+        bcb2_q7_opt_c: "Riporto l'attenzione sull'obiettivo e dico come procediamo.",
+        bcb2_q7_opt_d: "Propongo una soluzione pratica e la proviamo subito insieme.",
+
+        bcb2_q8_stem: "State facendo una cosa insieme (a scuola, a casa o in un'attività). Ognuno va un po' per conto suo e si perde tempo. Di solito…",
+        bcb2_q8_opt_a: "Metto in comune le informazioni: faccio parlare tutti un attimo e chiarisco cosa serve a ciascuno.",
+        bcb2_q8_opt_b: "Mi metto a lavorare insieme agli altri: mi adatto e do una mano dove serve di più.",
+        bcb2_q8_opt_c: "Propongo un modo chiaro su come procedere e invito gli altri a seguirlo.",
+        bcb2_q8_opt_d: "Inizio a fare la parte più pratica e urgente, così il lavoro riparte e gli altri si uniscono.",
+
+        bcb2_q9_stem: "Noti che c'è una cosa fuori posto o da sistemare (a casa, a scuola o in un'attività). Nessuno te l'ha chiesto, ma se la sistemi si lavora meglio. Di solito…",
+        bcb2_q9_opt_a: "La sistemo con cura, occupandomi anche dei dettagli.",
+        bcb2_q9_opt_b: "Prima penso a come farla al meglio, poi la sistemo.",
+        bcb2_q9_opt_c: "La sistemo in modo rapido, così non crea altri problemi.",
+        bcb2_q9_opt_d: "Provo un modo diverso per sistemarla meglio o più facilmente.",
+
+        bcb2_q10_stem: "Sei con altre persone e ci sono più cose urgenti da fare. Il tempo è poco. Di solito…",
+        bcb2_q10_opt_a: "Mi assicuro che ci si capisca e che ci si dia una mano.",
+        bcb2_q10_opt_b: "Metto ordine: cosa fare prima e cosa dopo.",
+        bcb2_q10_opt_c: "Propongo un modo chiaro per procedere e lo seguiamo.",
+        bcb2_q10_opt_d: "Risolvo la cosa più urgente e poi vado avanti."
     },
 
     en: {
@@ -547,6 +617,11 @@ const translations = {
         // Changelog
         changelog_back: "← Back to Home",
         changelog_title: "Changelog",
+
+        changelog_v0110_date: "January 29, 2026",
+        changelog_v0110_item1: "New Behavioural & Competency-Based v2.0 survey with 10 reformulated questions",
+        changelog_v0110_item2: "Complete BCB v2.0 translations in Italian and English",
+        changelog_v0110_item3: "Multi-version support for BCB surveys (v1.0 and v2.0)",
 
         changelog_v0100_date: "January 28, 2026",
         changelog_v0100_item1: "Multi-survey system with survey type selector",
@@ -861,7 +936,72 @@ const translations = {
         sjt_q10_opt_a: "I help people stay united and support each other.",
         sjt_q10_opt_b: "I create order: what to do first and what next.",
         sjt_q10_opt_c: "I decide what we're doing now and say it clearly.",
-        sjt_q10_opt_d: "I handle the urgent issue and get things moving again."
+        sjt_q10_opt_d: "I handle the urgent issue and get things moving again.",
+
+        // BCB v2.0 Survey Selector
+        survey_bcb_v2_name: "Behavioural & Competency-Based",
+        survey_bcb_v2_short: "Behavioural & Competency-Based v2.0",
+
+        // BCB v2.0 Survey Questions
+        bcb2_q1_stem: "When I need to start something and things aren't fully clear, I usually…",
+        bcb2_q1_opt_a: "Ask someone for clarification so I can understand better.",
+        bcb2_q1_opt_b: "Carefully check what's needed and the details before starting.",
+        bcb2_q1_opt_c: "Decide on a clear way to do it myself and follow it.",
+        bcb2_q1_opt_d: "Start with the first useful step, without overcomplicating things.",
+
+        bcb2_q2_stem: "When something doesn't go as expected, I usually…",
+        bcb2_q2_opt_a: "Find a practical solution and move forward.",
+        bcb2_q2_opt_b: "Try a different approach to see if it works better.",
+        bcb2_q2_opt_c: "Ask the right person for help and decide together what to do.",
+        bcb2_q2_opt_d: "Check one thing at a time until I understand what's not working.",
+
+        bcb2_q3_stem: "When I'm preparing something that others will also use, I usually…",
+        bcb2_q3_opt_a: "Check the details and make sure it's done right.",
+        bcb2_q3_opt_b: "Discuss with others to understand what's needed and how to do it.",
+        bcb2_q3_opt_c: "Choose the simplest way and see it through.",
+        bcb2_q3_opt_d: "Change a step to make it simpler or faster.",
+
+        bcb2_q4_stem: "When I have too many things to do at once and little time, I usually…",
+        bcb2_q4_opt_a: "Choose the most important thing and do it first.",
+        bcb2_q4_opt_b: "Line up 2-3 steps in a simple order, then start.",
+        bcb2_q4_opt_c: "Start with something I can finish quickly, so there's less left to do.",
+        bcb2_q4_opt_d: "Solve what's blocking everything and then continue.",
+
+        bcb2_q5_stem: "Imagine you're in a work context: at some point, the way of doing something changes (a rule, a tool, a step). What do you usually do?",
+        bcb2_q5_opt_a: "Try it right away and learn while doing it.",
+        bcb2_q5_opt_b: "First understand how it works and organize myself to use it well.",
+        bcb2_q5_opt_c: "Talk about it with others and help each other figure out what works.",
+        bcb2_q5_opt_d: "Follow the rules and check that I'm doing it correctly.",
+
+        bcb2_q6_stem: "During a repeated activity, you realize that changing a step could save time or avoid errors. You usually…",
+        bcb2_q6_opt_a: "Run a small test to see if it works.",
+        bcb2_q6_opt_b: "Make it practical right away: choose a few clear steps and start.",
+        bcb2_q6_opt_c: "Discuss it with the people involved and agree together.",
+        bcb2_q6_opt_d: "Think it through carefully: pros and cons, then decide.",
+
+        bcb2_q7_stem: "You're doing something with another person. There's confusion about how to proceed and tension arises. You usually…",
+        bcb2_q7_opt_a: "Listen and try to restore calm and respect.",
+        bcb2_q7_opt_b: "Look for common ground and help understand what each person means.",
+        bcb2_q7_opt_c: "Bring attention back to the goal and say how we proceed.",
+        bcb2_q7_opt_d: "Propose a practical solution and try it together right away.",
+
+        bcb2_q8_stem: "You're doing something together (at school, home, or an activity). Everyone is going their own way and time is being wasted. You usually…",
+        bcb2_q8_opt_a: "Share information: let everyone speak briefly and clarify what each person needs.",
+        bcb2_q8_opt_b: "Work alongside others: adapt and help where it's needed most.",
+        bcb2_q8_opt_c: "Propose a clear way to proceed and invite others to follow it.",
+        bcb2_q8_opt_d: "Start doing the most practical and urgent part, so work resumes and others join in.",
+
+        bcb2_q9_stem: "You notice something out of place or that needs fixing (at home, school, or in an activity). Nobody asked you, but if you fix it, work goes better. You usually…",
+        bcb2_q9_opt_a: "Fix it carefully, taking care of the details too.",
+        bcb2_q9_opt_b: "First think about how to do it best, then fix it.",
+        bcb2_q9_opt_c: "Fix it quickly so it doesn't cause other problems.",
+        bcb2_q9_opt_d: "Try a different way to fix it better or more easily.",
+
+        bcb2_q10_stem: "You're with other people and there are several urgent things to do. Time is short. You usually…",
+        bcb2_q10_opt_a: "Make sure everyone understands each other and helps one another.",
+        bcb2_q10_opt_b: "Create order: what to do first and what next.",
+        bcb2_q10_opt_c: "Propose a clear way to proceed and we follow it.",
+        bcb2_q10_opt_d: "Solve the most urgent thing and then move on."
     }
 };
 

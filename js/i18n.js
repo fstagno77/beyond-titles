@@ -233,7 +233,7 @@ const translations = {
 
         // Survey
         survey_title: "Beyond Titles",
-        survey_subtitle: "<strong>Il tuo titolo non racconta tutta la storia.</strong> In 10 domande facciamo emergere le tue human skills: il modo in cui collabori, ti adatti e fai accadere le cose.",
+        survey_subtitle: "<strong>Cosa ti rende unico? Scopri il tuo profilo.</strong> Attraverso 10 situazioni che capitano a tutti nel lavoro, nello studio, nella vita quotidiana, scopri ciò che rende unico il tuo profilo professionale. Segui il tuo istinto: non ci sono risposte giuste o sbagliate.",
         survey_start: "Inizia il Sondaggio",
         survey_progress: "Domanda {current} di {total}",
         survey_instruction: "Seleziona l'opzione più vicina al tuo modo di agire",
@@ -501,7 +501,72 @@ const translations = {
         bcb2_q10_opt_a: "Mi assicuro che ci si capisca e che ci si dia una mano.",
         bcb2_q10_opt_b: "Metto ordine: cosa fare prima e cosa dopo.",
         bcb2_q10_opt_c: "Propongo un modo chiaro per procedere e lo seguiamo.",
-        bcb2_q10_opt_d: "Risolvo la cosa più urgente e poi vado avanti."
+        bcb2_q10_opt_d: "Risolvo la cosa più urgente e poi vado avanti.",
+
+        // BCB v3.0 Survey Selector
+        survey_bcb_v3_name: "Behavioural & Competency-Based",
+        survey_bcb_v3_short: "Behavioural & Competency-Based v3.0",
+
+        // BCB v3.0 Survey Questions
+        bcb3_q1_stem: "Hai una nuova attività in programma, ma poco tempo e poche indicazioni. Qual è il tuo primo passo?",
+        bcb3_q1_opt_a: "Chiedo un chiarimento a qualcuno, così capisco meglio.",
+        bcb3_q1_opt_b: "Controllo bene cosa serve e i dettagli, prima di partire.",
+        bcb3_q1_opt_c: "Scelgo io un modo chiaro per farla e lo seguo.",
+        bcb3_q1_opt_d: "Inizio dal primo passo utile, senza complicare le cose.",
+
+        bcb3_q2_stem: "C'è stato un imprevisto che scombina i tuoi piani. Come lo risolvi?",
+        bcb3_q2_opt_a: "Trovo una soluzione pratica e vado avanti.",
+        bcb3_q2_opt_b: "Provo un modo diverso per vedere se funziona meglio.",
+        bcb3_q2_opt_c: "Chiedo aiuto alla persona giusta e decidiamo cosa fare.",
+        bcb3_q2_opt_d: "Controllo una cosa alla volta, finché capisco cosa non funziona.",
+
+        bcb3_q3_stem: "Hai il compito di preparare qualcosa di importante non solo per te, ma anche per altri. Cosa fai?",
+        bcb3_q3_opt_a: "Controllo i dettagli e mi assicuro che sia fatto bene.",
+        bcb3_q3_opt_b: "Mi confronto con gli altri per capire cosa serve e come farlo.",
+        bcb3_q3_opt_c: "Scelgo il modo più semplice e lo porto a termine.",
+        bcb3_q3_opt_d: "Cambio un passaggio per renderlo più semplice o più veloce.",
+
+        bcb3_q4_stem: "Hai molte cose da fare oggi e poco tempo. Sei tu a decidere le priorità. Da cosa parti?",
+        bcb3_q4_opt_a: "Scelgo la cosa più importante e la faccio per prima.",
+        bcb3_q4_opt_b: "Decido 2-3 passi e un ordine semplice, poi parto.",
+        bcb3_q4_opt_c: "Inizio da una cosa che posso finire subito, così mi resta meno da fare.",
+        bcb3_q4_opt_d: "Risolvo ciò che sta bloccando tutto e poi continuo.",
+
+        bcb3_q5_stem: "All'improvviso cambia il modo in cui hai sempre svolto un'attività. Come reagisci?",
+        bcb3_q5_opt_a: "Provo subito e imparo mentre la svolgo.",
+        bcb3_q5_opt_b: "Prima capisco il nuovo metodo e mi organizzo per seguirlo bene.",
+        bcb3_q5_opt_c: "Ne parlo con gli altri e ci aiutiamo a capire cosa funziona.",
+        bcb3_q5_opt_d: "Seguo le regole e controllo di farla nel modo giusto.",
+
+        bcb3_q6_stem: "Ti accorgi che c'è un modo per migliorare un'attività che fai abitualmente. Cosa fai?",
+        bcb3_q6_opt_a: "Faccio una piccola prova per vedere se funziona.",
+        bcb3_q6_opt_b: "La rendo subito pratica: scelgo pochi passi chiari e parto.",
+        bcb3_q6_opt_c: "Ne parlo con le persone coinvolte e ci mettiamo d'accordo.",
+        bcb3_q6_opt_d: "Prima ci penso bene: vantaggi e svantaggi, poi decido.",
+
+        bcb3_q7_stem: "Immagina di collaborare con un'altra persona: nasce un fraintendimento e aumenta la tensione tra voi. Come ti comporti?",
+        bcb3_q7_opt_a: "Ascolto e provo a riportare calma e rispetto.",
+        bcb3_q7_opt_b: "Cerco un punto in comune e aiuto a capire cosa intende ciascuno.",
+        bcb3_q7_opt_c: "Riporto l'attenzione sull'obiettivo e dico come procediamo.",
+        bcb3_q7_opt_d: "Propongo una soluzione pratica e la proviamo subito insieme.",
+
+        bcb3_q8_stem: "Sei in un gruppo per un progetto: ognuno va un po' per conto suo. Cosa fai?",
+        bcb3_q8_opt_a: "Metto in comune le informazioni: faccio parlare tutti un attimo e chiarisco cosa serve a ciascuno.",
+        bcb3_q8_opt_b: "Mi metto a lavorare insieme agli altri: mi adatto e do una mano dove serve di più.",
+        bcb3_q8_opt_c: "Propongo un modo chiaro per procedere e invito gli altri a seguirlo.",
+        bcb3_q8_opt_d: "Inizio a fare la parte più pratica e urgente, così il lavoro riparte e gli altri si uniscono.",
+
+        bcb3_q9_stem: "Decidi di intervenire per sistemare un possibile problema che hai notato. Qual è la tua mossa?",
+        bcb3_q9_opt_a: "Sistemo con cura il problema, occupandomi anche dei dettagli.",
+        bcb3_q9_opt_b: "Prima penso a come risolverlo al meglio, poi sistemo.",
+        bcb3_q9_opt_c: "Risolvo in modo rapido, così da non creare altri problemi.",
+        bcb3_q9_opt_d: "Provo un modo diverso per risolverlo meglio o più facilmente.",
+
+        bcb3_q10_stem: "Sei in un gruppo sotto pressione: il tempo stringe e ci sono più cose urgenti. Le persone iniziano a sentire la tensione. Cosa fai?",
+        bcb3_q10_opt_a: "Tengo unito il gruppo: aiuto tutti a capirsi e a darsi una mano.",
+        bcb3_q10_opt_b: "Metto ordine: decido cosa fare prima e cosa dopo, poi distribuisco i compiti.",
+        bcb3_q10_opt_c: "Prendo la guida: dico chiaramente cosa si fa e come procedere.",
+        bcb3_q10_opt_d: "Risolvo la cosa più urgente e faccio ripartire il lavoro."
     },
 
     en: {
@@ -733,7 +798,7 @@ const translations = {
 
         // Survey
         survey_title: "Beyond Titles",
-        survey_subtitle: "<strong>Your job title doesn't tell the whole story.</strong> In 10 questions we'll uncover your human skills: how you collaborate, adapt, and make things happen.",
+        survey_subtitle: "<strong>What makes you unique? Discover your profile.</strong> Through 10 situations that happen to everyone at work, school, and everyday life, discover what makes your professional profile unique. Follow your instinct: there are no right or wrong answers.",
         survey_start: "Start Survey",
         survey_progress: "Question {current} of {total}",
         survey_instruction: "Select the option closest to how you act",
@@ -1001,7 +1066,72 @@ const translations = {
         bcb2_q10_opt_a: "Make sure everyone understands each other and helps one another.",
         bcb2_q10_opt_b: "Create order: what to do first and what next.",
         bcb2_q10_opt_c: "Propose a clear way to proceed and we follow it.",
-        bcb2_q10_opt_d: "Solve the most urgent thing and then move on."
+        bcb2_q10_opt_d: "Solve the most urgent thing and then move on.",
+
+        // BCB v3.0 Survey Selector
+        survey_bcb_v3_name: "Behavioural & Competency-Based",
+        survey_bcb_v3_short: "Behavioural & Competency-Based v3.0",
+
+        // BCB v3.0 Survey Questions
+        bcb3_q1_stem: "You have a new task ahead, but little time and few instructions. What's your first step?",
+        bcb3_q1_opt_a: "I ask someone for clarification so I can understand better.",
+        bcb3_q1_opt_b: "I carefully check what's needed and the details before starting.",
+        bcb3_q1_opt_c: "I choose a clear way to do it myself and follow it.",
+        bcb3_q1_opt_d: "I start with the first useful step, without overcomplicating things.",
+
+        bcb3_q2_stem: "Something unexpected has thrown your plans off track. How do you solve it?",
+        bcb3_q2_opt_a: "I find a practical solution and move forward.",
+        bcb3_q2_opt_b: "I try a different approach to see if it works better.",
+        bcb3_q2_opt_c: "I ask the right person for help and we decide what to do together.",
+        bcb3_q2_opt_d: "I check one thing at a time until I understand what's not working.",
+
+        bcb3_q3_stem: "You're tasked with preparing something important not just for you, but also for others. What do you do?",
+        bcb3_q3_opt_a: "I check the details and make sure it's done right.",
+        bcb3_q3_opt_b: "I discuss with others to understand what's needed and how to do it.",
+        bcb3_q3_opt_c: "I choose the simplest way and see it through.",
+        bcb3_q3_opt_d: "I change a step to make it simpler or faster.",
+
+        bcb3_q4_stem: "You have many things to do today and little time. You get to decide the priorities. Where do you start?",
+        bcb3_q4_opt_a: "I choose the most important thing and do it first.",
+        bcb3_q4_opt_b: "I decide on 2-3 steps and a simple order, then start.",
+        bcb3_q4_opt_c: "I start with something I can finish quickly, so there's less left to do.",
+        bcb3_q4_opt_d: "I solve what's blocking everything and then continue.",
+
+        bcb3_q5_stem: "Suddenly, the way you've always done an activity changes. How do you react?",
+        bcb3_q5_opt_a: "I try right away and learn while doing it.",
+        bcb3_q5_opt_b: "First I understand the new method and organize myself to follow it properly.",
+        bcb3_q5_opt_c: "I talk about it with others and we help each other figure out what works.",
+        bcb3_q5_opt_d: "I follow the rules and check that I'm doing it the right way.",
+
+        bcb3_q6_stem: "You realize there's a way to improve an activity you do regularly. What do you do?",
+        bcb3_q6_opt_a: "I run a small test to see if it works.",
+        bcb3_q6_opt_b: "I make it practical right away: I choose a few clear steps and start.",
+        bcb3_q6_opt_c: "I discuss it with the people involved and we agree together.",
+        bcb3_q6_opt_d: "First I think it through: pros and cons, then I decide.",
+
+        bcb3_q7_stem: "Imagine you're collaborating with another person: a misunderstanding arises and tension grows between you. How do you behave?",
+        bcb3_q7_opt_a: "I listen and try to restore calm and respect.",
+        bcb3_q7_opt_b: "I look for common ground and help understand what each person means.",
+        bcb3_q7_opt_c: "I bring attention back to the goal and say how we proceed.",
+        bcb3_q7_opt_d: "I propose a practical solution and we try it together right away.",
+
+        bcb3_q8_stem: "You're in a group for a project: everyone is going their own way. What do you do?",
+        bcb3_q8_opt_a: "I share information: I let everyone speak briefly and clarify what each person needs.",
+        bcb3_q8_opt_b: "I work alongside others: I adapt and help where it's needed most.",
+        bcb3_q8_opt_c: "I propose a clear way to proceed and invite others to follow it.",
+        bcb3_q8_opt_d: "I start doing the most practical and urgent part, so work resumes and others join in.",
+
+        bcb3_q9_stem: "You decide to step in and fix a potential problem you've noticed. What's your move?",
+        bcb3_q9_opt_a: "I carefully fix the problem, taking care of the details too.",
+        bcb3_q9_opt_b: "First I think about the best way to fix it, then I act.",
+        bcb3_q9_opt_c: "I fix it quickly, so it doesn't cause other problems.",
+        bcb3_q9_opt_d: "I try a different way to solve it better or more easily.",
+
+        bcb3_q10_stem: "You're in a group under pressure: time is running out and there are several urgent things to do. People are starting to feel the tension. What do you do?",
+        bcb3_q10_opt_a: "I keep the group united: I help everyone understand each other and support one another.",
+        bcb3_q10_opt_b: "I create order: I decide what to do first and what next, then assign tasks.",
+        bcb3_q10_opt_c: "I take the lead: I clearly say what to do and how to proceed.",
+        bcb3_q10_opt_d: "I solve the most urgent thing and get the work moving again."
     }
 };
 

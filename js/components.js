@@ -3,7 +3,7 @@
  * Centralized header and footer management
  */
 
-const CURRENT_VERSION = '0.11.0';
+const CURRENT_VERSION = '0.12.0';
 
 /**
  * Renders the header component
@@ -34,7 +34,7 @@ function renderHeader(currentPage = 'index') {
 function renderFooter() {
     const footerHTML = `
         <footer class="footer">
-            <p class="footer__text">Beyond Titles v${CURRENT_VERSION} | <a href="changelog.html" class="footer__link" data-i18n="footer_changelog">Changelog</a></p>
+            <p class="footer__text">Beyond Titles v${CURRENT_VERSION} | <a href="docs/.vitepress/dist/changelog/index.html" class="footer__link" data-i18n="footer_changelog">Changelog</a></p>
         </footer>
     `;
 

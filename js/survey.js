@@ -22,7 +22,7 @@
     // =========================================================================
     const state = {
         surveyData: null,
-        selectedSurvey: null, // 'bcb_v1', 'bcb_v2', or 'sjt_v1'
+        selectedSurvey: null, // 'bcb_v1', 'bcb_v2', 'sjt_v1', or 'bcb_v3'
         currentQuestion: 0,
         answers: [], // Array of { questionId, selectedOptionId, archetype }
         scores: {} // { archetipo: punteggio }
@@ -434,7 +434,7 @@
 
         // Determine i18n key prefix based on selected survey
         // BCB v1 uses 'survey_q{n}' prefix, BCB v2 uses 'bcb2_q{n}' prefix, SJT uses 'sjt_q{n}' prefix
-        const prefixMap = { 'bcb_v1': 'survey', 'bcb_v2': 'bcb2', 'sjt_v1': 'sjt' };
+        const prefixMap = { 'bcb_v1': 'survey', 'bcb_v2': 'bcb2', 'bcb_v3': 'bcb3', 'sjt_v1': 'sjt' };
         const prefix = prefixMap[state.selectedSurvey] || 'survey';
 
         const stemKey = `${prefix}_q${qNum}_stem`;

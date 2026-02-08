@@ -34,7 +34,7 @@ function renderHeader(currentPage = 'index') {
 function renderFooter() {
     const footerHTML = `
         <footer class="footer">
-            <p class="footer__text">Beyond Titles v${CURRENT_VERSION} | <a href="wiki/changelog/index.html" class="footer__link" data-i18n="footer_changelog">Changelog</a></p>
+            <p class="footer__text">Beyond Titles v${CURRENT_VERSION} | <a href="wiki/changelog/index.html" class="footer__link" data-i18n="footer_changelog">Changelog</a> | <a href="wiki/index.html" class="footer__link">Wiki</a></p>
         </footer>
     `;
 

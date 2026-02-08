@@ -1,1 +1,0 @@
-import{_ as t,o as e,c as i,ag as n}from"./chunks/framework.CbQjVMS6.js";const m=JSON.parse('{"title":"Panoramica","description":"","frontmatter":{},"headers":[],"relativePath":"index.md","filePath":"index.md"}'),o={name:"index.md"};function s(r,a,l,c,p,d){return e(),i("div",null,[...a[0]||(a[0]=[n("",21)])])}const h=t(o,[["render",s]]);export{m as __pageData,h as default};

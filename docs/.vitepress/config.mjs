@@ -4,7 +4,8 @@ export default defineConfig({
   title: 'Beyond Titles',
   description: 'POC per la Digital Platform progetto Gi Group',
   lang: 'it-IT',
-  base: '/docs/.vitepress/dist/',
+  base: '/wiki/',
+  outDir: '../wiki',
 
   themeConfig: {
     nav: [

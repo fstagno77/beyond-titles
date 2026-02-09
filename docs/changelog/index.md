@@ -2,14 +2,26 @@
 
 Log delle modifiche al progetto, organizzato per versione e data.
 
-## v0.12.2 <Badge type="tip" text="corrente" />
+## v0.13.0 <Badge type="tip" text="corrente" />
 
 **9 febbraio 2026**
 
-- **Survey aggiornata a Behavioural & Competency-Based v3.4**: raffinamenti linguistici su 23 opzioni/stem, CTA "Inizia il viaggio"
+- **Survey v3.4**: raffinamenti linguistici su 23 opzioni/stem per massimizzare chiarezza e naturalezza
+- Nuovo CTA: **"Inizia il viaggio"** (sostituisce "Inizia il Sondaggio")
+- Nuovo testo introduttivo survey: tone of voice narrativo e rassicurante
+- Rimosso CSS blend result (non più utilizzato)
+- Traduzioni EN aggiornate per tutte le modifiche v3.4
+- Wiki aggiornato con tabella correzioni v3.3 → v3.4
+
+## v0.12.2
+
+**9 febbraio 2026**
+
+- Rinominata survey da "Human Skills Survey" a **Behavioural & Competency-Based** ovunque
 - **Pulizia survey legacy**: rimosse BCB v1.0, BCB v2.0, SJT v1.0
+- Rimosso dropdown "Tipo di sondaggio", aggiunto label statico versione survey
 - Rimosso sistema password SJT e traduzioni survey obsolete
-- Aggiunta pagina wiki Behavioural & Competency-Based v3.4
+- Aggiunta pagina wiki Behavioural & Competency-Based
 - Aggiunto link **Wiki** nel footer
 - Aggiunto logo **SubSense** nella sidebar del wiki
 

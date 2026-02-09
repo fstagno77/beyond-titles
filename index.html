@@ -99,16 +99,11 @@
                             <p class="hero__subtitle" data-i18n-html="survey_subtitle">
                                 <strong>Cosa ti rende unico? Scopri il tuo profilo.</strong> Attraverso 10 situazioni che capitano a tutti nel lavoro, nello studio, nella vita quotidiana, scopri ciò che rende unico il tuo profilo professionale. Segui il tuo istinto: non ci sono risposte giuste o sbagliate.
                             </p>
-                            <div class="survey__selector">
-                                <label for="survey-type-selector" class="survey__selector-label" data-i18n="survey_selector_label">Tipo di sondaggio</label>
-                                <select id="survey-type-selector" class="survey__selector-dropdown">
-                                    <!-- Options populated by JS -->
-                                </select>
-                            </div>
                             <button id="survey-start" class="survey__start-btn" data-i18n="survey_start">
                                 Inizia il Sondaggio
                             </button>
                             <a href="#" id="surveyPresetsLink" class="search__suggestions-link" data-i18n="survey_presets_link">Suggerimenti</a>
+                            <p class="survey__version-label">Behavioural &amp; Competency-Based v3.3</p>
                         </div>
 
                         <!-- Survey Questions -->
@@ -277,24 +272,6 @@
         </div>
     </div>
 
-    <!-- Modal Password SJT -->
-    <div id="sjtPasswordModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="sjtPasswordModalTitle">
-        <div class="modal__backdrop"></div>
-        <div class="modal__content modal__content--password">
-            <div class="modal__header">
-                <h3 id="sjtPasswordModalTitle" class="modal__title" data-i18n="sjt_password_title">Accesso Riservato</h3>
-                <button id="sjtPasswordCloseBtn" class="modal__close" aria-label="Chiudi">&times;</button>
-            </div>
-            <div class="modal__body">
-                <p class="sjt-password__description" data-i18n="sjt_password_description">Questa survey è in fase di sviluppo. Inserisci la password per accedere.</p>
-                <div class="sjt-password__form">
-                    <input type="password" id="sjtPasswordInput" class="sjt-password__input" placeholder="Password" autocomplete="off">
-                    <p id="sjtPasswordError" class="sjt-password__error" hidden data-i18n="sjt_password_error">Password non corretta</p>
-                    <button id="sjtPasswordSubmit" class="sjt-password__submit" data-i18n="sjt_password_submit">Accedi</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="js/components.js"></script>
     <script src="js/i18n.js"></script>

@@ -58,15 +58,7 @@
         elements.nextBtn = document.getElementById('survey-next');
         elements.restartBtn = document.getElementById('survey-restart');
 
-        // Survey selector
-        elements.surveySelector = document.getElementById('survey-type-selector');
-
-        // SJT Password Modal
-        elements.sjtPasswordModal = document.getElementById('sjtPasswordModal');
-        elements.sjtPasswordInput = document.getElementById('sjtPasswordInput');
-        elements.sjtPasswordError = document.getElementById('sjtPasswordError');
-        elements.sjtPasswordSubmit = document.getElementById('sjtPasswordSubmit');
-        elements.sjtPasswordCloseBtn = document.getElementById('sjtPasswordCloseBtn');
+        // Survey selector (removed — single survey)
 
         // Survey content
         elements.progressFill = document.getElementById('survey-progress-fill');
@@ -304,12 +296,6 @@
         state.selectedSurvey = surveyId;
         localStorage.setItem(SURVEY_TYPE_STORAGE_KEY, surveyId);
         console.log('[SURVEY] Survey changed to:', surveyId);
-
-        // Update selector UI if it exists
-        const selector = document.getElementById('survey-type-selector');
-        if (selector) {
-            selector.value = surveyId;
-        }
 
         // Log the change
         const surveyName = getSurveyDisplayName(surveyId);
@@ -1330,9 +1316,6 @@
         window.addEventListener('languageChanged', () => {
             console.log('[SURVEY] Language changed, updating UI...');
 
-            // Update survey selector text
-            updateSurveySelector();
-
             // Re-render results if on results screen
             if (elements.surveyResults && !elements.surveyResults.hidden) {
                 showResults();
@@ -1357,45 +1340,6 @@
     }
 
     // =========================================================================
-    // Survey Selector
-    // =========================================================================
-    function initSurveySelector() {
-        if (!elements.surveySelector || !state.surveyData?.surveys) return;
-
-        // Populate selector options
-        const surveys = state.surveyData.surveys;
-        elements.surveySelector.innerHTML = '';
-
-        Object.entries(surveys).forEach(([id, survey]) => {
-            const option = document.createElement('option');
-            option.value = id;
-            // Use i18n short name if available
-            option.textContent = getSurveyDisplayName(id);
-            elements.surveySelector.appendChild(option);
-        });
-
-        // Set current selection
-        elements.surveySelector.value = state.selectedSurvey;
-
-        // Bind change event
-        elements.surveySelector.addEventListener('change', (e) => {
-            setSelectedSurvey(e.target.value);
-        });
-    }
-
-    /**
-     * Updates survey selector text when language changes
-     */
-    function updateSurveySelector() {
-        if (!elements.surveySelector) return;
-
-        const options = elements.surveySelector.querySelectorAll('option');
-        options.forEach(option => {
-            option.textContent = getSurveyDisplayName(option.value);
-        });
-    }
-
-    // =========================================================================
     // Main Init
     // =========================================================================
     async function init() {
@@ -1411,7 +1355,6 @@
         }
 
         initSegmentedControl();
-        initSurveySelector();
         initSjtPasswordModal();
         bindEvents();
 

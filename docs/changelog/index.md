@@ -2,7 +2,13 @@
 
 Log delle modifiche al progetto, organizzato per versione e data.
 
-## v0.12.0 <Badge type="tip" text="corrente" />
+## v0.12.2 <Badge type="tip" text="corrente" />
+
+**9 febbraio 2026**
+
+- Aggiunto logo **SubSense** nella sidebar del wiki
+
+## v0.12.0
 
 **8 febbraio 2026**
 

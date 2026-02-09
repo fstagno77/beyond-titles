@@ -7,10 +7,10 @@ Log delle modifiche al progetto, organizzato per versione e data.
 **9 febbraio 2026**
 
 - **Pulizia survey legacy**: rimosse BCB v1.0, BCB v2.0, SJT v1.0
-- Unica survey attiva: **Human Skills Survey v3.3**
+- Unica survey attiva: **Behavioural & Competency-Based v3.3**
 - Aggiornata Q10 alla versione definitiva
 - Rimosso sistema password SJT e traduzioni survey obsolete
-- Aggiunta pagina wiki Human Skills Survey v3.3
+- Aggiunta pagina wiki Behavioural & Competency-Based v3.3
 - Aggiunto link **Wiki** nel footer
 - Aggiunto logo **SubSense** nella sidebar del wiki
 
@@ -18,7 +18,7 @@ Log delle modifiche al progetto, organizzato per versione e data.
 
 **8 febbraio 2026**
 
-- Aggiunta survey **Human Skills Survey v3.0** con 10 domande riformulate
+- Aggiunta survey **Behavioural & Competency-Based v3.0** con 10 domande riformulate
 - Traduzioni complete IT/EN
 - Impostata come **survey di default**
 - Aggiornato sottotitolo intro survey ("Cosa ti rende unico?")

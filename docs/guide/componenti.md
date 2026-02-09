@@ -90,7 +90,7 @@ Il pannello ha tre stati, mutuamente esclusivi:
 
 #### 1. Intro (`#survey-intro`)
 - Titolo e sottotitolo "Beyond Titles"
-- Selettore tipo survey (Human Skills Survey v3.3)
+- Selettore tipo survey (Behavioural & Competency-Based v3.3)
 - Pulsante "Inizia il Sondaggio"
 - Link "Suggerimenti" per aprire la modale preset
 

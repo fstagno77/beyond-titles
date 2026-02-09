@@ -1,8 +1,8 @@
-# Human Skills Survey v3.3
+# Behavioural & Competency-Based v3.3
 
 ## Panoramica
 
-La **Human Skills Survey v3.3** è la survey di default della piattaforma Beyond Titles. Si tratta di un questionario **Behavioural & Competency-Based** in formato single-choice, progettato da Subsense per identificare l'archetipo professionale dell'utente attraverso 10 situazioni concrete.
+La **Behavioural & Competency-Based v3.3** è la survey di default della piattaforma Beyond Titles. Si tratta di un questionario **Behavioural & Competency-Based** in formato single-choice, progettato da Subsense per identificare l'archetipo professionale dell'utente attraverso 10 situazioni concrete.
 
 **Versione:** v3.3 — 9 febbraio 2026
 **ID interno:** `bcb_v3`
@@ -154,6 +154,6 @@ Le domande con peso maggiore (Q8 = 38, Q4/Q5 = 31) hanno maggiore impatto sulla 
 
 | Versione | Data | Note |
 |---|---|---|
-| v3.0 | Feb 2026 | Prima versione Human Skills Survey |
+| v3.0 | Feb 2026 | Prima versione Behavioural & Competency-Based |
 | v3.2 | 5 Feb 2026 | Correzioni linguistiche |
 | **v3.3** | **9 Feb 2026** | **Q10 riscritta, pulizia survey legacy** |

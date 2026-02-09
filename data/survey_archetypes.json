@@ -1,7 +1,7 @@
 {
   "metadata": {
     "versione": "v3.3",
-    "nome": "Survey Archetipi Professionali - Human Skills Survey",
+    "nome": "Survey Archetipi Professionali - Behavioural & Competency-Based",
     "descrizione": "Survey per determinare l'archetipo professionale dell'utente",
     "numero_domande": 10,
     "opzioni_per_domanda": 4,
@@ -10,7 +10,7 @@
   "surveys": {
     "bcb_v3": {
       "id": "bcb_v3",
-      "name": "Human Skills Survey",
+      "name": "Behavioural & Competency-Based",
       "version": "3.3",
       "i18n_key": "survey_bcb_v3",
       "domande": [

@@ -38,7 +38,7 @@ beyond-titles/
 │   └── survey.js                 # Sistema survey (~1465 righe)
 ├── data/
 │   ├── mansioni_database.json    # Database mansioni (604 voci)
-│   └── survey_archetypes.json   # Dati survey (v3.3, Human Skills Survey)
+│   └── survey_archetypes.json   # Dati survey (v3.3, Behavioural & Competency-Based)
 ├── assets/
 │   ├── logoBeyondTitles.png      # Logo header
 │   └── favicon.jpg               # Favicon
@@ -61,7 +61,7 @@ Assessment con 10 domande a risposta singola:
 
 | Survey | Versione | Accesso |
 |---|---|---|
-| Human Skills Survey | v3.3 | Libero — **default** |
+| Behavioural & Competency-Based | v3.3 | Libero — **default** |
 
 Il sistema identifica 8 archetipi professionali e classifica il risultato come **netto** (un archetipo dominante) o **blend** (combinazione di 2-3 archetipi).
 
@@ -71,4 +71,4 @@ Pannello di debug laterale che mostra in tempo reale tutte le operazioni: input 
 
 ## Versione Corrente
 
-**v0.12.0** — Ultimo aggiornamento: 8 febbraio 2026
+**v0.12.2** — Ultimo aggiornamento: 9 febbraio 2026

@@ -124,7 +124,7 @@ const translations = {
         changelog_v0110_item3: "Supporto multi-versione per survey BCB (v1.0 e v2.0)",
 
         changelog_v0100_date: "28 Gennaio 2026",
-        changelog_v0100_item1: "Sistema survey Human Skills Survey v3.3",
+        changelog_v0100_item1: "Sistema survey Behavioural & Competency-Based v3.3",
         changelog_v0100_item2: "10 domande Behavioural & Competency-Based",
         changelog_v0100_item3: "Scoring pesato per archetipo",
         changelog_v0100_item4: "Persistenza selezione survey in localStorage",
@@ -366,10 +366,10 @@ const translations = {
 
         // Survey Selector
         survey_selector_label: "Tipo di sondaggio",
-        survey_bcb_v3_name: "Human Skills Survey",
-        survey_bcb_v3_short: "Human Skills Survey v3.3",
+        survey_bcb_v3_name: "Behavioural & Competency-Based",
+        survey_bcb_v3_short: "Behavioural & Competency-Based v3.3",
 
-        // Human Skills Survey v3.3 Questions
+        // Behavioural & Competency-Based v3.3 Questions
         bcb3_q1_stem: "Hai una nuova attività in programma, ma poco tempo e poche indicazioni. Qual è il tuo primo passo?",
         bcb3_q1_opt_a: "Chiedo un chiarimento a qualcuno, così capisco meglio.",
         bcb3_q1_opt_b: "Controllo bene cosa serve e i dettagli, prima di partire.",
@@ -551,7 +551,7 @@ const translations = {
         changelog_v0110_item3: "Multi-version support for BCB surveys (v1.0 and v2.0)",
 
         changelog_v0100_date: "January 28, 2026",
-        changelog_v0100_item1: "Human Skills Survey v3.3 system",
+        changelog_v0100_item1: "Behavioural & Competency-Based v3.3 system",
         changelog_v0100_item2: "10 Behavioural & Competency-Based questions",
         changelog_v0100_item3: "Weighted scoring per archetype",
         changelog_v0100_item4: "Survey selection persistence in localStorage",
@@ -793,10 +793,10 @@ const translations = {
 
         // Survey Selector
         survey_selector_label: "Survey type",
-        survey_bcb_v3_name: "Human Skills Survey",
-        survey_bcb_v3_short: "Human Skills Survey v3.3",
+        survey_bcb_v3_name: "Behavioural & Competency-Based",
+        survey_bcb_v3_short: "Behavioural & Competency-Based v3.3",
 
-        // Human Skills Survey v3.3 Questions
+        // Behavioural & Competency-Based v3.3 Questions
         bcb3_q1_stem: "You have a new task ahead, but little time and few instructions. What's your first step?",
         bcb3_q1_opt_a: "I ask someone for clarification so I can understand better.",
         bcb3_q1_opt_b: "I carefully check what's needed and the details before starting.",

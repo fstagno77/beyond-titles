@@ -72,7 +72,7 @@ Affidabilità, Analisi, Ascolto, Autonomia operativa, Coinvolgimento, Collaboraz
 | Campo | Valore |
 |---|---|
 | Versione | v3.3 |
-| Formato | Human Skills Survey |
+| Formato | Behavioural & Competency-Based |
 | Domande | 10 |
 | Opzioni per domanda | 4 |
 | Scoring | Single-choice pesato |
@@ -81,7 +81,7 @@ Affidabilità, Analisi, Ascolto, Autonomia operativa, Coinvolgimento, Collaboraz
 
 | ID | Nome | Accesso |
 |---|---|---|
-| `bcb_v3` | Human Skills Survey v3.3 | Libero (default) |
+| `bcb_v3` | Behavioural & Competency-Based v3.3 | Libero (default) |
 
 ### 8 Archetipi Professionali
 

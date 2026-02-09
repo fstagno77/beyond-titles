@@ -44,7 +44,7 @@ La survey copre **10 aspetti distinti** del comportamento professionale, distrib
 | Q7 | Fraintendimento e tensione con un collega | Gestione conflitti / Relazioni tese | Connettore, Collaboratore, Capitano, Risolutore |
 | Q8 | Gruppo disallineato in un progetto | Coordinamento gruppo / Team disallineato | Connettore, Collaboratore, Capitano, Pragmatico |
 | Q9 | Intervenire su un problema notato | Intervento proattivo / Problem prevention | Artigiano, Stratega, Risolutore, Pioniere |
-| Q10 | Gruppo sotto pressione, tempo che stringe | Leadership situazionale / Team sotto stress | Collaboratore, Stratega, Capitano, Risolutore |
+| Q10 | Lavoro di squadra sotto pressione | Leadership situazionale / Team sotto stress | Collaboratore, Stratega, Capitano, Risolutore |
 
 ### Distribuzione per Area
 
@@ -141,14 +141,14 @@ Il sistema utilizza pesi differenziati per domanda (weighted scoring):
 ```
 Q1: peso 6    Q6: peso 6
 Q2: peso 20   Q7: peso 17
-Q3: peso 17   Q8: peso 31
-Q4: peso 31   Q9: peso 20
-Q5: peso 31   Q10: peso 21
+Q3: peso 17   Q8: peso 38
+Q4: peso 31   Q9: peso 24
+Q5: peso 31   Q10: peso 6
 ```
 
 **Peso totale:** 196 punti
 
-Le domande con peso maggiore (Q4, Q5, Q8 = peso 31) hanno maggiore impatto sulla determinazione dell'archetipo finale. Il risultato viene classificato come **netto** (delta tra primo e secondo archetipo ≥ 10) o **blend** (delta < 10).
+Le domande con peso maggiore (Q8 = 38, Q4/Q5 = 31) hanno maggiore impatto sulla determinazione dell'archetipo finale. Il risultato viene classificato come **netto** (delta tra primo e secondo archetipo ≥ 10) o **blend** (delta < 10).
 
 ## Evoluzione delle Survey
 

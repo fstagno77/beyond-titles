@@ -1093,27 +1093,27 @@
         },
         {
           "id": 10,
-          "stem": "Sei in un gruppo sotto pressione: il tempo stringe e ci sono più cose urgenti. Le persone iniziano a sentire la tensione. Cosa fai?",
+          "stem": "Lavoro di squadra sotto pressione: tante attività, più persone, poco tempo. Devi aiutare il gruppo a funzionare meglio. Cosa fai?",
           "tema": "Leadership situazionale / Team sotto stress",
           "opzioni": [
             {
               "id": "10A",
-              "testo": "Tengo unito il gruppo: aiuto tutti a capirsi e a darsi una mano.",
+              "testo": "Mi assicuro che ci si capisca e che ci si dia una mano.",
               "archetipo": "collaboratore"
             },
             {
               "id": "10B",
-              "testo": "Metto ordine: decido cosa fare prima e cosa dopo, poi distribuisco i compiti.",
+              "testo": "Metto ordine: cosa fare prima e cosa dopo.",
               "archetipo": "stratega"
             },
             {
               "id": "10C",
-              "testo": "Prendo la guida: dico chiaramente cosa si fa e come procedere.",
+              "testo": "Propongo un modo chiaro per procedere e lo seguiamo.",
               "archetipo": "capitano"
             },
             {
               "id": "10D",
-              "testo": "Risolvo la cosa più urgente e faccio ripartire il lavoro.",
+              "testo": "Risolvo la cosa più urgente e poi vado avanti.",
               "archetipo": "risolutore"
             }
           ]

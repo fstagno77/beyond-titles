@@ -562,11 +562,11 @@ const translations = {
         bcb3_q9_opt_c: "Risolvo in modo rapido, così da non creare altri problemi.",
         bcb3_q9_opt_d: "Provo un modo diverso per risolverlo meglio o più facilmente.",
 
-        bcb3_q10_stem: "Sei in un gruppo sotto pressione: il tempo stringe e ci sono più cose urgenti. Le persone iniziano a sentire la tensione. Cosa fai?",
-        bcb3_q10_opt_a: "Tengo unito il gruppo: aiuto tutti a capirsi e a darsi una mano.",
-        bcb3_q10_opt_b: "Metto ordine: decido cosa fare prima e cosa dopo, poi distribuisco i compiti.",
-        bcb3_q10_opt_c: "Prendo la guida: dico chiaramente cosa si fa e come procedere.",
-        bcb3_q10_opt_d: "Risolvo la cosa più urgente e faccio ripartire il lavoro."
+        bcb3_q10_stem: "Lavoro di squadra sotto pressione: tante attività, più persone, poco tempo. Devi aiutare il gruppo a funzionare meglio. Cosa fai?",
+        bcb3_q10_opt_a: "Mi assicuro che ci si capisca e che ci si dia una mano.",
+        bcb3_q10_opt_b: "Metto ordine: cosa fare prima e cosa dopo.",
+        bcb3_q10_opt_c: "Propongo un modo chiaro per procedere e lo seguiamo.",
+        bcb3_q10_opt_d: "Risolvo la cosa più urgente e poi vado avanti."
     },
 
     en: {
@@ -1127,11 +1127,11 @@ const translations = {
         bcb3_q9_opt_c: "I fix it quickly, so it doesn't cause other problems.",
         bcb3_q9_opt_d: "I try a different way to solve it better or more easily.",
 
-        bcb3_q10_stem: "You're in a group under pressure: time is running out and there are several urgent things to do. People are starting to feel the tension. What do you do?",
-        bcb3_q10_opt_a: "I keep the group united: I help everyone understand each other and support one another.",
-        bcb3_q10_opt_b: "I create order: I decide what to do first and what next, then assign tasks.",
-        bcb3_q10_opt_c: "I take the lead: I clearly say what to do and how to proceed.",
-        bcb3_q10_opt_d: "I solve the most urgent thing and get the work moving again."
+        bcb3_q10_stem: "Teamwork under pressure: many tasks, several people, little time. You need to help the group work better. What do you do?",
+        bcb3_q10_opt_a: "I make sure everyone understands each other and helps one another.",
+        bcb3_q10_opt_b: "I create order: what to do first and what next.",
+        bcb3_q10_opt_c: "I suggest a clear way to proceed and we follow it.",
+        bcb3_q10_opt_d: "I solve the most urgent thing and then move on."
     }
 };
 

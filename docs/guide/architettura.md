@@ -89,7 +89,7 @@ state = {
 ```javascript
 state = {
     surveyData: {},              // Contenuto survey_archetypes.json
-    selectedSurvey: string,      // 'bcb_v1' | 'bcb_v2' | 'sjt_v1' | 'bcb_v3'
+    selectedSurvey: string,      // 'bcb_v3'
     currentQuestion: 0,          // Indice domanda corrente (0-9)
     answers: [],                 // Array risposte utente
     scores: {}                   // { nomeArchetipo: punteggioAccumulato }
@@ -101,8 +101,7 @@ state = {
 | Chiave | Valore | Modulo |
 |---|---|---|
 | `beyond-titles-lang` | `'it'` o `'en'` | i18n.js |
-| `beyond-titles-survey-type` | `'bcb_v1'`, `'bcb_v2'`, `'sjt_v1'`, `'bcb_v3'` | survey.js |
-| `beyond-titles-sjt-auth` | `'true'` | survey.js |
+| `beyond-titles-survey-type` | `'bcb_v3'` | survey.js |
 
 ## Flussi Dati
 

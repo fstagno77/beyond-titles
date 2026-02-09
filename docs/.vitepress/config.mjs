@@ -36,7 +36,7 @@ export default defineConfig({
         text: 'Modello',
         items: [
           { text: 'Modello K8', link: '/guide/modello-k8' },
-          { text: 'Human Skills Survey v3.2', link: '/guide/survey-v3' },
+          { text: 'Human Skills Survey v3.3', link: '/guide/survey-v3' },
           { text: 'Pipeline Dati', link: '/guide/pipeline-dati' }
         ]
       },

@@ -22,7 +22,7 @@
     // =========================================================================
     const state = {
         surveyData: null,
-        selectedSurvey: null, // 'bcb_v1', 'bcb_v2', 'sjt_v1', or 'bcb_v3'
+        selectedSurvey: null, // 'bcb_v3'
         currentQuestion: 0,
         answers: [], // Array of { questionId, selectedOptionId, archetype }
         scores: {} // { archetipo: punteggio }
@@ -30,7 +30,7 @@
 
     // Storage keys for persistence
     const SURVEY_TYPE_STORAGE_KEY = 'beyond-titles-survey-type';
-    const SJT_AUTH_STORAGE_KEY = 'beyond-titles-sjt-auth';
+    // SJT_AUTH_STORAGE_KEY removed — SJT survey no longer available
 
     // =========================================================================
     // DOM Elements
@@ -264,7 +264,7 @@
             if (savedSurvey && availableSurveys.includes(savedSurvey)) {
                 state.selectedSurvey = savedSurvey;
             } else {
-                state.selectedSurvey = state.surveyData.config?.default_survey || 'bcb_v1';
+                state.selectedSurvey = state.surveyData.config?.default_survey || 'bcb_v3';
             }
 
             console.log('[SURVEY] Selected survey:', state.selectedSurvey);
@@ -293,7 +293,7 @@
 
     /**
      * Sets the selected survey and persists to localStorage
-     * @param {string} surveyId - The survey ID ('bcb_v1', 'bcb_v2', or 'sjt_v1')
+     * @param {string} surveyId - The survey ID ('bcb_v3')
      */
     function setSelectedSurvey(surveyId) {
         if (!state.surveyData?.surveys?.[surveyId]) {
@@ -352,7 +352,7 @@
                 list: archetipiList
             });
         } else {
-            message = `Loaded survey_archetypes.json v3.0 - ${numDomande} domande, ${numArchetipi} archetipi, ${numSurveys} surveys (${archetipiList})`;
+            message = `Loaded survey_archetypes.json v3.3 - ${numDomande} domande, ${numArchetipi} archetipi, ${numSurveys} surveys (${archetipiList})`;
         }
 
         entry.innerHTML = `${timestamp} ${typeLabel} <span class="system-log__message">${message}</span>`;
@@ -433,9 +433,8 @@
         const qNum = question.id;
 
         // Determine i18n key prefix based on selected survey
-        // BCB v1 uses 'survey_q{n}' prefix, BCB v2 uses 'bcb2_q{n}' prefix, SJT uses 'sjt_q{n}' prefix
-        const prefixMap = { 'bcb_v1': 'survey', 'bcb_v2': 'bcb2', 'bcb_v3': 'bcb3', 'sjt_v1': 'sjt' };
-        const prefix = prefixMap[state.selectedSurvey] || 'survey';
+        const prefixMap = { 'bcb_v3': 'bcb3' };
+        const prefix = prefixMap[state.selectedSurvey] || 'bcb3';
 
         const stemKey = `${prefix}_q${qNum}_stem`;
         const stemVal = window.i18n.t(stemKey);
@@ -1299,17 +1298,7 @@
     }
 
     function handleStartSurveyClick() {
-        // Check if SJT survey is selected
-        if (state.selectedSurvey === 'sjt_v1') {
-            // Skip password if already authenticated
-            if (isSjtAuthenticated()) {
-                startSurvey();
-            } else {
-                showSjtPasswordModal();
-            }
-        } else {
-            startSurvey();
-        }
+        startSurvey();
     }
 
     // =========================================================================
@@ -1410,7 +1399,7 @@
     // Main Init
     // =========================================================================
     async function init() {
-        console.log('[SURVEY] Initializing v3.0 (multi-survey)...');
+        console.log('[SURVEY] Initializing v3.3...');
 
         initializeElements();
 

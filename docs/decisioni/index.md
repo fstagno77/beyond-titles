@@ -102,15 +102,15 @@ Passare a un sistema **single-choice** con 4 opzioni per domanda, ciascuna mappa
 **Data:** 28 gennaio 2026 | **Stato:** Accettata
 
 ### Contesto
-Dopo la validazione della survey BCB v1.0, è emersa la necessità di testare domande riformulate (v2.0) e un formato diverso (SJT) senza perdere la versione precedente.
+Dopo la validazione della survey BCB v1.0, sono state testate versioni riformulate (v2.0) e formati diversi (SJT). La v3.3 (Human Skills Survey) è risultata la versione definitiva.
 
 ### Decisione
-Ristrutturare `survey_archetypes.json` in formato multi-survey (v3.0) con un selettore nell'UI che permette di scegliere tra le survey disponibili.
+Ristrutturare `survey_archetypes.json` in formato v3.3 con la sola Human Skills Survey. Le survey legacy (BCB v1.0, v2.0, SJT v1.0) sono state rimosse dopo la fase di A/B testing.
 
 ### Motivazione
-- A/B testing tra versioni diverse delle domande
-- Possibilità di aggiungere nuovi formati di assessment (SJT)
-- Backward compatibility con i dati della v1.0
+- La Human Skills Survey v3.3 è la versione validata e definitiva
+- Semplificazione del codice e dei dati rimuovendo le survey non più necessarie
+- Riduzione delle traduzioni e della complessità del sistema
 - Protezione password per survey in fase di sviluppo (SJT)
 
 ### Conseguenze

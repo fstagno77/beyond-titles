@@ -1,13 +1,13 @@
-# Human Skills Survey v3.2
+# Human Skills Survey v3.3
 
 ## Panoramica
 
-La **Human Skills Survey v3.2** (BCB v3.0 nell'applicazione) è la survey di default della piattaforma Beyond Titles. Si tratta di un questionario **Behavioural & Competency-Based** in formato single-choice, progettato da Subsense per identificare l'archetipo professionale dell'utente attraverso 10 situazioni concrete.
+La **Human Skills Survey v3.3** è la survey di default della piattaforma Beyond Titles. Si tratta di un questionario **Behavioural & Competency-Based** in formato single-choice, progettato da Subsense per identificare l'archetipo professionale dell'utente attraverso 10 situazioni concrete.
 
-**Versione:** v3.2 — 5 febbraio 2026
+**Versione:** v3.3 — 9 febbraio 2026
 **ID interno:** `bcb_v3`
 **Accesso:** Libero (nessuna password)
-**Stato:** Survey di default
+**Stato:** Survey di default (unica survey attiva)
 
 ## Caratteristiche Tecniche
 
@@ -96,11 +96,11 @@ Ogni archetipo compare esattamente **5 volte** su 40 opzioni totali, garantendo 
 5. **Coerenza** — Struttura uniforme, tone of voice costante
 6. **Rassicurazione** — Anonimato, no giudizio, spontaneità
 
-## Correzioni dalla v3.1
+## Correzioni dalla v3.2
 
 La v3.2 introduce correzioni linguistiche per migliorare chiarezza e naturalezza:
 
-| Domanda | Elemento | Prima (v3.1) | Dopo (v3.2) |
+| Domanda | Elemento | Prima (v3.2) | Dopo (v3.3) |
 |---|---|---|---|
 | Q3 | STEM destinatari | "non soltanto per te, ma anche per altre persone" | "non solo per te, ma anche per altri" |
 | Q4 | Opzione B verbo | "Metto in fila 2-3 passi" | "Decido 2-3 passi" |
@@ -150,11 +150,10 @@ Q5: peso 31   Q10: peso 6
 
 Le domande con peso maggiore (Q8 = 38, Q4/Q5 = 31) hanno maggiore impatto sulla determinazione dell'archetipo finale. Il risultato viene classificato come **netto** (delta tra primo e secondo archetipo ≥ 10) o **blend** (delta < 10).
 
-## Evoluzione delle Survey
+## Evoluzione della Survey
 
-| Survey | ID | Versione | Accesso | Note |
-|---|---|---|---|---|
-| Behavioural & Competency-Based | `bcb_v1` | v1.0 | Libero | Linguaggio professionale |
-| Behavioural & Competency-Based | `bcb_v2` | v2.0 | Libero | Linguaggio semplificato |
-| Situational Judgement Test | `sjt_v1` | v1.0 | Password | Scenari situazionali concreti |
-| **Human Skills Survey** | **`bcb_v3`** | **v3.0 (v3.2)** | **Libero** | **Default — A2-B1, massima inclusività** |
+| Versione | Data | Note |
+|---|---|---|
+| v3.0 | Feb 2026 | Prima versione Human Skills Survey |
+| v3.2 | 5 Feb 2026 | Correzioni linguistiche |
+| **v3.3** | **9 Feb 2026** | **Q10 riscritta, pulizia survey legacy** |

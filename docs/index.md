@@ -37,8 +37,8 @@ beyond-titles/
 │   ├── app.js                    # Ricerca ruoli e autocomplete (~1200 righe)
 │   └── survey.js                 # Sistema survey (~1465 righe)
 ├── data/
-│   ├── mansioni_database.json    # Database mansioni (604 voci, v3.0)
-│   └── survey_archetypes.json   # Dati survey (v3.0, multi-survey)
+│   ├── mansioni_database.json    # Database mansioni (604 voci)
+│   └── survey_archetypes.json   # Dati survey (v3.3, Human Skills Survey)
 ├── assets/
 │   ├── logoBeyondTitles.png      # Logo header
 │   └── favicon.jpg               # Favicon
@@ -57,14 +57,11 @@ L'utente digita un titolo professionale e il sistema cerca corrispondenze nel da
 
 ### 2. Survey Comportamentali
 
-Quattro tipi di assessment disponibili, ciascuno con 10 domande a risposta singola:
+Assessment con 10 domande a risposta singola:
 
 | Survey | Versione | Accesso |
 |---|---|---|
-| Behavioural & Competency-Based | v1.0 | Libero |
-| Behavioural & Competency-Based | v2.0 (riformulato) | Libero |
-| Situational Judgement Test | v1.0 | Protetto da password |
-| Behavioural & Competency-Based | v3.0 (Human Skills v3.2) | Libero — **default** |
+| Human Skills Survey | v3.3 | Libero — **default** |
 
 Il sistema identifica 8 archetipi professionali e classifica il risultato come **netto** (un archetipo dominante) o **blend** (combinazione di 2-3 archetipi).
 

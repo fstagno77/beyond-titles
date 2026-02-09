@@ -71,19 +71,17 @@ Affidabilità, Analisi, Ascolto, Autonomia operativa, Coinvolgimento, Collaboraz
 
 | Campo | Valore |
 |---|---|
-| Versione | v3.0 |
-| Formato | Multi-survey |
-| Domande per survey | 10 |
+| Versione | v3.3 |
+| Formato | Human Skills Survey |
+| Domande | 10 |
 | Opzioni per domanda | 4 |
 | Scoring | Single-choice pesato |
 
-### Survey Disponibili
+### Survey
 
 | ID | Nome | Accesso |
 |---|---|---|
-| `bcb_v1` | Behavioural & Competency-Based v1.0 | Libero |
-| `bcb_v2` | Behavioural & Competency-Based v2.0 | Libero |
-| `sjt_v1` | Situational Judgement Test v1.0 | Password |
+| `bcb_v3` | Human Skills Survey v3.3 | Libero (default) |
 
 ### 8 Archetipi Professionali
 

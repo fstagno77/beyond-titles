@@ -2,7 +2,17 @@
 
 Log delle modifiche al progetto, organizzato per versione e data.
 
-## v0.12.2 <Badge type="tip" text="corrente" />
+## v0.13.0 <Badge type="tip" text="corrente" />
+
+**9 febbraio 2026**
+
+- **Pulizia survey legacy**: rimosse BCB v1.0, BCB v2.0, SJT v1.0
+- Unica survey attiva: **Human Skills Survey v3.3**
+- Aggiornata Q10 alla versione definitiva
+- Rimosso sistema password SJT e traduzioni survey obsolete
+- Aggiornata documentazione wiki completa
+
+## v0.12.2
 
 **9 febbraio 2026**
 
@@ -12,30 +22,11 @@ Log delle modifiche al progetto, organizzato per versione e data.
 
 **8 febbraio 2026**
 
-- Aggiunta survey **Behavioural & Competency-Based v3.0** (Human Skills Survey v3.2) con 10 domande riformulate
-- Traduzioni complete IT/EN per BCB v3.0
-- BCB v3.0 impostata come **survey di default**
+- Aggiunta survey **Human Skills Survey v3.0** con 10 domande riformulate
+- Traduzioni complete IT/EN
+- Impostata come **survey di default**
 - Aggiornato sottotitolo intro survey ("Cosa ti rende unico?")
 - Link changelog nel footer ora punta alla **documentazione wiki** (VitePress)
-
-## v0.11.0
-
-**29 gennaio 2026**
-
-- Aggiunta survey **Behavioural & Competency-Based v2.0** con 10 domande riformulate
-- Traduzioni complete IT/EN per BCB v2.0
-- Supporto multi-versione (BCB v1.0 e v2.0 coesistono nel sistema)
-
-## v0.10.0
-
-**28 gennaio 2026**
-
-- Implementato sistema **multi-survey** con selettore tipo survey
-- Aggiunta survey **Situational Judgement Test (SJT) v1.0** con 10 scenari situazionali
-- **Protezione password** per accesso SJT (in fase di sviluppo)
-- Persistenza autenticazione SJT in localStorage
-- Traduzioni complete IT/EN per SJT
-- Migrazione `survey_archetypes.json` a formato **v3.0** (multi-survey)
 
 ## v0.9.1
 

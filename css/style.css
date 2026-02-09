@@ -1040,9 +1040,11 @@ ul {
 /* Survey Type Selector */
 .survey__version-label {
     margin-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
     font-size: var(--font-size-sm);
     color: var(--color-text-muted);
-    opacity: 0.6;
+    opacity: 0.5;
+    text-align: center;
 }
 
 .survey__start-btn {

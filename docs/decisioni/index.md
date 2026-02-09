@@ -79,16 +79,17 @@ Introdurre tre tipi di mapping nel database:
 **Data:** 20 gennaio 2026 | **Stato:** Accettata (sostituisce sistema binario v0.8)
 
 ### Contesto
-Il sistema iniziale (v0.8) usava un approccio binario PIÙ/MENO per ogni domanda. Risultava poco discriminante e produceva troppi blend.
+Il sistema iniziale (v0.8) usava un approccio binario PIÙ/MENO per ogni domanda. Risultava poco discriminante e produceva troppi risultati ambigui.
 
 ### Decisione
-Passare a un sistema **single-choice** con 4 opzioni per domanda, ciascuna mappata su un archetipo diverso, con pesi configurabili per domanda.
+Passare a un sistema **single-choice** con 4 opzioni per domanda, ciascuna mappata su un archetipo diverso, con pesi configurabili per domanda. Il risultato restituisce sempre un **singolo archetipo dominante**. In caso di parità perfetta, il tie-break è deterministico (ordine alfabetico).
 
 ### Motivazione
 - Maggiore discriminazione tra archetipi
 - Pesi configurabili permettono di bilanciare l'importanza delle domande
 - Single-choice è più intuitivo per l'utente rispetto al PIÙ/MENO
-- Soglia delta₁₂ ≥ 10 come separatore netto/blend offre buon bilanciamento
+- Risultato sempre chiaro e univoco (un solo archetipo)
+- Tie-break deterministico garantisce risultati riproducibili
 
 ### Conseguenze
 - Ogni domanda contribuisce a un solo archetipo (non a tutti)
@@ -102,13 +103,13 @@ Passare a un sistema **single-choice** con 4 opzioni per domanda, ciascuna mappa
 **Data:** 28 gennaio 2026 | **Stato:** Accettata
 
 ### Contesto
-Dopo la validazione della survey BCB v1.0, sono state testate versioni riformulate (v2.0) e formati diversi (SJT). La v3.3 (Behavioural & Competency-Based) è risultata la versione definitiva.
+Dopo la validazione della survey BCB v1.0, sono state testate versioni riformulate (v2.0) e formati diversi (SJT). La v3.4 (Behavioural & Competency-Based) è risultata la versione definitiva.
 
 ### Decisione
-Ristrutturare `survey_archetypes.json` in formato v3.3 con la sola Behavioural & Competency-Based. Le survey legacy (BCB v1.0, v2.0, SJT v1.0) sono state rimosse dopo la fase di A/B testing.
+Ristrutturare `survey_archetypes.json` in formato v3.4 con la sola Behavioural & Competency-Based. Le survey legacy (BCB v1.0, v2.0, SJT v1.0) sono state rimosse dopo la fase di A/B testing.
 
 ### Motivazione
-- La Behavioural & Competency-Based v3.3 è la versione validata e definitiva
+- La Behavioural & Competency-Based v3.4 è la versione validata e definitiva
 - Semplificazione del codice e dei dati rimuovendo le survey non più necessarie
 - Riduzione delle traduzioni e della complessità del sistema
 - Protezione password per survey in fase di sviluppo (SJT)

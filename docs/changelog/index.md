@@ -6,11 +6,10 @@ Log delle modifiche al progetto, organizzato per versione e data.
 
 **9 febbraio 2026**
 
+- **Survey aggiornata a Behavioural & Competency-Based v3.4**: raffinamenti linguistici su 23 opzioni/stem, CTA "Inizia il viaggio"
 - **Pulizia survey legacy**: rimosse BCB v1.0, BCB v2.0, SJT v1.0
-- Unica survey attiva: **Behavioural & Competency-Based v3.3**
-- Aggiornata Q10 alla versione definitiva
 - Rimosso sistema password SJT e traduzioni survey obsolete
-- Aggiunta pagina wiki Behavioural & Competency-Based v3.3
+- Aggiunta pagina wiki Behavioural & Competency-Based v3.4
 - Aggiunto link **Wiki** nel footer
 - Aggiunto logo **SubSense** nella sidebar del wiki
 
@@ -39,12 +38,11 @@ Log delle modifiche al progetto, organizzato per versione e data.
 
 - **Redesign scoring**: da sistema binario PIÙ/MENO a **single-choice** (una risposta per domanda)
 - 10 domande comportamentali con mappatura bilanciata (5 occorrenze per archetipo)
-- Nuove soglie blend: Δ₁₂ < 10 per profili blend, ≥ 10 per profili netti
-- Supporto **blend a 3 archetipi** in caso di parità multipla
+- Risultato sempre **netto**: un singolo archetipo dominante
+- Tie-break deterministico per ordine alfabetico in caso di parità
 - Rimosso tie-break speciale Q10 (ora domanda standard)
 - Indice di confidenza arrotondato a multipli del 5%
 - Re-render risultati survey al cambio lingua
-- Miglioramento UI: posizionamento chevron in card secondarie/terziarie
 - Rebranding intro survey con sottotitolo Beyond Titles
 
 ## v0.8.0
@@ -52,11 +50,11 @@ Log delle modifiche al progetto, organizzato per versione e data.
 **19 gennaio 2026**
 
 - Introdotto sistema **Survey Archetipi Professionali** con 10 domande comportamentali
-- Scoring MORE/LESS (binario) con rilevamento automatico blend
+- Scoring MORE/LESS (binario) con singolo archetipo dominante
 - Definiti **8 archetipi professionali**: Connettore, Stratega, Pragmatico, Collaboratore, Risolutore, Pioniere, Capitano, Artigiano
 - Modale **Suggerimenti** per simulazione rapida risultati
 - **Tabella punteggi live** nel System Activity Log con barre grafiche
-- Modale preset con griglia 8 archetipi e toggle blend
+- Modale preset con griglia 8 archetipi
 
 ## v0.7.1
 

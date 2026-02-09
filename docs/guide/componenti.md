@@ -90,7 +90,7 @@ Il pannello ha tre stati, mutuamente esclusivi:
 
 #### 1. Intro (`#survey-intro`)
 - Titolo e sottotitolo "Beyond Titles"
-- Selettore tipo survey (Behavioural & Competency-Based v3.3)
+- Selettore tipo survey (Behavioural & Competency-Based v3.4)
 - Pulsante "Inizia il Sondaggio"
 - Link "Suggerimenti" per aprire la modale preset
 
@@ -100,10 +100,7 @@ Il pannello ha tre stati, mutuamente esclusivi:
 - Navigazione: pulsanti "Indietro" e "Avanti" (Avanti disabilitato finché non si seleziona)
 
 #### 3. Risultati (`#survey-results`)
-- **Card primaria** — Sempre espansa, mostra archetipo dominante con colore, claim, descrizione e soft skills
-- **Card secondaria** — Collassabile, solo per profili blend
-- **Card terziaria** — Collassabile, solo per blend a 3 vie
-- **Barra percentuale blend** — Mostra il rapporto tra archetipi (solo per blend)
+- **Card primaria** — Mostra l'archetipo dominante con colore, claim, descrizione e soft skills
 - Pulsante "Rifai il Test"
 
 ## System Activity Log
@@ -145,7 +142,6 @@ Mostra 6 esempi dettagliati di ricerca con spiegazione della logica di matching:
 Griglia di 8 card archetipo per simulare rapidamente un risultato:
 
 - Click su un archetipo simula il risultato corrispondente
-- Checkbox "Blend" per alternare tra profilo netto e blend
 - Auto-chiusura della modale dopo la selezione
 
 ### Modale Password SJT

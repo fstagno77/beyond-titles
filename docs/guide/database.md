@@ -71,7 +71,7 @@ Affidabilità, Analisi, Ascolto, Autonomia operativa, Coinvolgimento, Collaboraz
 
 | Campo | Valore |
 |---|---|
-| Versione | v3.3 |
+| Versione | v3.4 |
 | Formato | Behavioural & Competency-Based |
 | Domande | 10 |
 | Opzioni per domanda | 4 |
@@ -81,7 +81,7 @@ Affidabilità, Analisi, Ascolto, Autonomia operativa, Coinvolgimento, Collaboraz
 
 | ID | Nome | Accesso |
 |---|---|---|
-| `bcb_v3` | Behavioural & Competency-Based v3.3 | Libero (default) |
+| `bcb_v3` | Behavioural & Competency-Based v3.4 | Libero (default) |
 
 ### 8 Archetipi Professionali
 
@@ -105,20 +105,19 @@ Per ogni domanda risponduta:
 
 Ranking:
   ordinamento archetipi per punteggio decrescente
-  shuffle in caso di parità
+  tie-break: ordine alfabetico (deterministico)
 
-Classificazione:
-  delta₁₂ = punteggio_1° - punteggio_2°
-
-  delta₁₂ ≥ 10  →  profilo "netto" (1 archetipo)
-  delta₁₂ < 10   →  profilo "blend" (2-3 archetipi)
+Risultato:
+  sempre un singolo archetipo dominante
 ```
 
 ### Classificazione Confidenza
+
+Il delta tra primo e secondo archetipo viene loggato nel System Activity Log come indicatore diagnostico:
 
 | Delta | Livello |
 |---|---|
 | ≥ 30 | Molto definito |
 | ≥ 20 | Definito |
 | ≥ 10 | Sfaccettato |
-| < 10 | Molto sfaccettato (blend) |
+| < 10 | Molto sfaccettato |

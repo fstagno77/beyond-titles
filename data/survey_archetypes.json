@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "versione": "v3.3",
+    "versione": "v3.4",
     "nome": "Survey Archetipi Professionali - Behavioural & Competency-Based",
     "descrizione": "Survey per determinare l'archetipo professionale dell'utente",
     "numero_domande": 10,
@@ -11,7 +11,7 @@
     "bcb_v3": {
       "id": "bcb_v3",
       "name": "Behavioural & Competency-Based",
-      "version": "3.3",
+      "version": "3.4",
       "i18n_key": "survey_bcb_v3",
       "domande": [
         {
@@ -26,12 +26,12 @@
             },
             {
               "id": "1B",
-              "testo": "Controllo bene cosa serve e i dettagli, prima di partire.",
+              "testo": "Prima di partire, controllo cosa serve e i dettagli.",
               "archetipo": "artigiano"
             },
             {
               "id": "1C",
-              "testo": "Scelgo io un modo chiaro per farla e lo seguo.",
+              "testo": "Scelgo un modo chiaro per svolgerla e procedo in quella direzione.",
               "archetipo": "capitano"
             },
             {
@@ -48,22 +48,22 @@
           "opzioni": [
             {
               "id": "2A",
-              "testo": "Trovo una soluzione pratica e vado avanti.",
+              "testo": "Individuo una soluzione pratica e vado avanti.",
               "archetipo": "risolutore"
             },
             {
               "id": "2B",
-              "testo": "Provo un modo diverso per vedere se funziona meglio.",
+              "testo": "Provo un'alternativa per capire se funziona meglio.",
               "archetipo": "pioniere"
             },
             {
               "id": "2C",
-              "testo": "Chiedo aiuto alla persona giusta e decidiamo cosa fare.",
+              "testo": "Chiedo aiuto alla persona giusta e decidiamo insieme cosa fare.",
               "archetipo": "collaboratore"
             },
             {
               "id": "2D",
-              "testo": "Controllo una cosa alla volta, finché capisco cosa non funziona.",
+              "testo": "Controllo una cosa alla volta, per individuare il problema.",
               "archetipo": "artigiano"
             }
           ]
@@ -97,22 +97,22 @@
         },
         {
           "id": 4,
-          "stem": "Hai molte cose da fare oggi e poco tempo. Sei tu a decidere le priorità. Da cosa parti?",
+          "stem": "Hai molte cose da fare e poco tempo. Sei tu a decidere le priorità. Da dove inizi?",
           "tema": "Gestione priorità / Time management",
           "opzioni": [
             {
               "id": "4A",
-              "testo": "Scelgo la cosa più importante e la faccio per prima.",
+              "testo": "Individuo l'attività più importante e parto da quella.",
               "archetipo": "capitano"
             },
             {
               "id": "4B",
-              "testo": "Decido 2-3 passi e un ordine semplice, poi parto.",
+              "testo": "Decido 2-3 passi chiave, li metto in ordine e poi inizio.",
               "archetipo": "stratega"
             },
             {
               "id": "4C",
-              "testo": "Inizio da una cosa che posso finire subito, così mi resta meno da fare.",
+              "testo": "Parto dall'attività che posso chiudere subito, così da avere meno cose da fare dopo.",
               "archetipo": "pragmatico"
             },
             {
@@ -139,7 +139,7 @@
             },
             {
               "id": "5C",
-              "testo": "Ne parlo con gli altri e ci aiutiamo a capire cosa funziona.",
+              "testo": "Mi confronto con gli altri per capire cosa funziona.",
               "archetipo": "connettore"
             },
             {
@@ -156,12 +156,12 @@
           "opzioni": [
             {
               "id": "6A",
-              "testo": "Faccio una piccola prova per vedere se funziona.",
+              "testo": "Faccio una piccola prova per capire se funziona.",
               "archetipo": "pioniere"
             },
             {
               "id": "6B",
-              "testo": "La rendo subito pratica: scelgo pochi passi chiari e parto.",
+              "testo": "La rendo subito concreta: scelgo pochi passi chiari e parto.",
               "archetipo": "pragmatico"
             },
             {
@@ -171,14 +171,14 @@
             },
             {
               "id": "6D",
-              "testo": "Prima ci penso bene: vantaggi e svantaggi, poi decido.",
+              "testo": "Valuto prima vantaggi e svantaggi, poi decido.",
               "archetipo": "stratega"
             }
           ]
         },
         {
           "id": 7,
-          "stem": "Immagina di collaborare con un'altra persona: nasce un fraintendimento e aumenta la tensione tra voi. Come ti comporti?",
+          "stem": "Immagina di collaborare con un'altra persona: nasce un fraintendimento e la tensione aumenta. Come ti comporti?",
           "tema": "Gestione conflitti / Relazioni tese",
           "opzioni": [
             {
@@ -188,12 +188,12 @@
             },
             {
               "id": "7B",
-              "testo": "Cerco un punto in comune e aiuto a capire cosa intende ciascuno.",
+              "testo": "Cerco un punto in comune e aiuto a chiarire cosa intende l'altra persona.",
               "archetipo": "collaboratore"
             },
             {
               "id": "7C",
-              "testo": "Riporto l'attenzione sull'obiettivo e dico come procediamo.",
+              "testo": "Riporto l'attenzione sull'obiettivo e comunico come procedere.",
               "archetipo": "capitano"
             },
             {
@@ -205,7 +205,7 @@
         },
         {
           "id": 8,
-          "stem": "Sei in un gruppo per un progetto: ognuno va un po' per conto suo. Cosa fai?",
+          "stem": "Sei in un gruppo per un progetto, ma manca chiarezza. Cosa fai?",
           "tema": "Coordinamento gruppo / Team disallineato",
           "opzioni": [
             {
@@ -215,7 +215,7 @@
             },
             {
               "id": "8B",
-              "testo": "Mi metto a lavorare insieme agli altri: mi adatto e do una mano dove serve di più.",
+              "testo": "Lavoro insieme agli altri: mi adatto e do una mano dove serve.",
               "archetipo": "collaboratore"
             },
             {
@@ -225,7 +225,7 @@
             },
             {
               "id": "8D",
-              "testo": "Inizio a fare la parte più pratica e urgente, così il lavoro riparte e gli altri si uniscono.",
+              "testo": "Parto dall'aspetto più urgente, così il lavoro riparte e gli altri possono collaborare.",
               "archetipo": "pragmatico"
             }
           ]
@@ -237,12 +237,12 @@
           "opzioni": [
             {
               "id": "9A",
-              "testo": "Sistemo con cura il problema, occupandomi anche dei dettagli.",
+              "testo": "Lo sistemo con cura, occupandomi anche dei dettagli.",
               "archetipo": "artigiano"
             },
             {
               "id": "9B",
-              "testo": "Prima penso a come risolverlo al meglio, poi sistemo.",
+              "testo": "Prima penso alla soluzione migliore, poi intervengo.",
               "archetipo": "stratega"
             },
             {
@@ -252,7 +252,7 @@
             },
             {
               "id": "9D",
-              "testo": "Provo un modo diverso per risolverlo meglio o più facilmente.",
+              "testo": "Provo un approccio diverso per sistemarlo meglio o più facilmente.",
               "archetipo": "pioniere"
             }
           ]
@@ -269,7 +269,7 @@
             },
             {
               "id": "10B",
-              "testo": "Metto ordine: cosa fare prima e cosa dopo.",
+              "testo": "Metto ordine: decido cosa fare prima e cosa dopo.",
               "archetipo": "stratega"
             },
             {
@@ -391,8 +391,6 @@
   "config": {
     "scoring": "weighted",
     "total_weight": 196,
-    "soglia_netto": 10,
-    "soglia_blend": 0,
     "default_survey": "bcb_v3"
   },
   "questionWeights": {

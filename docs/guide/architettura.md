@@ -138,13 +138,11 @@ Per ciascuna delle 10 domande:
   → Aggiornamento tabella punteggi live nel log
     ↓
 Calcolo risultati:
-  → Ranking archetipi per punteggio
-  → Classificazione: delta₁₂ ≥ 10 = netto, < 10 = blend
+  → Ranking archetipi per punteggio (tie-break: ordine alfabetico)
+  → Sempre profilo netto: un singolo archetipo dominante
     ↓
 Rendering risultati:
-  → Card primaria (sempre visibile)
-  → Card secondaria/terziaria (collassabili, solo per blend)
-  → Barra percentuale blend
+  → Card primaria con archetipo, claim, profilo e soft skills
 ```
 
 ## Configurazioni

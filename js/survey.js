@@ -12,7 +12,6 @@
     const CONFIG = {
         surveyDataUrl: './data/survey_archetypes.json',
         TOTAL_WEIGHT: 196,  // Somma di tutti i pesi
-        SOGLIA_NETTO: 10,   // delta >= 10 per profilo netto
         totalQuestions: 10,
         SJT_PASSWORD: 'gigroup2026'  // Password for SJT survey access
     };
@@ -338,7 +337,7 @@
                 list: archetipiList
             });
         } else {
-            message = `Loaded survey_archetypes.json v3.3 - ${numDomande} domande, ${numArchetipi} archetipi, ${numSurveys} surveys (${archetipiList})`;
+            message = `Loaded survey_archetypes.json v3.4 - ${numDomande} domande, ${numArchetipi} archetipi, ${numSurveys} surveys (${archetipiList})`;
         }
 
         entry.innerHTML = `${timestamp} ${typeLabel} <span class="system-log__message">${message}</span>`;
@@ -651,100 +650,31 @@
     }
 
     function rankArchetypes() {
-        // Convert scores to array
-        const entries = Object.entries(state.scores);
-
-        // Group archetypes by score (for tie detection)
-        const scoreGroups = {};
-        entries.forEach(([archetype, score]) => {
-            if (!scoreGroups[score]) {
-                scoreGroups[score] = [];
-            }
-            scoreGroups[score].push(archetype);
-        });
-
-        // Shuffle archetypes within each score group (random tie-breaking)
-        Object.values(scoreGroups).forEach(group => {
-            if (group.length > 1) {
-                // Fisher-Yates shuffle for fair randomization
-                for (let i = group.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [group[i], group[j]] = [group[j], group[i]];
-                }
-            }
-        });
-
-        // Get unique scores sorted descending
-        const sortedScores = Object.keys(scoreGroups)
-            .map(Number)
-            .sort((a, b) => b - a);
-
-        // Build ranked array with randomized tie-breaking
-        const ranked = [];
-        sortedScores.forEach(score => {
-            scoreGroups[score].forEach(archetype => {
-                ranked.push({
-                    archetype,
-                    score,
-                    rank: ranked.length + 1
-                });
-            });
-        });
+        // Convert scores to array and sort:
+        // 1. By score descending
+        // 2. By archetype name alphabetically (deterministic tie-breaking)
+        const ranked = Object.entries(state.scores)
+            .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+            .map(([archetype, score], index) => ({
+                archetype,
+                score,
+                rank: index + 1
+            }));
 
         return ranked;
     }
 
     function classifyProfile(rankedArchetypes) {
-        const S1 = rankedArchetypes[0].score; // Primary score
-        const S2 = rankedArchetypes[1].score; // Secondary score
-        const S3 = rankedArchetypes[2].score; // Tertiary score
-
-        // Direct delta comparison (no division needed with new weights)
+        const S1 = rankedArchetypes[0].score;
+        const S2 = rankedArchetypes[1].score;
         const delta12 = S1 - S2;
-        const delta23 = S2 - S3;
-
-        let profileType;
-        let archetypesToShow;
-
-        if (delta12 >= CONFIG.SOGLIA_NETTO) {
-            // Profilo netto: primario dominante (delta >= 10)
-            profileType = "netto";
-            archetypesToShow = [rankedArchetypes[0]];
-        } else {
-            // Profilo blend (delta < 10)
-            if (delta23 === 0 && delta12 === 0) {
-                // Possibile blend a 3 archetipi (tutti e tre in parità)
-                profileType = "blend_3";
-                archetypesToShow = [rankedArchetypes[0], rankedArchetypes[1], rankedArchetypes[2]];
-            } else {
-                // Blend a 2 archetipi
-                profileType = "blend_2";
-                archetypesToShow = [rankedArchetypes[0], rankedArchetypes[1]];
-            }
-        }
 
         return {
-            profileType,
+            profileType: "netto",
             primary: rankedArchetypes[0],
             secondary: rankedArchetypes[1],
-            tertiary: rankedArchetypes[2],
-            archetypesToShow,
-            delta12,
-            delta23
+            delta12
         };
-    }
-
-    function calculatePercentages(S1, S2) {
-        const total = S1 + S2;
-        if (total === 0) return { w1: 50, w2: 50 };
-
-        const w1Raw = (S1 / total) * 100;
-
-        // Arrotonda a interi
-        const w1 = Math.round(w1Raw);
-        const w2 = 100 - w1;
-
-        return { w1, w2 };
     }
 
     function calculateConfidence(S1, S2) {
@@ -820,28 +750,22 @@
 
         // Get translated archetype data
         const primaryArchetype = getTranslatedArchetype(profile.primary.archetype);
-        const secondaryArchetype = getTranslatedArchetype(profile.secondary.archetype);
 
-        const isBlend = profile.profileType !== 'netto';
-        const { w1, w2 } = calculatePercentages(profile.primary.score, profile.secondary.score);
-        const { confidence, confidenceLabel } = calculateConfidence(profile.primary.score, profile.secondary.score);
+        const { confidenceLabel } = calculateConfidence(profile.primary.score, profile.secondary.score);
 
         // Log profile info (detect tie-breaking)
         const hasTie = profile.primary.score === profile.secondary.score;
-        const tieInfo = hasTie ? ' | Tie: random' : '';
-        logSurveyActivity(`Profilo: ${profile.profileType} | Δ: ${profile.delta12}${tieInfo} | Confidence: ${confidenceLabel}`);
-        logSurveyActivity(`Scores: ${profile.primary.archetype}=${profile.primary.score}, ${profile.secondary.archetype}=${profile.secondary.score} | Blend: ${w1}%/${w2}%`);
+        const tieInfo = hasTie ? ' | Tie: alphabetical' : '';
+        logSurveyActivity(`Profilo: netto | Δ: ${profile.delta12}${tieInfo} | Confidence: ${confidenceLabel}`);
+        logSurveyActivity(`Scores: ${profile.primary.archetype}=${profile.primary.score}, ${profile.secondary.archetype}=${profile.secondary.score}`);
 
-        // Get translated labels
+        // Get translated label
         const labelPrimary = window.i18n ? window.i18n.t('survey_result_primary') : 'Il Tuo Archetipo';
-        const labelPrimaryBlend = window.i18n ? window.i18n.t('survey_result_primary_blend') : 'Archetipo Primario';
-        const labelSecondary = window.i18n ? window.i18n.t('survey_result_secondary') : 'Archetipo Secondario';
-        const labelBlendTitle = window.i18n ? window.i18n.t('survey_result_blend_title') : 'Il tuo profilo blend';
 
-        let html = `
+        const html = `
             <div class="survey__result-card" style="border-color: ${primaryArchetype.colore}">
                 <p class="survey__result-label" style="color: ${primaryArchetype.colore}">
-                    ${isBlend ? labelPrimaryBlend : labelPrimary}
+                    ${labelPrimary}
                 </p>
                 <h2 class="survey__result-archetype">${escapeHtml(primaryArchetype.nome)}</h2>
                 <p class="survey__result-claim">"${escapeHtml(primaryArchetype.claim)}"</p>
@@ -855,118 +779,10 @@
                         </span>
                     `).join('')}
                 </div>
+            </div>
         `;
 
-        if (isBlend) {
-            html += `
-                <div class="survey__result-blend">
-                    <p class="survey__result-blend-title">${labelBlendTitle}</p>
-                    <div class="survey__result-blend-bar">
-                        <div class="survey__result-blend-segment" style="width: ${w1}%; background-color: ${primaryArchetype.colore}">
-                            ${w1}%
-                        </div>
-                        <div class="survey__result-blend-segment" style="width: ${w2}%; background-color: ${secondaryArchetype.colore}">
-                            ${w2}%
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        html += `</div>`;
-
-        // Show secondary archetype card only when blend
-        if (isBlend) {
-            html += `
-                <div class="survey__result-card survey__result-card--secondary" style="border-color: ${secondaryArchetype.colore}" id="secondary-card">
-                    <button class="survey__result-card-header survey__result-card-header--vertical" id="secondary-toggle" aria-expanded="false" aria-controls="secondary-details">
-                        <div class="survey__result-card-header-content">
-                            <p class="survey__result-label" style="color: ${secondaryArchetype.colore}">${labelSecondary}</p>
-                            <h2 class="survey__result-archetype">${escapeHtml(secondaryArchetype.nome)}</h2>
-                            <p class="survey__result-claim">"${escapeHtml(secondaryArchetype.claim)}"</p>
-                        </div>
-                        <span class="survey__result-card-chevron survey__result-card-chevron--bottom" style="color: ${secondaryArchetype.colore}">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="survey__result-card-details" id="secondary-details" hidden>
-                        <p class="survey__result-profilo" style="border-color: ${secondaryArchetype.colore}">
-                            ${escapeHtml(secondaryArchetype.profilo)}
-                        </p>
-                        <div class="survey__result-skills">
-                            ${secondaryArchetype.soft_skills.map(skill => `
-                                <span class="survey__result-skill" style="background-color: ${secondaryArchetype.colore}20; color: ${secondaryArchetype.colore}">
-                                    ${escapeHtml(skill)}
-                                </span>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Show tertiary archetype if blend_3
-        if (profile.profileType === 'blend_3') {
-            const tertiaryArchetype = getTranslatedArchetype(profile.tertiary.archetype);
-            const labelTertiary = window.i18n ? window.i18n.t('survey_result_tertiary') : 'Archetipo Terziario';
-            html += `
-                <div class="survey__result-card survey__result-card--tertiary" style="border-color: ${tertiaryArchetype.colore}" id="tertiary-card">
-                    <button class="survey__result-card-header survey__result-card-header--vertical" id="tertiary-toggle" aria-expanded="false" aria-controls="tertiary-details">
-                        <div class="survey__result-card-header-content">
-                            <p class="survey__result-label" style="color: ${tertiaryArchetype.colore}">${labelTertiary}</p>
-                            <h2 class="survey__result-archetype">${escapeHtml(tertiaryArchetype.nome)}</h2>
-                            <p class="survey__result-claim">"${escapeHtml(tertiaryArchetype.claim)}"</p>
-                        </div>
-                        <span class="survey__result-card-chevron survey__result-card-chevron--bottom" style="color: ${tertiaryArchetype.colore}">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="survey__result-card-details" id="tertiary-details" hidden>
-                        <p class="survey__result-profilo" style="border-color: ${tertiaryArchetype.colore}">
-                            ${escapeHtml(tertiaryArchetype.profilo)}
-                        </p>
-                        <div class="survey__result-skills">
-                            ${tertiaryArchetype.soft_skills.map(skill => `
-                                <span class="survey__result-skill" style="background-color: ${tertiaryArchetype.colore}20; color: ${tertiaryArchetype.colore}">
-                                    ${escapeHtml(skill)}
-                                </span>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
         elements.resultsContent.innerHTML = html;
-
-        // Bind accordion toggle events
-        bindResultsAccordions();
-    }
-
-    function bindResultsAccordions() {
-        const toggles = [
-            { toggle: 'secondary-toggle', details: 'secondary-details', card: 'secondary-card' },
-            { toggle: 'tertiary-toggle', details: 'tertiary-details', card: 'tertiary-card' }
-        ];
-
-        toggles.forEach(({ toggle, details, card }) => {
-            const toggleBtn = document.getElementById(toggle);
-            const detailsEl = document.getElementById(details);
-            const cardEl = document.getElementById(card);
-
-            if (toggleBtn && detailsEl && cardEl) {
-                toggleBtn.addEventListener('click', () => {
-                    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-                    toggleBtn.setAttribute('aria-expanded', !isExpanded);
-                    detailsEl.hidden = isExpanded;
-                    cardEl.classList.toggle('survey__result-card--expanded', !isExpanded);
-                });
-            }
-        });
     }
 
     function restartSurvey() {
@@ -996,18 +812,6 @@
     // =========================================================================
     // Survey Presets Modal
     // =========================================================================
-
-    // Realistic blend pairings based on archetype similarities
-    const BLEND_PAIRINGS = {
-        connettore: 'collaboratore',   // Both focus on relationships and teamwork
-        stratega: 'pragmatico',        // Both focus on planning and organization
-        pragmatico: 'artigiano',       // Both focus on execution and precision
-        collaboratore: 'connettore',   // Both focus on people and team dynamics
-        risolutore: 'pioniere',        // Both focus on solving problems creatively
-        pioniere: 'risolutore',        // Both take initiative and find new solutions
-        capitano: 'stratega',          // Both focus on leadership and direction
-        artigiano: 'pragmatico'        // Both focus on quality and execution
-    };
 
     function initPresetsModal() {
         const presetsLink = document.getElementById('surveyPresetsLink');
@@ -1049,7 +853,6 @@
 
     function renderPresetsGrid() {
         const grid = document.getElementById('surveyPresetsGrid');
-        const blendToggle = document.getElementById('surveyPresetsBlendToggle');
         if (!grid || !state.surveyData) return;
 
         const archetipi = state.surveyData.archetipi;
@@ -1073,15 +876,12 @@
         // Bind click events on cards
         grid.querySelectorAll('.survey-presets__card').forEach(card => {
             card.addEventListener('click', () => {
-                const archetypeKey = card.dataset.archetype;
-                const withBlend = blendToggle?.checked || false;
-
-                simulateArchetypeResult(archetypeKey, withBlend);
+                simulateArchetypeResult(card.dataset.archetype);
             });
         });
     }
 
-    function simulateArchetypeResult(primaryKey, withBlend) {
+    function simulateArchetypeResult(primaryKey) {
         // Close modal
         const presetsModal = document.getElementById('surveyPresetsModal');
         if (presetsModal) {
@@ -1092,71 +892,32 @@
         // Initialize scores
         initializeScores();
 
-        // With new weights (total 196, soglia_netto = 10):
-        // - Blend: delta < 10 between primary and secondary
-        // - Netto: delta >= 10 between primary and secondary
+        // Netto scenario: primary 80, others distributed
+        state.scores[primaryKey] = 80;
 
-        if (withBlend) {
-            // Blend scenario: primary 65, secondary 45 (delta = 20 but < soglia for demo)
-            // Wait - delta 20 >= 10 would be netto! Use delta = 8: primary 55, secondary 47
-            // Actually for blend we need delta < 10, so use 55 vs 48 (delta = 7)
-            // Percentages: 55/(55+48) = 53.4% → 55%, 48/(55+48) = 46.6% → 45%
-            const secondaryKey = BLEND_PAIRINGS[primaryKey];
-            state.scores[primaryKey] = 55;
-            state.scores[secondaryKey] = 48;
-
-            // Distribute remaining 93 points among others (196 - 55 - 48 = 93)
-            const otherKeys = Object.keys(state.scores).filter(k => k !== primaryKey && k !== secondaryKey);
-            let remaining = 93;
-            otherKeys.forEach((key, i) => {
-                if (remaining > 0) {
-                    // Give decreasing amounts to others
-                    const pts = Math.min(Math.floor(remaining / (otherKeys.length - i)), remaining);
-                    state.scores[key] = pts;
-                    remaining -= pts;
-                }
-            });
-        } else {
-            // Netto scenario: primary 80, secondary 55 (delta = 25, triggers netto)
-            // Percentages: 80/(80+55) = 59.3% → 60%, 55/(80+55) = 40.7% → 40%
-            state.scores[primaryKey] = 80;
-
-            // Distribute remaining 116 points among others (196 - 80 = 116)
-            const otherKeys = Object.keys(state.scores).filter(k => k !== primaryKey);
-            let remaining = 116;
-            // Give second highest 55, rest distributed
-            otherKeys.forEach((key, i) => {
-                if (remaining > 0) {
-                    const pts = i === 0 ? 55 : Math.min(Math.floor(remaining / (otherKeys.length - i)), remaining);
-                    state.scores[key] = pts;
-                    remaining -= pts;
-                }
-            });
-        }
+        const otherKeys = Object.keys(state.scores).filter(k => k !== primaryKey);
+        let remaining = 116; // 196 - 80
+        otherKeys.forEach((key, i) => {
+            if (remaining > 0) {
+                const pts = i === 0 ? 55 : Math.min(Math.floor(remaining / (otherKeys.length - i)), remaining);
+                state.scores[key] = pts;
+                remaining -= pts;
+            }
+        });
 
         // Log simulation
         const primaryArchetypeData = getTranslatedArchetype(primaryKey);
         const primaryName = primaryArchetypeData ? primaryArchetypeData.nome : state.surveyData.archetipi[primaryKey].nome;
-        if (withBlend) {
-            const secondaryKey = BLEND_PAIRINGS[primaryKey];
-            const secondaryArchetypeData = getTranslatedArchetype(secondaryKey);
-            const secondaryName = secondaryArchetypeData ? secondaryArchetypeData.nome : state.surveyData.archetipi[secondaryKey].nome;
-            const simBlendMsg = window.i18n
-                ? window.i18n.t('log_survey_simulation_blend', { primary: primaryName, secondary: secondaryName })
-                : `Simulazione: ${primaryName} + ${secondaryName} (blend)`;
-            logSurveyActivity(simBlendMsg);
-        } else {
-            const simMsg = window.i18n
-                ? window.i18n.t('log_survey_simulation', { name: primaryName }) + ' (netto)'
-                : `Simulazione: ${primaryName} (netto)`;
-            logSurveyActivity(simMsg);
-        }
+        const simMsg = window.i18n
+            ? window.i18n.t('log_survey_simulation', { name: primaryName })
+            : `Simulazione: ${primaryName}`;
+        logSurveyActivity(simMsg);
 
         // Create fake answers array (so restart works)
         state.answers = new Array(10).fill(null).map((_, i) => ({
             questionId: i + 1,
             selectedOptionId: `${i + 1}A`,
-            archetype: 'connettore' // Placeholder
+            archetype: 'connettore'
         }));
         state.currentQuestion = 9;
 
@@ -1343,7 +1104,7 @@
     // Main Init
     // =========================================================================
     async function init() {
-        console.log('[SURVEY] Initializing v3.3...');
+        console.log('[SURVEY] Initializing v3.4...');
 
         initializeElements();
 

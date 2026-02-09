@@ -3,7 +3,7 @@
  * Centralized header and footer management
  */
 
-const CURRENT_VERSION = '0.13.0';
+const CURRENT_VERSION = '0.12.2';
 
 /**
  * Renders the header component

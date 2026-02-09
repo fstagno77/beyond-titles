@@ -2,7 +2,7 @@
 
 Log delle modifiche al progetto, organizzato per versione e data.
 
-## v0.13.0 <Badge type="tip" text="corrente" />
+## v0.12.2 <Badge type="tip" text="corrente" />
 
 **9 febbraio 2026**
 
@@ -10,12 +10,8 @@ Log delle modifiche al progetto, organizzato per versione e data.
 - Unica survey attiva: **Human Skills Survey v3.3**
 - Aggiornata Q10 alla versione definitiva
 - Rimosso sistema password SJT e traduzioni survey obsolete
-- Aggiornata documentazione wiki completa
-
-## v0.12.2
-
-**9 febbraio 2026**
-
+- Aggiunta pagina wiki Human Skills Survey v3.3
+- Aggiunto link **Wiki** nel footer
 - Aggiunto logo **SubSense** nella sidebar del wiki
 
 ## v0.12.0

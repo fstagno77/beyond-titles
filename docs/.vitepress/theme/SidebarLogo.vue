@@ -1,6 +1,10 @@
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 <template>
   <div class="sidebar-logo">
-    <img src="/wiki/logo_subsense.png" alt="SubSense" />
+    <img :src="withBase('/logo_subsense.png')" alt="SubSense" />
   </div>
 </template>
 

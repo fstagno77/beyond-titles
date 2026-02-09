@@ -1037,6 +1037,23 @@ ul {
     padding: var(--spacing-md) 0;
 }
 
+.survey__intro-body {
+    text-align: left;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.survey__intro-body ul {
+    list-style: disc;
+    padding-left: var(--spacing-lg);
+    margin: var(--spacing-xs) 0 var(--spacing-sm);
+}
+
+.survey__intro-body ul li {
+    margin-bottom: var(--spacing-xs);
+}
+
 /* Survey Type Selector */
 .survey__version-label {
     margin-top: var(--spacing-lg);

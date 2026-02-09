@@ -232,8 +232,8 @@ const translations = {
         tab_sondaggio: "Sondaggio",
 
         // Survey
-        survey_title: "Beyond Titles",
-        survey_subtitle: "<strong>Cosa ti rende unico? Scopri il tuo profilo.</strong> Attraverso 10 situazioni che capitano a tutti nel lavoro, nello studio, nella vita quotidiana, scopri ciò che rende unico il tuo profilo professionale. Segui il tuo istinto: non ci sono risposte giuste o sbagliate.",
+        survey_title: "Scopri il tuo profilo",
+        survey_subtitle: "Attraverso 10 situazioni che possono capitare a tutti nel lavoro, nello studio, nella vita quotidiana, scopri ciò che rende unico il tuo profilo professionale.<br>Per ognuna delle situazioni proposte, scegli come reagiresti.<br><br>L'importante è:<ul><li>Rispondere senza pensarci troppo</li><li>Sapere che non ci sono risposte giuste o sbagliate</li><li>Sapere che tutto resta anonimo</li></ul>Non importa se hai o non hai ancora esperienza nel mondo del lavoro, immagina di trovarti in quelle situazioni e rispondi seguendo il tuo istinto.<br><br><strong>Ci vogliono solo 5 minuti.</strong>",
         survey_start: "Inizia il Sondaggio",
         survey_progress: "Domanda {current} di {total}",
         survey_instruction: "Seleziona l'opzione più vicina al tuo modo di agire",
@@ -659,8 +659,8 @@ const translations = {
         tab_sondaggio: "Survey",
 
         // Survey
-        survey_title: "Beyond Titles",
-        survey_subtitle: "<strong>What makes you unique? Discover your profile.</strong> Through 10 situations that happen to everyone at work, school, and everyday life, discover what makes your professional profile unique. Follow your instinct: there are no right or wrong answers.",
+        survey_title: "Discover your profile",
+        survey_subtitle: "Through 10 situations that can happen to anyone at work, school, or in everyday life, discover what makes your professional profile unique.<br>For each situation, choose how you would react.<br><br>What matters is:<ul><li>Answer without overthinking</li><li>There are no right or wrong answers</li><li>Everything stays anonymous</li></ul>It doesn't matter if you have work experience or not — imagine yourself in those situations and follow your instinct.<br><br><strong>It only takes 5 minutes.</strong>",
         survey_start: "Start Survey",
         survey_progress: "Question {current} of {total}",
         survey_instruction: "Select the option closest to how you act",

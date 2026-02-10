@@ -10,7 +10,7 @@ Log delle modifiche al progetto, organizzato per versione e data.
 - **Wiki dark-only**: forzato tema scuro, rimosso toggle chiaro/scuro
 - **Language switcher** nella navbar del wiki per passare da Italiano a English
 - **Disclaimer AI**: modale informativa alla prima visita della sezione inglese, con checkbox "Don't show again"
-- **Link wiki dinamici**: i link Changelog e Wiki nel footer del POC puntano alla lingua corrente (IT/EN)
+- **Link wiki dinamici**: i link Changelog e Wiki nel footer dell'applicazione puntano alla lingua corrente (IT/EN)
 - Ricerca localizzata nel wiki (Cerca / Search)
 
 ## v0.13.0

@@ -80,7 +80,7 @@ Le sue soft skill vengono ereditate da 4 mansioni specifiche:
 | Addetto al carico scarico | Pianificazione e organizzazione, Stabilità emotiva |
 | Impiegato amministrativo di magazzino | Pianificazione e organizzazione, Problem Solving, Scrupolosità, Collaborazione Teamwork |
 
-Nel POC, un utente che cerca "Magazziniere" vede le soft skill aggregate da tutte le mansioni collegate.
+Nell'applicazione, le soft skill aggregate da tutte le mansioni collegate sono disponibili per "Magazziniere".
 
 ### Impatto
 

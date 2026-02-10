@@ -80,7 +80,7 @@ Its soft skills are inherited from 4 specific roles:
 | Loading/unloading attendant | Planning & Organisation, Emotional Stability |
 | Warehouse administrative clerk | Planning & Organisation, Problem Solving, Thoroughness, Collaboration & Teamwork |
 
-In the POC, a user searching for "Warehouse Worker" sees the aggregated soft skills from all linked roles.
+In the application, the aggregated soft skills from all linked roles are available for "Warehouse Worker".
 
 ### Impact
 

@@ -2,67 +2,6 @@
 
 Beyond Titles utilizza file JSON locali come database, caricati via Fetch API all'avvio dell'applicazione. Non è presente un backend né un database relazionale.
 
-::: warning Nota su Supabase
-Nonostante il progetto sia pensato per integrarsi con Supabase nella fase successiva al POC, la versione attuale non utilizza Supabase. Tutti i dati sono serviti da file JSON statici.
-:::
-
-## Mansioni Database
-
-**File:** `data/mansioni_database.json`
-
-### Metadati
-
-| Campo | Valore |
-|---|---|
-| Versione | 3.0.0 |
-| Totale voci | 604 |
-| Ultimo aggiornamento | 2026-02-04 |
-| Sorgente | `mansioni-softskills-dude-20260204.xlsx` |
-
-### Schema Entry
-
-```json
-{
-  "nome": "string",
-  "id": "string",
-  "numero_offerte": number,
-  "url": "string | null",
-  "soft_skills": ["string"] | null,
-  "mapping_type": "categoria_principale" | "alias" | "profilo_incompleto",
-  "has_custom_skills": boolean
-}
-```
-
-| Campo | Descrizione |
-|---|---|
-| `nome` | Nome della mansione (titolo canonico) |
-| `id` | Slug (lowercase, trattini) |
-| `numero_offerte` | Numero di offerte attive su gigroup.it |
-| `url` | URL diretto alle offerte (null per profili incompleti) |
-| `soft_skills` | Array di competenze trasversali (null se non definite) |
-| `mapping_type` | Tipo di corrispondenza nel sistema |
-| `has_custom_skills` | Se ha competenze personalizzate nel database sorgente |
-
-### Tipi di Mapping
-
-| Tipo | Conteggio | Descrizione |
-|---|---|---|
-| `categoria_principale` | 445 | Match diretto con offerte attive |
-| `alias` | 25 | Nome alternativo, eredita URL dalla categoria principale |
-| `profilo_incompleto` | 134 | Presente nel DB competenze ma senza offerte attive |
-
-### Distribuzione Soft Skills
-
-- **277** categorie principali con skills definite
-- **168** categorie principali senza skills
-- **125** profili incompleti con skills
-- **9** profili incompleti senza skills
-- **35** soft skills uniche nel sistema
-
-### Soft Skills Complete
-
-Affidabilità, Analisi, Ascolto, Autonomia operativa, Coinvolgimento, Collaborazione Teamwork, Comunicazione, Concretezza, Decisionalità, Flessibilità / Pensare per alternative, Gestione dello stress, Guida e Team Leadership, Influenza, Iniziativa, Innovazione, Negoziazione, Orientamento al cliente, Orientamento al risultato, Pianificazione e organizzazione, Problem Solving, Scrupolosità, Sensibilità manuale, Senso di appartenenza, Stabilità emotiva, Standing, Visualizzazione spaziale.
-
 ## Survey Database
 
 **File:** `data/survey_archetypes.json`

@@ -2,67 +2,6 @@
 
 Beyond Titles uses local JSON files as its database, loaded via Fetch API at application startup. There is no backend or relational database.
 
-::: warning Note on Supabase
-Although the project is designed to integrate with Supabase in the post-POC phase, the current version does not use Supabase. All data is served from static JSON files.
-:::
-
-## Roles Database
-
-**File:** `data/mansioni_database.json`
-
-### Metadata
-
-| Field | Value |
-|---|---|
-| Version | 3.0.0 |
-| Total entries | 604 |
-| Last updated | 2026-02-04 |
-| Source | `mansioni-softskills-dude-20260204.xlsx` |
-
-### Entry Schema
-
-```json
-{
-  "nome": "string",
-  "id": "string",
-  "numero_offerte": number,
-  "url": "string | null",
-  "soft_skills": ["string"] | null,
-  "mapping_type": "categoria_principale" | "alias" | "profilo_incompleto",
-  "has_custom_skills": boolean
-}
-```
-
-| Field | Description |
-|---|---|
-| `nome` | Role name (canonical title) |
-| `id` | Slug (lowercase, hyphens) |
-| `numero_offerte` | Number of active offers on gigroup.it |
-| `url` | Direct URL to job offers (null for incomplete profiles) |
-| `soft_skills` | Array of transferable skills (null if not defined) |
-| `mapping_type` | Type of match in the system |
-| `has_custom_skills` | Whether it has custom skills in the source database |
-
-### Mapping Types
-
-| Type | Count | Description |
-|---|---|---|
-| `categoria_principale` | 445 | Direct match with active job offers |
-| `alias` | 25 | Alternative name, inherits URL from main category |
-| `profilo_incompleto` | 134 | Present in the skills DB but without active offers |
-
-### Soft Skills Distribution
-
-- **277** main categories with defined skills
-- **168** main categories without skills
-- **125** incomplete profiles with skills
-- **9** incomplete profiles without skills
-- **35** unique soft skills in the system
-
-### Complete Soft Skills
-
-Reliability, Analysis, Listening, Operational Autonomy, Engagement, Collaboration & Teamwork, Communication, Concreteness, Decision-Making, Flexibility / Alternative Thinking, Stress Management, Guidance & Team Leadership, Influence, Initiative, Innovation, Negotiation, Customer Orientation, Results Orientation, Planning & Organisation, Problem Solving, Thoroughness, Manual Dexterity, Sense of Belonging, Emotional Stability, Standing, Spatial Visualisation.
-
 ## Survey Database
 
 **File:** `data/survey_archetypes.json`

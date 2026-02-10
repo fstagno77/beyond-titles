@@ -10,7 +10,7 @@ Project change log, organised by version and date.
 - **Wiki dark-only**: forced dark theme, removed light/dark toggle
 - **Language switcher** in the wiki navbar to switch between Italiano and English
 - **AI Disclaimer**: informational modal on first visit to the English section, with "Don't show again" checkbox
-- **Dynamic wiki links**: Changelog and Wiki links in the POC footer point to the current language (IT/EN)
+- **Dynamic wiki links**: Changelog and Wiki links in the application footer point to the current language (IT/EN)
 - Localised wiki search (Cerca / Search)
 
 ## v0.13.0

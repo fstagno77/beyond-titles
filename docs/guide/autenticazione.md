@@ -8,9 +8,7 @@ Beyond Titles non implementa un sistema di autenticazione utente tradizionale. N
 
 Tutte le funzionalità sono liberamente accessibili:
 
-- Ricerca ruoli e matching mansioni
-- Survey BCB v1.0
-- Survey BCB v2.0
+- Survey Behavioural & Competency-Based
 - System Activity Log
 - Changelog
 
@@ -46,16 +44,8 @@ Controllo localStorage('beyond-titles-sjt-auth')
 | Crittografia | Nessuna |
 
 ::: warning Sicurezza
-La password è visibile nel codice sorgente client-side. Questo è intenzionale per un POC — in produzione serve un meccanismo server-side.
+La password è visibile nel codice sorgente client-side. Questo è intenzionale per un prototipo — in produzione serve un meccanismo server-side.
 :::
-
-## Parametri URL
-
-| Parametro | Effetto |
-|---|---|
-| `?internal=true` | Mostra il tab "Ruolo" (nascosto di default) |
-
-Il tab Ruolo è nascosto nell'accesso pubblico per focalizzare l'utente sulla survey. Aggiungendo `?internal=true` alla URL si abilita la visualizzazione del segmented control con entrambi i tab (Ruolo e Sondaggio).
 
 ## Ruoli e Permessi
 
@@ -63,6 +53,5 @@ Non esistono ruoli utente nel sistema attuale. La distinzione è solo tra:
 
 | Livello | Accesso |
 |---|---|
-| Pubblico | Survey BCB v1.0, BCB v2.0, risultati |
-| Interno (`?internal=true`) | Tutto il pubblico + tab Ruolo |
+| Pubblico | Survey Behavioural & Competency-Based, risultati |
 | SJT (post password) | Tutto il pubblico + Survey SJT v1.0 |

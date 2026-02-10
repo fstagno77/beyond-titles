@@ -10,9 +10,7 @@ L'applicazione usa un layout a due colonne su desktop (hero + system log) che co
 ├────────────────────────┬─────────────────────┤
 │                        │                     │
 │  Hero Container        │  System Activity    │
-│  ├── Segmented Control │  Log                │
-│  ├── Panel Ruolo       │                     │
-│  └── Panel Sondaggio   │                     │
+│  └── Panel Sondaggio   │  Log                │
 │                        │                     │
 ├────────────────────────┴─────────────────────┤
 │  Footer (versione + link changelog)          │
@@ -27,58 +25,6 @@ L'applicazione usa un layout a due colonne su desktop (hero + system log) che co
 - Language toggle (IT/EN) con bandiera e codice lingua
 - Background: blu Gi Group (`#0056b3`), altezza fissa 64px
 - Il toggle emette `CustomEvent('languageChanged')` al cambio lingua
-
-## Segmented Control (Tab)
-
-**File:** `index.html` — gestito da `app.js`
-
-Due tab con stile segmented control:
-
-| Tab | ID | Pannello | Visibilità |
-|---|---|---|---|
-| Ruolo | `tab-ruolo` | `panel-ruolo` | Solo con `?internal=true` |
-| Sondaggio | `tab-sondaggio` | `panel-sondaggio` | Sempre visibile |
-
-Quando il tab Ruolo è nascosto, il pannello Sondaggio è l'unico visibile e il segmented control non viene mostrato.
-
-## Pannello Ricerca Ruoli
-
-**File:** `js/app.js`
-
-### Componenti
-
-- **Input di ricerca** — Campo testo con placeholder, bordo colorato in base allo stato
-- **Pulsante clear** (×) — Visibile quando c'è testo, resetta tutto lo stato
-- **Dropdown suggerimenti** — Lista scrollabile (max 280px), max 15 risultati
-- **Messaggio di stato** — Mostra tipo di mapping e soft skills del ruolo selezionato
-- **CTA Button** — Pulsante azione principale con 4 stati
-
-### Stati Input
-
-| Stato | Bordo | Descrizione |
-|---|---|---|
-| Default | Grigio | Nessun input |
-| Focus | Blu (`#0056b3`) | Input attivo |
-| No Match | Arancione (`#e67e22`) | Nessuna corrispondenza trovata |
-
-### Stati CTA
-
-| Stato | Colore | Testo |
-|---|---|---|
-| Disabilitato | Grigio | — |
-| Match attivo | Verde (`#27ae60`) | "Abbiamo XX offerte per te" |
-| Profilo incompleto | Viola (`#9b59b6`) | "Nessuna offerta attiva" |
-| Nessun match | Arancione (`#e67e22`) | "Scopri tutte le offerte" |
-
-### Badge Suggerimenti
-
-Ogni suggerimento nel dropdown mostra un badge colorato:
-
-| Tipo | Colore badge | Testo |
-|---|---|---|
-| `categoria_principale` | Blu (`#0056b3`) | Principale |
-| `alias` | Azzurro (`#3498db`) | Alias |
-| `profilo_incompleto` | Viola (`#9b59b6`) | Incompleto |
 
 ## Pannello Survey
 
@@ -125,17 +71,6 @@ Pannello laterale stile terminale (sfondo scuro, font monospace) che logga in te
 La tabella punteggi si aggiorna dopo ogni risposta, ordinata per punteggio decrescente.
 
 ## Modali
-
-### Modale Suggerimenti Ricerca
-
-Mostra 6 esempi dettagliati di ricerca con spiegazione della logica di matching:
-
-1. **Addetto alla vendita retail** — Categoria principale (74 offerte)
-2. **Insegnante scuola dell'infanzia** — Alias (1 offerta)
-3. **Data Scientist** — Profilo incompleto (0 offerte)
-4. **Influencer** — Nessun match (ricerca generica)
-5. **Magazziniere** — Skills mancanti (60 offerte)
-6. **Web Marketing Expert** — Caso limite double null
 
 ### Modale Preset Survey
 

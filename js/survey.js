@@ -859,7 +859,12 @@
         let html = '';
 
         Object.entries(archetipi).forEach(([key, archetype]) => {
-            const shortName = archetype.nome.replace('Il ', '').replace('Lo ', '').replace("L'", '');
+            let nome = archetype.nome;
+            if (window.i18n) {
+                const translated = window.i18n.t(`archetype_${key}_name`);
+                if (translated !== `archetype_${key}_name`) nome = translated;
+            }
+            const shortName = nome.replace('Il ', '').replace('Lo ', '').replace("L'", '').replace('The ', '');
 
             html += `
                 <div class="survey-presets__card" data-archetype="${key}" style="--card-border-color: ${archetype.colore}">

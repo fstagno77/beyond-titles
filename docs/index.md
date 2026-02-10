@@ -1,10 +1,9 @@
 # Panoramica
 
-**Beyond Titles** è un POC (Proof of Concept) per la Digital Platform di Gi Group. L'applicazione consente il matching intelligente tra titoli professionali e offerte di lavoro, combinato con un sistema di assessment comportamentale per l'identificazione di archetipi professionali.
+**Beyond Titles** è un sistema di assessment comportamentale per la Digital Platform di Gi Group, progettato per identificare archetipi professionali tramite survey basate sulle competenze.
 
 ## Obiettivi
 
-- Matchare i job title inseriti dall'utente con un database di mansioni e offerte attive
 - Identificare il profilo professionale dell'utente tramite survey comportamentali
 - Fornire un'esperienza multilingua (IT/EN) con rilevamento automatico della lingua
 
@@ -34,7 +33,7 @@ beyond-titles/
 ├── js/
 │   ├── components.js             # Header, footer, language toggle
 │   ├── i18n.js                   # Traduzioni e rilevamento lingua
-│   ├── app.js                    # Ricerca ruoli e autocomplete (~1200 righe)
+│   ├── app.js                    # Logica applicazione (~1200 righe)
 │   └── survey.js                 # Sistema survey (~1465 righe)
 ├── data/
 │   ├── mansioni_database.json    # Database mansioni (604 voci)
@@ -47,15 +46,7 @@ beyond-titles/
 
 ## Funzionalità Principali
 
-### 1. Ricerca Ruoli (Role Matching)
-
-L'utente digita un titolo professionale e il sistema cerca corrispondenze nel database di 604 mansioni. Tre scenari possibili:
-
-- **Match diretto** (categoria principale o alias) → CTA verde con link alle offerte
-- **Profilo incompleto** (mansione senza offerte attive) → CTA viola con ricerca generica
-- **Nessun match** → CTA arancione con ricerca libera su gigroup.it
-
-### 2. Survey Comportamentali
+### 1. Survey Comportamentali
 
 Assessment con 10 domande a risposta singola:
 
@@ -65,7 +56,7 @@ Assessment con 10 domande a risposta singola:
 
 Il sistema identifica 8 archetipi professionali e restituisce sempre un **singolo archetipo dominante**. In caso di parità, il tie-break è deterministico (ordine alfabetico).
 
-### 3. System Activity Log
+### 2. System Activity Log
 
 Pannello di debug laterale che mostra in tempo reale tutte le operazioni: input utente, logica di matching, routing URL, cambi di stato UI e punteggi live durante le survey.
 

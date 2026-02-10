@@ -78,7 +78,7 @@ Each archetype appears exactly **5 times** across 40 total options, ensuring per
 
 **Introductory text:**
 
-> Through 10 situations that happen to everyone at work, in study, in daily life, discover what makes your professional profile unique. For each proposed situation, choose how you would react.
+> Through 10 situations that happen to everyone at work, in study, in daily life, discover your Human Skill's Profile. For each proposed situation, choose how you would react.
 
 **Key elements communicated to the user:**
 - Follow your instinct, without overthinking

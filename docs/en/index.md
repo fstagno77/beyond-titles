@@ -1,10 +1,9 @@
 # Overview
 
-**Beyond Titles** is a POC (Proof of Concept) for the Gi Group Digital Platform. The application enables intelligent matching between professional titles and job offers, combined with a behavioural assessment system for identifying professional archetypes.
+**Beyond Titles** is a behavioural assessment system for the Gi Group Digital Platform, designed to identify professional archetypes through competency-based surveys.
 
 ## Objectives
 
-- Match job titles entered by the user against a database of roles and active job offers
 - Identify the user's professional profile through behavioural surveys
 - Provide a multilingual experience (IT/EN) with automatic language detection
 
@@ -34,7 +33,7 @@ beyond-titles/
 ├── js/
 │   ├── components.js             # Header, footer, language toggle
 │   ├── i18n.js                   # Translations and language detection
-│   ├── app.js                    # Role search and autocomplete (~1200 lines)
+│   ├── app.js                    # Application logic (~1200 lines)
 │   └── survey.js                 # Survey system (~1465 lines)
 ├── data/
 │   ├── mansioni_database.json    # Roles database (604 entries)
@@ -47,15 +46,7 @@ beyond-titles/
 
 ## Main Features
 
-### 1. Role Search (Role Matching)
-
-The user types a professional title and the system searches for matches in the database of 604 roles. Three possible scenarios:
-
-- **Direct match** (main category or alias) → Green CTA with link to job offers
-- **Incomplete profile** (role without active offers) → Purple CTA with generic search
-- **No match** → Orange CTA with free search on gigroup.it
-
-### 2. Behavioural Surveys
+### 1. Behavioural Surveys
 
 Assessment with 10 single-choice questions:
 
@@ -65,7 +56,7 @@ Assessment with 10 single-choice questions:
 
 The system identifies 8 professional archetypes and always returns a **single dominant archetype**. In case of a tie, the tie-break is deterministic (alphabetical order).
 
-### 3. System Activity Log
+### 2. System Activity Log
 
 Side debug panel that shows all operations in real time: user input, matching logic, URL routing, UI state changes and live scores during surveys.
 

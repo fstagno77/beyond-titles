@@ -10,9 +10,7 @@ The application uses a two-column layout on desktop (hero + system log) that col
 ├────────────────────────┬─────────────────────┤
 │                        │                     │
 │  Hero Container        │  System Activity    │
-│  ├── Segmented Control │  Log                │
-│  ├── Role Panel        │                     │
-│  └── Survey Panel      │                     │
+│  └── Survey Panel      │  Log                │
 │                        │                     │
 ├────────────────────────┴─────────────────────┤
 │  Footer (version + changelog link)           │
@@ -27,58 +25,6 @@ The application uses a two-column layout on desktop (hero + system log) that col
 - Language toggle (IT/EN) with flag and language code
 - Background: Gi Group blue (`#0056b3`), fixed height 64px
 - The toggle emits `CustomEvent('languageChanged')` on language change
-
-## Segmented Control (Tabs)
-
-**File:** `index.html` — managed by `app.js`
-
-Two tabs with segmented control styling:
-
-| Tab | ID | Panel | Visibility |
-|---|---|---|---|
-| Role | `tab-ruolo` | `panel-ruolo` | Only with `?internal=true` |
-| Survey | `tab-sondaggio` | `panel-sondaggio` | Always visible |
-
-When the Role tab is hidden, the Survey panel is the only one visible and the segmented control is not shown.
-
-## Role Search Panel
-
-**File:** `js/app.js`
-
-### Components
-
-- **Search input** — Text field with placeholder, border coloured based on state
-- **Clear button** (×) — Visible when there is text, resets all state
-- **Suggestions dropdown** — Scrollable list (max 280px), max 15 results
-- **Status message** — Shows mapping type and soft skills of the selected role
-- **CTA Button** — Main action button with 4 states
-
-### Input States
-
-| State | Border | Description |
-|---|---|---|
-| Default | Grey | No input |
-| Focus | Blue (`#0056b3`) | Active input |
-| No Match | Orange (`#e67e22`) | No match found |
-
-### CTA States
-
-| State | Colour | Text |
-|---|---|---|
-| Disabled | Grey | — |
-| Active match | Green (`#27ae60`) | "We have XX offers for you" |
-| Incomplete profile | Purple (`#9b59b6`) | "No active offers" |
-| No match | Orange (`#e67e22`) | "Discover all offers" |
-
-### Suggestion Badges
-
-Each suggestion in the dropdown shows a coloured badge:
-
-| Type | Badge colour | Text |
-|---|---|---|
-| `categoria_principale` | Blue (`#0056b3`) | Main |
-| `alias` | Light blue (`#3498db`) | Alias |
-| `profilo_incompleto` | Purple (`#9b59b6`) | Incomplete |
 
 ## Survey Panel
 
@@ -125,17 +71,6 @@ Terminal-style side panel (dark background, monospace font) that logs in real ti
 The scores table updates after each answer, sorted by decreasing score.
 
 ## Modals
-
-### Search Suggestions Modal
-
-Shows 6 detailed search examples with an explanation of the matching logic:
-
-1. **Addetto alla vendita retail** — Main category (74 offers)
-2. **Insegnante scuola dell'infanzia** — Alias (1 offer)
-3. **Data Scientist** — Incomplete profile (0 offers)
-4. **Influencer** — No match (generic search)
-5. **Magazziniere** — Missing skills (60 offers)
-6. **Web Marketing Expert** — Double null edge case
 
 ### Survey Preset Modal
 

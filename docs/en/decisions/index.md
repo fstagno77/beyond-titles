@@ -7,7 +7,7 @@ Architecture Decision Records (ADR) to document important technical choices in t
 **Date:** 17 December 2025 | **Status:** Accepted
 
 ### Context
-Needed to develop a rapid POC to validate the concept of role matching + behavioural assessment.
+Needed to develop a rapid prototype to validate the concept of behavioural assessment for professional archetypes.
 
 ### Decision
 Use HTML5, CSS3 and vanilla JavaScript (ES6+) without frameworks (React, Vue, Angular) and without build tools.
@@ -16,7 +16,7 @@ Use HTML5, CSS3 and vanilla JavaScript (ES6+) without frameworks (React, Vue, An
 - Prototyping speed: no setup, no configuration
 - Zero dependencies: no risk of breaking changes from third-party libraries
 - Immediate deploy: static files servable from any web server
-- Maintenance simplicity for a POC with limited scope
+- Maintenance simplicity for a prototype with limited scope
 
 ### Consequences
 - More verbose UI code compared to a component-based framework
@@ -36,7 +36,7 @@ Role data comes from a periodically updated Excel file. A decision was needed on
 Use static JSON files (`mansioni_database.json`, `survey_archetypes.json`) loaded via Fetch API, instead of a Supabase database.
 
 ### Rationale
-- No dependency on external services for the POC
+- No dependency on external services for the prototype
 - Simple update: regeneration of JSON from the source Excel file
 - Performance: data loaded once and filtered in-memory
 - No infrastructure cost
@@ -44,33 +44,8 @@ Use static JSON files (`mansioni_database.json`, `survey_archetypes.json`) loade
 ### Consequences
 - No SQL queries or server-side filtering
 - Data updates require re-deploy (or file replacement)
-- All data downloaded by the client (604 entries ≈ acceptable size for a POC)
+- All data downloaded by the client (acceptable size for a prototype)
 - Migration to Supabase planned for the next phase
-
----
-
-## ADR-003: 3-type mapping system
-
-**Date:** 10 January 2026 | **Status:** Accepted (evolved in v0.7)
-
-### Context
-Not all roles in the database have active offers on gigroup.it. Different match scenarios needed to be handled.
-
-### Decision
-Introduce three mapping types in the database:
-1. `categoria_principale` — direct match with active offers
-2. `alias` — alternative name that inherits URL from the main category
-3. `profilo_incompleto` — present in the skills DB but without active offers
-
-### Rationale
-- Maximise useful matches (aliases cover title variations)
-- Explicitly handle profiles without offers (they are not "no match")
-- Visually differentiate the three states in the UI (green, light blue, purple)
-
-### Consequences
-- More articulated CTA rendering logic (4 states: match, alias, incomplete, no-match)
-- Coloured badges in suggestions to guide the user
-- The `profilo_incompleto` type still shows associated soft skills
 
 ---
 
@@ -142,24 +117,3 @@ Implement a custom i18n system based on `data-i18n` attributes in HTML elements,
 - Language change requires explicit re-render of all translated elements
 - CustomEvent `languageChanged` as notification mechanism between modules
 
----
-
-## ADR-007: Role tab hidden by default
-
-**Date:** 21 January 2026 | **Status:** Accepted
-
-### Context
-The POC serves both internal demos (where role matching is needed) and user testing (where only the survey is needed).
-
-### Decision
-Hide the "Role" tab by default and make it visible only with the URL parameter `?internal=true`.
-
-### Rationale
-- The end user sees only the survey (focus on assessment)
-- The internal team accesses all features with a simple parameter
-- No authentication system needed for this distinction
-
-### Consequences
-- The segmented control does not appear without the parameter (only the survey panel)
-- Internal links must include `?internal=true` to show all features
-- Simple but not secure solution (anyone can add the parameter)

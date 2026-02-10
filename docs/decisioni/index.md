@@ -7,7 +7,7 @@ Architecture Decision Records (ADR) per documentare le scelte tecniche important
 **Data:** 17 dicembre 2025 | **Stato:** Accettata
 
 ### Contesto
-Dovendo sviluppare un POC rapido per validare il concept di matching mansioni + assessment comportamentale.
+Dovendo sviluppare un prototipo rapido per validare il concept di assessment comportamentale per archetipi professionali.
 
 ### Decisione
 Utilizzare HTML5, CSS3 e JavaScript vanilla (ES6+) senza framework (React, Vue, Angular) e senza build tools.
@@ -16,7 +16,7 @@ Utilizzare HTML5, CSS3 e JavaScript vanilla (ES6+) senza framework (React, Vue, 
 - Velocità di prototipazione: nessun setup, nessuna configurazione
 - Zero dipendenze: nessun rischio di breaking changes da librerie terze
 - Deploy immediato: file statici servibili da qualsiasi web server
-- Semplicità di manutenzione per un POC con scope limitato
+- Semplicità di manutenzione per un prototipo con scope limitato
 
 ### Conseguenze
 - Codice UI più verboso rispetto a un framework component-based
@@ -36,7 +36,7 @@ I dati delle mansioni provengono da un file Excel aggiornato periodicamente. Ser
 Utilizzare file JSON statici (`mansioni_database.json`, `survey_archetypes.json`) caricati via Fetch API, invece di un database Supabase.
 
 ### Motivazione
-- Nessuna dipendenza da servizi esterni per il POC
+- Nessuna dipendenza da servizi esterni per il prototipo
 - Aggiornamento semplice: rigenerazione del JSON dal file Excel sorgente
 - Performance: dati caricati una volta e filtrati in-memory
 - Nessun costo infrastrutturale
@@ -44,33 +44,8 @@ Utilizzare file JSON statici (`mansioni_database.json`, `survey_archetypes.json`
 ### Conseguenze
 - Nessuna query SQL o filtro server-side
 - Aggiornamenti dati richiedono re-deploy (o sostituzione file)
-- Tutti i dati scaricati dal client (604 voci ≈ dimensione accettabile per un POC)
+- Tutti i dati scaricati dal client (dimensione accettabile per un prototipo)
 - Migrazione a Supabase prevista nella fase successiva
-
----
-
-## ADR-003: Sistema di mapping a 3 tipi
-
-**Data:** 10 gennaio 2026 | **Stato:** Accettata (evoluta in v0.7)
-
-### Contesto
-Non tutte le mansioni nel database hanno offerte attive su gigroup.it. Serviva gestire i diversi scenari di corrispondenza.
-
-### Decisione
-Introdurre tre tipi di mapping nel database:
-1. `categoria_principale` — match diretto con offerte attive
-2. `alias` — nome alternativo che eredita URL dalla categoria principale
-3. `profilo_incompleto` — presente nel DB competenze ma senza offerte attive
-
-### Motivazione
-- Massimizzare le corrispondenze utili (alias coprono varianti di titolo)
-- Gestire esplicitamente i profili senza offerte (non sono "nessun match")
-- Differenziare visivamente i tre stati nell'UI (verde, azzurro, viola)
-
-### Conseguenze
-- Logica di rendering CTA più articolata (4 stati: match, alias, incompleto, no-match)
-- Badge colorati nei suggerimenti per orientare l'utente
-- Il tipo `profilo_incompleto` mostra comunque le soft skills associate
 
 ---
 
@@ -142,24 +117,3 @@ Implementare un sistema i18n custom basato su attributi `data-i18n` negli elemen
 - Cambio lingua richiede re-render esplicito di tutti gli elementi tradotti
 - CustomEvent `languageChanged` come meccanismo di notifica tra moduli
 
----
-
-## ADR-007: Tab Ruolo nascosto di default
-
-**Data:** 21 gennaio 2026 | **Stato:** Accettata
-
-### Contesto
-Il POC serve sia per demo interne (dove serve il matching mansioni) sia per test utente (dove serve solo la survey).
-
-### Decisione
-Nascondere il tab "Ruolo" di default e renderlo visibile solo con il parametro URL `?internal=true`.
-
-### Motivazione
-- L'utente finale vede solo la survey (focus sull'assessment)
-- Il team interno accede a tutte le funzionalità con un semplice parametro
-- Nessun sistema di autenticazione necessario per questa distinzione
-
-### Conseguenze
-- Il segmented control non appare senza parametro (solo pannello survey)
-- Link interni devono includere `?internal=true` per mostrare tutte le feature
-- Soluzione semplice ma non sicura (chiunque può aggiungere il parametro)

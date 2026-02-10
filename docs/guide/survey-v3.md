@@ -78,7 +78,7 @@ Ogni archetipo compare esattamente **5 volte** su 40 opzioni totali, garantendo 
 
 **Testo introduttivo:**
 
-> Attraverso 10 situazioni che capitano a tutti nel lavoro, nello studio, nella vita quotidiana, scopri ciò che rende unico il tuo profilo professionale. Per ognuna delle situazioni proposte, scegli come reagiresti.
+> Attraverso 10 situazioni che capitano a tutti nel lavoro, nello studio, nella vita quotidiana, scopri il tuo Human Skill's Profile. Per ognuna delle situazioni proposte, scegli come reagiresti.
 
 **Elementi chiave comunicati all'utente:**
 - Seguire il proprio istinto, senza pensarci troppo

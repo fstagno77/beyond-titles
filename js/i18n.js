@@ -16,7 +16,7 @@ const translations = {
         search_placeholder: "Inizia a scrivere (es. Magazziniere, Barista...)",
         search_aria_label: "Inserisci il tuo ruolo lavorativo",
         search_clear: "Cancella ricerca",
-        suggestions_link: "Suggerimenti",
+        suggestions_link: "Simulazioni",
 
         // CTA Button
         cta_default: "Vedi Offerte",
@@ -233,7 +233,7 @@ const translations = {
 
         // Survey
         survey_title: "Scopri il tuo profilo",
-        survey_subtitle: "Attraverso 10 situazioni che possono capitare a tutti nel lavoro, nello studio, nella vita quotidiana, scopri ciò che rende unico il tuo profilo professionale.<br>Per ognuna delle situazioni proposte, scegli come reagiresti.<br><br>L'importante è:<ul><li>Rispondere senza pensarci troppo</li><li>Sapere che non ci sono risposte giuste o sbagliate</li><li>Sapere che tutto resta anonimo</li></ul>Non importa se hai o non hai ancora esperienza nel mondo del lavoro, immagina di trovarti in quelle situazioni e rispondi seguendo il tuo istinto.<br><br><strong>Ci vogliono solo 5 minuti.</strong>",
+        survey_subtitle: "Attraverso 10 situazioni che possono capitare a tutti nel lavoro, nello studio, nella vita quotidiana, scopri il tuo Human Skill's Profile.<br>Per ognuna delle situazioni proposte, scegli come reagiresti.<br><br>L'importante è:<ul><li>Rispondere senza pensarci troppo</li><li>Sapere che non ci sono risposte giuste o sbagliate</li><li>Sapere che tutto resta anonimo</li></ul>Non importa se hai o non hai ancora esperienza nel mondo del lavoro, immagina di trovarti in quelle situazioni e rispondi seguendo il tuo istinto.<br><br><strong>Ci vogliono solo 5 minuti.</strong>",
         survey_start: "Inizia il viaggio",
         survey_progress: "Domanda {current} di {total}",
         survey_instruction: "Seleziona l'opzione più vicina al tuo modo di agire",
@@ -244,7 +244,7 @@ const translations = {
         survey_result_primary: "Il Tuo Archetipo",
 
         // Survey Presets Modal
-        survey_presets_link: "Suggerimenti",
+        survey_presets_link: "Simulazioni",
         survey_presets_modal_title: "Simula Risultato",
         survey_presets_description: "Seleziona un archetipo per simulare il risultato del sondaggio.",
 
@@ -437,7 +437,7 @@ const translations = {
         search_placeholder: "Start typing (e.g. Warehouse Worker, Barista...)",
         search_aria_label: "Enter your job role",
         search_clear: "Clear search",
-        suggestions_link: "Suggestions",
+        suggestions_link: "Simulations",
 
         // CTA Button
         cta_default: "View Jobs",
@@ -654,7 +654,7 @@ const translations = {
 
         // Survey
         survey_title: "Discover your profile",
-        survey_subtitle: "Through 10 situations that can happen to anyone at work, school, or in everyday life, discover what makes your professional profile unique.<br>For each situation, choose how you would react.<br><br>What matters is:<ul><li>Answer without overthinking</li><li>There are no right or wrong answers</li><li>Everything stays anonymous</li></ul>It doesn't matter if you have work experience or not — imagine yourself in those situations and follow your instinct.<br><br><strong>It only takes 5 minutes.</strong>",
+        survey_subtitle: "Through 10 situations that can happen to anyone at work, school, or in everyday life, discover your Human Skill's Profile.<br>For each situation, choose how you would react.<br><br>What matters is:<ul><li>Answer without overthinking</li><li>There are no right or wrong answers</li><li>Everything stays anonymous</li></ul>It doesn't matter if you have work experience or not — imagine yourself in those situations and follow your instinct.<br><br><strong>It only takes 5 minutes.</strong>",
         survey_start: "Start the journey",
         survey_progress: "Question {current} of {total}",
         survey_instruction: "Select the option closest to how you act",
@@ -665,7 +665,7 @@ const translations = {
         survey_result_primary: "Your Archetype",
 
         // Survey Presets Modal
-        survey_presets_link: "Suggestions",
+        survey_presets_link: "Simulations",
         survey_presets_modal_title: "Simulate Result",
         survey_presets_description: "Select an archetype to simulate the survey result.",
 

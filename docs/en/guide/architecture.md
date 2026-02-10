@@ -11,7 +11,7 @@ index.html
   ├── css/style.css          → Design system and component styles
   ├── js/components.js       → Header, footer, language toggle
   ├── js/i18n.js             → Translations and language detection
-  ├── js/app.js              → Role search module (IIFE)
+  ├── js/app.js              → Application module (IIFE)
   └── js/survey.js           → Survey module (IIFE)
 ```
 
@@ -31,9 +31,8 @@ index.html
    ↓
 4. app.js (IIFE)
    → Initialises DOM references
-   → Loads mansioni_database.json via Fetch
-   → Connects search/autocomplete events
-   → Manages Role tab visibility (?internal=true)
+   → Loads application data via Fetch
+   → Connects event listeners
    ↓
 5. survey.js (IIFE)
    → Loads survey_archetypes.json via Fetch
@@ -65,24 +64,9 @@ Modules communicate via `CustomEvent` on the DOM:
 
 The interface is entirely driven by JSON data:
 
-- Roles and their properties (URL, soft skills, mapping type) come from the database
 - Questions, options, weights and archetype definitions come from the survey file
 
 ## State Management
-
-### app.js — Search State
-
-```javascript
-state = {
-    mansioniPadre: [],           // Full array from database
-    isDataLoaded: boolean,       // Data loading flag
-    activeSuggestionIndex: -1,   // Active suggestion index (keyboard nav)
-    currentSuggestions: [],      // Current filtered suggestions
-    selectedRole: null,          // User-selected role
-    generatedUrl: null,          // Generated URL for the CTA
-    currentScenario: null        // 'match' | 'no-match' | null
-}
-```
 
 ### survey.js — Survey State
 
@@ -105,28 +89,6 @@ state = {
 
 ## Data Flows
 
-### Role Search Flow
-
-```
-User input (typing)
-    ↓
-Filtering mansioni_database.json (case-insensitive, substring match)
-    ↓
-Rendering suggestions (max 15) with mapping type badges
-    ↓
-User selection
-    ↓
-Scenario determination:
-  ├── mapping_type === "categoria_principale" or "alias"
-  │   → Green CTA → Specific job offers URL
-  ├── mapping_type === "profilo_incompleto"
-  │   → Purple CTA → Generic search URL
-  └── No match in database
-      → Orange CTA → Free search URL
-    ↓
-Log to System Activity Log
-```
-
 ### Survey Flow
 
 ```
@@ -147,18 +109,6 @@ Results rendering:
 
 ## Configurations
 
-### app.js
-
-```javascript
-CONFIG = {
-    dataUrl: './data/mansioni_database.json',
-    searchUrl: 'https://www.gigroup.it/offerte-lavoro/',
-    maxSuggestions: 15,
-    minQueryLength: 1,
-    debounceDelay: 100
-}
-```
-
 ### survey.js
 
 ```javascript
@@ -171,6 +121,6 @@ CONFIG = {
 ## Accessibility
 
 - ARIA attributes on all interactive controls (`role="tablist"`, `role="tabpanel"`, `role="listbox"`, `role="log"`, `role="dialog"`)
-- Keyboard navigation in the suggestions dropdown (arrows + Enter + Escape)
+- Keyboard navigation support (arrows + Enter + Escape)
 - Focus management in modals
 - `escapeHtml()` function for XSS prevention

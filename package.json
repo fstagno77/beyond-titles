@@ -1,6 +1,6 @@
 {
   "name": "beyond-titles",
-  "version": "0.12.2",
+  "version": "0.14.0",
   "description": "POC per la Digital Platform progetto Gi Group",
   "main": "index.js",
   "scripts": {

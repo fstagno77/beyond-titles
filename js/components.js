@@ -3,7 +3,7 @@
  * Centralized header and footer management
  */
 
-const CURRENT_VERSION = '0.13.0';
+const CURRENT_VERSION = '0.14.0';
 
 /**
  * Renders the header component
@@ -32,9 +32,11 @@ function renderHeader(currentPage = 'index') {
  * Renders the footer component
  */
 function renderFooter() {
+    const lang = localStorage.getItem('beyond-titles-lang') || 'it';
+    const wikiLangPrefix = lang === 'en' ? 'en/' : '';
     const footerHTML = `
         <footer class="footer">
-            <p class="footer__text">Beyond Titles v${CURRENT_VERSION} | <a href="wiki/changelog/index.html" class="footer__link" data-i18n="footer_changelog">Changelog</a> | <a href="wiki/index.html" class="footer__link">Wiki</a></p>
+            <p class="footer__text">Beyond Titles v${CURRENT_VERSION} | <a href="wiki/${wikiLangPrefix}changelog/index.html" class="footer__link" data-i18n="footer_changelog">Changelog</a> | <a href="wiki/${wikiLangPrefix}index.html" class="footer__link">Wiki</a></p>
         </footer>
     `;
 
@@ -97,12 +99,14 @@ function initLanguageToggle() {
         i18n.setLanguage(newLang);
         updateLanguageToggle(newLang);
         applyTranslations(i18n);
+        updateFooterLinks(newLang);
     });
 
     // Listen for language changes from other sources
     window.addEventListener('languageChanged', (e) => {
         updateLanguageToggle(e.detail.lang);
         applyTranslations(i18n);
+        updateFooterLinks(e.detail.lang);
     });
 }
 
@@ -123,6 +127,25 @@ function updateLanguageToggle(lang) {
         flagSpan.textContent = '🇬🇧';
         textSpan.textContent = 'EN';
     }
+}
+
+/**
+ * Updates footer wiki/changelog links based on current language
+ * @param {string} lang - Current language code
+ */
+function updateFooterLinks(lang) {
+    const prefix = lang === 'en' ? 'en/' : '';
+    const footer = document.querySelector('.footer');
+    if (!footer) return;
+    const links = footer.querySelectorAll('.footer__link');
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href.includes('changelog')) {
+            link.setAttribute('href', `wiki/${prefix}changelog/index.html`);
+        } else if (href.includes('wiki')) {
+            link.setAttribute('href', `wiki/${prefix}index.html`);
+        }
+    });
 }
 
 /**

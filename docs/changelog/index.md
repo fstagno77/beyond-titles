@@ -2,7 +2,18 @@
 
 Log delle modifiche al progetto, organizzato per versione e data.
 
-## v0.13.0 <Badge type="tip" text="corrente" />
+## v0.14.0 <Badge type="tip" text="corrente" />
+
+**10 febbraio 2026**
+
+- **Wiki multilingua**: aggiunta versione inglese completa della documentazione (11 pagine tradotte)
+- **Wiki dark-only**: forzato tema scuro, rimosso toggle chiaro/scuro
+- **Language switcher** nella navbar del wiki per passare da Italiano a English
+- **Disclaimer AI**: modale informativa alla prima visita della sezione inglese, con checkbox "Don't show again"
+- **Link wiki dinamici**: i link Changelog e Wiki nel footer del POC puntano alla lingua corrente (IT/EN)
+- Ricerca localizzata nel wiki (Cerca / Search)
+
+## v0.13.0
 
 **9 febbraio 2026**
 

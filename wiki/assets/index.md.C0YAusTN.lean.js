@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as i,ag as n}from"./chunks/framework.DT7CN5kk.js";const h=JSON.parse('{"title":"Panoramica","description":"","frontmatter":{},"headers":[],"relativePath":"index.md","filePath":"index.md"}'),o={name:"index.md"};function s(r,a,l,c,p,d){return t(),i("div",null,[...a[0]||(a[0]=[n("",21)])])}const g=e(o,[["render",s]]);export{h as __pageData,g as default};

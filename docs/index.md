@@ -71,4 +71,4 @@ Pannello di debug laterale che mostra in tempo reale tutte le operazioni: input 
 
 ## Versione Corrente
 
-**v0.13.0** — Ultimo aggiornamento: 9 febbraio 2026
+**v0.14.0** — Ultimo aggiornamento: 10 febbraio 2026

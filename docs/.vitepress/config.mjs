@@ -5,6 +5,7 @@ export default defineConfig({
   base: '/wiki/',
   outDir: '../wiki',
   appearance: 'force-dark',
+  head: [['link', { rel: 'icon', href: '/wiki/favicon.jpg' }]],
 
   locales: {
     root: {

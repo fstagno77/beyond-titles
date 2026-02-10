@@ -36,7 +36,7 @@ function renderFooter() {
     const wikiLangPrefix = lang === 'en' ? 'en/' : '';
     const footerHTML = `
         <footer class="footer">
-            <p class="footer__text">Beyond Titles v${CURRENT_VERSION} | <a href="wiki/${wikiLangPrefix}changelog/index.html" class="footer__link" data-i18n="footer_changelog">Changelog</a> | <a href="wiki/${wikiLangPrefix}index.html" class="footer__link">Wiki</a></p>
+            <p class="footer__text">Beyond Titles v${CURRENT_VERSION} | <a href="wiki/${wikiLangPrefix}changelog/index.html" class="footer__link" target="_blank" data-i18n="footer_changelog">Changelog</a> | <a href="wiki/${wikiLangPrefix}index.html" class="footer__link" target="_blank">Wiki</a></p>
         </footer>
     `;
 

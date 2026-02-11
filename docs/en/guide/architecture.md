@@ -36,8 +36,7 @@ index.html
    ↓
 5. survey.js (IIFE)
    → Loads survey_archetypes.json via Fetch
-   → Initialises survey selector
-   → Configures SJT password modal
+   → Initialises survey UI
 ```
 
 ## Patterns Used
@@ -92,7 +91,7 @@ state = {
 ### Survey Flow
 
 ```
-Survey type selection → [Optional SJT password]
+Survey start
     ↓
 For each of the 10 questions:
   → User selects 1 option (single-choice)
@@ -113,8 +112,7 @@ Results rendering:
 
 ```javascript
 CONFIG = {
-    W_BAR: <average weight>,
-    SJT_PASSWORD: 'gigroup2026'
+    W_BAR: <average weight>
 }
 ```
 

@@ -58,7 +58,6 @@ No environment variables are needed for the application. All configurations are 
 | Roles data URL | `app.js` → `CONFIG.dataUrl` | `./data/mansioni_database.json` |
 | Gi Group search URL | `app.js` → `CONFIG.searchUrl` | `https://www.gigroup.it/offerte-lavoro/` |
 | Max suggestions | `app.js` → `CONFIG.maxSuggestions` | `15` |
-| SJT password | `survey.js` → `CONFIG.SJT_PASSWORD` | `gigroup2026` |
 
 ### CORS
 

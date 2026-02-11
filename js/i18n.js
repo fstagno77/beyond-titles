@@ -232,7 +232,7 @@ const translations = {
         tab_sondaggio: "Sondaggio",
 
         // Survey
-        survey_title: "Scopri il tuo profilo #BeyondTitles",
+        survey_title: "Scopri il tuo profilo Beyond Titles",
         survey_subtitle: "Attraverso 10 situazioni che possono capitare a tutti nel lavoro, nello studio, nella vita quotidiana, scopri quale degli 8 profili #BeyondTitles può raccontare una storia nuova: la tua.<br><br>Una storia fatta di valori, competenze trasversali e umane che spesso non si trovano dentro un curriculum vitae.<br><br>Per ognuna delle situazioni proposte, scegli come reagiresti.<br><br>L'importante è:<ul><li>Rispondere senza pensarci troppo</li><li>Sapere che non ci sono risposte giuste o sbagliate</li><li>Sapere che tutto resta anonimo</li></ul>Non importa se hai o non hai ancora esperienza nel mondo del lavoro, immagina di trovarti in quelle situazioni e rispondi seguendo il tuo istinto.<br><br><strong>Ci vogliono solo 5 minuti.</strong>",
         survey_start: "Inizia",
         survey_progress: "Domanda {current} di {total}",
@@ -653,7 +653,7 @@ const translations = {
         tab_sondaggio: "Survey",
 
         // Survey
-        survey_title: "Discover your #BeyondTitles profile",
+        survey_title: "Discover your Beyond Titles profile",
         survey_subtitle: "Through 10 situations that can happen to anyone at work, school, or in everyday life, discover which of the 8 #BeyondTitles profiles can tell a new story: yours.<br><br>A story made of values, soft skills and human skills that are often missing from a CV.<br><br>For each situation, choose how you would react.<br><br>What matters is:<ul><li>Answer without overthinking</li><li>There are no right or wrong answers</li><li>Everything stays anonymous</li></ul>It doesn't matter if you have work experience or not — imagine yourself in those situations and follow your instinct.<br><br><strong>It only takes 5 minutes.</strong>",
         survey_start: "Start",
         survey_progress: "Question {current} of {total}",

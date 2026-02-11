@@ -87,11 +87,9 @@ Ristrutturare `survey_archetypes.json` in formato v3.5 con la sola Behavioural &
 - La Behavioural & Competency-Based v3.5 è la versione validata e definitiva
 - Semplificazione del codice e dei dati rimuovendo le survey non più necessarie
 - Riduzione delle traduzioni e della complessità del sistema
-- Protezione password per survey in fase di sviluppo (SJT)
 
 ### Conseguenze
-- Struttura JSON più complessa (oggetto radice con chiavi per survey)
-- UI aggiuntiva (selettore tipo, modale password)
+- Struttura JSON con formato v3.5 (oggetto radice con chiavi per survey)
 - Persistenza della selezione in localStorage per comodità utente
 
 ---

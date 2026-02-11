@@ -36,8 +36,7 @@ index.html
    ↓
 5. survey.js (IIFE)
    → Carica survey_archetypes.json via Fetch
-   → Inizializza selettore survey
-   → Configura modale password SJT
+   → Inizializza UI survey
 ```
 
 ## Pattern Utilizzati
@@ -92,7 +91,7 @@ state = {
 ### Flusso Survey
 
 ```
-Selezione tipo survey → [Eventuale password SJT]
+Avvio survey
     ↓
 Per ciascuna delle 10 domande:
   → Utente seleziona 1 opzione (single-choice)
@@ -113,8 +112,7 @@ Rendering risultati:
 
 ```javascript
 CONFIG = {
-    W_BAR: <peso medio>,
-    SJT_PASSWORD: 'gigroup2026'
+    W_BAR: <peso medio>
 }
 ```
 

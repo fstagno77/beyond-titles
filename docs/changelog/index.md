@@ -2,7 +2,19 @@
 
 Log delle modifiche al progetto, organizzato per versione e data.
 
-## v0.14.0 <Badge type="tip" text="corrente" />
+## v0.15.0 <Badge type="tip" text="corrente" />
+
+**11 febbraio 2026**
+
+- **Survey v3.5**: nuovo testo introduttivo, differenziazione stem finali (Q3 "Come procedi?", Q8 "Come risolvi?", Q10 "Come intervieni?")
+- Titolo survey allineato al PDF: **"Scopri il tuo profilo Beyond Titles"**
+- Nuovo CTA: **"Inizia"** (sostituisce "Inizia il viaggio")
+- Aggiornati fallback HTML in index.html per allineamento con i18n v3.5
+- Traduzioni EN aggiornate per tutte le modifiche v3.5
+- **Pulizia wiki**: rimossi tutti i riferimenti SJT obsoleti (architettura, componenti, autenticazione, deploy, decisioni)
+- Wiki aggiornato con tabella correzioni v3.4 → v3.5
+
+## v0.14.0
 
 **10 febbraio 2026**
 

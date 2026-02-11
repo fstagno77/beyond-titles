@@ -58,7 +58,6 @@ Non sono necessarie variabili d'ambiente per l'applicazione. Tutte le configuraz
 | URL dati mansioni | `app.js` → `CONFIG.dataUrl` | `./data/mansioni_database.json` |
 | URL ricerca Gi Group | `app.js` → `CONFIG.searchUrl` | `https://www.gigroup.it/offerte-lavoro/` |
 | Max suggerimenti | `app.js` → `CONFIG.maxSuggestions` | `15` |
-| Password SJT | `survey.js` → `CONFIG.SJT_PASSWORD` | `gigroup2026` |
 
 ### CORS
 

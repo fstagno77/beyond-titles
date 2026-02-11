@@ -79,20 +79,11 @@ Grid of 8 archetype cards to quickly simulate a result:
 - Click on an archetype simulates the corresponding result
 - Auto-closes the modal after selection
 
-### SJT Password Modal
-
-Restricted access modal for the SJT v1.0 survey:
-
-- Password field
-- Error message (hidden by default)
-- "Login" button
-- Auth persistence in localStorage
-
 ## Footer
 
 **File:** `js/components.js`
 
-- Version text: "Beyond Titles v0.12.0"
+- Version text: "Beyond Titles v0.15.0"
 - Link to changelog (points to VitePress wiki documentation)
 - Dynamically injected by `components.js` for consistency across pages
 

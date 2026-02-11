@@ -79,20 +79,11 @@ Griglia di 8 card archetipo per simulare rapidamente un risultato:
 - Click su un archetipo simula il risultato corrispondente
 - Auto-chiusura della modale dopo la selezione
 
-### Modale Password SJT
-
-Modale di accesso riservato per la survey SJT v1.0:
-
-- Campo password
-- Messaggio errore (nascosto di default)
-- Pulsante "Accedi"
-- Persistenza auth in localStorage
-
 ## Footer
 
 **File:** `js/components.js`
 
-- Testo versione: "Beyond Titles v0.12.0"
+- Testo versione: "Beyond Titles v0.15.0"
 - Link al changelog (punta alla documentazione wiki VitePress)
 - Iniettato dinamicamente da `components.js` per consistenza tra le pagine
 

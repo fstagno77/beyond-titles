@@ -13,7 +13,7 @@
 |---|---|
 | **Frontend** | HTML5, CSS3, vanilla JavaScript (ES6+) |
 | **Data** | Local JSON files loaded via Fetch API |
-| **Persistence** | `localStorage` (language, SJT auth, survey type) |
+| **Persistence** | `localStorage` (language, survey type) |
 | **i18n** | Custom system with `data-i18n` attributes and browser language auto-detection |
 | **Build** | None — static files ready to deploy |
 | **Docs** | VitePress |
@@ -62,4 +62,4 @@ Side debug panel that shows all operations in real time: user input, matching lo
 
 ## Current Version
 
-**v0.14.0** — Last updated: 10 February 2026
+**v0.15.0** — Last updated: 11 February 2026

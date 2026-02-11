@@ -2,7 +2,19 @@
 
 Project change log, organised by version and date.
 
-## v0.14.0 <Badge type="tip" text="current" />
+## v0.15.0 <Badge type="tip" text="current" />
+
+**11 February 2026**
+
+- **Survey v3.5**: new introductory text, differentiated final stems (Q3 "How do you proceed?", Q8 "How do you solve it?", Q10 "How do you step in?")
+- Survey title aligned with PDF: **"Discover your Beyond Titles profile"**
+- New CTA: **"Start"** (replaces "Start the Journey")
+- Updated HTML fallbacks in index.html to align with i18n v3.5
+- EN translations updated for all v3.5 changes
+- **Wiki cleanup**: removed all stale SJT references (architecture, components, authentication, deploy, decisions)
+- Wiki updated with v3.4 → v3.5 corrections table
+
+## v0.14.0
 
 **10 February 2026**
 

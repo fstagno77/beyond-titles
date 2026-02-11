@@ -78,13 +78,13 @@ Switch to a **single-choice** system with 4 options per question, each mapped to
 **Date:** 28 January 2026 | **Status:** Accepted
 
 ### Context
-After validating the BCB v1.0 survey, reformulated versions (v2.0) and different formats (SJT) were tested. v3.4 (Behavioural & Competency-Based) proved to be the definitive version.
+After validating the BCB v1.0 survey, reformulated versions (v2.0) and different formats (SJT) were tested. v3.5 (Behavioural & Competency-Based) proved to be the definitive version.
 
 ### Decision
-Restructure `survey_archetypes.json` in v3.4 format with only the Behavioural & Competency-Based survey. Legacy surveys (BCB v1.0, v2.0, SJT v1.0) were removed after the A/B testing phase.
+Restructure `survey_archetypes.json` in v3.5 format with only the Behavioural & Competency-Based survey. Legacy surveys (BCB v1.0, v2.0, SJT v1.0) were removed after the A/B testing phase.
 
 ### Rationale
-- The Behavioural & Competency-Based v3.4 is the validated and definitive version
+- The Behavioural & Competency-Based v3.5 is the validated and definitive version
 - Code and data simplification by removing no-longer-needed surveys
 - Reduction of translations and system complexity
 - Password protection for surveys under development (SJT)

@@ -10,7 +10,7 @@ Beyond Titles uses local JSON files as its database, loaded via Fetch API at app
 
 | Field | Value |
 |---|---|
-| Version | v3.4 |
+| Version | v3.5 |
 | Format | Behavioural & Competency-Based |
 | Questions | 10 |
 | Options per question | 4 |
@@ -20,7 +20,7 @@ Beyond Titles uses local JSON files as its database, loaded via Fetch API at app
 
 | ID | Name | Access |
 |---|---|---|
-| `bcb_v3` | Behavioural & Competency-Based v3.4 | Open (default) |
+| `bcb_v3` | Behavioural & Competency-Based v3.5 | Open (default) |
 
 ### 8 Professional Archetypes
 

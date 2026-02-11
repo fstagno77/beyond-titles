@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "versione": "v3.4",
+    "versione": "v3.5",
     "nome": "Survey Archetipi Professionali - Behavioural & Competency-Based",
     "descrizione": "Survey per determinare l'archetipo professionale dell'utente",
     "numero_domande": 10,
@@ -11,7 +11,7 @@
     "bcb_v3": {
       "id": "bcb_v3",
       "name": "Behavioural & Competency-Based",
-      "version": "3.4",
+      "version": "3.5",
       "i18n_key": "survey_bcb_v3",
       "domande": [
         {
@@ -70,7 +70,7 @@
         },
         {
           "id": 3,
-          "stem": "Hai il compito di preparare qualcosa di importante non solo per te, ma anche per altri. Cosa fai?",
+          "stem": "Hai il compito di preparare qualcosa di importante non solo per te, ma anche per altri. Come procedi?",
           "tema": "Responsabilità condivisa / Preparazione",
           "opzioni": [
             {
@@ -90,7 +90,7 @@
             },
             {
               "id": "3D",
-              "testo": "Cambio un passaggio per renderlo più semplice o più veloce.",
+              "testo": "Cambio un passaggio per renderlo più chiaro o più veloce.",
               "archetipo": "pioniere"
             }
           ]
@@ -205,7 +205,7 @@
         },
         {
           "id": 8,
-          "stem": "Sei in un gruppo per un progetto, ma manca chiarezza. Cosa fai?",
+          "stem": "Sei in un gruppo per un progetto, ma manca chiarezza. Come risolvi?",
           "tema": "Coordinamento gruppo / Team disallineato",
           "opzioni": [
             {
@@ -259,7 +259,7 @@
         },
         {
           "id": 10,
-          "stem": "Lavoro di squadra sotto pressione: tante attività, più persone, poco tempo. Devi aiutare il gruppo a funzionare meglio. Cosa fai?",
+          "stem": "Lavoro di squadra sotto pressione: tante attività, più persone, poco tempo. Devi aiutare il gruppo a funzionare meglio. Come intervieni?",
           "tema": "Leadership situazionale / Team sotto stress",
           "opzioni": [
             {

@@ -1,10 +1,10 @@
-# Behavioural & Competency-Based v3.4
+# Behavioural & Competency-Based v3.5
 
 ## Panoramica
 
-La **Behavioural & Competency-Based v3.4** è la survey di default della piattaforma Beyond Titles. Si tratta di un questionario **Behavioural & Competency-Based** in formato single-choice, progettato da Subsense per identificare l'archetipo professionale dell'utente attraverso 10 situazioni concrete.
+La **Behavioural & Competency-Based v3.5** è la survey di default della piattaforma Beyond Titles. Si tratta di un questionario **Behavioural & Competency-Based** in formato single-choice, progettato da Subsense per identificare l'archetipo professionale dell'utente attraverso 10 situazioni concrete.
 
-**Versione:** v3.4 — 9 febbraio 2026
+**Versione:** v3.5 — 11 febbraio 2026
 **ID interno:** `bcb_v3`
 **Accesso:** Libero (nessuna password)
 **Stato:** Survey di default (unica survey attiva)
@@ -72,13 +72,13 @@ Ogni archetipo compare esattamente **5 volte** su 40 opzioni totali, garantendo 
 
 ## Introduzione (Step 0)
 
-**Titolo:** "Scopri il tuo profilo"
+**Titolo:** "Scopri il tuo profilo #BeyondTitles"
 
 **Tone of Voice:** Narrativo, avventuroso, rassicurante
 
 **Testo introduttivo:**
 
-> Attraverso 10 situazioni che capitano a tutti nel lavoro, nello studio, nella vita quotidiana, scopri il tuo Human Skill's Profile. Per ognuna delle situazioni proposte, scegli come reagiresti.
+> Attraverso 10 situazioni che possono capitare a tutti nel lavoro, nello studio, nella vita quotidiana, scopri quale degli 8 profili #BeyondTitles può raccontare una storia nuova: la tua. Una storia fatta di valori, competenze trasversali e umane che spesso non si trovano dentro un curriculum vitae. Per ognuna delle situazioni proposte, scegli come reagiresti.
 
 **Elementi chiave comunicati all'utente:**
 - Seguire il proprio istinto, senza pensarci troppo
@@ -96,36 +96,23 @@ Ogni archetipo compare esattamente **5 volte** su 40 opzioni totali, garantendo 
 5. **Coerenza** — Struttura uniforme, tone of voice costante
 6. **Rassicurazione** — Anonimato, no giudizio, spontaneità
 
-## Correzioni dalla v3.3
+## Correzioni dalla v3.4
 
-La v3.4 introduce ulteriori raffinamenti linguistici per massimizzare chiarezza e naturalezza:
+La v3.5 introduce raffinamenti per differenziare le domande finali (evitando la ripetizione di "Cosa fai?") e una revisione del testo introduttivo:
 
-| Domanda | Elemento | Prima (v3.3) | Dopo (v3.4) |
+| Domanda | Elemento | Prima (v3.4) | Dopo (v3.5) |
 |---|---|---|---|
-| Q1 | Opzione B ordine | "Controllo bene cosa serve e i dettagli, prima di partire." | "Prima di partire, controllo cosa serve e i dettagli." |
-| Q1 | Opzione C verbo | "Scelgo io un modo chiaro per farla e lo seguo." | "Scelgo un modo chiaro per svolgerla e procedo in quella direzione." |
-| Q2 | Opzione A verbo | "Trovo" | "Individuo" |
-| Q2 | Opzione B formulazione | "Provo un modo diverso per vedere se funziona meglio." | "Provo un'alternativa per capire se funziona meglio." |
-| Q2 | Opzione C completamento | "decidiamo cosa fare" | "decidiamo insieme cosa fare" |
-| Q2 | Opzione D clausola | "finché capisco cosa non funziona" | "per individuare il problema" |
-| Q4 | STEM | "Hai molte cose da fare oggi..." / "Da cosa parti?" | "Hai molte cose da fare..." / "Da dove inizi?" |
-| Q4 | Opzione A | "Scelgo la cosa più importante e la faccio per prima." | "Individuo l'attività più importante e parto da quella." |
-| Q4 | Opzione B | "Decido 2-3 passi e un ordine semplice, poi parto." | "Decido 2-3 passi chiave, li metto in ordine e poi inizio." |
-| Q4 | Opzione C | "Inizio da una cosa che posso finire subito, così mi resta meno da fare." | "Parto dall'attività che posso chiudere subito, così da avere meno cose da fare dopo." |
-| Q5 | Opzione C | "Ne parlo con gli altri e ci aiutiamo a capire cosa funziona." | "Mi confronto con gli altri per capire cosa funziona." |
-| Q6 | Opzione A | "per vedere se funziona" | "per capire se funziona" |
-| Q6 | Opzione B | "La rendo subito pratica" | "La rendo subito concreta" |
-| Q6 | Opzione D | "Prima ci penso bene: vantaggi e svantaggi, poi decido." | "Valuto prima vantaggi e svantaggi, poi decido." |
-| Q7 | STEM | "aumenta la tensione tra voi" | "la tensione aumenta" |
-| Q7 | Opzione B | "aiuto a capire cosa intende ciascuno" | "aiuto a chiarire cosa intende l'altra persona" |
-| Q7 | Opzione C | "dico come procediamo" | "comunico come procedere" |
-| Q8 | STEM | "ognuno va un po' per conto suo" | "ma manca chiarezza" |
-| Q8 | Opzione B | "Mi metto a lavorare insieme agli altri: mi adatto e do una mano dove serve di più." | "Lavoro insieme agli altri: mi adatto e do una mano dove serve." |
-| Q8 | Opzione D | "Inizio a fare la parte più pratica e urgente, così il lavoro riparte e gli altri si uniscono." | "Parto dall'aspetto più urgente, così il lavoro riparte e gli altri possono collaborare." |
-| Q9 | Opzione A | "Sistemo con cura il problema, occupandomi anche dei dettagli." | "Lo sistemo con cura, occupandomi anche dei dettagli." |
-| Q9 | Opzione B | "Prima penso a come risolverlo al meglio, poi sistemo." | "Prima penso alla soluzione migliore, poi intervengo." |
-| Q9 | Opzione D | "Provo un modo diverso per risolverlo meglio o più facilmente." | "Provo un approccio diverso per sistemarlo meglio o più facilmente." |
-| Q10 | Opzione B | "Metto ordine: cosa fare prima e cosa dopo." | "Metto ordine: decido cosa fare prima e cosa dopo." |
+| Intro | Titolo | "Scopri il tuo profilo" | "Scopri il tuo profilo #BeyondTitles" |
+| Intro | Body | "scopri il tuo Human Skill's Profile" | "scopri quale degli 8 profili #BeyondTitles può raccontare una storia nuova: la tua." + nuovo paragrafo |
+| Intro | CTA | "Inizia il viaggio" | "Inizia" |
+| Q3 | STEM finale | "Cosa fai?" | "Come procedi?" |
+| Q3 | Opzione D | "più semplice o più veloce" | "più chiaro o più veloce" |
+| Q8 | STEM finale | "Cosa fai?" | "Come risolvi?" |
+| Q10 | STEM finale | "Cosa fai?" | "Come intervieni?" |
+
+### Correzioni dalla v3.3 (storico)
+
+La v3.4 ha introdotto raffinamenti linguistici su 23 opzioni/stem per massimizzare chiarezza e naturalezza (dettagli nella documentazione v3.4).
 
 ## Validazione
 
@@ -174,4 +161,5 @@ Le domande con peso maggiore (Q8 = 38, Q4/Q5 = 31) hanno maggiore impatto sulla 
 | v3.0 | Feb 2026 | Prima versione Behavioural & Competency-Based |
 | v3.2 | 5 Feb 2026 | Correzioni linguistiche |
 | v3.3 | 9 Feb 2026 | Q10 riscritta, pulizia survey legacy |
-| **v3.4** | **9 Feb 2026** | **Raffinamenti linguistici su 23 opzioni/stem, CTA "Inizia il viaggio"** |
+| v3.4 | 9 Feb 2026 | Raffinamenti linguistici su 23 opzioni/stem, CTA "Inizia il viaggio" |
+| **v3.5** | **11 Feb 2026** | **Nuovo testo intro #BeyondTitles, differenziazione stem Q3/Q8/Q10, CTA "Inizia"** |

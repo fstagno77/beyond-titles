@@ -232,9 +232,9 @@ const translations = {
         tab_sondaggio: "Sondaggio",
 
         // Survey
-        survey_title: "Scopri il tuo profilo",
-        survey_subtitle: "Attraverso 10 situazioni che possono capitare a tutti nel lavoro, nello studio, nella vita quotidiana, scopri il tuo Human Skill's Profile.<br>Per ognuna delle situazioni proposte, scegli come reagiresti.<br><br>L'importante è:<ul><li>Rispondere senza pensarci troppo</li><li>Sapere che non ci sono risposte giuste o sbagliate</li><li>Sapere che tutto resta anonimo</li></ul>Non importa se hai o non hai ancora esperienza nel mondo del lavoro, immagina di trovarti in quelle situazioni e rispondi seguendo il tuo istinto.<br><br><strong>Ci vogliono solo 5 minuti.</strong>",
-        survey_start: "Inizia il viaggio",
+        survey_title: "Scopri il tuo profilo #BeyondTitles",
+        survey_subtitle: "Attraverso 10 situazioni che possono capitare a tutti nel lavoro, nello studio, nella vita quotidiana, scopri quale degli 8 profili #BeyondTitles può raccontare una storia nuova: la tua.<br><br>Una storia fatta di valori, competenze trasversali e umane che spesso non si trovano dentro un curriculum vitae.<br><br>Per ognuna delle situazioni proposte, scegli come reagiresti.<br><br>L'importante è:<ul><li>Rispondere senza pensarci troppo</li><li>Sapere che non ci sono risposte giuste o sbagliate</li><li>Sapere che tutto resta anonimo</li></ul>Non importa se hai o non hai ancora esperienza nel mondo del lavoro, immagina di trovarti in quelle situazioni e rispondi seguendo il tuo istinto.<br><br><strong>Ci vogliono solo 5 minuti.</strong>",
+        survey_start: "Inizia",
         survey_progress: "Domanda {current} di {total}",
         survey_instruction: "Seleziona l'opzione più vicina al tuo modo di agire",
         survey_prev: "Indietro",
@@ -356,14 +356,14 @@ const translations = {
         log_survey_back_to_intro: "Tornato alla schermata iniziale",
         log_survey_simulation: "Simulazione: {name}",
         log_scores_title: "Score Archetipi",
-        log_data_loaded: "Loaded survey_archetypes.json v3.4 - {questions} domande, {archetypes} archetipi ({list})",
+        log_data_loaded: "Loaded survey_archetypes.json v3.5 - {questions} domande, {archetypes} archetipi ({list})",
 
         // Survey Selector
         survey_selector_label: "Tipo di sondaggio",
         survey_bcb_v3_name: "Behavioural & Competency-Based",
-        survey_bcb_v3_short: "Behavioural & Competency-Based v3.4",
+        survey_bcb_v3_short: "Behavioural & Competency-Based v3.5",
 
-        // Behavioural & Competency-Based v3.4 Questions
+        // Behavioural & Competency-Based v3.5 Questions
         bcb3_q1_stem: "Hai una nuova attività in programma, ma poco tempo e poche indicazioni. Qual è il tuo primo passo?",
         bcb3_q1_opt_a: "Chiedo un chiarimento a qualcuno, così capisco meglio.",
         bcb3_q1_opt_b: "Prima di partire, controllo cosa serve e i dettagli.",
@@ -376,11 +376,11 @@ const translations = {
         bcb3_q2_opt_c: "Chiedo aiuto alla persona giusta e decidiamo insieme cosa fare.",
         bcb3_q2_opt_d: "Controllo una cosa alla volta, per individuare il problema.",
 
-        bcb3_q3_stem: "Hai il compito di preparare qualcosa di importante non solo per te, ma anche per altri. Cosa fai?",
+        bcb3_q3_stem: "Hai il compito di preparare qualcosa di importante non solo per te, ma anche per altri. Come procedi?",
         bcb3_q3_opt_a: "Controllo i dettagli e mi assicuro che sia fatto bene.",
         bcb3_q3_opt_b: "Mi confronto con gli altri per capire cosa serve e come farlo.",
         bcb3_q3_opt_c: "Scelgo il modo più semplice e lo porto a termine.",
-        bcb3_q3_opt_d: "Cambio un passaggio per renderlo più semplice o più veloce.",
+        bcb3_q3_opt_d: "Cambio un passaggio per renderlo più chiaro o più veloce.",
 
         bcb3_q4_stem: "Hai molte cose da fare e poco tempo. Sei tu a decidere le priorità. Da dove inizi?",
         bcb3_q4_opt_a: "Individuo l'attività più importante e parto da quella.",
@@ -406,7 +406,7 @@ const translations = {
         bcb3_q7_opt_c: "Riporto l'attenzione sull'obiettivo e comunico come procedere.",
         bcb3_q7_opt_d: "Propongo una soluzione pratica e la proviamo subito insieme.",
 
-        bcb3_q8_stem: "Sei in un gruppo per un progetto, ma manca chiarezza. Cosa fai?",
+        bcb3_q8_stem: "Sei in un gruppo per un progetto, ma manca chiarezza. Come risolvi?",
         bcb3_q8_opt_a: "Metto in comune le informazioni: faccio parlare tutti un attimo e chiarisco cosa serve a ciascuno.",
         bcb3_q8_opt_b: "Lavoro insieme agli altri: mi adatto e do una mano dove serve.",
         bcb3_q8_opt_c: "Propongo un modo chiaro per procedere e invito gli altri a seguirlo.",
@@ -418,7 +418,7 @@ const translations = {
         bcb3_q9_opt_c: "Risolvo in modo rapido, così da non creare altri problemi.",
         bcb3_q9_opt_d: "Provo un approccio diverso per sistemarlo meglio o più facilmente.",
 
-        bcb3_q10_stem: "Lavoro di squadra sotto pressione: tante attività, più persone, poco tempo. Devi aiutare il gruppo a funzionare meglio. Cosa fai?",
+        bcb3_q10_stem: "Lavoro di squadra sotto pressione: tante attività, più persone, poco tempo. Devi aiutare il gruppo a funzionare meglio. Come intervieni?",
         bcb3_q10_opt_a: "Mi assicuro che ci si capisca e che ci si dia una mano.",
         bcb3_q10_opt_b: "Metto ordine: decido cosa fare prima e cosa dopo.",
         bcb3_q10_opt_c: "Propongo un modo chiaro per procedere e lo seguiamo.",
@@ -653,9 +653,9 @@ const translations = {
         tab_sondaggio: "Survey",
 
         // Survey
-        survey_title: "Discover your profile",
-        survey_subtitle: "Through 10 situations that can happen to anyone at work, school, or in everyday life, discover your Human Skill's Profile.<br>For each situation, choose how you would react.<br><br>What matters is:<ul><li>Answer without overthinking</li><li>There are no right or wrong answers</li><li>Everything stays anonymous</li></ul>It doesn't matter if you have work experience or not — imagine yourself in those situations and follow your instinct.<br><br><strong>It only takes 5 minutes.</strong>",
-        survey_start: "Start the journey",
+        survey_title: "Discover your #BeyondTitles profile",
+        survey_subtitle: "Through 10 situations that can happen to anyone at work, school, or in everyday life, discover which of the 8 #BeyondTitles profiles can tell a new story: yours.<br><br>A story made of values, soft skills and human skills that are often missing from a CV.<br><br>For each situation, choose how you would react.<br><br>What matters is:<ul><li>Answer without overthinking</li><li>There are no right or wrong answers</li><li>Everything stays anonymous</li></ul>It doesn't matter if you have work experience or not — imagine yourself in those situations and follow your instinct.<br><br><strong>It only takes 5 minutes.</strong>",
+        survey_start: "Start",
         survey_progress: "Question {current} of {total}",
         survey_instruction: "Select the option closest to how you act",
         survey_prev: "Back",
@@ -777,14 +777,14 @@ const translations = {
         log_survey_back_to_intro: "Returned to home screen",
         log_survey_simulation: "Simulation: {name}",
         log_scores_title: "Archetype Scores",
-        log_data_loaded: "Loaded survey_archetypes.json v3.4 - {questions} questions, {archetypes} archetypes ({list})",
+        log_data_loaded: "Loaded survey_archetypes.json v3.5 - {questions} questions, {archetypes} archetypes ({list})",
 
         // Survey Selector
         survey_selector_label: "Survey type",
         survey_bcb_v3_name: "Behavioural & Competency-Based",
-        survey_bcb_v3_short: "Behavioural & Competency-Based v3.4",
+        survey_bcb_v3_short: "Behavioural & Competency-Based v3.5",
 
-        // Behavioural & Competency-Based v3.4 Questions
+        // Behavioural & Competency-Based v3.5 Questions
         bcb3_q1_stem: "You have a new task ahead, but little time and few instructions. What's your first step?",
         bcb3_q1_opt_a: "I ask someone for clarification so I can understand better.",
         bcb3_q1_opt_b: "Before starting, I check what's needed and the details.",
@@ -797,11 +797,11 @@ const translations = {
         bcb3_q2_opt_c: "I ask the right person for help and we decide together what to do.",
         bcb3_q2_opt_d: "I check one thing at a time to identify the problem.",
 
-        bcb3_q3_stem: "You're tasked with preparing something important not just for you, but also for others. What do you do?",
+        bcb3_q3_stem: "You're tasked with preparing something important not just for you, but also for others. How do you proceed?",
         bcb3_q3_opt_a: "I check the details and make sure it's done right.",
         bcb3_q3_opt_b: "I discuss with others to understand what's needed and how to do it.",
         bcb3_q3_opt_c: "I choose the simplest way and see it through.",
-        bcb3_q3_opt_d: "I change a step to make it simpler or faster.",
+        bcb3_q3_opt_d: "I change a step to make it clearer or faster.",
 
         bcb3_q4_stem: "You have many things to do and little time. You get to decide the priorities. Where do you start?",
         bcb3_q4_opt_a: "I identify the most important task and start with that.",
@@ -827,7 +827,7 @@ const translations = {
         bcb3_q7_opt_c: "I bring attention back to the goal and communicate how to proceed.",
         bcb3_q7_opt_d: "I propose a practical solution and we try it together right away.",
 
-        bcb3_q8_stem: "You're in a group for a project, but there's a lack of clarity. What do you do?",
+        bcb3_q8_stem: "You're in a group for a project, but there's a lack of clarity. How do you solve it?",
         bcb3_q8_opt_a: "I share information: I let everyone speak briefly and clarify what each person needs.",
         bcb3_q8_opt_b: "I work alongside others: I adapt and help where it's needed.",
         bcb3_q8_opt_c: "I propose a clear way to proceed and invite others to follow it.",
@@ -839,7 +839,7 @@ const translations = {
         bcb3_q9_opt_c: "I fix it quickly, so it doesn't cause other problems.",
         bcb3_q9_opt_d: "I try a different approach to fix it better or more easily.",
 
-        bcb3_q10_stem: "Teamwork under pressure: many tasks, several people, little time. You need to help the group work better. What do you do?",
+        bcb3_q10_stem: "Teamwork under pressure: many tasks, several people, little time. You need to help the group work better. How do you step in?",
         bcb3_q10_opt_a: "I make sure everyone understands each other and helps one another.",
         bcb3_q10_opt_b: "I create order: I decide what to do first and what next.",
         bcb3_q10_opt_c: "I suggest a clear way to proceed and we follow it.",

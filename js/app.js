@@ -484,18 +484,6 @@
             state.mansioniPadre = data.database_mansioni;
             state.isDataLoaded = true;
 
-            // Log statistics from metadata (v4 format)
-            const stats = data.metadata?.statistiche;
-            if (stats) {
-                logActivity(LogType.INFO, i18n.t('log_loaded_stats', {
-                    total: stats.totale_voci,
-                    main: stats.categoria_principale?.totale || 0,
-                    alias: stats.alias || 0,
-                    incomplete: stats.profilo_incompleto?.totale || 0
-                }));
-            } else {
-                logActivity(LogType.INFO, i18n.t('log_loaded', { count: state.mansioniPadre.length }));
-            }
 
             return state.mansioniPadre;
         } catch (error) {

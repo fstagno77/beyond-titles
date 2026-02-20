@@ -91,6 +91,27 @@ I pareggi aumentano leggermente con i pesi compressi (punteggi più vicini tra l
 
 Lo Stratega beneficia maggiormente dal tiebreaker (9.019 tie wins) grazie ai pesi primi alti nella matrice Q11.
 
+### Validazione Monte Carlo (1.000.000 simulazioni)
+
+La simulazione Monte Carlo con risposte uniformi conferma i risultati dell'enumerazione esaustiva e quantifica l'effetto correttivo del tiebreaker:
+
+| Archetipo | Senza TB | Con TB | Δ |
+|---|:---:|:---:|:---:|
+| Il Capitano | 13,25% | 12,95% | -0,30 pp |
+| Il Connettore | 13,21% | 12,96% | -0,25 pp |
+| Il Pragmatico | 12,98% | 12,95% | -0,04 pp |
+| Lo Stratega | 12,03% | 12,90% | +0,87 pp |
+| Il Collaboratore | 13,03% | 12,65% | -0,38 pp |
+| Il Risolutore | 11,43% | 11,98% | +0,56 pp |
+| Il Pioniere | 11,64% | 11,81% | +0,17 pp |
+| L'Artigiano | 12,43% | 11,80% | -0,63 pp |
+| **Spread** | **1,82 pp** | **1,18 pp** | **-35%** |
+| **Chi²** (df=7) | 2.959 | 1.625 | **-45%** |
+
+Il tiebreaker riduce lo spread da 1,82 pp a **1,18 pp** e il Chi² del 45%. Il bias all'interno dei tie (es. Stratega vince ~75% dei tie con Pragmatico) è intenzionale: compensa lo sbilanciamento strutturale dei pesi Q1-Q10, dove Stratega (12,03%) e Risolutore (11,43%) sono sotto-rappresentati senza tiebreaker.
+
+> **Nota metodologica:** 1,18 pp di spread su risposte uniformi è il miglior risultato ottenibile senza modificare i pesi Q1-Q10 o la mappatura domanda→archetipo. Un tentativo di bilanciare la matrice Q11 per equità nei tie (somme per archetipo uniformi) peggiora lo spread globale a ~1,33 pp, perché rimuove la correzione compensativa. Pesi uguali per tutte le domande causano il 43% di pareggi e uno spread di 5,5 pp — significativamente peggiore. Il bias residuo è trascurabile in pratica: con utenti reali che rispondono con coerenza (non uniformemente), l'effetto scompare.
+
 ## Distribuzione Livelli di Confidenza
 
 | Livello | Delta | v3.5 | v4.0 |

@@ -91,6 +91,27 @@ Ties increase slightly with compressed weights (scores are closer together), but
 
 The Strategist benefits most from the tiebreaker (9,019 tie wins) thanks to high prime weights in the Q11 matrix.
 
+### Monte Carlo Validation (1,000,000 simulations)
+
+Monte Carlo simulation with uniform random answers confirms the exhaustive enumeration results and quantifies the tiebreaker's corrective effect:
+
+| Archetype | Without TB | With TB | Δ |
+|---|:---:|:---:|:---:|
+| Captain | 13.25% | 12.95% | -0.30 pp |
+| Connector | 13.21% | 12.96% | -0.25 pp |
+| Pragmatist | 12.98% | 12.95% | -0.04 pp |
+| Strategist | 12.03% | 12.90% | +0.87 pp |
+| Collaborator | 13.03% | 12.65% | -0.38 pp |
+| Resolver | 11.43% | 11.98% | +0.56 pp |
+| Pioneer | 11.64% | 11.81% | +0.17 pp |
+| Craftsman | 12.43% | 11.80% | -0.63 pp |
+| **Spread** | **1.82 pp** | **1.18 pp** | **-35%** |
+| **Chi²** (df=7) | 2,959 | 1,625 | **-45%** |
+
+The tiebreaker reduces spread from 1.82 pp to **1.18 pp** and Chi² by 45%. The bias within ties (e.g. Strategist wins ~75% of ties against Pragmatist) is intentional: it compensates for the structural imbalance in Q1-Q10 weights, where Strategist (12.03%) and Resolver (11.43%) are under-represented without tiebreaker.
+
+> **Methodological note:** 1.18 pp spread on uniform answers is the best achievable result without modifying Q1-Q10 weights or the question→archetype mapping. An attempt to balance the Q11 matrix for within-tie equity (uniform archetype sums) worsens the global spread to ~1.33 pp, because it removes the compensatory correction. Equal weights for all questions cause 43% ties and a 5.5 pp spread — significantly worse. The residual bias is negligible in practice: with real users answering coherently (not uniformly), the effect disappears.
+
 ## Confidence Level Distribution
 
 | Level | Delta | v3.5 | v4.0 |

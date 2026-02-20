@@ -110,7 +110,7 @@ Monte Carlo simulation with uniform random answers confirms the exhaustive enume
 
 The tiebreaker reduces spread from 1.82 pp to **1.18 pp** and Chi² by 45%. The bias within ties (e.g. Strategist wins ~75% of ties against Pragmatist) is intentional: it compensates for the structural imbalance in Q1-Q10 weights, where Strategist (12.03%) and Resolver (11.43%) are under-represented without tiebreaker.
 
-> **Methodological note:** 1.18 pp spread on uniform answers is the best achievable result without modifying Q1-Q10 weights or the question→archetype mapping. An attempt to balance the Q11 matrix for within-tie equity (uniform archetype sums) worsens the global spread to ~1.33 pp, because it removes the compensatory correction. Equal weights for all questions cause 43% ties and a 5.5 pp spread — significantly worse. The residual bias is negligible in practice: with real users answering coherently (not uniformly), the effect disappears.
+> **Methodological note:** 1.18 pp spread on uniform answers is the best achievable result without modifying Q1-Q10 weights or the question→archetype mapping. An attempt to balance the Q11 matrix for within-tie equity (uniform archetype sums) worsens the global spread to ~1.33 pp, because it removes the compensatory correction. Equal weights for all questions cause 43% ties and a 5.5 pp spread — significantly worse. **The residual bias is negligible in practice: with real users answering coherently (not uniformly), the effect disappears.**
 
 ## Confidence Level Distribution
 

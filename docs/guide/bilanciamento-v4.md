@@ -110,7 +110,7 @@ La simulazione Monte Carlo con risposte uniformi conferma i risultati dell'enume
 
 Il tiebreaker riduce lo spread da 1,82 pp a **1,18 pp** e il Chi² del 45%. Il bias all'interno dei tie (es. Stratega vince ~75% dei tie con Pragmatico) è intenzionale: compensa lo sbilanciamento strutturale dei pesi Q1-Q10, dove Stratega (12,03%) e Risolutore (11,43%) sono sotto-rappresentati senza tiebreaker.
 
-> **Nota metodologica:** 1,18 pp di spread su risposte uniformi è il miglior risultato ottenibile senza modificare i pesi Q1-Q10 o la mappatura domanda→archetipo. Un tentativo di bilanciare la matrice Q11 per equità nei tie (somme per archetipo uniformi) peggiora lo spread globale a ~1,33 pp, perché rimuove la correzione compensativa. Pesi uguali per tutte le domande causano il 43% di pareggi e uno spread di 5,5 pp — significativamente peggiore. Il bias residuo è trascurabile in pratica: con utenti reali che rispondono con coerenza (non uniformemente), l'effetto scompare.
+> **Nota metodologica:** 1,18 pp di spread su risposte uniformi è il miglior risultato ottenibile senza modificare i pesi Q1-Q10 o la mappatura domanda→archetipo. Un tentativo di bilanciare la matrice Q11 per equità nei tie (somme per archetipo uniformi) peggiora lo spread globale a ~1,33 pp, perché rimuove la correzione compensativa. Pesi uguali per tutte le domande causano il 43% di pareggi e uno spread di 5,5 pp — significativamente peggiore. **Il bias residuo è trascurabile in pratica: con utenti reali che rispondono con coerenza (non uniformemente), l'effetto scompare.**
 
 ## Distribuzione Livelli di Confidenza
 

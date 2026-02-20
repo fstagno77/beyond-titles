@@ -2,7 +2,29 @@
 
 Log delle modifiche al progetto, organizzato per versione e data.
 
-## v0.15.0 <Badge type="tip" text="corrente" />
+## v0.17.0 <Badge type="tip" text="corrente" />
+
+**20 febbraio 2026**
+
+- **Pesi compressi (Scenario C)**: range pesi da 6-38 a **12-28**, spread da 2,88 pp a **1,18 pp** (bilanciamento accettabile)
+- **Auto-advance UX**: click su risposta avanza automaticamente (rimosso pulsante "Avanti")
+- **Simulazione pareggio**: toggle nel modal Simulazioni per testare il tiebreaker Q11 con risposte reali pre-compilate
+- **Navigazione "Indietro" dal tiebreaker**: possibilità di tornare a Q10 da Q11
+- Nuova pagina wiki "Bilanciamento v4.0" con confronto v3.5 vs v4.0
+- Script di test: enumerazione esaustiva, tiebreaker, Monte Carlo
+
+## v0.16.0
+
+**20 febbraio 2026**
+
+- **Survey v4.0**: riscrittura completa di tutte le domande e opzioni per massima qualità editoriale e accessibilità
+- **Q10 riprogettata**: nuova dimensione "Valori / Soddisfazione personale" (sostituisce "Leadership situazionale")
+- **Tiebreaker Q11**: domanda condizionale con matrice di pesi primi per risoluzione matematica degli ex aequo (100% su enumerazione esaustiva)
+- Bilanciamento matematico perfetto verificato: tutti gli archetipi hanno MAX identico (95/190)
+- Traduzioni IT/EN aggiornate per tutte le 10 domande + Q11
+- Documentazione wiki aggiornata a v4.0 con validazione completa
+
+## v0.15.0
 
 **11 febbraio 2026**
 

@@ -2,7 +2,29 @@
 
 Project change log, organised by version and date.
 
-## v0.15.0 <Badge type="tip" text="current" />
+## v0.17.0 <Badge type="tip" text="current" />
+
+**20 February 2026**
+
+- **Compressed weights (Scenario C)**: weight range from 6-38 to **12-28**, spread from 2.88 pp to **1.18 pp** (acceptable balance)
+- **Auto-advance UX**: clicking an answer automatically advances (removed "Next" button)
+- **Tie simulation**: toggle in the Simulations modal to test Q11 tiebreaker with real pre-filled answers
+- **Back navigation from tiebreaker**: ability to go back to Q10 from Q11
+- New wiki page "Balance v4.0" with v3.5 vs v4.0 comparison
+- Test scripts: exhaustive enumeration, tiebreaker, Monte Carlo
+
+## v0.16.0
+
+**20 February 2026**
+
+- **Survey v4.0**: complete rewrite of all questions and options for maximum editorial quality and accessibility
+- **Redesigned Q10**: new "Values / Personal satisfaction" dimension (replaces "Situational leadership")
+- **Tiebreaker Q11**: conditional question with prime number weight matrix for mathematical tie resolution (100% on exhaustive enumeration)
+- Perfect mathematical balance verified: all archetypes have identical MAX (95/190)
+- IT/EN translations updated for all 10 questions + Q11
+- Wiki documentation updated to v4.0 with complete validation
+
+## v0.15.0
 
 **11 February 2026**
 

@@ -120,7 +120,7 @@
 
                             <div class="survey__navigation">
                                 <button id="survey-prev" class="survey__nav-btn survey__nav-btn--secondary" disabled data-i18n="survey_prev">Indietro</button>
-                                <button id="survey-next" class="survey__nav-btn survey__nav-btn--primary" disabled data-i18n="survey_next">Avanti</button>
+                                <button id="survey-next" class="survey__nav-btn survey__nav-btn--primary" hidden>Avanti</button>
                             </div>
                         </div>
 
@@ -133,7 +133,7 @@
                                 Rifai il Test
                             </button>
                         </div>
-                        <p class="survey__version-label">Behavioural &amp; Competency-Based v3.5</p>
+                        <p class="survey__version-label">Behavioural &amp; Competency-Based v4.0</p>
                     </div>
                 </div>
             </div>
@@ -258,6 +258,13 @@
             </div>
             <div class="modal__body">
                 <p class="survey-presets__description" data-i18n="survey_presets_description">Seleziona un archetipo per simulare il risultato del sondaggio.</p>
+                <div class="survey-presets__toggle-row">
+                    <span class="survey-presets__toggle-label" data-i18n="survey_presets_tie_toggle">Simula pareggio</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="presetsTieToggle">
+                        <span class="toggle-switch__slider"></span>
+                    </label>
+                </div>
                 <div id="surveyPresetsGrid" class="survey-presets__grid">
                     <!-- Archetype cards will be rendered here by JS -->
                 </div>

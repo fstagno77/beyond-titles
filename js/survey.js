@@ -24,7 +24,10 @@
         selectedSurvey: null, // 'bcb_v3'
         currentQuestion: 0,
         answers: [], // Array of { questionId, selectedOptionId, archetype }
-        scores: {} // { archetipo: punteggio }
+        scores: {}, // { archetipo: punteggio }
+        tiedArchetypes: [], // Archetypes with equal top score (for tiebreaker)
+        tiebreakerAnswer: null, // { optionId, letter } if Q11 was answered
+        inTiebreaker: false // True when showing Q11 tiebreaker
     };
 
     // Storage keys for persistence
@@ -337,7 +340,7 @@
                 list: archetipiList
             });
         } else {
-            message = `Loaded survey_archetypes.json v3.5 - ${numDomande} domande, ${numArchetipi} archetipi, ${numSurveys} surveys (${archetipiList})`;
+            message = `Loaded survey_archetypes.json v4.0 - ${numDomande} domande, ${numArchetipi} archetipi, ${numSurveys} surveys (${archetipiList})`;
         }
 
         entry.innerHTML = `${timestamp} ${typeLabel} <span class="system-log__message">${message}</span>`;
@@ -506,7 +509,13 @@
 
         // Re-render question to update UI
         renderQuestion();
-        updateNavigation();
+
+        // Auto-advance after brief delay for visual feedback
+        if (state._autoAdvanceTimer) clearTimeout(state._autoAdvanceTimer);
+        state._autoAdvanceTimer = setTimeout(() => {
+            state._autoAdvanceTimer = null;
+            goToNextQuestion();
+        }, 400);
     }
 
     function updateProgress() {
@@ -525,25 +534,27 @@
     }
 
     function updateNavigation() {
-        const answer = state.answers[state.currentQuestion];
-        const isComplete = answer && answer.selectedOptionId;
-        const isLast = state.currentQuestion === getCurrentQuestions().length - 1;
-
         // Prev button always enabled - on first question goes back to intro
         elements.prevBtn.disabled = false;
-
-        // Next button
-        elements.nextBtn.disabled = !isComplete;
-
-        // Update next button text for last question
-        if (window.i18n) {
-            elements.nextBtn.textContent = isLast ? window.i18n.t('survey_finish') || 'Scopri il Risultato' : window.i18n.t('survey_next') || 'Avanti';
-        } else {
-            elements.nextBtn.textContent = isLast ? 'Scopri il Risultato' : 'Avanti';
-        }
     }
 
     function goToPrevQuestion() {
+        // Cancel any pending auto-advance
+        if (state._autoAdvanceTimer) {
+            clearTimeout(state._autoAdvanceTimer);
+            state._autoAdvanceTimer = null;
+        }
+
+        // If on tiebreaker Q11, go back to Q10
+        if (state.inTiebreaker) {
+            state.inTiebreaker = false;
+            state.tiebreakerAnswer = null;
+            renderQuestion();
+            updateProgress();
+            updateNavigation();
+            return;
+        }
+
         if (state.currentQuestion > 0) {
             state.currentQuestion--;
             renderQuestion();
@@ -559,6 +570,9 @@
         // Reset state
         state.currentQuestion = 0;
         state.answers = [];
+        state.tiedArchetypes = [];
+        state.tiebreakerAnswer = null;
+        state.inTiebreaker = false;
         initializeScores();
 
         // Remove scores table from System Log
@@ -587,15 +601,131 @@
 
         if (isLast) {
             calculateResults();
-            showResults();
-            const completeMsg = window.i18n ? window.i18n.t('log_survey_completed') : 'Sondaggio completato!';
-            logSurveyActivity(completeMsg);
+
+            // Check for tie
+            const tied = detectTie();
+            if (tied.length >= 2) {
+                state.tiedArchetypes = tied;
+                logSurveyActivity(`Ex aequo rilevato: ${tied.join(', ')} — avvio tiebreaker Q11`);
+                showTiebreaker();
+            } else {
+                state.tiedArchetypes = [];
+                showResults();
+                const completeMsg = window.i18n ? window.i18n.t('log_survey_completed') : 'Sondaggio completato!';
+                logSurveyActivity(completeMsg);
+            }
         } else {
             state.currentQuestion++;
             renderQuestion();
             updateProgress();
             updateNavigation();
         }
+    }
+
+    /**
+     * Shows the tiebreaker Q11 question
+     */
+    function showTiebreaker() {
+        const tbQuestion = getTiebreakerQuestion();
+        if (!tbQuestion) {
+            // Fallback: show results without tiebreaker
+            showResults();
+            return;
+        }
+
+        // Show questions section for tiebreaker
+        elements.surveyIntro.hidden = true;
+        elements.surveyQuestions.hidden = false;
+        elements.surveyResults.hidden = true;
+
+        // Update progress to show "Tiebreaker"
+        elements.progressFill.style.width = '100%';
+        const tbTitle = window.i18n ? window.i18n.t('survey_tiebreaker_title') : 'Domanda aggiuntiva';
+        elements.progressText.textContent = tbTitle;
+
+        // Render tiebreaker question
+        const tbSubtitle = window.i18n ? window.i18n.t('survey_tiebreaker_subtitle') : 'Due profili hanno ottenuto lo stesso punteggio. Rispondi a quest\'ultima domanda per determinare il tuo archetipo.';
+
+        const html = `
+            <p class="survey__tiebreaker-info">${escapeHtml(tbSubtitle)}</p>
+            <p class="survey__question-stem">${escapeHtml(tbQuestion.stem)}</p>
+            <div class="survey__options survey__options--single-choice">
+                ${tbQuestion.opzioni.map(option => {
+                    const isSelected = state.tiebreakerAnswer && state.tiebreakerAnswer.optionId === option.id;
+                    let optionClass = 'survey__option survey__option--single';
+                    if (isSelected) optionClass += ' survey__option--selected';
+
+                    return `
+                        <div class="${optionClass}" data-option-id="${option.id}" data-tiebreaker="true" role="radio" aria-checked="${isSelected}" tabindex="0">
+                            <div class="survey__option-radio">
+                                <div class="survey__option-radio-dot ${isSelected ? 'survey__option-radio-dot--active' : ''}"></div>
+                            </div>
+                            <span class="survey__option-text">${escapeHtml(option.testo)}</span>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        `;
+
+        elements.questionContainer.innerHTML = html;
+
+        // Bind tiebreaker option events
+        const options = elements.questionContainer.querySelectorAll('[data-tiebreaker="true"]');
+        options.forEach(option => {
+            option.addEventListener('click', handleTiebreakerClick);
+            option.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleTiebreakerClick(e);
+                }
+            });
+        });
+
+        // Enable prev to go back to Q10
+        state.inTiebreaker = true;
+        elements.prevBtn.disabled = false;
+    }
+
+    /**
+     * Resolves the tiebreaker and shows results
+     */
+    function resolveTiebreaker() {
+        if (!state.tiebreakerAnswer) return;
+        state.inTiebreaker = false;
+
+        const letter = state.tiebreakerAnswer.letter;
+        const finalScores = applyTiebreaker(letter, state.tiedArchetypes);
+        state.scores = finalScores;
+
+        logSurveyActivity(`Tiebreaker: risposta ${letter} — risoluzione ex aequo`);
+
+        showResults();
+        updateScoresTable();
+        const completeMsg = window.i18n ? window.i18n.t('log_survey_completed') : 'Sondaggio completato!';
+        logSurveyActivity(completeMsg);
+    }
+
+    /**
+     * Handles click on a tiebreaker option — auto-advances after delay
+     */
+    function handleTiebreakerClick(e) {
+        const optionEl = e.target.closest('[data-tiebreaker="true"]');
+        if (!optionEl) return;
+
+        const optionId = optionEl.dataset.optionId;
+        const letter = optionId.slice(-1); // "11A" -> "A"
+
+        state.tiebreakerAnswer = { optionId, letter };
+
+        // Re-render tiebreaker to update selection state
+        showTiebreaker();
+
+        // Auto-advance: resolve tiebreaker after delay
+        if (state._autoAdvanceTimer) clearTimeout(state._autoAdvanceTimer);
+        state._autoAdvanceTimer = setTimeout(() => {
+            state._autoAdvanceTimer = null;
+            resolveTiebreaker();
+        }, 400);
     }
 
     function calculatePartialScores() {
@@ -650,9 +780,7 @@
     }
 
     function rankArchetypes() {
-        // Convert scores to array and sort:
-        // 1. By score descending
-        // 2. By archetype name alphabetically (deterministic tie-breaking)
+        // Convert scores to array and sort by score descending
         const ranked = Object.entries(state.scores)
             .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
             .map(([archetype, score], index) => ({
@@ -662,6 +790,73 @@
             }));
 
         return ranked;
+    }
+
+    /**
+     * Detects if there's a tie at the top of the ranking
+     * @returns {Array} Array of archetype keys tied for first place, or empty if no tie
+     */
+    function detectTie() {
+        const ranked = rankArchetypes();
+        if (ranked.length < 2) return [];
+
+        const topScore = ranked[0].score;
+        const tied = ranked.filter(r => r.score === topScore);
+
+        return tied.length >= 2 ? tied.map(r => r.archetype) : [];
+    }
+
+    /**
+     * Applies tiebreaker Q11 weights to resolve ex aequo
+     * @param {string} answerLetter - The letter of the Q11 answer (A/B/C/D)
+     * @param {Array} tiedArchetypes - Array of archetype keys in tie
+     * @returns {Object} Updated scores with tiebreaker applied
+     */
+    function applyTiebreaker(answerLetter, tiedArchetypes) {
+        const survey = state.surveyData.surveys[state.selectedSurvey];
+        const tbWeights = survey?.tiebreaker?.weights?.[answerLetter];
+        if (!tbWeights) return state.scores;
+
+        // Create copy of scores and add tiebreaker weights ONLY to tied archetypes
+        const finalScores = { ...state.scores };
+        tiedArchetypes.forEach(archKey => {
+            if (tbWeights[archKey] !== undefined) {
+                finalScores[archKey] += tbWeights[archKey];
+            }
+        });
+
+        return finalScores;
+    }
+
+    /**
+     * Gets the tiebreaker question data with translations
+     * @returns {Object|null} Tiebreaker question object
+     */
+    function getTiebreakerQuestion() {
+        const survey = state.surveyData.surveys[state.selectedSurvey];
+        if (!survey?.tiebreaker) return null;
+
+        const tb = survey.tiebreaker;
+
+        // Apply i18n if available
+        if (window.i18n) {
+            const prefix = 'bcb3';
+            const stemKey = `${prefix}_q11_stem`;
+            const stemVal = window.i18n.t(stemKey);
+            const stem = stemVal !== stemKey ? stemVal : tb.stem;
+
+            const opzioni = tb.opzioni.map(opt => {
+                const letter = opt.id.slice(-1).toLowerCase();
+                const optKey = `${prefix}_q11_opt_${letter}`;
+                const optVal = window.i18n.t(optKey);
+                const testo = optVal !== optKey ? optVal : opt.testo;
+                return { ...opt, testo };
+            });
+
+            return { ...tb, stem, opzioni };
+        }
+
+        return tb;
     }
 
     function classifyProfile(rankedArchetypes) {
@@ -753,9 +948,9 @@
 
         const { confidenceLabel } = calculateConfidence(profile.primary.score, profile.secondary.score);
 
-        // Log profile info (detect tie-breaking)
+        // Log profile info
         const hasTie = profile.primary.score === profile.secondary.score;
-        const tieInfo = hasTie ? ' | Tie: alphabetical' : '';
+        const tieInfo = hasTie ? ' | Tie: tiebreaker Q11' : '';
         logSurveyActivity(`Profilo: netto | Δ: ${profile.delta12}${tieInfo} | Confidence: ${confidenceLabel}`);
         logSurveyActivity(`Scores: ${profile.primary.archetype}=${profile.primary.score}, ${profile.secondary.archetype}=${profile.secondary.score}`);
 
@@ -797,6 +992,8 @@
         // Reset state
         state.currentQuestion = 0;
         state.answers = [];
+        state.tiedArchetypes = [];
+        state.tiebreakerAnswer = null;
         initializeScores();
     }
 
@@ -886,7 +1083,96 @@
         });
     }
 
+    /**
+     * Finds answers for Q1-Q9 that make primaryKey the clear winner.
+     * Greedy: pick the primary archetype option when available, else random.
+     */
+    function findAnswersForWin(primaryKey) {
+        const questions = getCurrentQuestions();
+        const answers = [];
+
+        for (let q = 0; q < questions.length - 1; q++) { // Q1-Q9 (skip last)
+            const question = questions[q];
+            // Prefer option mapped to primaryKey
+            let chosen = question.opzioni.find(o => o.archetipo === primaryKey);
+            if (!chosen) {
+                // Pick random option (not another archetype that could compete)
+                chosen = question.opzioni[Math.floor(Math.random() * question.opzioni.length)];
+            }
+            answers.push({
+                questionId: question.id,
+                selectedOptionId: chosen.id,
+                archetype: chosen.archetipo
+            });
+        }
+        return answers;
+    }
+
+    /**
+     * Finds answers for Q1-Q10 that create an exact tie between primaryKey and secondaryKey.
+     * Uses DFS with shuffled option order for variety.
+     */
+    function findAnswersForTie(primaryKey, secondaryKey) {
+        const questions = getCurrentQuestions();
+        const weights = state.surveyData.questionWeights || {};
+        const archetypes = Object.keys(state.surveyData.archetipi);
+        const numQ = questions.length;
+
+        // Shuffle option order per question for variety across simulations
+        const optionOrders = questions.map(q => {
+            const indices = q.opzioni.map((_, i) => i);
+            for (let i = indices.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [indices[i], indices[j]] = [indices[j], indices[i]];
+            }
+            return indices;
+        });
+
+        const scores = {};
+        archetypes.forEach(a => { scores[a] = 0; });
+        const choices = [];
+
+        function dfs(qIdx) {
+            if (qIdx === numQ) {
+                // Check: primary and secondary tied AND both at the top
+                if (scores[primaryKey] === scores[secondaryKey] && scores[primaryKey] > 0) {
+                    const maxScore = Math.max(...archetypes.map(a => scores[a]));
+                    if (scores[primaryKey] === maxScore) {
+                        return choices.map(c => ({ ...c }));
+                    }
+                }
+                return null;
+            }
+
+            const q = questions[qIdx];
+            const w = weights[`Q${q.id}`] || CONFIG.W_BAR;
+
+            for (const j of optionOrders[qIdx]) {
+                const opt = q.opzioni[j];
+                scores[opt.archetipo] += w;
+                choices.push({
+                    questionId: q.id,
+                    selectedOptionId: opt.id,
+                    archetype: opt.archetipo
+                });
+
+                const result = dfs(qIdx + 1);
+                if (result) return result;
+
+                scores[opt.archetipo] -= w;
+                choices.pop();
+            }
+            return null;
+        }
+
+        return dfs(0);
+    }
+
     function simulateArchetypeResult(primaryKey) {
+        // Check tie toggle state before closing modal
+        const tieToggle = document.getElementById('presetsTieToggle');
+        const simulateTie = tieToggle && tieToggle.checked;
+
         // Close modal
         const presetsModal = document.getElementById('surveyPresetsModal');
         if (presetsModal) {
@@ -894,48 +1180,105 @@
             document.body.style.overflow = '';
         }
 
-        // Initialize scores
+        // Reset state
         initializeScores();
+        state.tiedArchetypes = [];
+        state.tiebreakerAnswer = null;
 
-        // Netto scenario: primary 80, others distributed
-        state.scores[primaryKey] = 80;
-
-        const otherKeys = Object.keys(state.scores).filter(k => k !== primaryKey);
-        let remaining = 116; // 196 - 80
-        otherKeys.forEach((key, i) => {
-            if (remaining > 0) {
-                const pts = i === 0 ? 55 : Math.min(Math.floor(remaining / (otherKeys.length - i)), remaining);
-                state.scores[key] = pts;
-                remaining -= pts;
-            }
-        });
-
-        // Log simulation
+        // Log
         const primaryArchetypeData = getTranslatedArchetype(primaryKey);
         const primaryName = primaryArchetypeData ? primaryArchetypeData.nome : state.surveyData.archetipi[primaryKey].nome;
-        const simMsg = window.i18n
-            ? window.i18n.t('log_survey_simulation', { name: primaryName })
-            : `Simulazione: ${primaryName}`;
-        logSurveyActivity(simMsg);
 
-        // Create fake answers array (so restart works)
-        state.answers = new Array(10).fill(null).map((_, i) => ({
-            questionId: i + 1,
-            selectedOptionId: `${i + 1}A`,
-            archetype: 'connettore'
-        }));
-        state.currentQuestion = 9;
+        if (simulateTie) {
+            // Pick a random second archetype
+            const otherKeys = Object.keys(state.surveyData.archetipi).filter(k => k !== primaryKey);
+            const secondaryKey = otherKeys[Math.floor(Math.random() * otherKeys.length)];
+            const secondaryData = getTranslatedArchetype(secondaryKey);
+            const secondaryName = secondaryData ? secondaryData.nome : state.surveyData.archetipi[secondaryKey].nome;
 
-        // Create scores table and update it
-        createScoresTable();
-        updateScoresTable();
+            // Find Q1-Q10 answers that create an exact tie
+            const tieAnswers = findAnswersForTie(primaryKey, secondaryKey);
 
-        // Show results directly
-        elements.surveyIntro.hidden = true;
-        elements.surveyQuestions.hidden = true;
-        elements.surveyResults.hidden = false;
+            if (!tieAnswers) {
+                // Fallback: try with a different secondary (some pairs may not tie)
+                console.warn(`[SURVEY] No tie found for ${primaryKey} vs ${secondaryKey}, trying others...`);
+                let fallbackAnswers = null;
+                let fallbackSecondary = null;
+                for (const altKey of otherKeys) {
+                    if (altKey === secondaryKey) continue;
+                    fallbackAnswers = findAnswersForTie(primaryKey, altKey);
+                    if (fallbackAnswers) {
+                        fallbackSecondary = altKey;
+                        break;
+                    }
+                }
+                if (!fallbackAnswers) {
+                    console.error('[SURVEY] Could not find any tie combination for', primaryKey);
+                    return;
+                }
+                // Use fallback
+                state.answers = fallbackAnswers;
+                const fbData = getTranslatedArchetype(fallbackSecondary);
+                const fbName = fbData ? fbData.nome : state.surveyData.archetipi[fallbackSecondary].nome;
+                const simMsg = window.i18n
+                    ? window.i18n.t('log_survey_simulation', { name: primaryName })
+                    : `Simulazione: ${primaryName}`;
+                logSurveyActivity(`${simMsg} (pareggio con ${fbName})`);
+            } else {
+                state.answers = tieAnswers;
+                const simMsg = window.i18n
+                    ? window.i18n.t('log_survey_simulation', { name: primaryName })
+                    : `Simulazione: ${primaryName}`;
+                logSurveyActivity(`${simMsg} (pareggio con ${secondaryName})`);
+            }
 
-        showResults();
+            // Calculate real scores from the filled answers
+            calculateResults();
+            state.currentQuestion = getCurrentQuestions().length - 1; // Q10
+
+            // Set up tiebreaker state
+            state.tiedArchetypes = detectTie();
+
+            // Show survey at Q10 with answer pre-selected, then auto-advance to tiebreaker
+            elements.surveyIntro.hidden = true;
+            elements.surveyQuestions.hidden = false;
+            elements.surveyResults.hidden = true;
+
+            createScoresTable();
+            updateScoresTable();
+            renderQuestion();
+            updateProgress();
+            updateNavigation();
+
+            // Auto-advance from Q10 to tiebreaker after short delay
+            state._autoAdvanceTimer = setTimeout(() => {
+                state._autoAdvanceTimer = null;
+                goToNextQuestion();
+            }, 600);
+        } else {
+            // No-tie: fill Q1-Q9, show Q10 unanswered
+            state.answers = findAnswersForWin(primaryKey);
+            state.currentQuestion = getCurrentQuestions().length - 1; // Q10
+
+            // Calculate partial scores from Q1-Q9
+            calculatePartialScores();
+
+            const simMsg = window.i18n
+                ? window.i18n.t('log_survey_simulation', { name: primaryName })
+                : `Simulazione: ${primaryName}`;
+            logSurveyActivity(simMsg);
+
+            // Show survey at Q10
+            elements.surveyIntro.hidden = true;
+            elements.surveyQuestions.hidden = false;
+            elements.surveyResults.hidden = true;
+
+            createScoresTable();
+            updateScoresTable();
+            renderQuestion();
+            updateProgress();
+            updateNavigation();
+        }
     }
 
     // =========================================================================
@@ -1066,10 +1409,6 @@
         if (elements.prevBtn) {
             elements.prevBtn.addEventListener('click', goToPrevQuestion);
         }
-        if (elements.nextBtn) {
-            elements.nextBtn.addEventListener('click', goToNextQuestion);
-        }
-
         // Restart button
         if (elements.restartBtn) {
             elements.restartBtn.addEventListener('click', restartSurvey);
@@ -1109,7 +1448,7 @@
     // Main Init
     // =========================================================================
     async function init() {
-        console.log('[SURVEY] Initializing v3.5...');
+        console.log('[SURVEY] Initializing v4.0...');
 
         initializeElements();
 

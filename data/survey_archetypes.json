@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "versione": "v3.5",
+    "versione": "v4.0",
     "nome": "Survey Archetipi Professionali - Behavioural & Competency-Based",
     "descrizione": "Survey per determinare l'archetipo professionale dell'utente",
     "numero_domande": 10,
@@ -11,113 +11,113 @@
     "bcb_v3": {
       "id": "bcb_v3",
       "name": "Behavioural & Competency-Based",
-      "version": "3.5",
+      "version": "4.0",
       "i18n_key": "survey_bcb_v3",
       "domande": [
         {
           "id": 1,
-          "stem": "Hai una nuova attività in programma, ma poco tempo e poche indicazioni. Qual è il tuo primo passo?",
+          "stem": "Hai una nuova attività in programma, ma poche indicazioni. Qual è la prima cosa che fai?",
           "tema": "Gestione ambiguità / Avvio attività",
           "opzioni": [
             {
               "id": "1A",
-              "testo": "Chiedo un chiarimento a qualcuno, così capisco meglio.",
+              "testo": "Mi confronto con qualcuno per capire cosa è importante e cosa viene prima.",
               "archetipo": "connettore"
             },
             {
               "id": "1B",
-              "testo": "Prima di partire, controllo cosa serve e i dettagli.",
+              "testo": "Raccolgo le informazioni disponibili e mi soffermo sui dettagli.",
               "archetipo": "artigiano"
             },
             {
               "id": "1C",
-              "testo": "Scelgo un modo chiaro per svolgerla e procedo in quella direzione.",
+              "testo": "Stabilisco una direzione e parto.",
               "archetipo": "capitano"
             },
             {
               "id": "1D",
-              "testo": "Inizio dal primo passo utile, senza complicare le cose.",
+              "testo": "Parto dal primo passo che produce un risultato tangibile.",
               "archetipo": "pragmatico"
             }
           ]
         },
         {
           "id": 2,
-          "stem": "C'è stato un imprevisto che scombina i tuoi piani. Come lo risolvi?",
+          "stem": "Un imprevisto cambia i tuoi piani. Come reagisci?",
           "tema": "Problem solving / Gestione imprevisti",
           "opzioni": [
             {
               "id": "2A",
-              "testo": "Individuo una soluzione pratica e vado avanti.",
+              "testo": "Trovo una soluzione pratica e riparto.",
               "archetipo": "risolutore"
             },
             {
               "id": "2B",
-              "testo": "Provo un'alternativa per capire se funziona meglio.",
+              "testo": "Sperimento un modo diverso e mi adatto rapidamente.",
               "archetipo": "pioniere"
             },
             {
               "id": "2C",
-              "testo": "Chiedo aiuto alla persona giusta e decidiamo insieme cosa fare.",
+              "testo": "Mi confronto con qualcuno e decidiamo insieme come procedere.",
               "archetipo": "collaboratore"
             },
             {
               "id": "2D",
-              "testo": "Controllo una cosa alla volta, per individuare il problema.",
+              "testo": "Controllo con attenzione cosa è cambiato, un passo alla volta.",
               "archetipo": "artigiano"
             }
           ]
         },
         {
           "id": 3,
-          "stem": "Hai il compito di preparare qualcosa di importante non solo per te, ma anche per altri. Come procedi?",
+          "stem": "Devi preparare qualcosa di importante anche per altre persone. Come procedi?",
           "tema": "Responsabilità condivisa / Preparazione",
           "opzioni": [
             {
               "id": "3A",
-              "testo": "Controllo i dettagli e mi assicuro che sia fatto bene.",
+              "testo": "Mi assicuro che ogni dettaglio sia fatto bene.",
               "archetipo": "artigiano"
             },
             {
               "id": "3B",
-              "testo": "Mi confronto con gli altri per capire cosa serve e come farlo.",
+              "testo": "Coinvolgo gli altri per costruire insieme il modo migliore di farlo.",
               "archetipo": "collaboratore"
             },
             {
               "id": "3C",
-              "testo": "Scelgo il modo più semplice e lo porto a termine.",
+              "testo": "Individuo il modo più concreto per portarlo a termine.",
               "archetipo": "pragmatico"
             },
             {
               "id": "3D",
-              "testo": "Cambio un passaggio per renderlo più chiaro o più veloce.",
+              "testo": "Introduco un miglioramento che renda il risultato più utile.",
               "archetipo": "pioniere"
             }
           ]
         },
         {
           "id": 4,
-          "stem": "Hai molte cose da fare e poco tempo. Sei tu a decidere le priorità. Da dove inizi?",
+          "stem": "Hai svariati compiti da portare a termine e poco tempo. Da dove inizi?",
           "tema": "Gestione priorità / Time management",
           "opzioni": [
             {
               "id": "4A",
-              "testo": "Individuo l'attività più importante e parto da quella.",
+              "testo": "Decido cosa affrontare per primo e mi metto all'opera.",
               "archetipo": "capitano"
             },
             {
               "id": "4B",
-              "testo": "Decido 2-3 passi chiave, li metto in ordine e poi inizio.",
+              "testo": "Analizzo la situazione nel suo insieme e definisco le priorità.",
               "archetipo": "stratega"
             },
             {
               "id": "4C",
-              "testo": "Parto dall'attività che posso chiudere subito, così da avere meno cose da fare dopo.",
+              "testo": "Parto da ciò che posso chiudere subito e vado avanti.",
               "archetipo": "pragmatico"
             },
             {
               "id": "4D",
-              "testo": "Risolvo ciò che sta bloccando tutto e poi continuo.",
+              "testo": "Sblocco ciò che sta fermando tutto.",
               "archetipo": "risolutore"
             }
           ]
@@ -129,110 +129,110 @@
           "opzioni": [
             {
               "id": "5A",
-              "testo": "Provo subito e imparo mentre la svolgo.",
+              "testo": "Testo con prontezza il nuovo metodo e imparo facendolo.",
               "archetipo": "pioniere"
             },
             {
               "id": "5B",
-              "testo": "Prima capisco il nuovo metodo e mi organizzo per seguirlo bene.",
+              "testo": "Capisco come funziona il nuovo sistema e mi organizzo di conseguenza.",
               "archetipo": "stratega"
             },
             {
               "id": "5C",
-              "testo": "Mi confronto con gli altri per capire cosa funziona.",
+              "testo": "Mi confronto con gli altri per delineare cosa funziona meglio.",
               "archetipo": "connettore"
             },
             {
               "id": "5D",
-              "testo": "Seguo le regole e controllo di farla nel modo giusto.",
+              "testo": "Seguo le nuove indicazioni con attenzione e controllo che siano corrette.",
               "archetipo": "artigiano"
             }
           ]
         },
         {
           "id": 6,
-          "stem": "Ti accorgi che c'è un modo per migliorare un'attività che fai abitualmente. Cosa fai?",
+          "stem": "Ti accorgi che una procedura può essere migliorata. Cosa fai?",
           "tema": "Innovazione / Miglioramento continuo",
           "opzioni": [
             {
               "id": "6A",
-              "testo": "Faccio una piccola prova per capire se funziona.",
+              "testo": "Faccio una piccola prova per vedere se funziona.",
               "archetipo": "pioniere"
             },
             {
               "id": "6B",
-              "testo": "La rendo subito concreta: scelgo pochi passi chiari e parto.",
+              "testo": "Scelgo pochi passi chiari e li applico immediatamente.",
               "archetipo": "pragmatico"
             },
             {
               "id": "6C",
-              "testo": "Ne parlo con le persone coinvolte e ci mettiamo d'accordo.",
+              "testo": "Raccolgo i punti di vista di chi è coinvolto per trovare la soluzione migliore.",
               "archetipo": "connettore"
             },
             {
               "id": "6D",
-              "testo": "Valuto prima vantaggi e svantaggi, poi decido.",
+              "testo": "Valuto vantaggi e possibili rischi prima di agire.",
               "archetipo": "stratega"
             }
           ]
         },
         {
           "id": 7,
-          "stem": "Immagina di collaborare con un'altra persona: nasce un fraintendimento e la tensione aumenta. Come ti comporti?",
+          "stem": "Collaborando con un'altra persona nasce un fraintendimento e la tensione aumenta. Come ti comporti?",
           "tema": "Gestione conflitti / Relazioni tese",
           "opzioni": [
             {
               "id": "7A",
-              "testo": "Ascolto e provo a riportare calma e rispetto.",
+              "testo": "Ascolto con attenzione, riformulo e aiuto a riportare calma e rispetto.",
               "archetipo": "connettore"
             },
             {
               "id": "7B",
-              "testo": "Cerco un punto in comune e aiuto a chiarire cosa intende l'altra persona.",
+              "testo": "Cerco un punto in comune, costruendo qualcosa che funzioni per entrambi.",
               "archetipo": "collaboratore"
             },
             {
               "id": "7C",
-              "testo": "Riporto l'attenzione sull'obiettivo e comunico come procedere.",
+              "testo": "Riporto l'attenzione sull'obiettivo comune e indico il prossimo passo.",
               "archetipo": "capitano"
             },
             {
               "id": "7D",
-              "testo": "Propongo una soluzione pratica e la proviamo subito insieme.",
+              "testo": "Propongo un'azione pratica da adottare senza aspettare.",
               "archetipo": "risolutore"
             }
           ]
         },
         {
           "id": 8,
-          "stem": "Sei in un gruppo per un progetto, ma manca chiarezza. Come risolvi?",
-          "tema": "Coordinamento gruppo / Team disallineato",
+          "stem": "In un lavoro di squadra manca chiarezza e i tempi stringono. Come intervieni?",
+          "tema": "Coordinamento gruppo / Team sotto pressione",
           "opzioni": [
             {
               "id": "8A",
-              "testo": "Metto in comune le informazioni: faccio parlare tutti un attimo e chiarisco cosa serve a ciascuno.",
+              "testo": "Condivido le informazioni per allineare tutti.",
               "archetipo": "connettore"
             },
             {
               "id": "8B",
-              "testo": "Lavoro insieme agli altri: mi adatto e do una mano dove serve.",
+              "testo": "Aiuto il gruppo a coordinarsi e a dividersi i compiti.",
               "archetipo": "collaboratore"
             },
             {
               "id": "8C",
-              "testo": "Propongo un modo chiaro per procedere e invito gli altri a seguirlo.",
+              "testo": "Scelgo come procedere e propongo azioni precise.",
               "archetipo": "capitano"
             },
             {
               "id": "8D",
-              "testo": "Parto dall'aspetto più urgente, così il lavoro riparte e gli altri possono collaborare.",
+              "testo": "Mi occupo subito di ciò che non può aspettare.",
               "archetipo": "pragmatico"
             }
           ]
         },
         {
           "id": 9,
-          "stem": "Decidi di intervenire per sistemare un possibile problema che hai notato. Qual è la tua mossa?",
+          "stem": "Noti un problema prima che diventi evidente. Come intervieni?",
           "tema": "Intervento proattivo / Problem prevention",
           "opzioni": [
             {
@@ -242,49 +242,113 @@
             },
             {
               "id": "9B",
-              "testo": "Prima penso alla soluzione migliore, poi intervengo.",
+              "testo": "Punto sulla soluzione più efficace anche nel lungo periodo.",
               "archetipo": "stratega"
             },
             {
               "id": "9C",
-              "testo": "Risolvo in modo rapido, così da non creare altri problemi.",
+              "testo": "Intervengo rapidamente per evitare conseguenze.",
               "archetipo": "risolutore"
             },
             {
               "id": "9D",
-              "testo": "Provo un approccio diverso per sistemarlo meglio o più facilmente.",
+              "testo": "Provo un'alternativa che possa funzionare meglio.",
               "archetipo": "pioniere"
             }
           ]
         },
         {
           "id": 10,
-          "stem": "Lavoro di squadra sotto pressione: tante attività, più persone, poco tempo. Devi aiutare il gruppo a funzionare meglio. Come intervieni?",
-          "tema": "Leadership situazionale / Team sotto stress",
+          "stem": "Una persona ti ringrazia per il tuo lavoro. Cosa ti soddisfa di più?",
+          "tema": "Valori / Soddisfazione personale",
           "opzioni": [
             {
               "id": "10A",
-              "testo": "Mi assicuro che ci si capisca e che ci si dia una mano.",
+              "testo": "Aver raggiunto con gli altri un risultato comune.",
               "archetipo": "collaboratore"
             },
             {
               "id": "10B",
-              "testo": "Metto ordine: decido cosa fare prima e cosa dopo.",
+              "testo": "Aver raggiunto l'obiettivo che mi ero prefissato.",
               "archetipo": "stratega"
             },
             {
               "id": "10C",
-              "testo": "Propongo un modo chiaro per procedere e lo seguiamo.",
+              "testo": "Aver portato a termine la responsabilità che avevo.",
               "archetipo": "capitano"
             },
             {
               "id": "10D",
-              "testo": "Risolvo la cosa più urgente e poi vado avanti.",
+              "testo": "Aver risolto un problema reale.",
               "archetipo": "risolutore"
             }
           ]
         }
-      ]
+      ],
+      "tiebreaker": {
+        "id": 11,
+        "stem": "Quando prendi una decisione importante, cosa ti guida di più?",
+        "opzioni": [
+          {
+            "id": "11A",
+            "testo": "L'obiettivo finale che voglio raggiungere"
+          },
+          {
+            "id": "11B",
+            "testo": "Il risultato concreto e immediato"
+          },
+          {
+            "id": "11C",
+            "testo": "La qualità e la precisione del processo"
+          },
+          {
+            "id": "11D",
+            "testo": "Il coinvolgimento e il contributo delle persone"
+          }
+        ],
+        "weights": {
+          "A": {
+            "stratega": 167,
+            "capitano": 163,
+            "artigiano": 23,
+            "collaboratore": 19,
+            "connettore": 17,
+            "pioniere": 13,
+            "pragmatico": 11,
+            "risolutore": 7
+          },
+          "B": {
+            "risolutore": 157,
+            "pragmatico": 151,
+            "capitano": 149,
+            "artigiano": 29,
+            "collaboratore": 31,
+            "connettore": 37,
+            "pioniere": 41,
+            "stratega": 43
+          },
+          "C": {
+            "artigiano": 139,
+            "stratega": 137,
+            "capitano": 47,
+            "collaboratore": 53,
+            "connettore": 59,
+            "pioniere": 61,
+            "pragmatico": 67,
+            "risolutore": 71
+          },
+          "D": {
+            "connettore": 131,
+            "collaboratore": 127,
+            "pioniere": 113,
+            "artigiano": 73,
+            "capitano": 79,
+            "pragmatico": 83,
+            "risolutore": 89,
+            "stratega": 97
+          }
+        }
+      }
     }
   },
   "archetipi": {
@@ -394,15 +458,15 @@
     "default_survey": "bcb_v3"
   },
   "questionWeights": {
-    "Q1": 6,
-    "Q2": 20,
-    "Q3": 17,
-    "Q4": 31,
-    "Q5": 31,
-    "Q6": 6,
-    "Q7": 17,
-    "Q8": 38,
-    "Q9": 24,
-    "Q10": 6
+    "Q1": 12,
+    "Q2": 19,
+    "Q3": 18,
+    "Q4": 25,
+    "Q5": 25,
+    "Q6": 12,
+    "Q7": 18,
+    "Q8": 28,
+    "Q9": 21,
+    "Q10": 12
   }
 }

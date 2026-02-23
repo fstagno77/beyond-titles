@@ -10,7 +10,7 @@ Beyond Titles uses local JSON files as its database, loaded via Fetch API at app
 
 | Field | Value |
 |---|---|
-| Version | v3.5 |
+| Version | v4.0 |
 | Format | Behavioural & Competency-Based |
 | Questions | 10 |
 | Options per question | 4 |
@@ -20,7 +20,7 @@ Beyond Titles uses local JSON files as its database, loaded via Fetch API at app
 
 | ID | Name | Access |
 |---|---|---|
-| `bcb_v3` | Behavioural & Competency-Based v3.5 | Open (default) |
+| `bcb_v3` | Behavioural & Competency-Based v4.0 | Open (default) |
 
 ### 8 Professional Archetypes
 
@@ -44,7 +44,7 @@ For each answered question:
 
 Ranking:
   sort archetypes by decreasing score
-  tie-break: alphabetical order (deterministic)
+  tie-break: conditional Q11 tiebreaker with prime weight matrix
 
 Result:
   always a single dominant archetype

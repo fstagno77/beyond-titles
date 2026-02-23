@@ -99,7 +99,7 @@ For each of the 10 questions:
   → Live scores table update in log
     ↓
 Results calculation:
-  → Archetype ranking by decreasing score (tie-break: alphabetical order)
+  → Archetype ranking by decreasing score (tie-break: conditional Q11 with prime weight matrix)
   → Always a clear profile: a single dominant archetype
     ↓
 Results rendering:

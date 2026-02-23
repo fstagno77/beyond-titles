@@ -37,7 +37,7 @@ beyond-titles/
 │   └── survey.js                 # Survey system (~1465 lines)
 ├── data/
 │   ├── mansioni_database.json    # Roles database (604 entries)
-│   └── survey_archetypes.json   # Survey data (v3.5, Behavioural & Competency-Based)
+│   └── survey_archetypes.json   # Survey data (v4.0, Behavioural & Competency-Based)
 ├── assets/
 │   ├── logoBeyondTitles.png      # Header logo
 │   └── favicon.jpg               # Favicon
@@ -52,9 +52,9 @@ Assessment with 10 single-choice questions:
 
 | Survey | Version | Access |
 |---|---|---|
-| Behavioural & Competency-Based | v3.5 | Open — **default** |
+| Behavioural & Competency-Based | v4.0 | Open — **default** |
 
-The system identifies 8 professional archetypes and always returns a **single dominant archetype**. In case of a tie, the tie-break is deterministic (alphabetical order).
+The system identifies 8 professional archetypes and always returns a **single dominant archetype**. In case of a tie, the system presents a conditional tiebreaker question (Q11) with a prime number weight matrix for mathematically guaranteed resolution.
 
 ### 2. System Activity Log
 
@@ -62,4 +62,4 @@ Side debug panel that shows all operations in real time: user input, matching lo
 
 ## Current Version
 
-**v0.15.0** — Last updated: 11 February 2026
+**v0.18.0** — Last updated: 23 February 2026

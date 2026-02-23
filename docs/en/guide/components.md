@@ -36,7 +36,7 @@ The panel has three mutually exclusive states:
 
 #### 1. Intro (`#survey-intro`)
 - Title and subtitle "Beyond Titles"
-- Survey type selector (Behavioural & Competency-Based v3.5)
+- Survey type selector (Behavioural & Competency-Based v4.0)
 - "Start" button
 - "Suggestions" link to open the preset modal
 

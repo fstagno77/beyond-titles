@@ -2,7 +2,16 @@
 
 Log delle modifiche al progetto, organizzato per versione e data.
 
-## v0.17.0 <Badge type="tip" text="corrente" />
+## v0.18.0 <Badge type="tip" text="corrente" />
+
+**23 febbraio 2026**
+
+- **Pulizia i18n**: rimosse tutte le chiavi legacy `survey_q1`–`survey_q10` (IT/EN), l'applicazione usa esclusivamente le chiavi `bcb3_q*`
+- **British English**: standardizzazione ortografica coerente su tutte le stringhe EN (organise, analyse, optimise, centre)
+- **Correzioni traduzioni EN**: Q7 "How do you behave?" → "What do you do?", Q9 "How do you step in?" → "What do you do?"
+- **Wiki IT/EN**: aggiornato tie-break da "ordine alfabetico" a tiebreaker Q11, versione corrente allineata, architettura aggiornata
+
+## v0.17.0
 
 **20 febbraio 2026**
 

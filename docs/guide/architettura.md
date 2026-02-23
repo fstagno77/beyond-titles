@@ -99,7 +99,7 @@ Per ciascuna delle 10 domande:
   → Aggiornamento tabella punteggi live nel log
     ↓
 Calcolo risultati:
-  → Ranking archetipi per punteggio (tie-break: ordine alfabetico)
+  → Ranking archetipi per punteggio (tie-break: Q11 condizionale con matrice pesi primi)
   → Sempre profilo netto: un singolo archetipo dominante
     ↓
 Rendering risultati:

@@ -340,7 +340,7 @@
                 list: archetipiList
             });
         } else {
-            message = `Loaded survey_archetypes.json v4.0 - ${numDomande} domande, ${numArchetipi} archetipi, ${numSurveys} surveys (${archetipiList})`;
+            message = `Loaded survey_archetypes.json v4.1 - ${numDomande} domande, ${numArchetipi} archetipi, ${numSurveys} surveys (${archetipiList})`;
         }
 
         entry.innerHTML = `${timestamp} ${typeLabel} <span class="system-log__message">${message}</span>`;
@@ -1448,7 +1448,7 @@
     // Main Init
     // =========================================================================
     async function init() {
-        console.log('[SURVEY] Initializing v4.0...');
+        console.log('[SURVEY] Initializing v4.1...');
 
         initializeElements();
 

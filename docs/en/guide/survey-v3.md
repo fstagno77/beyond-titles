@@ -1,10 +1,10 @@
-# Behavioural & Competency-Based v4.0
+# Behavioural & Competency-Based v4.1
 
 ## Overview
 
-The **Behavioural & Competency-Based v4.0** is the default survey of the Beyond Titles platform. It is a **Behavioural & Competency-Based** single-choice questionnaire, designed by Subsense to identify the user's professional archetype through 10 concrete situations, with a conditional tiebreaker question (Q11) for resolving ties.
+The **Behavioural & Competency-Based v4.1** is the default survey of the Beyond Titles platform. It is a **Behavioural & Competency-Based** single-choice questionnaire, designed by Subsense to identify the user's professional archetype through 10 concrete situations, with a conditional tiebreaker question (Q11) for resolving ties.
 
-**Version:** v4.0 — 20 February 2026
+**Version:** v4.1 — 27 February 2026
 **Internal ID:** `bcb_v3`
 **Access:** Open (no password)
 **Status:** Default survey (only active survey)
@@ -113,7 +113,7 @@ Every archetype has an identical maximum score = **95 points** out of 190 total 
 
 ## What's New from v3.5
 
-v4.0 introduces:
+v4.1 introduces:
 
 1. **Complete rewrite of all questions** for maximum editorial quality and linguistic accessibility
 2. **Redesigned Q10** — new "Values / Personal satisfaction" dimension (replaces "Situational leadership / Team under stress")
@@ -133,11 +133,11 @@ The previous rule (alphabetical order) created structural bias (Craftsman favour
 
 ### Solution
 
-**Question:** "When you make an important decision, what guides you most?"
-- A: The final goal I want to reach
-- B: The concrete and immediate result
-- C: The quality and precision of the process
-- D: The involvement and contribution of people
+**Question:** "You're facing an important decision. What guides you most?"
+- A: The outcome I ultimately want to achieve.
+- B: The immediate, concrete result.
+- C: The quality and rigour of the process.
+- D: The involvement and contribution of others.
 
 Q11 appears **only** when 2+ archetypes have identical scores after the first 10 questions. Each combination (answer, archetype) has a unique prime weight (32 distinct prime numbers, range 7-167) that guarantees mathematical resolution of the tie.
 
@@ -175,9 +175,9 @@ Where `Ex` = set of tied archetypes, `r` = Q11 answer, `P[r][a]` = prime weight 
 
 ## Test Results
 
-The automated test suite (`scripts/`) verifies the correct functioning of survey v4.0 through exhaustive enumeration of all 1,048,576 possible combinations (4^10) and Monte Carlo simulations.
+The automated test suite (`scripts/`) verifies the correct functioning of survey v4.1 through exhaustive enumeration of all 1,048,576 possible combinations (4^10) and Monte Carlo simulations.
 
-### Exhaustive Enumeration (v4.0 weights: 12-28)
+### Exhaustive Enumeration (v4.1 weights: 12-28)
 
 | Metric | Result |
 |---|---|
@@ -233,10 +233,10 @@ When a tie occurs, the user's Q11 answer determines the winner:
 
 | Q11 Answer | Most favoured archetypes |
 |---|---|
-| **A** — The final goal | Strategist (25.3%), Captain (20.3%), Craftsman (17.7%) |
-| **B** — Concrete result | Resolver (25.1%), Captain (20.5%), Pragmatist (18.3%) |
-| **C** — Quality and precision | Strategist (25.1%), Craftsman (24.9%), Resolver (23.7%) |
-| **D** — People involvement | Collaborator (24.9%), Connector (23.9%), Pioneer (14.5%) |
+| **A** — The ultimate outcome | Strategist (25.3%), Captain (20.3%), Craftsman (17.7%) |
+| **B** — Immediate result | Resolver (25.1%), Captain (20.5%), Pragmatist (18.3%) |
+| **C** — Quality and rigour | Strategist (25.1%), Craftsman (24.9%), Resolver (23.7%) |
+| **D** — Involvement of others | Collaborator (24.9%), Connector (23.9%), Pioneer (14.5%) |
 
 ### Test Summary
 
@@ -311,4 +311,5 @@ Questions with higher weights (Q8 = 28, Q4/Q5 = 25) have greater impact on the f
 | v3.3 | 9 Feb 2026 | Q10 rewritten, legacy survey cleanup |
 | v3.4 | 9 Feb 2026 | Linguistic refinements on 23 options/stems |
 | v3.5 | 11 Feb 2026 | New #BeyondTitles intro text, stem differentiation Q3/Q8/Q10 |
-| **v4.0** | **20 Feb 2026** | **Complete question rewrite, Q10 new dimension, tiebreaker Q11 with prime weights, compressed weights 12-28 (Scenario C), spread 1.18 pp** |
+| v4.0 | 20 Feb 2026 | Complete question rewrite, Q10 new dimension, tiebreaker Q11 with prime weights, compressed weights 12-28 (Scenario C), spread 1.18 pp |
+| **v4.1** | **27 Feb 2026** | **Gi Group wording review: 8 Italian text changes, complete English translation rewrite** |

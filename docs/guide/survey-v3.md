@@ -1,10 +1,10 @@
-# Behavioural & Competency-Based v4.0
+# Behavioural & Competency-Based v4.1
 
 ## Panoramica
 
-La **Behavioural & Competency-Based v4.0** è la survey di default della piattaforma Beyond Titles. Si tratta di un questionario **Behavioural & Competency-Based** in formato single-choice, progettato da Subsense per identificare l'archetipo professionale dell'utente attraverso 10 situazioni concrete, con domanda tiebreaker condizionale (Q11) per la risoluzione degli ex aequo.
+La **Behavioural & Competency-Based v4.1** è la survey di default della piattaforma Beyond Titles. Si tratta di un questionario **Behavioural & Competency-Based** in formato single-choice, progettato da Subsense per identificare l'archetipo professionale dell'utente attraverso 10 situazioni concrete, con domanda tiebreaker condizionale (Q11) per la risoluzione degli ex aequo.
 
-**Versione:** v4.0 — 20 febbraio 2026
+**Versione:** v4.1 — 27 febbraio 2026
 **ID interno:** `bcb_v3`
 **Accesso:** Libero (nessuna password)
 **Stato:** Survey di default (unica survey attiva)
@@ -113,7 +113,7 @@ Ogni archetipo ha punteggio massimo identico = **95 punti** su 190 totali (50%):
 
 ## Novità dalla v3.5
 
-La v4.0 introduce:
+La v4.1 introduce:
 
 1. **Riscrittura completa delle domande** per massimizzare qualità editoriale e accessibilità linguistica
 2. **Q10 riprogettata** — nuova dimensione "Valori / Soddisfazione personale" (sostituisce "Leadership situazionale / Team sotto stress")
@@ -123,7 +123,7 @@ La v4.0 introduce:
 
 ### Principali differenze testuali
 
-| Domanda | v3.5 | v4.0 |
+| Domanda | v3.5 | v4.1 |
 |---|---|---|
 | Q1 stem | "...ma poco tempo e poche indicazioni. Qual è il tuo primo passo?" | "...ma poche indicazioni. Qual è la prima cosa che fai?" |
 | Q2 stem | "C'è stato un imprevisto che scombina i tuoi piani. Come lo risolvi?" | "Un imprevisto cambia i tuoi piani. Come reagisci?" |
@@ -189,9 +189,9 @@ Dove `Ex` = set archetipi in ex aequo, `r` = risposta Q11, `P[r][a]` = peso prim
 
 ## Risultati dei Test
 
-La suite di test automatizzati (`scripts/`) verifica il corretto funzionamento della survey v4.0 tramite enumerazione esaustiva di tutte le 1.048.576 combinazioni possibili (4^10) e simulazioni Monte Carlo.
+La suite di test automatizzati (`scripts/`) verifica il corretto funzionamento della survey v4.1 tramite enumerazione esaustiva di tutte le 1.048.576 combinazioni possibili (4^10) e simulazioni Monte Carlo.
 
-### Enumerazione Esaustiva (pesi v4.0: 12-28)
+### Enumerazione Esaustiva (pesi v4.1: 12-28)
 
 | Metrica | Risultato |
 |---|---|
@@ -325,4 +325,5 @@ Le domande con peso maggiore (Q8 = 28, Q4/Q5 = 25) hanno maggiore impatto sulla 
 | v3.3 | 9 Feb 2026 | Q10 riscritta, pulizia survey legacy |
 | v3.4 | 9 Feb 2026 | Raffinamenti linguistici su 23 opzioni/stem |
 | v3.5 | 11 Feb 2026 | Nuovo testo intro #BeyondTitles, differenziazione stem Q3/Q8/Q10 |
-| **v4.0** | **20 Feb 2026** | **Riscrittura completa domande, Q10 nuova dimensione, tiebreaker Q11 con pesi primi, pesi compressi 12-28 (Scenario C), spread 1,18 pp** |
+| v4.0 | 20 Feb 2026 | Riscrittura completa domande, Q10 nuova dimensione, tiebreaker Q11 con pesi primi, pesi compressi 12-28 (Scenario C), spread 1,18 pp |
+| **v4.1** | **27 Feb 2026** | **Revisione wording IT/EN con Gi Group: 8 modifiche testo italiano, riscrittura completa traduzione inglese** |

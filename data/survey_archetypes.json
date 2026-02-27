@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "versione": "v4.0",
+    "versione": "v4.1",
     "nome": "Survey Archetipi Professionali - Behavioural & Competency-Based",
     "descrizione": "Survey per determinare l'archetipo professionale dell'utente",
     "numero_domande": 10,
@@ -11,7 +11,7 @@
     "bcb_v3": {
       "id": "bcb_v3",
       "name": "Behavioural & Competency-Based",
-      "version": "4.0",
+      "version": "4.1",
       "i18n_key": "survey_bcb_v3",
       "domande": [
         {
@@ -31,7 +31,7 @@
             },
             {
               "id": "1C",
-              "testo": "Stabilisco una direzione e parto.",
+              "testo": "Stabilisco una direzione chiara e parto.",
               "archetipo": "capitano"
             },
             {
@@ -107,7 +107,7 @@
             },
             {
               "id": "4B",
-              "testo": "Analizzo la situazione nel suo insieme e definisco le priorità.",
+              "testo": "Faccio un passo indietro, analizzo la situazione nel suo insieme e definisco le priorità.",
               "archetipo": "stratega"
             },
             {
@@ -134,7 +134,7 @@
             },
             {
               "id": "5B",
-              "testo": "Capisco come funziona il nuovo sistema e mi organizzo di conseguenza.",
+              "testo": "Capisco come funziona il nuovo sistema, poi mi organizzo di conseguenza.",
               "archetipo": "stratega"
             },
             {
@@ -183,12 +183,12 @@
           "opzioni": [
             {
               "id": "7A",
-              "testo": "Ascolto con attenzione, riformulo e aiuto a riportare calma e rispetto.",
+              "testo": "Ascolto con attenzione, riformulo quanto è stato detto e aiuto a riportare calma e rispetto.",
               "archetipo": "connettore"
             },
             {
               "id": "7B",
-              "testo": "Cerco un punto in comune, costruendo qualcosa che funzioni per entrambi.",
+              "testo": "Cerco un punto in comune e costruisco qualcosa che funzioni per entrambi.",
               "archetipo": "collaboratore"
             },
             {
@@ -198,7 +198,7 @@
             },
             {
               "id": "7D",
-              "testo": "Propongo un'azione pratica da adottare senza aspettare.",
+              "testo": "Propongo un'azione pratica da adottare e agisco immediatamente.",
               "archetipo": "risolutore"
             }
           ]
@@ -237,12 +237,12 @@
           "opzioni": [
             {
               "id": "9A",
-              "testo": "Lo sistemo con cura, occupandomi anche dei dettagli.",
+              "testo": "Lo sistemo con cura, occupandomi con attenzione dei dettagli.",
               "archetipo": "artigiano"
             },
             {
               "id": "9B",
-              "testo": "Punto sulla soluzione più efficace anche nel lungo periodo.",
+              "testo": "Punto sulla soluzione più efficace, anche se richiede più tempo.",
               "archetipo": "stratega"
             },
             {

@@ -36,7 +36,7 @@ Il pannello ha tre stati, mutuamente esclusivi:
 
 #### 1. Intro (`#survey-intro`)
 - Titolo e sottotitolo "Beyond Titles"
-- Selettore tipo survey (Behavioural & Competency-Based v4.0)
+- Selettore tipo survey (Behavioural & Competency-Based v4.1)
 - Pulsante "Inizia"
 - Link "Suggerimenti" per aprire la modale preset
 

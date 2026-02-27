@@ -37,7 +37,7 @@ beyond-titles/
 │   └── survey.js                 # Sistema survey (~1465 righe)
 ├── data/
 │   ├── mansioni_database.json    # Database mansioni (604 voci)
-│   └── survey_archetypes.json   # Dati survey (v4.0, Behavioural & Competency-Based)
+│   └── survey_archetypes.json   # Dati survey (v4.1, Behavioural & Competency-Based)
 ├── assets/
 │   ├── logoBeyondTitles.png      # Logo header
 │   └── favicon.jpg               # Favicon
@@ -52,7 +52,7 @@ Assessment con 10 domande a risposta singola:
 
 | Survey | Versione | Accesso |
 |---|---|---|
-| Behavioural & Competency-Based | v4.0 | Libero — **default** |
+| Behavioural & Competency-Based | v4.1 | Libero — **default** |
 
 Il sistema identifica 8 archetipi professionali e restituisce sempre un **singolo archetipo dominante**. In caso di parità, il sistema presenta una domanda tiebreaker condizionale (Q11) con matrice di pesi a numeri primi per una risoluzione matematicamente garantita.
 

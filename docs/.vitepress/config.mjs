@@ -41,8 +41,8 @@ export default defineConfig({
             text: 'Modello',
             items: [
               { text: 'Modello K8', link: '/guide/modello-k8' },
-              { text: 'BCB v4.0', link: '/guide/survey-v3' },
-              { text: 'Bilanciamento v4.0', link: '/guide/bilanciamento-v4' },
+              { text: 'BCB v4.1', link: '/guide/survey-v3' },
+              { text: 'Bilanciamento v4.1', link: '/guide/bilanciamento-v4' },
               { text: 'Pipeline Dati', link: '/guide/pipeline-dati' }
             ]
           },
@@ -99,8 +99,8 @@ export default defineConfig({
             text: 'Model',
             items: [
               { text: 'K8 Model', link: '/en/guide/k8-model' },
-              { text: 'BCB v4.0', link: '/en/guide/survey-v3' },
-              { text: 'Balance v4.0', link: '/en/guide/balance-v4' },
+              { text: 'BCB v4.1', link: '/en/guide/survey-v3' },
+              { text: 'Balance v4.1', link: '/en/guide/balance-v4' },
               { text: 'Data Pipeline', link: '/en/guide/data-pipeline' }
             ]
           },

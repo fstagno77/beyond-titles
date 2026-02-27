@@ -78,18 +78,18 @@ Passare a un sistema **single-choice** con 4 opzioni per domanda, ciascuna mappa
 **Data:** 28 gennaio 2026 | **Stato:** Accettata
 
 ### Contesto
-Dopo la validazione della survey BCB v1.0, sono state testate versioni riformulate (v2.0) e formati diversi (SJT). La v4.0 (Behavioural & Competency-Based) è risultata la versione definitiva.
+Dopo la validazione della survey BCB v1.0, sono state testate versioni riformulate (v2.0) e formati diversi (SJT). La v4.1 (Behavioural & Competency-Based) è risultata la versione definitiva.
 
 ### Decisione
-Ristrutturare `survey_archetypes.json` in formato v4.0 con la sola Behavioural & Competency-Based. Le survey legacy (BCB v1.0, v2.0, SJT v1.0) sono state rimosse dopo la fase di A/B testing.
+Ristrutturare `survey_archetypes.json` in formato v4.1 con la sola Behavioural & Competency-Based. Le survey legacy (BCB v1.0, v2.0, SJT v1.0) sono state rimosse dopo la fase di A/B testing.
 
 ### Motivazione
-- La Behavioural & Competency-Based v4.0 è la versione validata e definitiva
+- La Behavioural & Competency-Based v4.1 è la versione validata e definitiva
 - Semplificazione del codice e dei dati rimuovendo le survey non più necessarie
 - Riduzione delle traduzioni e della complessità del sistema
 
 ### Conseguenze
-- Struttura JSON con formato v4.0 (oggetto radice con chiavi per survey)
+- Struttura JSON con formato v4.1 (oggetto radice con chiavi per survey)
 - Persistenza della selezione in localStorage per comodità utente
 
 ---

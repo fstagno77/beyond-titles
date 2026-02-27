@@ -2,7 +2,15 @@
 
 Log delle modifiche al progetto, organizzato per versione e data.
 
-## v0.18.0 <Badge type="tip" text="corrente" />
+## v0.19.0 <Badge type="tip" text="corrente" />
+
+**27 febbraio 2026**
+
+- **Survey v4.1**: revisione wording italiano con Gi Group (8 modifiche testuali)
+- **Survey v4.1**: riscrittura completa traduzione inglese con revisione Gi Group
+- Aggiornamento wiki IT/EN: versione survey v4.1, tabella evoluzione
+
+## v0.18.0
 
 **23 febbraio 2026**
 

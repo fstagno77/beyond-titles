@@ -2,7 +2,15 @@
 
 Project change log, organised by version and date.
 
-## v0.18.0 <Badge type="tip" text="current" />
+## v0.19.0 <Badge type="tip" text="current" />
+
+**27 February 2026**
+
+- **Survey v4.1**: Italian wording review with Gi Group (8 text changes)
+- **Survey v4.1**: complete English translation rewrite with Gi Group review
+- Wiki update (IT/EN): survey version v4.1, evolution table
+
+## v0.18.0
 
 **23 February 2026**
 

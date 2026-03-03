@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Behavioural & Competency-Based v4.1** is the default survey of the Beyond Titles platform. It is a **Behavioural & Competency-Based** single-choice questionnaire, designed by Subsense to identify the user's professional archetype through 10 concrete situations, with a conditional tiebreaker question (Q11) for resolving ties.
+The **Behavioural & Competency-Based v4.1** is the default survey of the Beyond platform. It is a **Behavioural & Competency-Based** single-choice questionnaire, designed by Subsense to identify the user's professional archetype through 10 concrete situations, with a conditional tiebreaker question (Q11) for resolving ties.
 
 **Version:** v4.1 — 27 February 2026
 **Internal ID:** `bcb_v3`

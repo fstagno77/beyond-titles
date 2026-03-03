@@ -21,7 +21,7 @@ L'applicazione usa un layout a due colonne su desktop (hero + system log) che co
 
 **File:** `js/components.js`
 
-- Logo Beyond Titles (link a `index.html`)
+- Logo Beyond (link a `index.html`)
 - Language toggle (IT/EN) con bandiera e codice lingua
 - Background: blu Gi Group (`#0056b3`), altezza fissa 64px
 - Il toggle emette `CustomEvent('languageChanged')` al cambio lingua
@@ -35,7 +35,7 @@ L'applicazione usa un layout a due colonne su desktop (hero + system log) che co
 Il pannello ha tre stati, mutuamente esclusivi:
 
 #### 1. Intro (`#survey-intro`)
-- Titolo e sottotitolo "Beyond Titles"
+- Titolo e sottotitolo "Beyond"
 - Selettore tipo survey (Behavioural & Competency-Based v4.1)
 - Pulsante "Inizia"
 - Link "Suggerimenti" per aprire la modale preset
@@ -83,7 +83,7 @@ Griglia di 8 card archetipo per simulare rapidamente un risultato:
 
 **File:** `js/components.js`
 
-- Testo versione: "Beyond Titles v0.15.0"
+- Testo versione: "Beyond v0.15.0"
 - Link al changelog (punta alla documentazione wiki VitePress)
 - Iniettato dinamicamente da `components.js` per consistenza tra le pagine
 

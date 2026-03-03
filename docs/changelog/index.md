@@ -2,7 +2,14 @@
 
 Log delle modifiche al progetto, organizzato per versione e data.
 
-## v0.19.1 <Badge type="tip" text="corrente" />
+## v0.20.0 <Badge type="tip" text="corrente" />
+
+**3 marzo 2026**
+
+- **Rebranding**: piattaforma rinominata da "Beyond Titles" a "Beyond" in tutta l'app e nel wiki
+- Nuovo logo Beyond
+
+## v0.19.1
 
 **3 marzo 2026**
 

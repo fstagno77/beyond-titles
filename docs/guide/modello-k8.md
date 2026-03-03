@@ -18,7 +18,7 @@ Gli archetipi **non derivano** dalle mansioni ma sono definiti teoricamente come
 
 ### 3. Ruolo della survey
 
-L'archetipo dell'utente emerge dalle risposte su competenze e attitudini, non dalla dichiarazione di un ruolo lavorativo. Questo è coerente con il messaggio Beyond Titles di andare oltre il proprio titolo professionale.
+L'archetipo dell'utente emerge dalle risposte su competenze e attitudini, non dalla dichiarazione di un ruolo lavorativo. Questo è coerente con il messaggio di Beyond di andare oltre il proprio titolo professionale.
 
 ## Soft Skill Indicative
 

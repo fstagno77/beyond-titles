@@ -18,7 +18,7 @@ Archetypes **do not derive** from roles but are theoretically defined as combina
 
 ### 3. Role of the survey
 
-The user's archetype emerges from answers about competencies and attitudes, not from declaring a job role. This is consistent with the Beyond Titles message of going beyond one's professional title.
+The user's archetype emerges from answers about competencies and attitudes, not from declaring a job role. This is consistent with the Beyond message of going beyond one's professional title.
 
 ## Indicative Soft Skills
 

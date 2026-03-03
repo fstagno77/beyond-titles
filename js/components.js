@@ -3,7 +3,7 @@
  * Centralized header and footer management
  */
 
-const CURRENT_VERSION = '0.19.1';
+const CURRENT_VERSION = '0.20.0';
 
 /**
  * Renders the header component
@@ -14,7 +14,7 @@ function renderHeader(currentPage = 'index') {
         <div class="header-wrap">
             <header class="header">
                 <a href="index.html" class="header__logo-link">
-                    <img src="assets/logoBeyondTitles.png" alt="Beyond Titles" class="header__logo">
+                    <img src="assets/logoBeyondTitles.png" alt="Beyond" class="header__logo">
                 </a>
                 <button id="langToggle" class="lang-toggle" aria-label="Switch language">
                     <span class="lang-toggle__flag">🇮🇹</span>
@@ -36,7 +36,7 @@ function renderFooter() {
     const wikiLangPrefix = lang === 'en' ? 'en/' : '';
     const footerHTML = `
         <footer class="footer">
-            <p class="footer__text">Beyond Titles v${CURRENT_VERSION} | <a href="wiki/${wikiLangPrefix}changelog/index.html" class="footer__link" target="_blank" data-i18n="footer_changelog">Changelog</a> | <a href="wiki/${wikiLangPrefix}index.html" class="footer__link" target="_blank">Wiki</a></p>
+            <p class="footer__text">Beyond v${CURRENT_VERSION} | <a href="wiki/${wikiLangPrefix}changelog/index.html" class="footer__link" target="_blank" data-i18n="footer_changelog">Changelog</a> | <a href="wiki/${wikiLangPrefix}index.html" class="footer__link" target="_blank">Wiki</a></p>
         </footer>
     `;
 

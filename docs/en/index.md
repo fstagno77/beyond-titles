@@ -1,6 +1,6 @@
 # Overview
 
-**Beyond Titles** is a behavioural assessment system for the Gi Group Digital Platform, designed to identify professional archetypes through competency-based surveys.
+**Beyond** is a behavioural assessment system for the Gi Group Digital Platform, designed to identify professional archetypes through competency-based surveys.
 
 ## Objectives
 

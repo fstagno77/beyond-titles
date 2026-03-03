@@ -2,7 +2,7 @@
 
 ## Panoramica
 
-Beyond Titles non implementa un sistema di autenticazione utente. Non esistono account, login, sessioni server-side o meccanismi di accesso controllato.
+Beyond non implementa un sistema di autenticazione utente. Non esistono account, login, sessioni server-side o meccanismi di accesso controllato.
 
 ## Accesso Pubblico
 

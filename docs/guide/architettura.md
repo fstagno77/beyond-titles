@@ -2,7 +2,7 @@
 
 ## Panoramica
 
-Beyond Titles è una Single Page Application (SPA) statica, senza framework e senza build step. L'architettura segue un pattern modulare basato su file JavaScript separati per responsabilità, con stato gestito localmente in ciascun modulo tramite IIFE (Immediately Invoked Function Expression).
+Beyond è una Single Page Application (SPA) statica, senza framework e senza build step. L'architettura segue un pattern modulare basato su file JavaScript separati per responsabilità, con stato gestito localmente in ciascun modulo tramite IIFE (Immediately Invoked Function Expression).
 
 ## Moduli
 

@@ -1,6 +1,6 @@
 # Panoramica
 
-**Beyond Titles** è un sistema di assessment comportamentale per la Digital Platform di Gi Group, progettato per identificare archetipi professionali tramite survey basate sulle competenze.
+**Beyond** è un sistema di assessment comportamentale per la Digital Platform di Gi Group, progettato per identificare archetipi professionali tramite survey basate sulle competenze.
 
 ## Obiettivi
 

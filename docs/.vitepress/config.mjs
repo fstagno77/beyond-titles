@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Beyond Titles',
+  title: 'Beyond',
   base: '/wiki/',
   outDir: '../wiki',
   appearance: 'force-dark',

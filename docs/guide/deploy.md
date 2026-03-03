@@ -2,7 +2,7 @@
 
 ## Requisiti
 
-Beyond Titles è un'applicazione completamente statica. Per il deploy serve solo un web server in grado di servire file HTML, CSS, JS e JSON.
+Beyond è un'applicazione completamente statica. Per il deploy serve solo un web server in grado di servire file HTML, CSS, JS e JSON.
 
 | Requisito | Dettaglio |
 |---|---|

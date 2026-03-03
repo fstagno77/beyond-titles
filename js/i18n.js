@@ -6,7 +6,7 @@
 const translations = {
     it: {
         // Header
-        header_logo_alt: "Beyond Titles",
+        header_logo_alt: "Beyond",
 
         // Hero Section
         hero_title: "Qual è il tuo ruolo?",
@@ -76,7 +76,7 @@ const translations = {
         log_loaded: "Database loaded: {count} job titles available.",
         log_error: "Error loading database: {error}",
         log_cleared: "Log cleared.",
-        log_init: "Beyond Titles v{version} initializing...",
+        log_init: "Beyond v{version} initializing...",
         log_ready: "Application ready. Waiting for user input...",
         log_user_selected: "User selected \"{role}\".",
         log_user_submitted: "User submitted \"{term}\" ({trigger}).",
@@ -117,6 +117,10 @@ const translations = {
         // Changelog
         changelog_back: "← Torna alla Home",
         changelog_title: "Changelog",
+
+        changelog_v0200_date: "3 Marzo 2026",
+        changelog_v0200_item1: "Rebranding piattaforma: 'Beyond Titles' → 'Beyond' in tutta l'app e nel wiki",
+        changelog_v0200_item2: "Nuovo logo Beyond",
 
         changelog_v0191_date: "3 Marzo 2026",
         changelog_v0191_item1: "Survey v4.1 EN: Q6-D corretta ('before acting' sostituisce 'before deciding')",
@@ -247,8 +251,8 @@ const translations = {
         tab_sondaggio: "Sondaggio",
 
         // Survey
-        survey_title: "Scopri il tuo profilo Beyond Titles",
-        survey_subtitle: "Attraverso 10 situazioni che possono capitare a tutti nel lavoro, nello studio, nella vita quotidiana, scopri quale degli 8 profili #BeyondTitles può raccontare una storia nuova: la tua.<br><br>Una storia fatta di valori, competenze trasversali e umane che spesso non si trovano dentro un curriculum vitae.<br><br>Per ognuna delle situazioni proposte, scegli come reagiresti.<br><br>L'importante è:<ul><li>Rispondere senza pensarci troppo</li><li>Sapere che non ci sono risposte giuste o sbagliate</li><li>Sapere che tutto resta anonimo</li></ul>Non importa se hai o non hai ancora esperienza nel mondo del lavoro, immagina di trovarti in quelle situazioni e rispondi seguendo il tuo istinto.<br><br><strong>Ci vogliono solo 5 minuti.</strong>",
+        survey_title: "Scopri il tuo profilo Beyond",
+        survey_subtitle: "Attraverso 10 situazioni che possono capitare a tutti nel lavoro, nello studio, nella vita quotidiana, scopri quale degli 8 profili #Beyond può raccontare una storia nuova: la tua.<br><br>Una storia fatta di valori, competenze trasversali e umane che spesso non si trovano dentro un curriculum vitae.<br><br>Per ognuna delle situazioni proposte, scegli come reagiresti.<br><br>L'importante è:<ul><li>Rispondere senza pensarci troppo</li><li>Sapere che non ci sono risposte giuste o sbagliate</li><li>Sapere che tutto resta anonimo</li></ul>Non importa se hai o non hai ancora esperienza nel mondo del lavoro, immagina di trovarti in quelle situazioni e rispondi seguendo il tuo istinto.<br><br><strong>Ci vogliono solo 5 minuti.</strong>",
         survey_start: "Inizia",
         survey_progress: "Domanda {current} di {total}",
         survey_instruction: "Seleziona l'opzione più vicina al tuo modo di agire",
@@ -391,7 +395,7 @@ const translations = {
 
     en: {
         // Header
-        header_logo_alt: "Beyond Titles",
+        header_logo_alt: "Beyond",
 
         // Hero Section
         hero_title: "What's your role?",
@@ -461,7 +465,7 @@ const translations = {
         log_loaded: "Database loaded: {count} job titles available.",
         log_error: "Error loading database: {error}",
         log_cleared: "Log cleared.",
-        log_init: "Beyond Titles v{version} initializing...",
+        log_init: "Beyond v{version} initializing...",
         log_ready: "Application ready. Waiting for user input...",
         log_user_selected: "User selected \"{role}\".",
         log_user_submitted: "User submitted \"{term}\" ({trigger}).",
@@ -502,6 +506,10 @@ const translations = {
         // Changelog
         changelog_back: "← Back to Home",
         changelog_title: "Changelog",
+
+        changelog_v0200_date: "3 March 2026",
+        changelog_v0200_item1: "Platform rebranding: 'Beyond Titles' → 'Beyond' across the entire app and wiki",
+        changelog_v0200_item2: "New Beyond logo",
 
         changelog_v0191_date: "3 March 2026",
         changelog_v0191_item1: "Survey v4.1 EN: Q6-D corrected ('before acting' replaces 'before deciding')",
@@ -632,8 +640,8 @@ const translations = {
         tab_sondaggio: "Survey",
 
         // Survey
-        survey_title: "Discover your Beyond Titles profile",
-        survey_subtitle: "Through 10 situations that can happen to anyone at work, school, or in everyday life, discover which of the 8 #BeyondTitles profiles can tell a new story: yours.<br><br>A story made of values, soft skills and human skills that are often missing from a CV.<br><br>For each situation, choose how you would react.<br><br>What matters is:<ul><li>Answer without overthinking</li><li>There are no right or wrong answers</li><li>Everything stays anonymous</li></ul>It doesn't matter if you have work experience or not — imagine yourself in those situations and follow your instinct.<br><br><strong>It only takes 5 minutes.</strong>",
+        survey_title: "Discover your Beyond profile",
+        survey_subtitle: "Through 10 situations that can happen to anyone at work, school, or in everyday life, discover which of the 8 #Beyond profiles can tell a new story: yours.<br><br>A story made of values, soft skills and human skills that are often missing from a CV.<br><br>For each situation, choose how you would react.<br><br>What matters is:<ul><li>Answer without overthinking</li><li>There are no right or wrong answers</li><li>Everything stays anonymous</li></ul>It doesn't matter if you have work experience or not — imagine yourself in those situations and follow your instinct.<br><br><strong>It only takes 5 minutes.</strong>",
         survey_start: "Start",
         survey_progress: "Question {current} of {total}",
         survey_instruction: "Select the option closest to how you act",

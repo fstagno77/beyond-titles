@@ -1,6 +1,6 @@
 # Database
 
-Beyond Titles utilizza file JSON locali come database, caricati via Fetch API all'avvio dell'applicazione. Non è presente un backend né un database relazionale.
+Beyond utilizza file JSON locali come database, caricati via Fetch API all'avvio dell'applicazione. Non è presente un backend né un database relazionale.
 
 ## Survey Database
 

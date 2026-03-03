@@ -2,7 +2,14 @@
 
 Project change log, organised by version and date.
 
-## v0.19.0 <Badge type="tip" text="current" />
+## v0.19.1 <Badge type="tip" text="current" />
+
+**3 March 2026**
+
+- **Survey v4.1 EN**: Q6-D corrected ("before acting" replaces "before deciding")
+- **Survey v4.1 EN**: Q7-D corrected ("practical move" replaces "specific move")
+
+## v0.19.0
 
 **27 February 2026**
 

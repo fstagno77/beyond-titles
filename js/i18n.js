@@ -118,6 +118,10 @@ const translations = {
         changelog_back: "← Torna alla Home",
         changelog_title: "Changelog",
 
+        changelog_v0191_date: "3 Marzo 2026",
+        changelog_v0191_item1: "Survey v4.1 EN: Q6-D corretta ('before acting' sostituisce 'before deciding')",
+        changelog_v0191_item2: "Survey v4.1 EN: Q7-D corretta ('practical move' sostituisce 'specific move')",
+
         changelog_v0190_date: "27 Febbraio 2026",
         changelog_v0190_item1: "Survey v4.1: revisione wording italiano con Gi Group (8 modifiche testuali)",
         changelog_v0190_item2: "Survey v4.1: riscrittura completa traduzione inglese con revisione Gi Group",
@@ -499,6 +503,10 @@ const translations = {
         changelog_back: "← Back to Home",
         changelog_title: "Changelog",
 
+        changelog_v0191_date: "3 March 2026",
+        changelog_v0191_item1: "Survey v4.1 EN: Q6-D corrected ('before acting' replaces 'before deciding')",
+        changelog_v0191_item2: "Survey v4.1 EN: Q7-D corrected ('practical move' replaces 'specific move')",
+
         changelog_v0190_date: "February 27, 2026",
         changelog_v0190_item1: "Survey v4.1: Italian wording review with Gi Group (8 text changes)",
         changelog_v0190_item2: "Survey v4.1: complete English translation rewrite with Gi Group review",
@@ -730,13 +738,13 @@ const translations = {
         bcb3_q6_opt_a: "I run a small trial to see if it works.",
         bcb3_q6_opt_b: "I define a few clear steps and put them into practice immediately.",
         bcb3_q6_opt_c: "I gather input from those involved to find the best way forward.",
-        bcb3_q6_opt_d: "I consider the benefits and risks before deciding.",
+        bcb3_q6_opt_d: "I consider the benefits and risks before acting.",
 
         bcb3_q7_stem: "While working with someone, a misunderstanding arises and tension increases. How do you handle it?",
         bcb3_q7_opt_a: "I listen closely, rephrase what's been said, and help restore calm.",
         bcb3_q7_opt_b: "I look for common ground and move towards an outcome that works for both of us.",
         bcb3_q7_opt_c: "I refocus attention on the shared goal and outline the next action.",
-        bcb3_q7_opt_d: "I suggest a specific move and act on it straight away.",
+        bcb3_q7_opt_d: "I suggest a practical move and act on it straight away.",
 
         bcb3_q8_stem: "In a team setting, clarity is missing and time is tight. How do you step in?",
         bcb3_q8_opt_a: "I share information so everyone is aligned.",

@@ -2,7 +2,14 @@
 
 Log delle modifiche al progetto, organizzato per versione e data.
 
-## v0.19.0 <Badge type="tip" text="corrente" />
+## v0.19.1 <Badge type="tip" text="corrente" />
+
+**3 marzo 2026**
+
+- **Survey v4.1 EN**: Q6-D corretta ("before acting" sostituisce "before deciding")
+- **Survey v4.1 EN**: Q7-D corretta ("practical move" sostituisce "specific move")
+
+## v0.19.0
 
 **27 febbraio 2026**
 

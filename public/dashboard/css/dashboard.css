@@ -933,6 +933,10 @@
   .dash-filters__group:has(.dash-filters__json-btn) {
     display: none;
   }
+  /* Nasconde la label "Audience" su mobile */
+  .dash-filters__group:has(.segmented-control--small) > .dash-filters__label {
+    display: none;
+  }
   /* Country nav va a capo su seconda riga */
   .dash-filters__group:has(.country-nav) {
     width: 100%;

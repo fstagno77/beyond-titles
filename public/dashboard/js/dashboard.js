@@ -909,6 +909,17 @@
       });
     });
 
+    // More button (mobile accordion per i toggles)
+    const moreBtn = $('filtersMoreBtn');
+    const togglesPanel = $('filtersToggles');
+    if (moreBtn && togglesPanel) {
+      moreBtn.addEventListener('click', () => {
+        const open = togglesPanel.classList.toggle('dash-filters__toggles--open');
+        moreBtn.setAttribute('aria-expanded', open);
+        moreBtn.textContent = open ? 'Less ▴' : 'More ▾';
+      });
+    }
+
     // Toggle prelaunch
     $('togglePrelaunch').addEventListener('change', e => {
       state.includePrelaunch = e.target.checked;

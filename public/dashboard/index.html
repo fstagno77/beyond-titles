@@ -36,7 +36,7 @@
   <div class="dash-filters">
     <div class="dash-filters__inner">
 
-      <!-- Audience -->
+      <!-- Audience + More (mobile) -->
       <div class="dash-filters__group">
         <label class="dash-filters__label">Audience</label>
         <div class="segmented-control segmented-control--small" role="tablist">
@@ -45,22 +45,23 @@
           <button class="segmented-control__button" data-target="b2c">B2C</button>
           <button class="segmented-control__button" data-target="0">General</button>
         </div>
+        <button class="dash-filters__more-btn" id="filtersMoreBtn" aria-expanded="false">More ▾</button>
       </div>
 
-      <!-- Pre-launch toggle -->
-      <div class="dash-filters__group">
-        <label class="dash-filters__label dash-filters__toggle-label">
-          <input type="checkbox" id="togglePrelaunch" class="dash-filters__checkbox">
-          Include pre-launch
-        </label>
-      </div>
-
-      <!-- Abandoned toggle -->
-      <div class="dash-filters__group">
-        <label class="dash-filters__label dash-filters__toggle-label">
-          <input type="checkbox" id="toggleAbandoned" class="dash-filters__checkbox">
-          Include abandoned
-        </label>
+      <!-- Toggles (desktop: inline; mobile: accordion) -->
+      <div class="dash-filters__toggles" id="filtersToggles">
+        <div class="dash-filters__group">
+          <label class="dash-filters__label dash-filters__toggle-label">
+            <input type="checkbox" id="togglePrelaunch" class="dash-filters__checkbox">
+            Include pre-launch
+          </label>
+        </div>
+        <div class="dash-filters__group">
+          <label class="dash-filters__label dash-filters__toggle-label">
+            <input type="checkbox" id="toggleAbandoned" class="dash-filters__checkbox">
+            Include abandoned
+          </label>
+        </div>
       </div>
 
       <!-- JSON actions -->
@@ -70,7 +71,7 @@
       </div>
 
       <!-- Country navigator -->
-      <div class="dash-filters__group">
+      <div class="dash-filters__group dash-filters__group--country">
         <div class="country-nav">
           <button class="country-nav__arrow" id="countryPrev" aria-label="Previous">&#8592;</button>
           <div class="country-combobox" id="countryCombobox"

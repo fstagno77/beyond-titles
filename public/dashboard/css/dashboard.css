@@ -85,6 +85,32 @@
   border-color: rgba(255, 255, 255, 0.35);
 }
 
+/* "More" button — visibile solo su mobile */
+.dash-filters__more-btn {
+  display: none;
+  margin-left: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  color: var(--color-text-secondary);
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.dash-filters__more-btn[aria-expanded="true"] {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* Wrapper toggles — su desktop è un flex inline trasparente */
+.dash-filters__toggles {
+  display: contents;
+}
+
 /* JSON buttons in filters bar */
 .dash-filters__group--right {
   margin-left: auto;
@@ -922,12 +948,12 @@
   .country-nav {
     flex-wrap: wrap;
   }
-  /* Filters bar: due righe su mobile */
+  /* Filters bar: layout a blocchi su mobile */
   .dash-filters__inner {
     flex-wrap: wrap;
     height: auto;
     padding: 8px var(--spacing-md);
-    gap: 6px 0;
+    gap: 0;
   }
   /* Nasconde i bottoni JSON su mobile */
   .dash-filters__group:has(.dash-filters__json-btn) {
@@ -937,12 +963,30 @@
   .dash-filters__group:has(.segmented-control--small) > .dash-filters__label {
     display: none;
   }
-  /* Country nav va a capo su seconda riga */
-  .dash-filters__group:has(.country-nav) {
+  /* Mostra il bottone More su mobile */
+  .dash-filters__more-btn {
+    display: inline-flex;
+    align-items: center;
+  }
+  /* Toggles: nascosti di default su mobile, display flex quando aperti */
+  .dash-filters__toggles {
+    display: none;
+    width: 100%;
+    border-top: 1px solid var(--color-border-light);
+    padding-top: 4px;
+    margin-top: 4px;
+  }
+  .dash-filters__toggles--open {
+    display: flex;
+  }
+  /* Country nav: riga dedicata, centrata */
+  .dash-filters__group--country {
     width: 100%;
     border-left: none;
     padding-left: 0;
-    padding-top: 4px;
+    justify-content: center;
+    padding-top: 6px;
+    margin-top: 4px;
     border-top: 1px solid var(--color-border-light);
   }
 }

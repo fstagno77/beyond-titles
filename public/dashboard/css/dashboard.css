@@ -947,10 +947,7 @@
   .country-nav {
     flex-wrap: wrap;
   }
-  /* Aggiorna altezza filter bar e rimuove la linea di separazione */
-  :root {
-    --dash-filters-height: 96px;
-  }
+  /* Rimuove la linea di separazione sotto la filter bar */
   .dash-filters {
     border-bottom: none;
   }

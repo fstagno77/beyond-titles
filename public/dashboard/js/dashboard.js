@@ -1051,6 +1051,14 @@
     $('kpiStripContext').textContent      = $('sectionTitle').textContent;
   }
 
+  function syncFilterBarHeight() {
+    const bar = document.querySelector('.dash-filters');
+    if (!bar) return;
+    document.documentElement.style.setProperty(
+      '--dash-filters-height', bar.getBoundingClientRect().height + 'px'
+    );
+  }
+
   function initKpiStrip() {
     const grid  = $('kpiGrid');
     const strip = $('kpiStrip');
@@ -1060,6 +1068,8 @@
       { threshold: 0, rootMargin: '-1px 0px 0px 0px' }
     );
     obs.observe(grid);
+    syncFilterBarHeight();
+    window.addEventListener('resize', syncFilterBarHeight);
   }
 
   // -------------------------------------------------------------------------

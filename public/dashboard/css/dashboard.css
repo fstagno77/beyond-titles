@@ -88,22 +88,19 @@
 /* "More" button — visibile solo su mobile */
 .dash-filters__more-btn {
   display: none;
-  margin-left: var(--spacing-sm);
+  margin-left: auto;
   font-size: var(--font-size-sm);
   font-family: var(--font-family);
   color: var(--color-text-secondary);
   background: none;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: 3px 8px;
+  border: none;
+  padding: 3px 0;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.15s, color 0.15s;
+  transition: color 0.15s;
 }
 .dash-filters__more-btn[aria-expanded="true"] {
-  background: var(--color-primary-light);
   color: var(--color-primary);
-  border-color: var(--color-primary);
 }
 
 /* Wrapper toggles — su desktop è un flex inline trasparente */
@@ -982,7 +979,7 @@
   /* Country nav: riga dedicata, centrata */
   .dash-filters__group--country {
     width: 100%;
-    border-left: none;
+    border-left: none !important;
     padding-left: 0;
     justify-content: center;
     padding-top: 6px;

@@ -917,6 +917,7 @@
         const open = togglesPanel.classList.toggle('dash-filters__toggles--open');
         moreBtn.setAttribute('aria-expanded', open);
         moreBtn.textContent = open ? 'Less ▴' : 'More ▾';
+        requestAnimationFrame(syncFilterBarHeight);
       });
     }
 
@@ -1068,8 +1069,6 @@
       { threshold: 0, rootMargin: '-1px 0px 0px 0px' }
     );
     obs.observe(grid);
-    syncFilterBarHeight();
-    window.addEventListener('resize', syncFilterBarHeight);
   }
 
   // -------------------------------------------------------------------------
@@ -1100,6 +1099,10 @@
     }
   }
 
-  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('DOMContentLoaded', () => {
+    syncFilterBarHeight();
+    window.addEventListener('resize', syncFilterBarHeight);
+    init();
+  });
 
 })();

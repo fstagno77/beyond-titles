@@ -971,6 +971,8 @@
     width: 100%;
     position: relative;
     justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
   }
   /* Mostra il bottone More su mobile */
   .dash-filters__more-btn {

@@ -960,10 +960,19 @@
   .dash-filters__group:has(.segmented-control--small) > .dash-filters__label {
     display: none;
   }
+  /* Audience group: centrata con More a destra */
+  .dash-filters__group:has(.segmented-control--small) {
+    width: 100%;
+    position: relative;
+    justify-content: center;
+  }
   /* Mostra il bottone More su mobile */
   .dash-filters__more-btn {
     display: inline-flex;
     align-items: center;
+    position: absolute;
+    right: 0;
+    margin-left: 0;
   }
   /* Toggles: nascosti di default su mobile, display flex quando aperti */
   .dash-filters__toggles {
@@ -976,6 +985,20 @@
   .dash-filters__toggles--open {
     display: flex;
   }
+  /* KPI strip: due righe su mobile */
+  .kpi-strip__inner {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 6px var(--spacing-md);
+    gap: 4px var(--spacing-lg);
+  }
+  .kpi-strip__context {
+    width: 100%;
+  }
+  .kpi-strip__items {
+    gap: 16px;
+  }
+
   /* Country nav: riga dedicata, centrata */
   .dash-filters__group--country {
     width: 100%;

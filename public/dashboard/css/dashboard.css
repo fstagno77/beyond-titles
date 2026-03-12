@@ -922,6 +922,14 @@
   .country-nav {
     flex-wrap: wrap;
   }
+  .dash-filters__inner {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .dash-filters__inner::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {

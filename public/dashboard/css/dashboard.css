@@ -922,13 +922,24 @@
   .country-nav {
     flex-wrap: wrap;
   }
+  /* Filters bar: due righe su mobile */
   .dash-filters__inner {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    flex-wrap: wrap;
+    height: auto;
+    padding: 8px var(--spacing-md);
+    gap: 6px 0;
   }
-  .dash-filters__inner::-webkit-scrollbar {
+  /* Nasconde i bottoni JSON su mobile */
+  .dash-filters__group:has(.dash-filters__json-btn) {
     display: none;
+  }
+  /* Country nav va a capo su seconda riga */
+  .dash-filters__group:has(.country-nav) {
+    width: 100%;
+    border-left: none;
+    padding-left: 0;
+    padding-top: 4px;
+    border-top: 1px solid var(--color-border-light);
   }
 }
 

@@ -947,6 +947,10 @@
   .country-nav {
     flex-wrap: wrap;
   }
+  /* Aggiorna altezza filter bar per il posizionamento sticky del KPI strip */
+  :root {
+    --dash-filters-height: 96px;
+  }
   /* Filters bar: layout a blocchi su mobile */
   .dash-filters__inner {
     flex-wrap: wrap;
@@ -1006,7 +1010,8 @@
   }
   .kpi-strip__item {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 1px;
   }
   .kpi-strip__value {

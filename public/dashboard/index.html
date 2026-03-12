@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond — Survey Analytics</title>
+  <link rel="icon" type="image/jpeg" href="../../assets/favicon.jpg">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- ===== HEADER (same structure as POC) ===== -->
+  <div class="header-wrap">
+    <header class="header">
+      <a href="../../index.html" class="header__logo-link">
+        <img src="../../assets/logoBeyondTitles.png" alt="Beyond" class="header__logo">
+      </a>
+      <div class="dash-header__meta">
+        <span class="dash-header__title">Survey Analytics</span>
+        <button class="dash-header__range-btn" id="dateRangePicker" aria-haspopup="true" aria-expanded="false">—</button>
+      </div>
+    </header>
+  </div>
+
+  <!-- Week range picker popup -->
+  <div class="week-picker" id="weekPicker" hidden>
+    <div class="week-picker__list" id="weekPickerList"></div>
+    <div class="week-picker__footer">
+      <button class="week-picker__reset" id="wpReset">Reset</button>
+      <span class="week-picker__hint" id="wpHint">Select start week</span>
+    </div>
+  </div>
+
+  <!-- ===== GLOBAL FILTERS ===== -->
+  <div class="dash-filters">
+    <div class="dash-filters__inner">
+
+      <!-- Audience -->
+      <div class="dash-filters__group">
+        <label class="dash-filters__label">Audience</label>
+        <div class="segmented-control segmented-control--small" role="tablist">
+          <button class="segmented-control__button segmented-control__button--active" data-target="all">All</button>
+          <button class="segmented-control__button" data-target="b2b">B2B</button>
+          <button class="segmented-control__button" data-target="b2c">B2C</button>
+          <button class="segmented-control__button" data-target="0">General</button>
+        </div>
+      </div>
+
+      <!-- Pre-launch toggle -->
+      <div class="dash-filters__group">
+        <label class="dash-filters__label dash-filters__toggle-label">
+          <input type="checkbox" id="togglePrelaunch" class="dash-filters__checkbox">
+          Include pre-launch
+        </label>
+      </div>
+
+      <!-- Abandoned toggle -->
+      <div class="dash-filters__group">
+        <label class="dash-filters__label dash-filters__toggle-label">
+          <input type="checkbox" id="toggleAbandoned" class="dash-filters__checkbox">
+          Include abandoned
+        </label>
+      </div>
+
+      <!-- JSON actions -->
+      <div class="dash-filters__group">
+        <button class="dash-filters__json-btn" id="btnViewJson" title="View JSON structure">{ } Structure</button>
+        <button class="dash-filters__json-btn" id="btnDownloadJson" title="Download mock_survey_results.json">&#8595; Download dataset</button>
+      </div>
+
+      <!-- Country navigator -->
+      <div class="dash-filters__group">
+        <div class="country-nav">
+          <button class="country-nav__arrow" id="countryPrev" aria-label="Previous">&#8592;</button>
+          <div class="country-combobox" id="countryCombobox"
+               role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-owns="countryListbox">
+            <input class="country-combobox__input" id="countryInput"
+                   type="text" autocomplete="off" spellcheck="false"
+                   aria-autocomplete="list" aria-controls="countryListbox"
+                   placeholder="Global Overview" />
+            <ul class="country-combobox__list" id="countryListbox" role="listbox" hidden></ul>
+          </div>
+          <button class="country-nav__arrow" id="countryNext" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- KPI strip — appare sticky quando le card scrollano fuori vista -->
+  <div class="kpi-strip" id="kpiStrip" aria-hidden="true">
+    <div class="kpi-strip__inner">
+      <span class="kpi-strip__context" id="kpiStripContext">Global Overview</span>
+      <div class="kpi-strip__items">
+        <div class="kpi-strip__item">
+          <span class="kpi-strip__value" id="kpiStripTotal">—</span>
+          <span class="kpi-strip__label">Completions</span>
+        </div>
+        <div class="kpi-strip__item">
+          <span class="kpi-strip__value" id="kpiStripCompletion">—</span>
+          <span class="kpi-strip__label">Completion rate</span>
+        </div>
+        <div class="kpi-strip__item">
+          <span class="kpi-strip__value" id="kpiStripArchetype">—</span>
+          <span class="kpi-strip__label">Top archetype</span>
+        </div>
+        <div class="kpi-strip__item">
+          <span class="kpi-strip__value" id="kpiStripCountries">—</span>
+          <span class="kpi-strip__label" id="kpiStripCountriesLabel">Active countries</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="dash-main">
+
+    <!-- ======================================================== -->
+    <!-- SEZIONE UNIFICATA — Global Overview / Country Analysis   -->
+    <!-- ======================================================== -->
+    <section class="dash-section">
+      <div class="dash-section__header">
+        <h2 class="dash-section__title" id="sectionTitle">Global Overview</h2>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="kpi-grid" id="kpiGrid">
+          <div class="kpi-card">
+            <button class="help-btn" data-help="kpi-global-total" aria-label="Informazioni">?</button>
+            <span class="kpi-card__value" id="kpiTotal">—</span>
+            <span class="kpi-card__label">Completions</span>
+          </div>
+          <div class="kpi-card">
+            <button class="help-btn" data-help="kpi-global-completion" aria-label="Informazioni">?</button>
+            <span class="kpi-card__value" id="kpiCompletion">—</span>
+            <span class="kpi-card__label">Completion rate</span>
+          </div>
+          <div class="kpi-card">
+            <button class="help-btn" data-help="kpi-global-archetype" aria-label="Informazioni">?</button>
+            <span class="kpi-card__value kpi-card__value--archetype" id="kpiTopArchetype">—</span>
+            <span class="kpi-card__label">Top archetype</span>
+          </div>
+          <div class="kpi-card">
+            <button class="help-btn" data-help="kpi-global-countries" aria-label="Informazioni">?</button>
+            <span class="kpi-card__value" id="kpiCountries">—</span>
+            <span class="kpi-card__label" id="kpiCountriesLabel">Active countries</span>
+          </div>
+        </div>
+
+        <!-- Charts row 1 -->
+        <div class="chart-grid chart-grid--2col">
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title" id="titleGlobalArchetypes">Archetype Distribution</h3>
+              <button class="help-btn help-btn--inline" data-help="chart-global-archetypes" aria-label="Informazioni">?</button>
+            </div>
+            <div class="chart-card__wrap">
+              <canvas id="chartGlobalArchetypes"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title">Audience Split</h3>
+              <button class="help-btn help-btn--inline" data-help="chart-global-audience" aria-label="Informazioni">?</button>
+            </div>
+            <div class="chart-card__wrap chart-card__wrap--doughnut">
+              <canvas id="chartGlobalAudience"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts row 2 — All Countries full width -->
+        <div class="chart-grid chart-grid--1col">
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title" id="titleTopCountries">All Countries</h3>
+              <button class="help-btn help-btn--inline" data-help="chart-global-countries" aria-label="Informazioni">?</button>
+            </div>
+            <div class="chart-card__wrap chart-card__wrap--countries">
+              <canvas id="chartTopCountries"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts row 3 — Weekly Trend full width -->
+        <div class="chart-grid chart-grid--1col">
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title">Weekly Trend</h3>
+              <button class="help-btn help-btn--inline" data-help="chart-global-trend" aria-label="Informazioni">?</button>
+            </div>
+            <div class="chart-card__wrap">
+              <canvas id="chartGlobalTrend"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts row 4 — Answer Distribution Q1–Q10 full width -->
+        <div class="chart-grid chart-grid--1col">
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title" id="titleCtryQuestions">Answer Distribution Q1–Q10</h3>
+              <button class="help-btn help-btn--inline" data-help="chart-country-questions" aria-label="Informazioni">?</button>
+            </div>
+            <div class="chart-card__wrap">
+              <canvas id="chartCtryQuestions"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts row 5 — Tiebreaker Rate (donut) + Q11 Tiebreaker (bar) -->
+        <div class="chart-grid chart-grid--2col">
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title">Tiebreaker Rate</h3>
+              <button class="help-btn help-btn--inline" data-help="chart-tiebreaker-rate" aria-label="Informazioni">?</button>
+            </div>
+            <div class="chart-card__wrap chart-card__wrap--doughnut">
+              <canvas id="chartTiebreakerRate"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title">Q11 Tiebreaker Analysis</h3>
+              <button class="help-btn help-btn--inline" data-help="chart-tiebreaker" aria-label="Informazioni">?</button>
+            </div>
+            <div class="chart-card__wrap">
+              <canvas id="chartTiebreaker"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts row 6 — Dropout Funnel full width -->
+        <div class="chart-grid chart-grid--1col">
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title">Dropout Funnel by Question</h3>
+              <button class="help-btn help-btn--inline" data-help="chart-dropout" aria-label="Informazioni">?</button>
+            </div>
+            <div class="chart-card__wrap">
+              <canvas id="chartDropout"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts row 7 — Completion Rate full width (static — all countries) -->
+        <div class="chart-grid chart-grid--1col">
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title">Completion Rate by Country</h3>
+              <button class="help-btn help-btn--inline" data-help="chart-completion-rate" aria-label="Informazioni">?</button>
+            </div>
+            <div class="chart-card__wrap chart-card__wrap--completion">
+              <canvas id="chartCompletionRate"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts row 8 — Heatmap full width (static — all countries) -->
+        <div class="chart-grid chart-grid--1col">
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-card__title" id="titleHeatmap">Archetype Distribution by Country</h3>
+              <button class="help-btn help-btn--inline" data-help="chart-heatmap" aria-label="Informazioni">?</button>
+            </div>
+            <div class="chart-card__wrap chart-card__wrap--heatmap">
+              <canvas id="chartHeatmap"></canvas>
+            </div>
+          </div>
+        </div>
+
+    </section>
+
+  </main>
+
+  <footer class="dash-footer">
+    <span>Beyond &copy; Gi Group &mdash; mock data for demonstration purposes</span>
+  </footer>
+
+  <!-- ===== JSON VIEWER MODAL ===== -->
+  <div class="json-modal" id="jsonModal" hidden role="dialog" aria-modal="true" aria-labelledby="jsonModalTitle">
+    <div class="json-modal__backdrop" id="jsonModalBackdrop"></div>
+    <div class="json-modal__dialog">
+      <div class="json-modal__header">
+        <h4 class="json-modal__title" id="jsonModalTitle">JSON Structure</h4>
+        <div class="json-modal__header-actions">
+          <button class="json-modal__copy-btn" id="jsonModalCopy">Copy</button>
+          <button class="help-modal__close" id="jsonModalClose" aria-label="Close">&#x2715;</button>
+        </div>
+      </div>
+      <div class="json-modal__body">
+        <pre class="json-modal__pre" id="jsonModalPre"></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HELP MODAL ===== -->
+  <div class="help-modal" id="helpModal" hidden role="dialog" aria-modal="true" aria-labelledby="helpModalTitle">
+    <div class="help-modal__backdrop" id="helpModalBackdrop"></div>
+    <div class="help-modal__dialog">
+      <div class="help-modal__header">
+        <h4 class="help-modal__title" id="helpModalTitle"></h4>
+        <button class="help-modal__close" id="helpModalClose" aria-label="Close">&#x2715;</button>
+      </div>
+      <div class="help-modal__body" id="helpModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
+  <script src="js/charts.js?v=5"></script>
+  <script src="js/dashboard.js?v=12"></script>
+</body>
+</html>

@@ -118,6 +118,11 @@ const translations = {
         changelog_back: "← Torna alla Home",
         changelog_title: "Changelog",
 
+        changelog_v0210_date: "7 Aprile 2026",
+        changelog_v0210_item1: "Survey v4.4: nuovo set di pesi (range 11–30, totale W=196) — elimina domande decorative, riduce dominanza Q4, spread 1.01 pp",
+        changelog_v0210_item2: "Nuovo ordine domande secondo spec v4.4",
+        changelog_v0210_item3: "Fix wording IT/EN 4 opzioni",
+
         changelog_v0200_date: "3 Marzo 2026",
         changelog_v0200_item1: "Rebranding piattaforma: 'Beyond Titles' → 'Beyond' in tutta l'app e nel wiki",
         changelog_v0200_item2: "Nuovo logo Beyond",
@@ -506,6 +511,11 @@ const translations = {
         // Changelog
         changelog_back: "← Back to Home",
         changelog_title: "Changelog",
+
+        changelog_v0210_date: "7 April 2026",
+        changelog_v0210_item1: "Survey v4.4: new weight set (range 11–30, total W=196) — removes decorative questions, reduces Q4 dominance, spread 1.01 pp",
+        changelog_v0210_item2: "New question order per v4.4 spec",
+        changelog_v0210_item3: "Wording fix IT/EN 4 options",
 
         changelog_v0200_date: "3 March 2026",
         changelog_v0200_item1: "Platform rebranding: 'Beyond Titles' → 'Beyond' across the entire app and wiki",

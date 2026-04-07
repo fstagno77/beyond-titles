@@ -1,4 +1,4 @@
-# Bilanciamento Archetipi v4.1
+# Bilanciamento Archetipi v4.4
 
 ## Contesto
 
@@ -6,21 +6,23 @@ La v4.0 introduce pesi compressi (**Scenario C**) per ridurre lo sbilanciamento 
 
 ## Pesi per Domanda
 
-| Domanda | Tema | Peso v3.5 | Peso v4.0 | Delta |
-|---|---|:---:|:---:|:---:|
-| Q1 | Gestione ambiguità | 6 | **12** | +6 |
-| Q2 | Problem solving | 20 | **19** | -1 |
-| Q3 | Responsabilità condivisa | 17 | **18** | +1 |
-| Q4 | Gestione priorità | 31 | **25** | -6 |
-| Q5 | Adattamento al cambiamento | 31 | **25** | -6 |
-| Q6 | Innovazione | 6 | **12** | +6 |
-| Q7 | Gestione conflitti | 17 | **18** | +1 |
-| Q8 | Coordinamento gruppo | 38 | **28** | -10 |
-| Q9 | Intervento proattivo | 24 | **21** | -3 |
-| Q10 | Valori / Soddisfazione | 6 | **12** | +6 |
-| **Totale** | | **196** | **190** | -6 |
+> **Nota:** Le domande in questa tabella sono numerate nell'ordine originale del POC (Q1=Nuova attività, Q8=Team+chiarezza). Dalla v4.4 l'ordine delle domande nella survey è cambiato — vedere la [mappatura v4.4](./survey-v3) per i nuovi numeri di posizione.
 
-**Principio:** comprimere i pesi estremi mantenendo l'ordine relativo di importanza. Le domande leggere (Q1, Q6, Q10) passano da peso 6 a 12, diventando significative. Q8 scende da 38 a 28, riducendo la concentrazione eccessiva su una singola domanda.
+| Domanda | Tema | Peso v3.5 | Peso v4.0 | **Peso v4.4** | Delta v4.0→v4.4 |
+|---|---|:---:|:---:|:---:|:---:|
+| Q1 | Gestione ambiguità | 6 | **12** | **11** | -1 |
+| Q2 | Problem solving | 20 | **19** | **21** | +2 |
+| Q3 | Responsabilità condivisa | 17 | **18** | **18** | 0 |
+| Q4 | Gestione priorità | 31 | **25** | **28** | +3 |
+| Q5 | Adattamento al cambiamento | 31 | **25** | **28** | +3 |
+| Q6 | Innovazione | 6 | **12** | **11** | -1 |
+| Q7 | Gestione conflitti | 17 | **18** | **18** | 0 |
+| Q8 | Coordinamento gruppo | 38 | **28** | **30** | +2 |
+| Q9 | Intervento proattivo | 24 | **21** | **20** | -1 |
+| Q10 | Valori / Soddisfazione | 6 | **12** | **11** | -1 |
+| **Totale** | | **196** | **190** | **196** | +6 |
+
+**Principio v4.4:** eliminare le domande decorative (peso minimo 11 vs 12 di v4.0 ma mai 6), ridurre la dominanza di Q8 (ora Q4 nella nuova sequenza: 30 vs 38 di v3.5), mantenere il bilanciamento strutturale perfetto (MAX=98 per tutti gli archetipi).
 
 ## Risultati: Enumerazione Esaustiva
 
@@ -137,3 +139,16 @@ node scripts/archetype_tiebreaker_test.js
 ```
 
 Tutti gli script leggono la configurazione da `data/survey_archetypes.json` e non modificano alcun file.
+
+## v4.4 — Correttivi pesi (7 aprile 2026)
+
+La v4.4 introduce un nuovo set di pesi (range 11-30, totale 196) che risolve i tre paletti violati da v4.3:
+
+| Paletto | v4.3 | v4.4 |
+|---|---|---|
+| Domande non decorative | ❌ peso minimo 6 | ✅ peso minimo 11 |
+| Q4 dominanza (vecchia numerazione Q8) | ❌ 38 (19,4%) | ✅ 30 (15,3%) |
+| Range max/min | ❌ 6,3x | ✅ 2,7x |
+| Bilanciamento strutturale (MAX=98) | ✅ | ✅ |
+
+Oltre ai pesi, la v4.4 introduce un nuovo ordine delle domande allineato alla spec client: Q1=Imprevisto, Q2=Compiti, Q3=Nuova attività, Q4=Team, Q5=Fraintendimento, Q6=Cambia metodo, Q7=Procedura, Q8=Preparare, Q9=Problema proattivo, Q10=Soddisfazione.

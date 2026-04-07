@@ -1,10 +1,10 @@
-# Behavioural & Competency-Based v4.1
+# Behavioural & Competency-Based v4.4
 
 ## Panoramica
 
-La **Behavioural & Competency-Based v4.1** è la survey di default della piattaforma Beyond. Si tratta di un questionario **Behavioural & Competency-Based** in formato single-choice, progettato da Subsense per identificare l'archetipo professionale dell'utente attraverso 10 situazioni concrete, con domanda tiebreaker condizionale (Q11) per la risoluzione degli ex aequo.
+La **Behavioural & Competency-Based v4.4** è la survey di default della piattaforma Beyond. Si tratta di un questionario **Behavioural & Competency-Based** in formato single-choice, progettato da Subsense per identificare l'archetipo professionale dell'utente attraverso 10 situazioni concrete, con domanda tiebreaker condizionale (Q11) per la risoluzione degli ex aequo.
 
-**Versione:** v4.1 — 27 febbraio 2026
+**Versione:** v4.4 — 7 aprile 2026
 **ID interno:** `bcb_v3`
 **Accesso:** Libero (nessuna password)
 **Stato:** Survey di default (unica survey attiva)
@@ -17,7 +17,7 @@ La **Behavioural & Competency-Based v4.1** è la survey di default della piattaf
 | **Domande** | 10 (+1 tiebreaker condizionale) |
 | **Opzioni per domanda** | 4 |
 | **Bilanciamento** | 5 opzioni × 8 archetipi = 40 opzioni totali |
-| **Punteggio MAX per archetipo** | 95 su 190 (50%) — identico per tutti |
+| **Punteggio MAX per archetipo** | 98 su 196 (50%) — identico per tutti |
 | **Tempo di compilazione** | 3-5 minuti |
 | **Livello linguistico** | A2-B1 (accessibile a operational workers) |
 
@@ -34,14 +34,14 @@ La survey copre **10 aspetti distinti** del comportamento professionale:
 
 | # | Domanda | Dimensione | Archetipi coinvolti |
 |---|---------|-----------|-------------------|
-| Q1 | Nuova attività con poche indicazioni | Gestione ambiguità / Avvio attività | Connettore, Artigiano, Capitano, Pragmatico |
-| Q2 | Imprevisto cambia i piani | Problem solving / Gestione imprevisti | Risolutore, Pioniere, Collaboratore, Artigiano |
-| Q3 | Preparare qualcosa per altre persone | Responsabilità condivisa / Preparazione | Artigiano, Collaboratore, Pragmatico, Pioniere |
-| Q4 | Svariati compiti, poco tempo | Gestione priorità / Time management | Capitano, Stratega, Pragmatico, Risolutore |
-| Q5 | Cambia il modo di svolgere un'attività | Adattamento al cambiamento / Flessibilità | Pioniere, Stratega, Connettore, Artigiano |
-| Q6 | Procedura migliorabile | Innovazione / Miglioramento continuo | Pioniere, Pragmatico, Connettore, Stratega |
-| Q7 | Fraintendimento e tensione | Gestione conflitti / Relazioni tese | Connettore, Collaboratore, Capitano, Risolutore |
-| Q8 | Lavoro di squadra, manca chiarezza | Coordinamento gruppo / Team sotto pressione | Connettore, Collaboratore, Capitano, Pragmatico |
+| Q1 | Imprevisto cambia i piani | Problem solving / Gestione imprevisti | Risolutore, Pioniere, Collaboratore, Artigiano |
+| Q2 | Svariati compiti, poco tempo | Gestione priorità / Time management | Capitano, Stratega, Pragmatico, Risolutore |
+| Q3 | Nuova attività con poche indicazioni | Gestione ambiguità / Avvio attività | Connettore, Artigiano, Capitano, Pragmatico |
+| Q4 | Lavoro di squadra, manca chiarezza | Coordinamento gruppo / Team sotto pressione | Connettore, Collaboratore, Capitano, Pragmatico |
+| Q5 | Fraintendimento e tensione | Gestione conflitti / Relazioni tese | Connettore, Collaboratore, Capitano, Risolutore |
+| Q6 | Cambia il modo di svolgere un'attività | Adattamento al cambiamento / Flessibilità | Pioniere, Stratega, Connettore, Artigiano |
+| Q7 | Procedura migliorabile | Innovazione / Miglioramento continuo | Pioniere, Pragmatico, Connettore, Stratega |
+| Q8 | Preparare qualcosa per altre persone | Responsabilità condivisa / Preparazione | Artigiano, Collaboratore, Pragmatico, Pioniere |
 | Q9 | Problema notato prima che sia evidente | Intervento proattivo / Problem prevention | Artigiano, Stratega, Risolutore, Pioniere |
 | Q10 | Ringraziamento per il lavoro svolto | Valori / Soddisfazione personale | Collaboratore, Stratega, Capitano, Risolutore |
 
@@ -51,7 +51,7 @@ La survey copre **10 aspetti distinti** del comportamento professionale:
 |---|---|---|---|
 | Warm-up | Q1-Q2 | Bassa-Media | Ingresso graduale |
 | Crescita | Q3-Q6 | Media | Esplorazione comportamenti |
-| Picco | Q4, Q7, Q8 | Alta | Decision-making e interpersonale |
+| Picco | Q2, Q4, Q5 | Alta | Decision-making e interpersonale |
 | Discesa | Q9 | Media | Proattività |
 | Chiusura | Q10 | Bassa | Cool-down positivo |
 
@@ -61,29 +61,29 @@ Ogni archetipo compare esattamente **5 volte** su 40 opzioni totali, garantendo 
 
 | Archetipo | Occorrenze | Domande |
 |---|:---:|---|
-| **Connettore** | 5 | Q1-A, Q5-C, Q6-C, Q7-A, Q8-A |
-| **Artigiano** | 5 | Q1-B, Q2-D, Q3-A, Q5-D, Q9-A |
-| **Capitano** | 5 | Q1-C, Q4-A, Q7-C, Q8-C, Q10-C |
-| **Pragmatico** | 5 | Q1-D, Q3-C, Q4-C, Q6-B, Q8-D |
-| **Pioniere** | 5 | Q2-B, Q3-D, Q5-A, Q6-A, Q9-D |
-| **Stratega** | 5 | Q4-B, Q5-B, Q6-D, Q9-B, Q10-B |
-| **Risolutore** | 5 | Q2-A, Q4-D, Q7-D, Q9-C, Q10-D |
-| **Collaboratore** | 5 | Q2-C, Q3-B, Q7-B, Q8-B, Q10-A |
+| **Connettore** | 5 | Q3-A, Q4-A, Q5-A, Q6-C, Q7-C |
+| **Artigiano** | 5 | Q1-D, Q3-B, Q6-D, Q8-A, Q9-A |
+| **Capitano** | 5 | Q2-A, Q3-C, Q4-C, Q5-C, Q10-C |
+| **Pragmatico** | 5 | Q2-C, Q3-D, Q4-D, Q7-B, Q8-C |
+| **Pioniere** | 5 | Q1-B, Q6-A, Q7-A, Q8-D, Q9-D |
+| **Stratega** | 5 | Q2-B, Q6-B, Q7-D, Q9-B, Q10-B |
+| **Risolutore** | 5 | Q1-A, Q2-D, Q5-D, Q9-C, Q10-D |
+| **Collaboratore** | 5 | Q1-C, Q4-B, Q5-B, Q8-B, Q10-A |
 
 ### Bilanciamento Pesi
 
-Ogni archetipo ha punteggio massimo identico = **95 punti** su 190 totali (50%):
+Ogni archetipo ha punteggio massimo identico = **98 punti** su 196 totali (50%):
 
 | Archetipo | Pesi disponibili | Punteggio MAX |
 |---|---|:---:|
-| Connettore | 12+25+12+18+28 | **95** |
-| Artigiano | 12+19+18+25+21 | **95** |
-| Capitano | 12+25+18+28+12 | **95** |
-| Pragmatico | 12+18+25+12+28 | **95** |
-| Pioniere | 19+18+25+12+21 | **95** |
-| Stratega | 25+25+12+21+12 | **95** |
-| Risolutore | 19+25+18+21+12 | **95** |
-| Collaboratore | 19+18+18+28+12 | **95** |
+| Connettore | Q3(11)+Q4(30)+Q5(18)+Q6(28)+Q7(11) | **98** |
+| Artigiano | Q1(21)+Q3(11)+Q6(28)+Q8(18)+Q9(20) | **98** |
+| Capitano | Q2(28)+Q3(11)+Q4(30)+Q5(18)+Q10(11) | **98** |
+| Pragmatico | Q2(28)+Q3(11)+Q4(30)+Q7(11)+Q8(18) | **98** |
+| Pioniere | Q1(21)+Q6(28)+Q7(11)+Q8(18)+Q9(20) | **98** |
+| Stratega | Q2(28)+Q6(28)+Q7(11)+Q9(20)+Q10(11) | **98** |
+| Risolutore | Q1(21)+Q2(28)+Q5(18)+Q9(20)+Q10(11) | **98** |
+| Collaboratore | Q1(21)+Q4(30)+Q5(18)+Q8(18)+Q10(11) | **98** |
 
 ## Introduzione (Step 0)
 
@@ -140,8 +140,8 @@ La v4.1 introduce:
 ### Problema
 
 Enumerazione esaustiva (tutte le 1.048.576 combinazioni):
-- **95.87%** combinazioni: archetipo primario emerge chiaro
-- **4.13%** combinazioni: 2+ archetipi hanno punteggio identico (43.282 casi)
+- **95.48%** combinazioni: archetipo primario emerge chiaro
+- **4.52%** combinazioni: 2+ archetipi hanno punteggio identico (47.354 casi)
 
 La regola precedente (ordine alfabetico) creava bias strutturale (Artigiano favorito +12.48%, Risolutore/Stratega penalizzati -12.50%).
 
@@ -175,7 +175,7 @@ Dove `Ex` = set archetipi in ex aequo, `r` = risposta Q11, `P[r][a]` = peso prim
 
 | Criterio | Stato | Note |
 |---|:---:|---|
-| Bilanciamento matematico | OK | MAX identico (95) per tutti gli archetipi, spread 1,18 pp |
+| Bilanciamento matematico | OK | MAX identico (98) per tutti gli archetipi, spread 1,01 pp |
 | Mappatura archetipi K8 v2.0 | OK | Coerenza 100%, bilanciamento 5x8 perfetto |
 | Inclusività target | OK | 10/10 domande accessibili a chi non ha mai lavorato |
 | Chiarezza linguistica | OK | Livello A2-B1, lessico accessibile |
@@ -189,38 +189,40 @@ Dove `Ex` = set archetipi in ex aequo, `r` = risposta Q11, `P[r][a]` = peso prim
 
 ## Risultati dei Test
 
-La suite di test automatizzati (`scripts/`) verifica il corretto funzionamento della survey v4.1 tramite enumerazione esaustiva di tutte le 1.048.576 combinazioni possibili (4^10) e simulazioni Monte Carlo.
+La suite di test automatizzati (`scripts/`) verifica il corretto funzionamento della survey v4.4 tramite enumerazione esaustiva di tutte le 1.048.576 combinazioni possibili (4^10) e simulazioni Monte Carlo.
 
-### Enumerazione Esaustiva (pesi v4.1: 12-28)
+> **Nota v4.4:** il flag Chi-quadro (χ²=136,50, df=7) segnala un bias statisticamente significativo ma residuale: lo spread è 1,01 pp (enumerazione esaustiva) e 1,29 pp (Monte Carlo), entrambi sotto la soglia accettabile di 2 pp. Con utenti reali che rispondono con coerenza l'effetto si riduce ulteriormente. La risoluzione tiebreaker è 100% garantita.
+
+### Enumerazione Esaustiva (pesi v4.4: 11-30)
 
 | Metrica | Risultato |
 |---|---|
 | **Combinazioni totali** | 1.048.576 |
-| **Casi di pareggio** | 43.282 (4,13%) |
-| **Spread archetipo** | **1,18 pp** (accettabile) |
-| **Max/Min ratio** | 1,100x |
-| **Archetipo più frequente** | Capitano (12,96%) |
-| **Archetipo meno frequente** | Artigiano (11,78%) |
+| **Casi di pareggio** | 47.354 (4,52%) |
+| **Spread archetipo** | **1,01 pp** (accettabile) |
+| **Max/Min ratio** | 1,084x |
+| **Archetipo più frequente** | Stratega (13,01%) |
+| **Archetipo meno frequente** | Artigiano (12,00%) |
 
 ### Distribuzione Archetipi (tutte le combinazioni)
 
 | Archetipo | Probabilità | Deviazione |
 |---|---|---|
-| Capitano | 12,96% | +0,46 pp |
-| Connettore | 12,95% | +0,45 pp |
-| Pragmatico | 12,95% | +0,45 pp |
-| Stratega | 12,89% | +0,39 pp |
-| Collaboratore | 12,67% | +0,17 pp |
-| Risolutore | 11,97% | −0,53 pp |
-| Pioniere | 11,83% | −0,67 pp |
-| Artigiano | 11,78% | −0,72 pp |
+| Stratega | 13,01% | +0,51 pp |
+| Pragmatico | 12,86% | +0,36 pp |
+| Capitano | 12,86% | +0,36 pp |
+| Connettore | 12,83% | +0,33 pp |
+| Risolutore | 12,21% | −0,29 pp |
+| Collaboratore | 12,20% | −0,30 pp |
+| Pioniere | 12,03% | −0,47 pp |
+| Artigiano | 12,00% | −0,50 pp |
 
 ### Risoluzione Tiebreaker Q11
 
 | Test | Risultato |
 |---|---|
-| **Pareggi × 4 risposte Q11** | 173.128 casi verificati |
-| **Risoluzione per ogni risposta** | 100% (43.282 / 43.282) |
+| **Pareggi × 4 risposte Q11** | 189.416 casi verificati |
+| **Risoluzione per ogni risposta** | 100% (47.354 / 47.354) |
 | **Risoluzione totale** | **100,0000%** |
 
 ### Validazione Matrice Pesi Primi
@@ -287,34 +289,34 @@ node scripts/archetype_balance_test.js
 
 ### Scoring
 
-Il sistema utilizza pesi differenziati per domanda (weighted scoring) con range compresso 12-28 (Scenario C):
+Il sistema utilizza pesi differenziati per domanda (weighted scoring) con range 11-30 (v4.4):
 
 ```
-Q1: peso 12   Q6: peso 12
-Q2: peso 19   Q7: peso 18
-Q3: peso 18   Q8: peso 28
-Q4: peso 25   Q9: peso 21
-Q5: peso 25   Q10: peso 12
+Q1: peso 21   Q6: peso 28
+Q2: peso 28   Q7: peso 11
+Q3: peso 11   Q8: peso 18
+Q4: peso 30   Q9: peso 20
+Q5: peso 18   Q10: peso 11
 ```
 
-**Peso totale:** 190 punti — **Rapporto max/min:** 2,3x (vs 6,3x nella v3.5)
+**Peso totale:** 196 punti — **Rapporto max/min:** 2,7x — **Range:** 11-30
 
-Le domande con peso maggiore (Q8 = 28, Q4/Q5 = 25) hanno maggiore impatto sulla determinazione dell'archetipo finale, ma il range compresso garantisce che anche le domande più leggere (Q1/Q6/Q10 = 12) abbiano impatto significativo. Il risultato restituisce sempre un **singolo archetipo dominante**. In caso di parità, il sistema presenta la domanda tiebreaker Q11 con matrice di pesi primi per risoluzione matematicamente garantita.
+Le domande con peso maggiore (Q4 = 30, Q2/Q6 = 28) hanno maggiore impatto sulla determinazione dell'archetipo finale. Il range 11-30 garantisce che nessuna domanda sia decorativa (min 11) e riduce la dominanza eccessiva (max 30 vs 38 della v3.5). Il risultato restituisce sempre un **singolo archetipo dominante**. In caso di parità, il sistema presenta la domanda tiebreaker Q11 con matrice di pesi primi per risoluzione matematicamente garantita.
 
 ### Mappatura Tecnica Completa
 
 | Q | Peso | A | B | C | D |
 |:---:|:---:|---|---|---|---|
-| 1 | 12 | Connettore | Artigiano | Capitano | Pragmatico |
-| 2 | 19 | Risolutore | Pioniere | Collaboratore | Artigiano |
-| 3 | 18 | Artigiano | Collaboratore | Pragmatico | Pioniere |
-| 4 | 25 | Capitano | Stratega | Pragmatico | Risolutore |
-| 5 | 25 | Pioniere | Stratega | Connettore | Artigiano |
-| 6 | 12 | Pioniere | Pragmatico | Connettore | Stratega |
-| 7 | 18 | Connettore | Collaboratore | Capitano | Risolutore |
-| 8 | 28 | Connettore | Collaboratore | Capitano | Pragmatico |
-| 9 | 21 | Artigiano | Stratega | Risolutore | Pioniere |
-| 10 | 12 | Collaboratore | Stratega | Capitano | Risolutore |
+| 1 | 21 | Risolutore | Pioniere | Collaboratore | Artigiano |
+| 2 | 28 | Capitano | Stratega | Pragmatico | Risolutore |
+| 3 | 11 | Connettore | Artigiano | Capitano | Pragmatico |
+| 4 | 30 | Connettore | Collaboratore | Capitano | Pragmatico |
+| 5 | 18 | Connettore | Collaboratore | Capitano | Risolutore |
+| 6 | 28 | Pioniere | Stratega | Connettore | Artigiano |
+| 7 | 11 | Pioniere | Pragmatico | Connettore | Stratega |
+| 8 | 18 | Artigiano | Collaboratore | Pragmatico | Pioniere |
+| 9 | 20 | Artigiano | Stratega | Risolutore | Pioniere |
+| 10 | 11 | Collaboratore | Stratega | Capitano | Risolutore |
 
 ## Evoluzione della Survey
 
@@ -326,4 +328,5 @@ Le domande con peso maggiore (Q8 = 28, Q4/Q5 = 25) hanno maggiore impatto sulla 
 | v3.4 | 9 Feb 2026 | Raffinamenti linguistici su 23 opzioni/stem |
 | v3.5 | 11 Feb 2026 | Nuovo testo intro #BeyondTitles, differenziazione stem Q3/Q8/Q10 |
 | v4.0 | 20 Feb 2026 | Riscrittura completa domande, Q10 nuova dimensione, tiebreaker Q11 con pesi primi, pesi compressi 12-28 (Scenario C), spread 1,18 pp |
-| **v4.1** | **27 Feb 2026** | **Revisione wording IT/EN con Gi Group: 8 modifiche testo italiano, riscrittura completa traduzione inglese** |
+| v4.1 | 27 Feb 2026 | Revisione wording IT/EN con Gi Group: 8 modifiche testo italiano, riscrittura completa traduzione inglese |
+| **v4.4** | **7 aprile 2026** | **Correttivi ai pesi (range 11-30, totale 196): eliminazione domande decorative, riduzione dominanza Q4, miglioramento bilanciamento distribuzione archetipi. Nuovo ordine domande allineato alla spec client.** |

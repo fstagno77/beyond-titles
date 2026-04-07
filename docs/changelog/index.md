@@ -2,7 +2,16 @@
 
 Log delle modifiche al progetto, organizzato per versione e data.
 
-## v0.20.0 <Badge type="tip" text="corrente" />
+## v0.21.0 <Badge type="tip" text="corrente" />
+
+**7 aprile 2026**
+
+- **Survey v4.4**: nuovo set di pesi (range 11-30, totale W=196) — elimina domande decorative (min peso 6→11), riduce dominanza Q4 (38→30), migliora bilanciamento distribuzione archetipi
+- **Nuovo ordine domande**: sequenza allineata alla spec client v4.4 (Q1=Imprevisto, Q4=Team+chiarezza)
+- **Fix wording IT/EN**: 4 opzioni di testo allineate alla spec v4.4 (Q3-C, Q5-D, Q6-B, Q9-A)
+- Aggiornamento wiki: bilanciamento, survey, mappatura tecnica
+
+## v0.20.0
 
 **3 marzo 2026**
 

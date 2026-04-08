@@ -85,7 +85,7 @@
             },
             {
               "id": "3C",
-              "testo": "Stabilisco una direzione e parto.",
+              "testo": "Stabilisco una direzione chiara e parto.",
               "archetipo": "capitano"
             },
             {
@@ -144,7 +144,7 @@
             },
             {
               "id": "5D",
-              "testo": "Propongo un'azione pratica da adottare senza aspettare.",
+              "testo": "Propongo un'azione pratica da adottare e agisco immediatamente.",
               "archetipo": "risolutore"
             }
           ]
@@ -161,7 +161,7 @@
             },
             {
               "id": "6B",
-              "testo": "Capisco come funziona il nuovo sistema e mi organizzo di conseguenza.",
+              "testo": "Capisco come funziona il nuovo sistema, poi mi organizzo di conseguenza.",
               "archetipo": "stratega"
             },
             {
@@ -237,7 +237,7 @@
           "opzioni": [
             {
               "id": "9A",
-              "testo": "Lo sistemo con cura, occupandomi anche dei dettagli.",
+              "testo": "Lo sistemo con cura, occupandomi con attenzione dei dettagli.",
               "archetipo": "artigiano"
             },
             {

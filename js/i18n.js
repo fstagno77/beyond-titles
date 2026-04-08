@@ -343,7 +343,7 @@ const translations = {
         bcb3_q3_stem: "Hai una nuova attività in programma, ma poche indicazioni. Qual è la prima cosa che fai?",
         bcb3_q3_opt_a: "Mi confronto con qualcuno per capire cosa è importante e cosa viene prima.",
         bcb3_q3_opt_b: "Raccolgo le informazioni disponibili e mi soffermo sui dettagli.",
-        bcb3_q3_opt_c: "Stabilisco una direzione e parto.",
+        bcb3_q3_opt_c: "Stabilisco una direzione chiara e parto.",
         bcb3_q3_opt_d: "Parto dal primo passo che produce un risultato tangibile.",
 
         bcb3_q4_stem: "In un lavoro di squadra manca chiarezza e i tempi stringono. Come intervieni?",
@@ -356,11 +356,11 @@ const translations = {
         bcb3_q5_opt_a: "Ascolto con attenzione, riformulo quanto è stato detto e aiuto a riportare calma e rispetto.",
         bcb3_q5_opt_b: "Cerco un punto in comune e costruisco qualcosa che funzioni per entrambi.",
         bcb3_q5_opt_c: "Riporto l'attenzione sull'obiettivo comune e indico il prossimo passo.",
-        bcb3_q5_opt_d: "Propongo un'azione pratica da adottare senza aspettare.",
+        bcb3_q5_opt_d: "Propongo un'azione pratica da adottare e agisco immediatamente.",
 
         bcb3_q6_stem: "All'improvviso cambia il modo in cui hai sempre svolto un'attività. Come reagisci?",
         bcb3_q6_opt_a: "Testo con prontezza il nuovo metodo e imparo facendolo.",
-        bcb3_q6_opt_b: "Capisco come funziona il nuovo sistema e mi organizzo di conseguenza.",
+        bcb3_q6_opt_b: "Capisco come funziona il nuovo sistema, poi mi organizzo di conseguenza.",
         bcb3_q6_opt_c: "Mi confronto con gli altri per delineare cosa funziona meglio.",
         bcb3_q6_opt_d: "Seguo le nuove indicazioni con attenzione e controllo che siano corrette.",
 
@@ -377,7 +377,7 @@ const translations = {
         bcb3_q8_opt_d: "Introduco un miglioramento che renda il risultato più utile.",
 
         bcb3_q9_stem: "Noti un problema prima che diventi evidente. Come intervieni?",
-        bcb3_q9_opt_a: "Lo sistemo con cura, occupandomi anche dei dettagli.",
+        bcb3_q9_opt_a: "Lo sistemo con cura, occupandomi con attenzione dei dettagli.",
         bcb3_q9_opt_b: "Punto sulla soluzione più efficace, anche se richiede più tempo.",
         bcb3_q9_opt_c: "Intervengo rapidamente per evitare conseguenze.",
         bcb3_q9_opt_d: "Provo un'alternativa che possa funzionare meglio.",
@@ -737,7 +737,7 @@ const translations = {
         bcb3_q3_stem: "You have a new task but very little guidance. What do you do first?",
         bcb3_q3_opt_a: "I speak to someone to understand what matters most and what should come first.",
         bcb3_q3_opt_b: "I gather the available information and review the details thoroughly.",
-        bcb3_q3_opt_c: "I set a direction and get started.",
+        bcb3_q3_opt_c: "I set a clear direction and get started.",
         bcb3_q3_opt_d: "I begin with the first step that will deliver a tangible result.",
 
         bcb3_q4_stem: "In a team setting, clarity is missing and time is tight. How do you step in?",
@@ -750,11 +750,11 @@ const translations = {
         bcb3_q5_opt_a: "I listen closely, rephrase what's been said, and help restore calm.",
         bcb3_q5_opt_b: "I look for common ground and move towards an outcome that works for both of us.",
         bcb3_q5_opt_c: "I refocus attention on the shared goal and outline the next action.",
-        bcb3_q5_opt_d: "I suggest a practical move to adopt without waiting.",
+        bcb3_q5_opt_d: "I suggest a practical move and act on it straight away.",
 
         bcb3_q6_stem: "Suddenly, the way you've always done something changes. What's your reaction?",
         bcb3_q6_opt_a: "I test the new method straight away and learn as I go.",
-        bcb3_q6_opt_b: "I make sure I understand how it works and organise myself accordingly.",
+        bcb3_q6_opt_b: "I make sure I understand how it works, then organise myself accordingly.",
         bcb3_q6_opt_c: "I speak with others to clarify what works best.",
         bcb3_q6_opt_d: "I carefully follow the new guidance and ensure it is applied correctly.",
 
@@ -771,7 +771,7 @@ const translations = {
         bcb3_q8_opt_d: "I introduce an improvement that strengthens the outcome.",
 
         bcb3_q9_stem: "You notice a problem before it becomes obvious. How do you deal with it?",
-        bcb3_q9_opt_a: "I resolve it carefully, taking care of the details too.",
+        bcb3_q9_opt_a: "I resolve it with precision, paying close attention to detail.",
         bcb3_q9_opt_b: "I aim for the most effective solution, even if it takes longer.",
         bcb3_q9_opt_c: "I act quickly to prevent it from escalating.",
         bcb3_q9_opt_d: "I try an alternative option that may work better.",

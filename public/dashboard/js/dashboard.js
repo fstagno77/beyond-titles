@@ -662,11 +662,7 @@
       cell.className = cls;
       if (isOutOfRange) cell.disabled = true;
 
-      if (!isOutOfRange) {
-        cell.addEventListener('click',      e => { e.stopPropagation(); onDayClick(dateStr); });
-        cell.addEventListener('mouseenter', () => onDayHover(dateStr));
-        cell.addEventListener('mouseleave', () => { _dpHover = null; renderDatePicker(); });
-      }
+      // eventi gestiti via delegation su #dpGrid — non aggiungere listener per cella
 
       gridEl.appendChild(cell);
     });
@@ -703,8 +699,38 @@
     if (_dpSelStart) { _dpHover = dateStr; renderDatePicker(); }
   }
 
+  let _dpGridListenersAttached = false;
+
+  function attachGridDelegation() {
+    if (_dpGridListenersAttached) return;
+    _dpGridListenersAttached = true;
+    const gridEl = $('dpGrid');
+
+    gridEl.addEventListener('click', e => {
+      e.stopPropagation();
+      const cell = e.target.closest('button[data-date]');
+      if (!cell || cell.disabled) return;
+      onDayClick(cell.dataset.date);
+    });
+
+    gridEl.addEventListener('mouseover', e => {
+      const cell = e.target.closest('button[data-date]');
+      if (!cell || cell.disabled) return;
+      if (_dpSelStart && cell.dataset.date !== _dpHover) {
+        _dpHover = cell.dataset.date;
+        renderDatePicker();
+      }
+    });
+
+    gridEl.addEventListener('mouseleave', () => {
+      if (_dpSelStart && _dpHover !== null) {
+        _dpHover = null;
+        renderDatePicker();
+      }
+    });
+  }
+
   function openDatePicker() {
-    // Inizializza il mese visualizzato: usa dateFrom se presente, altrimenti il primo mese con dati
     if (state.dateFrom) {
       const d = new Date(state.dateFrom + 'T00:00:00');
       _dpViewYear  = d.getFullYear();
@@ -720,6 +746,7 @@
     renderDatePicker();
     $('datePicker').hidden = false;
     $('dateRangePicker').setAttribute('aria-expanded', 'true');
+    attachGridDelegation();
   }
 
   function closeDatePicker() {

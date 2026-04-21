@@ -586,7 +586,7 @@
   // -------------------------------------------------------------------------
   function buildWeekPicker() {
     const weekSet = new Set();
-    (state.raw.global['default']?.weekly ?? []).filter(w => w.count > 0).forEach(w => weekSet.add(w.week));
+    (state.raw.global['default']?.weekly ?? []).forEach(w => weekSet.add(w.week));
     const weeks = [...weekSet].sort();
     const list = $('weekPickerList');
     list.innerHTML = '';

@@ -744,7 +744,18 @@
     _dpSelStart = null;
     _dpHover    = null;
     renderDatePicker();
-    $('datePicker').hidden = false;
+    const dp  = $('datePicker');
+    const btn = $('dateRangePicker');
+    dp.hidden = false;
+    // Posiziona sotto il bottone, allineato a sinistra
+    const rect = btn.getBoundingClientRect();
+    const dpW  = dp.offsetWidth;
+    let left   = rect.left;
+    // Evita overflow a destra
+    if (left + dpW > window.innerWidth - 8) left = window.innerWidth - dpW - 8;
+    dp.style.top  = (rect.bottom + 6) + 'px';
+    dp.style.left = left + 'px';
+    dp.style.right = 'auto';
     $('dateRangePicker').setAttribute('aria-expanded', 'true');
     attachGridDelegation();
   }

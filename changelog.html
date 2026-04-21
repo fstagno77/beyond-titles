@@ -85,6 +85,24 @@
 
             <article class="changelog__version">
                 <div class="changelog__version-header">
+                    <span class="changelog__version-number">v0.22.0</span>
+                    <span class="changelog__version-date">21 Aprile 2026</span>
+                </div>
+                <ul class="changelog__list">
+                    <li>Dashboard: revisione scope dati — solo completamenti DB, rimossi blocchi dipendenti da Cotton/GA4</li>
+                    <li>Rimosso Dropout Funnel (dato non disponibile lato DB, disponibile via Cotton/GA4)</li>
+                    <li>Rimossi toggle "Include abandoned" e "Include pre-launch" — logica semplificata</li>
+                    <li>Completion Rate by Country rinominato Completions by Country (conteggi assoluti)</li>
+                    <li>Aggiunto banner informativo: dashboard di risultati, non di comportamento</li>
+                    <li>Aggiunta country "Other" per IP non mappati (~1% del totale)</li>
+                    <li>Dati fake aggiornati: W18 soft launch (180 completamenti, 27 apr), W19 go-live 4 maggio (picco reale)</li>
+                    <li>Granularità giornaliera: dati convertiti da weekly a daily, date picker a calendario sostituisce il week picker</li>
+                    <li>Trend chart adattivo: daily per range ≤60 giorni, aggregazione weekly per range più ampi</li>
+                </ul>
+            </article>
+
+            <article class="changelog__version">
+                <div class="changelog__version-header">
                     <span class="changelog__version-number">v0.21.0</span>
                     <span class="changelog__version-date" data-i18n="changelog_v0210_date">7 Aprile 2026</span>
                 </div>

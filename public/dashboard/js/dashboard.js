@@ -18,7 +18,6 @@
     raw: null,          // oggetto dashboard_data.json completo
     target: 'all',      // 'all' | 'b2b' | 'b2c' | '0'
     includePrelaunch: false,
-    includeAbandoned: false,
     country: null,      // country code selezionata
     compareGlobal: false,
     weekFrom: null,     // ISO week string "YYYY-WNN" o null
@@ -103,15 +102,11 @@
 
   // -------------------------------------------------------------------------
   // Chiave slice in base ai toggle attivi
-  //   completed × is_prelaunch → 4 combinazioni
+  //   Solo include_prelaunch gestito — record abbandonati non disponibili nel DB
+  //   2 combinazioni: 'default' | 'incl_prelaunch'
   // -------------------------------------------------------------------------
   function sliceKey() {
-    const p = state.includePrelaunch;
-    const a = state.includeAbandoned;
-    if (p && a)  return 'all';
-    if (p)       return 'incl_prelaunch';
-    if (a)       return 'incl_abandoned';
-    return 'default';
+    return state.includePrelaunch ? 'incl_prelaunch' : 'default';
   }
 
   function getGlobalSlice() {
@@ -266,34 +261,21 @@
   function renderGlobalKPIs(slice) {
     const d = state.raw;
     const t = state.target;
-    // Il tasso di completamento esclude sempre le risposte pre-launch (stakeholder testing),
-    // indipendentemente dal toggle: completed = solo post-lancio, total = post-lancio + abandoned.
-    const completedKey = 'default';
-    const totalKey     = 'incl_abandoned';
 
-    let filteredTotal, completedForRate, totalForRate;
+    let filteredTotal;
 
     if (state.weekFrom || state.weekTo) {
-      // Totali calcolati sommando i dati weekly nel range selezionato
-      const agg      = weeklyAggregated(slice);
-      const baseAgg  = weeklyAggregated(d.global[completedKey]);
-      const abandAgg = weeklyAggregated(d.global[totalKey]);
-      filteredTotal    = t === 'all' ? agg.total      : (agg.by_target[t]      ?? 0);
-      completedForRate = t === 'all' ? baseAgg.total  : (baseAgg.by_target[t]  ?? 0);
-      totalForRate     = t === 'all' ? abandAgg.total : (abandAgg.by_target[t] ?? 0);
+      const agg = weeklyAggregated(slice);
+      filteredTotal = t === 'all' ? agg.total : (agg.by_target[t] ?? 0);
     } else {
-      filteredTotal    = t === 'all' ? slice.total : (slice.by_target[t] ?? 0);
-      const baseG  = d.global[completedKey];
-      const abandG = d.global[totalKey];
-      completedForRate = t === 'all' ? baseG.total  : (baseG.by_target[t]  ?? 0);
-      totalForRate     = t === 'all' ? abandG.total : (abandG.by_target[t] ?? 0);
+      filteredTotal = t === 'all' ? slice.total : (slice.by_target[t] ?? 0);
     }
 
     const archOverride = (state.weekFrom || state.weekTo)
       ? weeklyAggregated(slice).by_archetype
       : null;
     $('kpiTotal').textContent          = fmt(filteredTotal);
-    $('kpiCompletion').textContent     = pct(completedForRate, totalForRate);
+    $('kpiCompletion').textContent     = '—';   // Untracked users — dato non disponibile da DB
     $('kpiTopArchetype').textContent   = fmtArchKpi(archetypesByTarget(slice, t, archOverride));
     $('kpiCountries').textContent      = fmt(d.meta.countries.length);
     $('kpiCountriesLabel').textContent = 'Active countries';
@@ -305,39 +287,27 @@
   // -------------------------------------------------------------------------
   function renderCountryKPIs(code) {
     const slice = getCountrySlice(code);
-    const meta  = getCountryMeta(code);
     const globalSlice = getGlobalSlice();
     if (!slice) return;
 
     const t = state.target;
-    let ctryFiltered, globalFiltered, ctryCompleted, ctryTotalForRate;
-
-    const completedKey = 'default';
-    const totalKey     = 'incl_abandoned';
+    let ctryFiltered, globalFiltered;
 
     if (state.weekFrom || state.weekTo) {
-      const ctryAgg    = weeklyAggregated(slice);
-      const globalAgg  = weeklyAggregated(globalSlice);
-      const baseAgg    = weeklyAggregated(meta[completedKey]);
-      const abandAgg   = weeklyAggregated(meta[totalKey]);
-      ctryFiltered     = t === 'all' ? ctryAgg.total    : (ctryAgg.by_target[t]    ?? 0);
-      globalFiltered   = t === 'all' ? globalAgg.total  : (globalAgg.by_target[t]  ?? 0);
-      ctryCompleted    = t === 'all' ? baseAgg.total    : (baseAgg.by_target[t]    ?? 0);
-      ctryTotalForRate = t === 'all' ? abandAgg.total   : (abandAgg.by_target[t]   ?? 0);
+      const ctryAgg   = weeklyAggregated(slice);
+      const globalAgg = weeklyAggregated(globalSlice);
+      ctryFiltered   = t === 'all' ? ctryAgg.total   : (ctryAgg.by_target[t]   ?? 0);
+      globalFiltered = t === 'all' ? globalAgg.total : (globalAgg.by_target[t] ?? 0);
     } else {
-      ctryFiltered   = t === 'all' ? slice.total : (slice.by_target[t] ?? 0);
+      ctryFiltered   = t === 'all' ? slice.total       : (slice.by_target[t]       ?? 0);
       globalFiltered = t === 'all' ? globalSlice.total : (globalSlice.by_target[t] ?? 0);
-      const baseC  = meta[completedKey];
-      const abandC = meta[totalKey];
-      ctryCompleted    = baseC  ? (t === 'all' ? baseC.total  : (baseC.by_target[t]  ?? 0)) : 0;
-      ctryTotalForRate = abandC ? (t === 'all' ? abandC.total : (abandC.by_target[t] ?? 0)) : 0;
     }
 
     const ctryArchOverride = (state.weekFrom || state.weekTo)
       ? weeklyAggregated(slice).by_archetype
       : null;
     $('kpiTotal').textContent          = fmt(ctryFiltered);
-    $('kpiCompletion').textContent     = pct(ctryCompleted, ctryTotalForRate);
+    $('kpiCompletion').textContent     = '—';   // Untracked users — dato non disponibile da DB
     $('kpiTopArchetype').textContent   = fmtArchKpi(archetypesByTarget(slice, t, ctryArchOverride));
     $('kpiCountries').textContent      = pct(ctryFiltered, globalFiltered);
     $('kpiCountriesLabel').textContent = 'Share of total';
@@ -486,18 +456,16 @@
   // Refresh completo dei grafici e KPI
   // -------------------------------------------------------------------------
   // -------------------------------------------------------------------------
-  // Dati per Completion Rate per paese (da meta country, sempre fisso)
+  // Dati per Completions by Country (da default.total per paese, sempre fisso)
+  // Sostituisce il precedente "Completion Rate by Country" —
+  // non sono disponibili record abbandonati nel DB Perabite, quindi
+  // non è calcolabile alcun tasso. Si mostra il conteggio assoluto di completamenti.
   // -------------------------------------------------------------------------
   function getCompletionRateData() {
     return state.raw.meta.countries.map(code => ({
       country: code,
-      rate: state.raw.countries[code]?.completion_rate ?? 0,
+      total: state.raw.countries[code]?.default?.total ?? 0,
     }));
-  }
-
-  function getGlobalCompletionRate() {
-    const sc = state.raw.meta.slice_counts;
-    return sc.incl_abandoned ? sc.default / sc.incl_abandoned * 100 : 0;
   }
 
   // Dati Q1-Q10: risponde a country + audience target (non a date range, dati non weekly)
@@ -575,8 +543,8 @@
 
     DashCharts.updateGlobalTrend(weeklyFiltered(globalSlice));
 
-    // Completion Rate (fisso — non risponde a filtri slice/target/date)
-    DashCharts.updateCompletionRate(getCompletionRateData(), getGlobalCompletionRate());
+    // Completions by Country (fisso — non risponde a filtri slice/target/date)
+    DashCharts.updateCompletionRate(getCompletionRateData());
 
     // Tiebreaker Rate donut + Q11 bar (fissi — pre-calcolati in analytics)
     const tbAnalytics = state.raw.analytics;
@@ -586,9 +554,6 @@
     // Heatmap (risponde a slice, target, date range)
     const { heatmap, sortedCountries } = getHeatmapData();
     DashCharts.updateHeatmap(heatmap, sortedCountries);
-
-    // Funnel dropout (fisso — pre-calcolato in analytics)
-    DashCharts.updateDropoutFunnel(state.raw.analytics.dropout_by_question);
 
     // Q1-Q10 answer distribution (risponde a country + audience, non a date range)
     DashCharts.updateCtryQuestions(getQuestionAnswers());
@@ -625,7 +590,7 @@
   // -------------------------------------------------------------------------
   function buildWeekPicker() {
     // Usa incl_prelaunch per includere anche le settimane di aprile (pre-lancio)
-    const allSlices = ['default', 'incl_prelaunch', 'incl_abandoned', 'all'];
+    const allSlices = ['default', 'incl_prelaunch'];
     const weekSet = new Set();
     allSlices.forEach(sk => {
       (state.raw.global[sk]?.weekly ?? []).forEach(w => weekSet.add(w.week));
@@ -734,10 +699,10 @@
 <p>Abandoned sessions are <strong>excluded</strong> unless "Include abandoned" is toggled on, and pre-launch responses are excluded unless "Include pre-launch" is active.</p>`,
     },
     'kpi-global-completion': {
-      title: 'Completion rate',
-      body: `<p>Percentage of users who started the survey and completed it.</p>
-<p>Calculated as: <strong>completions / (completions + abandoned)</strong>, excluding pre-launch responses. Reflects the active audience filter.</p>
-<p>A low value may indicate UX issues, incorrect targeting, or a survey that is too long.</p>`,
+      title: 'Untracked users',
+      body: `<p>This data point is <strong>not available</strong> from the Perabite database.</p>
+<p>Perabite records a database entry <strong>only when a user completes the survey</strong>. Partial sessions, abandoned flows, and users accessing via VPN or unmapped IPs are not captured at the DB level.</p>
+<p>Untracked user volume and dropout analytics are available via the <strong>Cotton / GA4 reporting layer</strong> (Looker Studio).</p>`,
     },
     'kpi-global-archetype': {
       title: 'Top archetype',
@@ -816,10 +781,9 @@
 <p>Compare this with the global Audience Split to understand whether the local audience mix differs from the average, and to inform the country's survey distribution strategy.</p>`,
     },
     'chart-completion-rate': {
-      title: 'Completion Rate by Country',
-      body: `<p>Horizontal bar chart showing the survey completion rate for each of the 29 countries, sorted from highest to lowest.</p>
-<p>Countries with a rate <strong>above the global average</strong> are highlighted in blue; those <strong>below average</strong> in red. The dashed orange line marks the global average.</p>
-<p>The rate is calculated as: <strong>completions / (completions + abandoned)</strong>, excluding pre-launch records. A significantly low value may indicate localisation issues, incorrect targeting, or a survey perceived as too long in that market.</p>
+      title: 'Completions by Country',
+      body: `<p>Horizontal bar chart showing the <strong>absolute number of completed surveys</strong> for each country, sorted from highest to lowest.</p>
+<p>Only completed records are counted — this reflects the data available from the Perabite database. Abandoned sessions are not recorded at the DB level and therefore cannot be included.</p>
 <p><em>Note: this data is fixed and does not respond to audience or date range filters.</em></p>`,
     },
     'chart-tiebreaker-rate': {
@@ -849,10 +813,9 @@
     },
     'chart-dropout': {
       title: 'Dropout Funnel by Question',
-      body: `<p>Vertical bar chart showing at <strong>which question users abandoned the survey</strong> without completing it.</p>
-<p>Each bar represents the number of abandoned sessions whose last recorded response corresponds to that question. Colour intensity increases with the question number, visually reflecting progress through the survey.</p>
-<p>A spike at a specific question may indicate a localised issue: an ambiguous or overly long question, technically difficult to answer on mobile, or simply the point where users lose interest.</p>
-<p><em>Note: calculated across all non-pre-launch abandoned records. Fixed data, does not respond to audience or date range filters.</em></p>`,
+      body: `<p>This chart is <strong>not available</strong> from the Perabite database.</p>
+<p>Dropout data requires tracking of partial sessions — specifically, knowing at which question a user stopped without completing the survey. Perabite records a database entry <strong>only on survey completion</strong>, so abandoned sessions are not captured.</p>
+<p>Dropout funnel analytics are available via the <strong>Cotton / GA4 reporting layer</strong> (Looker Studio).</p>`,
     },
     'chart-country-deviation': {
       title: 'Deviation from Global Average',
@@ -924,12 +887,6 @@
     // Toggle prelaunch
     $('togglePrelaunch').addEventListener('change', e => {
       state.includePrelaunch = e.target.checked;
-      refresh();
-    });
-
-    // Toggle abbandonati
-    $('toggleAbandoned').addEventListener('change', e => {
-      state.includeAbandoned = e.target.checked;
       refresh();
     });
 

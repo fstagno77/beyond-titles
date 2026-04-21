@@ -56,12 +56,6 @@
             Include pre-launch
           </label>
         </div>
-        <div class="dash-filters__group">
-          <label class="dash-filters__label dash-filters__toggle-label">
-            <input type="checkbox" id="toggleAbandoned" class="dash-filters__checkbox">
-            Include abandoned
-          </label>
-        </div>
       </div>
 
       <!-- JSON actions -->
@@ -100,7 +94,7 @@
         </div>
         <div class="kpi-strip__item">
           <span class="kpi-strip__value" id="kpiStripCompletion">—</span>
-          <span class="kpi-strip__label">Completion rate</span>
+          <span class="kpi-strip__label">Untracked users</span>
         </div>
         <div class="kpi-strip__item">
           <span class="kpi-strip__value" id="kpiStripArchetype">—</span>
@@ -131,10 +125,11 @@
             <span class="kpi-card__value" id="kpiTotal">—</span>
             <span class="kpi-card__label">Completions</span>
           </div>
-          <div class="kpi-card">
+          <div class="kpi-card kpi-card--placeholder">
             <button class="help-btn" data-help="kpi-global-completion" aria-label="Informazioni">?</button>
             <span class="kpi-card__value" id="kpiCompletion">—</span>
-            <span class="kpi-card__label">Completion rate</span>
+            <span class="kpi-card__label">Untracked users</span>
+            <span class="kpi-card__note">VPN / unmapped IP &middot; via Cotton</span>
           </div>
           <div class="kpi-card">
             <button class="help-btn" data-help="kpi-global-archetype" aria-label="Informazioni">?</button>
@@ -146,6 +141,11 @@
             <span class="kpi-card__value" id="kpiCountries">—</span>
             <span class="kpi-card__label" id="kpiCountriesLabel">Active countries</span>
           </div>
+        </div>
+
+        <!-- Narrative banner — dati disponibili vs layer Cotton/GA4 -->
+        <div class="dash-narrative-banner">
+          <strong>Survey Results Dashboard</strong> &mdash; This dashboard reflects completed survey records only. Drop-out analytics and untracked user data are available via the Cotton / GA4 reporting layer (Looker Studio).
         </div>
 
         <!-- Charts row 1 -->
@@ -231,24 +231,26 @@
           </div>
         </div>
 
-        <!-- Charts row 6 — Dropout Funnel full width -->
+        <!-- Charts row 6 — Dropout Funnel (placeholder — dati non disponibili da DB) -->
         <div class="chart-grid chart-grid--1col">
           <div class="chart-card">
             <div class="chart-card__header">
               <h3 class="chart-card__title">Dropout Funnel by Question</h3>
               <button class="help-btn help-btn--inline" data-help="chart-dropout" aria-label="Informazioni">?</button>
             </div>
-            <div class="chart-card__wrap">
-              <canvas id="chartDropout"></canvas>
+            <div class="chart-card__wrap chart-card__wrap--placeholder">
+              <div class="chart-placeholder">
+                <span class="chart-placeholder__label">Dropout data available via Cotton / GA4 reporting</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Charts row 7 — Completion Rate full width (static — all countries) -->
+        <!-- Charts row 7 — Completions by Country full width (static — all countries) -->
         <div class="chart-grid chart-grid--1col">
           <div class="chart-card">
             <div class="chart-card__header">
-              <h3 class="chart-card__title">Completion Rate by Country</h3>
+              <h3 class="chart-card__title">Completions by Country</h3>
               <button class="help-btn help-btn--inline" data-help="chart-completion-rate" aria-label="Informazioni">?</button>
             </div>
             <div class="chart-card__wrap chart-card__wrap--completion">

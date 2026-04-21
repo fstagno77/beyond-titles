@@ -591,7 +591,10 @@ const DashCharts = (function () {
   }
 
   // -------------------------------------------------------------------------
-  // 10. Completion Rate per paese — bar orizzontale con linea media globale
+  // 10. Completions by Country — bar orizzontale, conteggio assoluto
+  // Precedentemente "Completion Rate by Country" — rimosso perché richiede
+  // dati di sessioni abbandonate non disponibili nel DB Perabite.
+  // Il grafico mostra ora il numero assoluto di completamenti per paese (fisso).
   // -------------------------------------------------------------------------
   function initCompletionRate() {
     const ctx = document.getElementById('chartCompletionRate').getContext('2d');
@@ -601,25 +604,12 @@ const DashCharts = (function () {
         labels: [],
         datasets: [
           {
-            label: 'Completion rate',
+            label: 'Completions',
             data: [],
-            backgroundColor: [],
-            borderColor: [],
+            backgroundColor: hexToRgba('#0057FF', 0.75),
+            borderColor: '#0057FF',
             borderWidth: 1,
             borderRadius: 4,
-            order: 2,
-          },
-          {
-            label: 'Global average',
-            data: [],
-            type: 'line',
-            borderColor: '#f39c12',
-            borderWidth: 2,
-            borderDash: [5, 4],
-            pointRadius: 0,
-            fill: false,
-            order: 1,
-            datalabels: { display: false },
           },
         ],
       },
@@ -629,30 +619,27 @@ const DashCharts = (function () {
         scales: {
           x: {
             min: 0,
-            max: 100,
             grid: { color: '#f0f0f0' },
-            ticks: { font: { size: 11 }, callback: v => v + '%' },
+            ticks: { font: { size: 11 } },
           },
           y: { grid: { display: false }, ticks: { font: { size: 11 } } },
         },
         plugins: {
           ...BASE_OPTIONS.plugins,
-          legend: {
-            display: true,
-            position: 'top',
-            labels: { font: { size: 11 }, padding: 12 },
-          },
+          legend: { display: false },
           datalabels: {
             anchor: 'end',
             align: 'end',
-            formatter: v => (typeof v === 'number' ? v.toFixed(1) + '%' : ''),
+            formatter: v => (typeof v === 'number' && v > 0
+              ? (v >= 1000 ? (v / 1000).toFixed(1) + 'k' : v)
+              : ''),
             font: { size: 10, weight: '600' },
             color: '#555',
             padding: { right: 4 },
           },
           tooltip: {
             callbacks: {
-              label: ctx => ctx.dataset.label + ': ' + ctx.parsed.x.toFixed(1) + '%',
+              label: ctx => ' ' + ctx.parsed.x.toLocaleString('en-GB') + ' completions',
             },
           },
         },
@@ -661,19 +648,11 @@ const DashCharts = (function () {
     });
   }
 
-  function updateCompletionRate(countryRates, globalAvg) {
+  function updateCompletionRate(countryTotals) {
     const c = charts.completionRate;
-    const sorted = [...countryRates].sort((a, b) => b.rate - a.rate);
+    const sorted = [...countryTotals].sort((a, b) => b.total - a.total);
     c.data.labels = sorted.map(d => d.country.toUpperCase());
-    c.data.datasets[0].data     = sorted.map(d => d.rate);
-    c.data.datasets[0].backgroundColor = sorted.map(d =>
-      d.rate >= globalAvg ? hexToRgba('#0056b3', 0.75) : hexToRgba('#e74c3c', 0.65)
-    );
-    c.data.datasets[0].borderColor = sorted.map(d =>
-      d.rate >= globalAvg ? '#0056b3' : '#e74c3c'
-    );
-    // linea media globale: stesso valore ripetuto per ogni bar
-    c.data.datasets[1].data = new Array(sorted.length).fill(globalAvg);
+    c.data.datasets[0].data = sorted.map(d => d.total);
     c.update();
   }
 
@@ -959,7 +938,7 @@ const DashCharts = (function () {
     initTiebreaker();
     initCompletionRate();
     initHeatmap();
-    initDropoutFunnel();
+    // initDropoutFunnel: canvas rimosso dall'HTML — sostituito con placeholder statico
     initCtryQuestions();
   }
 

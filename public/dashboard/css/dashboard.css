@@ -1052,3 +1052,61 @@
     padding: var(--spacing-md);
   }
 }
+
+/* --------------------------------------------------------------------------
+   KPI card note (testo muted sotto il label, es. "VPN / unmapped IP")
+   -------------------------------------------------------------------------- */
+.kpi-card__note {
+  font-size: 11px;
+  color: var(--color-text-muted, #aaa);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* KPI card placeholder — stile lievemente attenuato per indicare dato non disponibile */
+.kpi-card--placeholder .kpi-card__value {
+  color: var(--color-text-muted, #aaa);
+}
+
+/* --------------------------------------------------------------------------
+   Chart placeholder — sostituisce canvas quando dato non disponibile da DB
+   -------------------------------------------------------------------------- */
+.chart-card__wrap--placeholder {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #f8f9fa;
+  border: 1px dashed #c8cfd8;
+  border-radius: var(--radius-sm, 6px);
+}
+
+.chart-placeholder__label {
+  font-size: var(--font-size-sm, 13px);
+  color: var(--color-text-secondary, #888);
+  font-style: italic;
+  text-align: center;
+  padding: 0 var(--spacing-lg, 20px);
+}
+
+/* --------------------------------------------------------------------------
+   Narrative banner — nota informativa sotto KPI grid, sopra grafici
+   -------------------------------------------------------------------------- */
+.dash-narrative-banner {
+  background: #f0f4ff;
+  border-left: 3px solid #0057FF;
+  border-radius: 3px;
+  padding: 12px 16px;
+  font-size: var(--font-size-sm, 13px);
+  color: var(--color-text-secondary, #555);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-md, 16px);
+}

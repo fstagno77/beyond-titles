@@ -663,7 +663,7 @@
       if (isOutOfRange) cell.disabled = true;
 
       if (!isOutOfRange) {
-        cell.addEventListener('click',      () => onDayClick(dateStr));
+        cell.addEventListener('click',      e => { e.stopPropagation(); onDayClick(dateStr); });
         cell.addEventListener('mouseenter', () => onDayHover(dateStr));
         cell.addEventListener('mouseleave', () => { _dpHover = null; renderDatePicker(); });
       }

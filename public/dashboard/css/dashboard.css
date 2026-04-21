@@ -228,8 +228,8 @@
   overflow-x: auto;
 }
 
-/* Week range picker popup */
-.week-picker {
+/* Date range picker popup — calendario mensile */
+.date-picker {
   position: fixed;
   top: var(--dash-header-height);
   right: var(--spacing-lg);
@@ -237,68 +237,112 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  width: 248px;
+  width: 280px;
   z-index: 200;
   overflow: hidden;
 }
 
-.week-picker__list {
-  max-height: 300px;
-  overflow-y: auto;
-  padding: 6px 0;
-}
-
-.week-picker__month {
-  padding: 8px 16px 4px;
-  font-size: 11px;
-  font-weight: var(--font-weight-semibold);
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  color: var(--color-text-muted);
-}
-
-.week-picker__week {
+.date-picker__header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  width: 100%;
-  padding: 6px 16px;
+  justify-content: space-between;
+  padding: 10px 12px 8px;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.date-picker__nav {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family);
+  transition: background 0.1s, border-color 0.1s, color 0.1s;
+  line-height: 1;
+}
+.date-picker__nav:hover {
+  background: var(--color-background);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.date-picker__month-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  text-align: center;
+  flex: 1;
+}
+
+/* Griglia: 7 colonne Mon–Sun */
+.date-picker__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  padding: 6px 8px;
+}
+
+.dp-day-hdr {
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 4px 0 6px;
+}
+
+/* Celle giorno */
+.dp-day {
   background: none;
   border: none;
-  text-align: left;
-  cursor: pointer;
-  font-family: var(--font-family);
+  border-radius: 50%;
   font-size: var(--font-size-sm);
+  font-family: var(--font-family);
   color: var(--color-text-primary);
-  transition: background 0.1s;
+  cursor: pointer;
+  height: 32px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s, color 0.1s;
+  position: relative;
+  z-index: 1;
 }
-.week-picker__week:hover {
-  background: var(--color-background);
-}
-.week-picker__week.wk-in-range {
-  background: rgba(0, 86, 179, 0.07);
-}
-.week-picker__week.wk-start,
-.week-picker__week.wk-end {
-  background: rgba(0, 86, 179, 0.14);
+.dp-day:hover:not(.dp-day--disabled):not(.dp-day--empty) {
+  background: rgba(0, 86, 179, 0.12);
   color: var(--color-primary);
-  font-weight: var(--font-weight-semibold);
 }
-
-.wk-num {
-  font-size: 11px;
-  font-weight: var(--font-weight-semibold);
+.dp-day--empty {
+  cursor: default;
+  pointer-events: none;
+}
+.dp-day--disabled {
   color: var(--color-text-muted);
-  width: 30px;
-  flex-shrink: 0;
+  cursor: not-allowed;
+  opacity: 0.4;
 }
-.week-picker__week.wk-start .wk-num,
-.week-picker__week.wk-end   .wk-num,
-.week-picker__week.wk-in-range .wk-num {
+.dp-day--start,
+.dp-day--end {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+  font-weight: var(--font-weight-semibold);
+  border-radius: 50%;
+}
+.dp-day--in-range {
+  background: rgba(0, 86, 179, 0.1);
   color: var(--color-primary);
+  border-radius: 0;
 }
+/* Arrotonda gli estremi del range */
+.dp-day--start { border-radius: 50% 0 0 50%; }
+.dp-day--end   { border-radius: 0 50% 50% 0;  }
+.dp-day--start.dp-day--end { border-radius: 50%; }
 
-.week-picker__footer {
+.date-picker__footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -307,7 +351,7 @@
   gap: var(--spacing-sm);
 }
 
-.week-picker__reset {
+.date-picker__reset {
   padding: 4px 10px;
   font-size: var(--font-size-sm);
   background: none;
@@ -318,12 +362,12 @@
   font-family: var(--font-family);
   transition: background 0.1s, color 0.1s;
 }
-.week-picker__reset:hover {
+.date-picker__reset:hover {
   background: var(--color-background);
   color: var(--color-text-primary);
 }
 
-.week-picker__hint {
+.date-picker__hint {
   font-size: 11px;
   color: var(--color-text-muted);
   flex: 1;

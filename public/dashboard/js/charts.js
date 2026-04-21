@@ -262,7 +262,7 @@ const DashCharts = (function () {
       type: 'line',
       data: {
         datasets: [{
-          label: 'Completions/week',
+          label: 'Completions/day',
           data: [],
           borderColor: '#0056b3',
           backgroundColor: hexToRgba('#0056b3', 0.08),
@@ -278,7 +278,7 @@ const DashCharts = (function () {
         scales: {
           x: {
             type: 'time',
-            time: { unit: 'week', tooltipFormat: 'dd MMM yyyy' },
+            time: { unit: 'day', tooltipFormat: 'dd MMM yyyy' },
             grid: { display: false },
             ticks: { font: { size: 11 }, maxTicksLimit: 8 },
           },
@@ -296,25 +296,35 @@ const DashCharts = (function () {
     });
   }
 
-  // Converte "YYYY-WNN" → Date (lunedì della settimana ISO)
-  function isoWeekToDate(weekStr) {
-    const [yearStr, weekPart] = weekStr.split('-W');
-    const year = parseInt(yearStr);
-    const week = parseInt(weekPart);
-    // 4 gennaio cade sempre nella settimana 1 (ISO 8601)
-    const jan4 = new Date(year, 0, 4);
-    const jan4Day = jan4.getDay() || 7; // 1=lun … 7=dom
-    const monday = new Date(jan4);
-    monday.setDate(jan4.getDate() - (jan4Day - 1) + (week - 1) * 7);
-    return monday;
+  // Aggrega dati giornalieri per settimana (per range > 60 giorni)
+  // Input: [{date: "YYYY-MM-DD", count: N}, ...]
+  // Output: [{date: lunedì ISO, count: somma settimana}, ...]
+  function aggregateByWeek(daily) {
+    const buckets = new Map();
+    daily.forEach(({ date, count }) => {
+      const d = new Date(date + 'T00:00:00');
+      const dow = d.getDay() === 0 ? 7 : d.getDay(); // 1=lun … 7=dom
+      const monday = new Date(d);
+      monday.setDate(d.getDate() - (dow - 1));
+      const key = monday.toISOString().slice(0, 10);
+      buckets.set(key, (buckets.get(key) ?? 0) + count);
+    });
+    return [...buckets.entries()]
+      .sort((a, b) => a[0] < b[0] ? -1 : 1)
+      .map(([date, count]) => ({ date, count }));
   }
 
-  function updateGlobalTrend(weekly) {
+  function updateGlobalTrend(daily) {
     const c = charts.globalTrend;
-    c.data.datasets[0].data = weekly.map(w => ({
-      x: isoWeekToDate(w.week),
-      y: w.count,
+    const useWeekly = daily.length > 60;
+    const data = useWeekly ? aggregateByWeek(daily) : daily;
+
+    c.data.datasets[0].label = useWeekly ? 'Completions/week' : 'Completions/day';
+    c.data.datasets[0].data  = data.map(d => ({
+      x: new Date(d.date + 'T00:00:00'),
+      y: d.count,
     }));
+    c.options.scales.x.time.unit = useWeekly ? 'week' : 'day';
     c.update();
   }
 
@@ -396,7 +406,7 @@ const DashCharts = (function () {
       type: 'line',
       data: {
         datasets: [{
-          label: 'Completions/week',
+          label: 'Completions/day',
           data: [],
           borderColor: '#27ae60',
           backgroundColor: hexToRgba('#27ae60', 0.08),
@@ -412,7 +422,7 @@ const DashCharts = (function () {
         scales: {
           x: {
             type: 'time',
-            time: { unit: 'week', tooltipFormat: 'dd MMM yyyy' },
+            time: { unit: 'day', tooltipFormat: 'dd MMM yyyy' },
             grid: { display: false },
             ticks: { font: { size: 11 }, maxTicksLimit: 8 },
           },
@@ -430,12 +440,17 @@ const DashCharts = (function () {
     });
   }
 
-  function updateCtryTrend(weekly) {
+  function updateCtryTrend(daily) {
     const c = charts.ctryTrend;
-    c.data.datasets[0].data = weekly.map(w => ({
-      x: isoWeekToDate(w.week),
-      y: w.count,
+    const useWeekly = daily.length > 60;
+    const data = useWeekly ? aggregateByWeek(daily) : daily;
+
+    c.data.datasets[0].label = useWeekly ? 'Completions/week' : 'Completions/day';
+    c.data.datasets[0].data  = data.map(d => ({
+      x: new Date(d.date + 'T00:00:00'),
+      y: d.count,
     }));
+    c.options.scales.x.time.unit = useWeekly ? 'week' : 'day';
     c.update();
   }
 

@@ -23,12 +23,17 @@
     </header>
   </div>
 
-  <!-- Week range picker popup -->
-  <div class="week-picker" id="weekPicker" hidden>
-    <div class="week-picker__list" id="weekPickerList"></div>
-    <div class="week-picker__footer">
-      <button class="week-picker__reset" id="wpReset">Reset</button>
-      <span class="week-picker__hint" id="wpHint">Select start week</span>
+  <!-- Date range picker popup -->
+  <div class="date-picker" id="datePicker" hidden>
+    <div class="date-picker__header">
+      <button class="date-picker__nav" id="dpPrevMonth" aria-label="Previous month">&#8592;</button>
+      <span class="date-picker__month-label" id="dpMonthLabel">—</span>
+      <button class="date-picker__nav" id="dpNextMonth" aria-label="Next month">&#8594;</button>
+    </div>
+    <div class="date-picker__grid" id="dpGrid"></div>
+    <div class="date-picker__footer">
+      <button class="date-picker__reset" id="dpReset">Reset</button>
+      <span class="date-picker__hint" id="dpHint">Select start date</span>
     </div>
   </div>
 
@@ -166,7 +171,7 @@
         <div class="chart-grid chart-grid--1col">
           <div class="chart-card">
             <div class="chart-card__header">
-              <h3 class="chart-card__title">Weekly Trend</h3>
+              <h3 class="chart-card__title">Daily Trend</h3>
               <button class="help-btn help-btn--inline" data-help="chart-global-trend" aria-label="Informazioni">?</button>
             </div>
             <div class="chart-card__wrap">
@@ -278,7 +283,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 
-  <script src="js/charts.js?v=6"></script>
-  <script src="js/dashboard.js?v=13"></script>
+  <script src="js/charts.js?v=7"></script>
+  <script src="js/dashboard.js?v=14"></script>
 </body>
 </html>

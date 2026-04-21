@@ -177,36 +177,38 @@ Where `Ex` = set of tied archetypes, `r` = Q11 answer, `P[r][a]` = prime weight 
 
 The automated test suite (`scripts/`) verifies the correct functioning of survey v4.1 through exhaustive enumeration of all 1,048,576 possible combinations (4^10) and Monte Carlo simulations.
 
-### Exhaustive Enumeration (v4.1 weights: 12-28)
+### Exhaustive Enumeration (v4.4 weights: 11-30)
 
 | Metric | Result |
 |---|---|
 | **Total combinations** | 1,048,576 |
-| **Tie cases** | 43,282 (4.13%) |
-| **Archetype spread** | **1.18 pp** (acceptable) |
-| **Max/Min ratio** | 1.100x |
-| **Most frequent archetype** | Captain (12.96%) |
-| **Least frequent archetype** | Craftsman (11.78%) |
+| **Tie cases** | 47,354 (4.52%) |
+| **Archetype spread** | **1.01 pp** (acceptable) |
+| **Max/Min ratio** | 1.084x |
+| **Most frequent archetype** | Strategist (13.01%) |
+| **Least frequent archetype** | Craftsman (12.00%) |
 
 ### Archetype Distribution (all combinations)
 
 | Archetype | Probability | Deviation |
 |---|---|---|
-| Captain | 12.96% | +0.46 pp |
-| Connector | 12.95% | +0.45 pp |
-| Pragmatist | 12.95% | +0.45 pp |
-| Strategist | 12.89% | +0.39 pp |
-| Collaborator | 12.67% | +0.17 pp |
-| Resolver | 11.97% | −0.53 pp |
-| Pioneer | 11.83% | −0.67 pp |
-| Craftsman | 11.78% | −0.72 pp |
+| Strategist | 13.01% | +0.51 pp |
+| Pragmatist | 12.86% | +0.36 pp |
+| Captain | 12.86% | +0.36 pp |
+| Connector | 12.83% | +0.33 pp |
+| Resolver | 12.21% | −0.29 pp |
+| Collaborator | 12.20% | −0.30 pp |
+| Pioneer | 12.03% | −0.47 pp |
+| Craftsman | 12.00% | −0.50 pp |
+
+> **Note v4.4:** the Chi-square flag (χ²=136.50, df=7) signals a statistically significant but residual bias: spread is 1.01 pp (exhaustive enumeration) and 1.29 pp (Monte Carlo), both below the 2 pp acceptable threshold. With real users responding consistently the effect is further reduced. Tiebreaker resolution is 100% guaranteed.
 
 ### Tiebreaker Q11 Resolution
 
 | Test | Result |
 |---|---|
-| **Ties × 4 Q11 answers** | 173,128 cases verified |
-| **Resolution per answer** | 100% (43,282 / 43,282) |
+| **Ties × 4 Q11 answers** | 189,416 cases verified |
+| **Resolution per answer** | 100% (47,354 / 47,354) |
 | **Total resolution** | **100.0000%** |
 
 ### Prime Weight Matrix Validation

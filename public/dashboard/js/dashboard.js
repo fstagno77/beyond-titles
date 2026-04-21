@@ -9,7 +9,7 @@
   // -------------------------------------------------------------------------
   // Percorso dati (relativo alla posizione di index.html)
   // -------------------------------------------------------------------------
-  const DATA_URL = '../../data/dashboard_data.json?v=7';
+  const DATA_URL = '../../data/dashboard_data.json?v=8';
 
   // -------------------------------------------------------------------------
   // State
@@ -19,13 +19,15 @@
     target: 'all',      // 'all' | 'b2b' | 'b2c' | '0'
     country: null,      // country code selezionata
     compareGlobal: false,
-    weekFrom: null,     // ISO week string "YYYY-WNN" o null
-    weekTo: null,       // ISO week string "YYYY-WNN" o null
+    dateFrom: null,     // ISO date string "YYYY-MM-DD" o null
+    dateTo: null,       // ISO date string "YYYY-MM-DD" o null
   };
 
-  // Stato interno del week picker (non fa parte del filtro dati)
-  let _wpSelStart = null;
-  let _wpHover    = null;
+  // Stato interno del date picker
+  let _dpSelStart  = null;   // "YYYY-MM-DD" — primo click in corso
+  let _dpHover     = null;   // data sotto il cursore durante selezione
+  let _dpViewYear  = null;   // anno del mese visualizzato
+  let _dpViewMonth = null;   // mese (0-11) del mese visualizzato
 
   // Stato interno del combobox country
   let _comboItems = [];   // [{ value, label }, ...]
@@ -34,9 +36,7 @@
   // -------------------------------------------------------------------------
   // Utility
   // -------------------------------------------------------------------------
-  // -------------------------------------------------------------------------
   // JSON structure helper — mostra schema senza dati grezzi
-  // -------------------------------------------------------------------------
   function jsonStructure(obj, depth, maxDepth) {
     depth = depth || 0;
     maxDepth = (maxDepth !== undefined) ? maxDepth : 3;
@@ -82,25 +82,28 @@
   }
 
   // -------------------------------------------------------------------------
-  // Date helpers (mirror di isoWeekToDate in charts.js)
+  // Date helpers
   // -------------------------------------------------------------------------
-  function isoWeekToDate(weekStr) {
-    const [yearStr, weekPart] = weekStr.split('-W');
-    const year = parseInt(yearStr, 10);
-    const week = parseInt(weekPart, 10);
-    const jan4 = new Date(year, 0, 4);
-    const jan4Day = jan4.getDay() || 7;
-    const monday = new Date(jan4);
-    monday.setDate(jan4.getDate() - (jan4Day - 1) + (week - 1) * 7);
-    return monday;
-  }
-
-  function fmtShort(d) {
+  function fmtShort(dateStr) {
+    // "2026-04-27" → "27 Apr"
+    const d = new Date(dateStr + 'T00:00:00');
     return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' });
   }
 
+  function fmtFull(dateStr) {
+    const d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+  }
+
+  // Compara solo la parte data (stringa ISO)
+  function cmpDate(a, b) {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+  }
+
   // -------------------------------------------------------------------------
-  // Chiave slice — sempre 'default' (il pre-lancio è escluso automaticamente)
+  // Chiave slice — sempre 'default'
   // -------------------------------------------------------------------------
   function sliceKey() {
     return 'default';
@@ -122,14 +125,10 @@
 
   // -------------------------------------------------------------------------
   // Filtra distribuzione archetypes per target
-  // archOverride: oggetto by_archetype già filtrato per range (da weeklyAggregated)
   // -------------------------------------------------------------------------
   function archetypesByTarget(slice, target, archOverride) {
     const base = archOverride ?? slice.by_archetype;
     if (target === 'all') return base;
-    // Se abbiamo un override dal range, non possiamo spezzare per target
-    // perché by_archetype nel weekly non è suddiviso per target.
-    // Usiamo by_archetype_target solo quando non c'è filtro data.
     if (archOverride) return base;
     const byArchTarget = slice.by_archetype_target;
     if (!byArchTarget) return base;
@@ -139,39 +138,39 @@
   }
 
   // -------------------------------------------------------------------------
-  // Filtra weekly solo per range date (senza target)
+  // Filtra daily solo per range date (senza target)
   // -------------------------------------------------------------------------
-  function weeklyRangeFiltered(slice) {
-    if (!slice?.weekly) return [];
-    if (!state.weekFrom && !state.weekTo) return slice.weekly;
-    return slice.weekly.filter(w => {
-      if (state.weekFrom && w.week < state.weekFrom) return false;
-      if (state.weekTo   && w.week > state.weekTo)   return false;
+  function dailyRangeFiltered(slice) {
+    if (!slice?.daily) return [];
+    if (!state.dateFrom && !state.dateTo) return slice.daily;
+    return slice.daily.filter(d => {
+      if (state.dateFrom && d.date < state.dateFrom) return false;
+      if (state.dateTo   && d.date > state.dateTo)   return false;
       return true;
     });
   }
 
-  // Aggrega i dati weekly filtrati per range → { total, by_target, by_archetype, by_country }
-  function weeklyAggregated(slice) {
-    const data = weeklyRangeFiltered(slice);
+  // Aggrega i dati daily filtrati per range → { total, by_target, by_archetype, by_country }
+  function dailyAggregated(slice) {
+    const data = dailyRangeFiltered(slice);
     let total = 0;
     const by_target = {};
     const by_archetype = {};
     const by_country = {};
-    data.forEach(w => {
-      total += w.count;
-      if (w.by_target) {
-        Object.entries(w.by_target).forEach(([k, v]) => {
+    data.forEach(d => {
+      total += d.count;
+      if (d.by_target) {
+        Object.entries(d.by_target).forEach(([k, v]) => {
           by_target[k] = (by_target[k] ?? 0) + v;
         });
       }
-      if (w.by_archetype) {
-        Object.entries(w.by_archetype).forEach(([k, v]) => {
+      if (d.by_archetype) {
+        Object.entries(d.by_archetype).forEach(([k, v]) => {
           by_archetype[k] = (by_archetype[k] ?? 0) + v;
         });
       }
-      if (w.by_country) {
-        Object.entries(w.by_country).forEach(([k, v]) => {
+      if (d.by_country) {
+        Object.entries(d.by_country).forEach(([k, v]) => {
           by_country[k] = (by_country[k] ?? 0) + v;
         });
       }
@@ -180,15 +179,16 @@
   }
 
   // -------------------------------------------------------------------------
-  // Filtra weekly per range date + target (per i grafici trend)
+  // Filtra daily per range date + target (per i grafici trend)
+  // Ritorna array [{date, count}]
   // -------------------------------------------------------------------------
-  function weeklyFiltered(slice) {
-    const data = weeklyRangeFiltered(slice);
+  function dailyFiltered(slice) {
+    const data = dailyRangeFiltered(slice);
     const t = state.target;
-    if (t === 'all') return data;
-    return data.map(w => ({
-      week: w.week,
-      count: w.by_target ? (w.by_target[t] ?? 0) : 0,
+    if (t === 'all') return data.map(d => ({ date: d.date, count: d.count }));
+    return data.map(d => ({
+      date:  d.date,
+      count: d.by_target ? (d.by_target[t] ?? 0) : 0,
     }));
   }
 
@@ -228,7 +228,7 @@
   const $ = id => document.getElementById(id);
 
   // -------------------------------------------------------------------------
-  // Archetype name translation (keys in data are Italian)
+  // Archetype name translation
   // -------------------------------------------------------------------------
   const ARCH_NAMES = {
     capitano:     'The Captain',
@@ -261,15 +261,15 @@
 
     let filteredTotal;
 
-    if (state.weekFrom || state.weekTo) {
-      const agg = weeklyAggregated(slice);
+    if (state.dateFrom || state.dateTo) {
+      const agg = dailyAggregated(slice);
       filteredTotal = t === 'all' ? agg.total : (agg.by_target[t] ?? 0);
     } else {
       filteredTotal = t === 'all' ? slice.total : (slice.by_target[t] ?? 0);
     }
 
-    const archOverride = (state.weekFrom || state.weekTo)
-      ? weeklyAggregated(slice).by_archetype
+    const archOverride = (state.dateFrom || state.dateTo)
+      ? dailyAggregated(slice).by_archetype
       : null;
     $('kpiTotal').textContent          = fmt(filteredTotal);
     $('kpiTopArchetype').textContent   = fmtArchKpi(archetypesByTarget(slice, t, archOverride));
@@ -289,9 +289,9 @@
     const t = state.target;
     let ctryFiltered, globalFiltered;
 
-    if (state.weekFrom || state.weekTo) {
-      const ctryAgg   = weeklyAggregated(slice);
-      const globalAgg = weeklyAggregated(globalSlice);
+    if (state.dateFrom || state.dateTo) {
+      const ctryAgg   = dailyAggregated(slice);
+      const globalAgg = dailyAggregated(globalSlice);
       ctryFiltered   = t === 'all' ? ctryAgg.total   : (ctryAgg.by_target[t]   ?? 0);
       globalFiltered = t === 'all' ? globalAgg.total : (globalAgg.by_target[t] ?? 0);
     } else {
@@ -299,8 +299,8 @@
       globalFiltered = t === 'all' ? globalSlice.total : (globalSlice.by_target[t] ?? 0);
     }
 
-    const ctryArchOverride = (state.weekFrom || state.weekTo)
-      ? weeklyAggregated(slice).by_archetype
+    const ctryArchOverride = (state.dateFrom || state.dateTo)
+      ? dailyAggregated(slice).by_archetype
       : null;
     $('kpiTotal').textContent          = fmt(ctryFiltered);
     $('kpiTopArchetype').textContent   = fmtArchKpi(archetypesByTarget(slice, t, ctryArchOverride));
@@ -314,21 +314,11 @@
   // -------------------------------------------------------------------------
   function renderMeta() {
     const m = state.raw.meta;
-    const fmtFull = s => new Date(s).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
     const btn = $('dateRangePicker');
 
-    if (state.weekFrom || state.weekTo) {
-      const fromStr = state.weekFrom
-        ? fmtShort(isoWeekToDate(state.weekFrom))
-        : fmtFull(m.date_range.min);
-      let toStr;
-      if (state.weekTo) {
-        const sun = new Date(isoWeekToDate(state.weekTo));
-        sun.setDate(sun.getDate() + 6);
-        toStr = fmtShort(sun);
-      } else {
-        toStr = fmtFull(m.date_range.max);
-      }
+    if (state.dateFrom || state.dateTo) {
+      const fromStr = state.dateFrom ? fmtShort(state.dateFrom) : fmtFull(m.date_range.min);
+      const toStr   = state.dateTo   ? fmtShort(state.dateTo)   : fmtFull(m.date_range.max);
       btn.textContent = fromStr + ' — ' + toStr;
       btn.classList.add('dash-header__range-btn--filtered');
     } else {
@@ -352,7 +342,7 @@
   };
 
   // -------------------------------------------------------------------------
-  // Combobox bespoke — costruzione lista, rendering, apertura/chiusura
+  // Combobox bespoke
   // -------------------------------------------------------------------------
   function buildComboItems() {
     _comboItems = [{ value: 'global', label: 'Global Overview' }];
@@ -437,7 +427,7 @@
       titleEl.textContent = (COUNTRY_NAMES[code] ?? code.toUpperCase()) + ' (' + code.toUpperCase() + ')';
       if (qTitle) {
         const badge = qTitle.querySelector('.period-note');
-        qTitle.textContent = 'Answer Distribution Q1–Q10 \u2014 ' + code.toUpperCase();
+        qTitle.textContent = 'Answer Distribution Q1–Q10 — ' + code.toUpperCase();
         if (badge) qTitle.appendChild(badge);
       }
     }
@@ -451,12 +441,6 @@
   // -------------------------------------------------------------------------
   // Refresh completo dei grafici e KPI
   // -------------------------------------------------------------------------
-  // -------------------------------------------------------------------------
-  // Dati per Completions by Country (da default.total per paese, sempre fisso)
-  // Sostituisce il precedente "Completion Rate by Country" —
-  // non sono disponibili record abbandonati nel DB Perabite, quindi
-  // non è calcolabile alcun tasso. Si mostra il conteggio assoluto di completamenti.
-  // -------------------------------------------------------------------------
   function getCompletionRateData() {
     return state.raw.meta.countries.map(code => ({
       country: code,
@@ -464,7 +448,6 @@
     }));
   }
 
-  // Dati Q1-Q10: risponde a country + audience target (non a date range, dati non weekly)
   function getQuestionAnswers() {
     const slice = (state.country && state.country !== 'global')
       ? getCountrySlice(state.country)
@@ -482,17 +465,16 @@
 
   // -------------------------------------------------------------------------
   // Dati per Heatmap Paese × Archetipo
-  // Risponde a: slice, target, date range
   // -------------------------------------------------------------------------
   function getHeatmapData() {
-    const isFiltered = !!(state.weekFrom || state.weekTo);
+    const isFiltered = !!(state.dateFrom || state.dateTo);
     const sk = sliceKey();
     const heatmap = {};
     const totals  = [];
     state.raw.meta.countries.forEach(code => {
       const cs = state.raw.countries[code][sk];
       if (!cs) return;
-      const archOverride = isFiltered ? weeklyAggregated(cs).by_archetype : null;
+      const archOverride = isFiltered ? dailyAggregated(cs).by_archetype : null;
       heatmap[code] = archetypesByTarget(cs, state.target, archOverride);
       const tot = Object.values(heatmap[code]).reduce((s, v) => s + v, 0);
       totals.push({ code, total: tot });
@@ -504,11 +486,10 @@
   // -------------------------------------------------------------------------
   // Indicatori "full period" sui grafici non filtrabili per data
   // -------------------------------------------------------------------------
-  // Q1-Q10 answers are not split by week in the data, so they always show the full period
   const FULL_PERIOD_TITLES = ['titleCtryQuestions'];
 
   function updatePeriodNotes() {
-    const isFiltered = !!(state.weekFrom || state.weekTo);
+    const isFiltered = !!(state.dateFrom || state.dateTo);
     FULL_PERIOD_TITLES.forEach(id => {
       const el = $(id);
       if (!el) return;
@@ -524,34 +505,25 @@
 
   function refresh() {
     const globalSlice = getGlobalSlice();
-    const isFiltered = !!(state.weekFrom || state.weekTo);
+    const isFiltered = !!(state.dateFrom || state.dateTo);
     renderGlobalKPIs(globalSlice);
 
-    const globalAgg = weeklyAggregated(globalSlice);
+    const globalAgg = dailyAggregated(globalSlice);
     const archOverride = isFiltered ? globalAgg.by_archetype : null;
     DashCharts.updateGlobalArchetypes(archetypesByTarget(globalSlice, state.target, archOverride));
 
-    // Audience doughnut: usa by_target aggregato dal range se filtro attivo
     DashCharts.updateGlobalAudience(isFiltered ? globalAgg.by_target : globalSlice.by_target);
-
-    // Top Countries: usa by_country aggregato dal range se filtro attivo
     DashCharts.updateTopCountries(isFiltered ? globalAgg.by_country : getCountryCounts());
-
-    DashCharts.updateGlobalTrend(weeklyFiltered(globalSlice));
-
-    // Completions by Country (fisso — non risponde a filtri slice/target/date)
+    DashCharts.updateGlobalTrend(dailyFiltered(globalSlice));
     DashCharts.updateCompletionRate(getCompletionRateData());
 
-    // Tiebreaker Rate donut + Q11 bar (fissi — pre-calcolati in analytics)
     const tbAnalytics = state.raw.analytics;
     DashCharts.updateTiebreakerRate(tbAnalytics.tiebreaker_count, state.raw.meta.slice_counts.default);
     DashCharts.updateTiebreaker(tbAnalytics.tiebreaker_answers);
 
-    // Heatmap (risponde a slice, target, date range)
     const { heatmap, sortedCountries } = getHeatmapData();
     DashCharts.updateHeatmap(heatmap, sortedCountries);
 
-    // Q1-Q10 answer distribution (risponde a country + audience, non a date range)
     DashCharts.updateCtryQuestions(getQuestionAnswers());
 
     updatePeriodNotes();
@@ -565,120 +537,196 @@
     const slice = getCountrySlice(code);
     if (!slice) return;
     const globalSlice = getGlobalSlice();
-    const isFiltered = !!(state.weekFrom || state.weekTo);
+    const isFiltered = !!(state.dateFrom || state.dateTo);
 
     renderCountryKPIs(code);
 
-    const ctryAgg  = weeklyAggregated(slice);
+    const ctryAgg  = dailyAggregated(slice);
     const ctryArch = isFiltered ? ctryAgg.by_archetype : null;
 
-    // Adatta i grafici globali ai dati del paese
     DashCharts.updateGlobalArchetypes(archetypesByTarget(slice, state.target, ctryArch));
     DashCharts.updateGlobalAudience(isFiltered ? ctryAgg.by_target : slice.by_target);
-    DashCharts.updateGlobalTrend(weeklyFiltered(slice));
+    DashCharts.updateGlobalTrend(dailyFiltered(slice));
 
-    // Q1-Q10: aggiorna con i dati del paese selezionato + filtro audience
     DashCharts.updateCtryQuestions(getQuestionAnswers());
   }
 
-  // -------------------------------------------------------------------------
-  // Week picker
-  // -------------------------------------------------------------------------
-  function buildWeekPicker() {
-    const weekSet = new Set();
-    (state.raw.global['default']?.weekly ?? []).forEach(w => weekSet.add(w.week));
-    const weeks = [...weekSet].sort();
-    const list = $('weekPickerList');
-    list.innerHTML = '';
+  // =========================================================================
+  // Date range picker — calendario mensile
+  // =========================================================================
 
-    let lastMonthKey = null;
-    weeks.forEach(ws => {
-      const mon = isoWeekToDate(ws);
-      const monthKey = mon.getFullYear() + '-' + mon.getMonth();
+  // Nomi mesi e giorni (corti)
+  const MONTH_NAMES = [
+    'January','February','March','April','May','June',
+    'July','August','September','October','November','December',
+  ];
+  const DAY_HEADERS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 
-      if (monthKey !== lastMonthKey) {
-        lastMonthKey = monthKey;
-        const hdr = document.createElement('div');
-        hdr.className = 'week-picker__month';
-        hdr.textContent = mon.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
-        list.appendChild(hdr);
-      }
-
-      const sun = new Date(mon);
-      sun.setDate(mon.getDate() + 6);
-
-      const row = document.createElement('button');
-      row.type = 'button';
-      row.className = 'week-picker__week';
-      row.dataset.week = ws;
-      row.innerHTML =
-        '<span class="wk-num">W' + ws.split('-W')[1] + '</span>' +
-        '<span class="wk-dates">' + fmtShort(mon) + ' – ' + fmtShort(sun) + '</span>';
-
-      row.addEventListener('click',       () => onWeekClick(ws));
-      row.addEventListener('mouseenter',  () => onWeekHover(ws));
-      row.addEventListener('mouseleave',  () => { _wpHover = null; refreshWkHL(); });
-      list.appendChild(row);
-    });
+  // Ritorna il giorno della settimana ISO (1=lun, 7=dom)
+  function isoWeekday(dateStr) {
+    const d = new Date(dateStr + 'T00:00:00');
+    return d.getDay() === 0 ? 7 : d.getDay();
   }
 
-  function onWeekClick(ws) {
-    if (!_wpSelStart) {
-      _wpSelStart = ws;
-      $('wpHint').textContent = 'Now click the end week';
-      refreshWkHL();
+  // Genera tutte le date del mese come stringhe ISO
+  function monthDates(year, month) {
+    const dates = [];
+    const d = new Date(year, month, 1);
+    while (d.getMonth() === month) {
+      const dd = String(d.getDate()).padStart(2, '0');
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      dates.push(`${d.getFullYear()}-${mm}-${dd}`);
+      d.setDate(d.getDate() + 1);
+    }
+    return dates;
+  }
+
+  // Costruisce la griglia di un mese (celle null = giorni del mese precedente/successivo)
+  function buildMonthGrid(year, month) {
+    const dates = monthDates(year, month);
+    const firstIso = isoWeekday(dates[0]); // 1=lun
+    const grid = [];
+    // Riempi celle vuote all'inizio
+    for (let i = 1; i < firstIso; i++) grid.push(null);
+    dates.forEach(d => grid.push(d));
+    // Riempi celle vuote alla fine per completare ultima riga
+    while (grid.length % 7 !== 0) grid.push(null);
+    return grid;
+  }
+
+  function renderDatePicker() {
+    const picker = $('datePicker');
+    if (!picker) return;
+
+    const year  = _dpViewYear;
+    const month = _dpViewMonth;
+    const grid  = buildMonthGrid(year, month);
+
+    const minDate = state.raw.meta.date_range.min;
+    const maxDate = state.raw.meta.date_range.max;
+
+    // Header
+    $('dpMonthLabel').textContent = MONTH_NAMES[month] + ' ' + year;
+
+    // Grid
+    const gridEl = $('dpGrid');
+    gridEl.innerHTML = '';
+
+    // Intestazioni giorni
+    DAY_HEADERS.forEach(h => {
+      const hdr = document.createElement('div');
+      hdr.className = 'dp-day-hdr';
+      hdr.textContent = h;
+      gridEl.appendChild(hdr);
+    });
+
+    // Celle giorni
+    grid.forEach(dateStr => {
+      const cell = document.createElement('button');
+      cell.type = 'button';
+
+      if (!dateStr) {
+        cell.className = 'dp-day dp-day--empty';
+        cell.disabled = true;
+        cell.setAttribute('tabindex', '-1');
+        gridEl.appendChild(cell);
+        return;
+      }
+
+      cell.dataset.date = dateStr;
+      cell.textContent  = parseInt(dateStr.slice(8), 10);
+
+      const isOutOfRange = dateStr < minDate || dateStr > maxDate;
+
+      // Determina lo stato di selezione
+      let lo = null, hi = null;
+      if (_dpSelStart) {
+        const end = _dpHover || _dpSelStart;
+        lo = _dpSelStart <= end ? _dpSelStart : end;
+        hi = _dpSelStart <= end ? end : _dpSelStart;
+      } else if (state.dateFrom) {
+        lo = state.dateFrom;
+        hi = state.dateTo || state.dateFrom;
+      }
+
+      const isStart    = lo && dateStr === lo;
+      const isEnd      = hi && dateStr === hi && hi !== lo;
+      const isInRange  = lo && hi && dateStr > lo && dateStr < hi;
+
+      let cls = 'dp-day';
+      if (isOutOfRange) cls += ' dp-day--disabled';
+      if (isStart)      cls += ' dp-day--start';
+      if (isEnd)        cls += ' dp-day--end';
+      if (isInRange)    cls += ' dp-day--in-range';
+
+      cell.className = cls;
+      if (isOutOfRange) cell.disabled = true;
+
+      if (!isOutOfRange) {
+        cell.addEventListener('click',      () => onDayClick(dateStr));
+        cell.addEventListener('mouseenter', () => onDayHover(dateStr));
+        cell.addEventListener('mouseleave', () => { _dpHover = null; renderDatePicker(); });
+      }
+
+      gridEl.appendChild(cell);
+    });
+
+    // Hint
+    const hint = $('dpHint');
+    if (_dpSelStart) {
+      hint.textContent = 'Click end date';
+    } else if (state.dateFrom) {
+      hint.textContent = fmtShort(state.dateFrom) + ' — ' + (state.dateTo ? fmtShort(state.dateTo) : '…');
     } else {
-      let from = _wpSelStart, to = ws;
+      hint.textContent = 'Select start date';
+    }
+  }
+
+  function onDayClick(dateStr) {
+    if (!_dpSelStart) {
+      _dpSelStart = dateStr;
+      renderDatePicker();
+    } else {
+      let from = _dpSelStart, to = dateStr;
       if (to < from) { const tmp = from; from = to; to = tmp; }
-      _wpSelStart = null;
-      _wpHover    = null;
-      state.weekFrom = from;
-      state.weekTo   = to;
-      closeWeekPicker();
+      _dpSelStart = null;
+      _dpHover    = null;
+      state.dateFrom = from;
+      state.dateTo   = to;
+      closeDatePicker();
       renderMeta();
       refresh();
     }
   }
 
-  function onWeekHover(ws) {
-    if (_wpSelStart) { _wpHover = ws; refreshWkHL(); }
+  function onDayHover(dateStr) {
+    if (_dpSelStart) { _dpHover = dateStr; renderDatePicker(); }
   }
 
-  function refreshWkHL() {
-    let lo, hi;
-    if (_wpSelStart) {
-      const end = _wpHover || _wpSelStart;
-      lo = _wpSelStart <= end ? _wpSelStart : end;
-      hi = _wpSelStart <= end ? end : _wpSelStart;
-    } else if (state.weekFrom) {
-      lo = state.weekFrom;
-      hi = state.weekTo || state.weekFrom;
+  function openDatePicker() {
+    // Inizializza il mese visualizzato: usa dateFrom se presente, altrimenti il primo mese con dati
+    if (state.dateFrom) {
+      const d = new Date(state.dateFrom + 'T00:00:00');
+      _dpViewYear  = d.getFullYear();
+      _dpViewMonth = d.getMonth();
+    } else {
+      const minDate = state.raw.meta.date_range.min;
+      const d = new Date(minDate + 'T00:00:00');
+      _dpViewYear  = d.getFullYear();
+      _dpViewMonth = d.getMonth();
     }
-
-    document.querySelectorAll('.week-picker__week').forEach(btn => {
-      const w = btn.dataset.week;
-      btn.classList.toggle('wk-start',    !!lo && w === lo);
-      btn.classList.toggle('wk-end',      !!hi && w === hi && hi !== lo);
-      btn.classList.toggle('wk-in-range', !!lo && !!hi && w >= lo && w <= hi);
-    });
-  }
-
-  function openWeekPicker() {
-    _wpSelStart = null;
-    _wpHover    = null;
-    buildWeekPicker();
-    refreshWkHL();
-    const popup = $('weekPicker');
-    popup.hidden = false;
+    _dpSelStart = null;
+    _dpHover    = null;
+    renderDatePicker();
+    $('datePicker').hidden = false;
     $('dateRangePicker').setAttribute('aria-expanded', 'true');
-    $('wpHint').textContent = state.weekFrom ? 'Click to change start week' : 'Select start week';
   }
 
-  function closeWeekPicker() {
-    $('weekPicker').hidden = true;
+  function closeDatePicker() {
+    $('datePicker').hidden = true;
     $('dateRangePicker').setAttribute('aria-expanded', 'false');
-    _wpSelStart = null;
-    _wpHover    = null;
+    _dpSelStart = null;
+    _dpHover    = null;
   }
 
   // -------------------------------------------------------------------------
@@ -720,8 +768,8 @@
 <p>Only countries with at least one completion in the selected period and active audience filters are shown. Use this to identify the most active markets and compare relative volume across countries.</p>`,
     },
     'chart-global-trend': {
-      title: 'Weekly Trend',
-      body: `<p>Line chart showing the number of completions per <strong>ISO week</strong> over time.</p>
+      title: 'Daily Trend',
+      body: `<p>Line chart showing the number of completions per day (or aggregated by week for long ranges) over time.</p>
 <p>Use this to spot engagement peaks, the impact of launch campaigns, or seasonal patterns. Use the <strong>date range picker</strong> in the header to zoom into a specific period.</p>
 <p>The audience filter updates the chart to show only completions for the selected segment.</p>`,
     },
@@ -751,8 +799,8 @@
 <p>When the <strong>"vs Global Average"</strong> toggle is on, a dashed red line overlays each bar to show the global average for that archetype, enabling a direct comparison between the local profile and the programme-wide picture.</p>`,
     },
     'chart-country-trend': {
-      title: 'Weekly Trend — selected country',
-      body: `<p>Line chart showing the weekly completions trend for the selected country.</p>
+      title: 'Daily Trend — selected country',
+      body: `<p>Line chart showing the daily completions trend for the selected country.</p>
 <p>Useful for evaluating the effectiveness of local campaigns, market-specific events, or seasonal variations. Use the <strong>date range picker</strong> in the header to focus on a specific period.</p>`,
     },
     'chart-country-questions': {
@@ -896,33 +944,53 @@
       if (cur < _comboItems.length - 1) selectComboValue(_comboItems[cur + 1].value);
     });
 
-    // Date range picker
+    // Date range picker — toggle
     $('dateRangePicker').addEventListener('click', e => {
       e.stopPropagation();
-      if ($('weekPicker').hidden) openWeekPicker();
-      else closeWeekPicker();
+      if ($('datePicker').hidden) openDatePicker();
+      else closeDatePicker();
     });
 
-    $('wpReset').addEventListener('click', () => {
-      state.weekFrom = null;
-      state.weekTo   = null;
-      closeWeekPicker();
+    // Date picker — navigazione mese
+    $('dpPrevMonth').addEventListener('click', e => {
+      e.stopPropagation();
+      _dpViewMonth--;
+      if (_dpViewMonth < 0) { _dpViewMonth = 11; _dpViewYear--; }
+      renderDatePicker();
+    });
+
+    $('dpNextMonth').addEventListener('click', e => {
+      e.stopPropagation();
+      _dpViewMonth++;
+      if (_dpViewMonth > 11) { _dpViewMonth = 0; _dpViewYear++; }
+      renderDatePicker();
+    });
+
+    // Date picker — reset
+    $('dpReset').addEventListener('click', e => {
+      e.stopPropagation();
+      state.dateFrom = null;
+      state.dateTo   = null;
+      _dpSelStart    = null;
+      _dpHover       = null;
+      closeDatePicker();
       renderMeta();
       refresh();
     });
 
     // Chiudi popup cliccando fuori
     document.addEventListener('click', e => {
-      if (!$('weekPicker').hidden &&
-          !$('weekPicker').contains(e.target) &&
+      const dp = $('datePicker');
+      if (dp && !dp.hidden &&
+          !dp.contains(e.target) &&
           e.target !== $('dateRangePicker')) {
-        closeWeekPicker();
+        closeDatePicker();
       }
     });
 
     // Chiudi popup con Escape
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && !$('weekPicker').hidden) closeWeekPicker();
+      if (e.key === 'Escape' && !$('datePicker').hidden) closeDatePicker();
       if (e.key === 'Escape' && !$('jsonModal').hidden) $('jsonModal').hidden = true;
     });
 
@@ -960,7 +1028,7 @@
   }
 
   // -------------------------------------------------------------------------
-  // KPI strip — copia i valori dalle card e la mostra/nasconde via Observer
+  // KPI strip
   // -------------------------------------------------------------------------
   function syncKpiStrip() {
     $('kpiStripTotal').textContent          = $('kpiTotal').textContent;

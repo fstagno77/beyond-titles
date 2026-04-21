@@ -9,7 +9,7 @@
   // -------------------------------------------------------------------------
   // Percorso dati (relativo alla posizione di index.html)
   // -------------------------------------------------------------------------
-  const DATA_URL = '../../data/dashboard_data.json?v=5';
+  const DATA_URL = '../../data/dashboard_data.json?v=6';
 
   // -------------------------------------------------------------------------
   // State
@@ -17,7 +17,6 @@
   const state = {
     raw: null,          // oggetto dashboard_data.json completo
     target: 'all',      // 'all' | 'b2b' | 'b2c' | '0'
-    includePrelaunch: false,
     country: null,      // country code selezionata
     compareGlobal: false,
     weekFrom: null,     // ISO week string "YYYY-WNN" o null
@@ -101,22 +100,20 @@
   }
 
   // -------------------------------------------------------------------------
-  // Chiave slice in base ai toggle attivi
-  //   Solo include_prelaunch gestito — record abbandonati non disponibili nel DB
-  //   2 combinazioni: 'default' | 'incl_prelaunch'
+  // Chiave slice — sempre 'default' (il pre-lancio è escluso automaticamente)
   // -------------------------------------------------------------------------
   function sliceKey() {
-    return state.includePrelaunch ? 'incl_prelaunch' : 'default';
+    return 'default';
   }
 
   function getGlobalSlice() {
-    return state.raw.global[sliceKey()];
+    return state.raw.global['default'];
   }
 
   function getCountrySlice(code) {
     const country = state.raw.countries[code];
     if (!country) return null;
-    return country[sliceKey()];
+    return country['default'];
   }
 
   function getCountryMeta(code) {
@@ -275,7 +272,6 @@
       ? weeklyAggregated(slice).by_archetype
       : null;
     $('kpiTotal').textContent          = fmt(filteredTotal);
-    $('kpiCompletion').textContent     = '—';   // Untracked users — dato non disponibile da DB
     $('kpiTopArchetype').textContent   = fmtArchKpi(archetypesByTarget(slice, t, archOverride));
     $('kpiCountries').textContent      = fmt(d.meta.countries.length);
     $('kpiCountriesLabel').textContent = 'Active countries';
@@ -307,7 +303,6 @@
       ? weeklyAggregated(slice).by_archetype
       : null;
     $('kpiTotal').textContent          = fmt(ctryFiltered);
-    $('kpiCompletion').textContent     = '—';   // Untracked users — dato non disponibile da DB
     $('kpiTopArchetype').textContent   = fmtArchKpi(archetypesByTarget(slice, t, ctryArchOverride));
     $('kpiCountries').textContent      = pct(ctryFiltered, globalFiltered);
     $('kpiCountriesLabel').textContent = 'Share of total';
@@ -353,6 +348,7 @@
     ie:'Irlanda', in:'India', it:'Italia', lt:'Lituania',
     me:'Montenegro', nl:'Paesi Bassi', no:'Norvegia', pl:'Polonia',
     pt:'Portogallo', ro:'Romania', rs:'Serbia', sk:'Slovacchia', tr:'Turchia',
+    other:'Other',
   };
 
   // -------------------------------------------------------------------------
@@ -589,12 +585,8 @@
   // Week picker
   // -------------------------------------------------------------------------
   function buildWeekPicker() {
-    // Usa incl_prelaunch per includere anche le settimane di aprile (pre-lancio)
-    const allSlices = ['default', 'incl_prelaunch'];
     const weekSet = new Set();
-    allSlices.forEach(sk => {
-      (state.raw.global[sk]?.weekly ?? []).forEach(w => weekSet.add(w.week));
-    });
+    (state.raw.global['default']?.weekly ?? []).forEach(w => weekSet.add(w.week));
     const weeks = [...weekSet].sort();
     const list = $('weekPickerList');
     list.innerHTML = '';
@@ -698,13 +690,7 @@
       body: `<p>Total number of users who completed the survey from start to finish, within the active filters (audience, date range, advanced options).</p>
 <p>Abandoned sessions are <strong>excluded</strong> unless "Include abandoned" is toggled on, and pre-launch responses are excluded unless "Include pre-launch" is active.</p>`,
     },
-    'kpi-global-completion': {
-      title: 'Untracked users',
-      body: `<p>This data point is <strong>not available</strong> from the Perabite database.</p>
-<p>Perabite records a database entry <strong>only when a user completes the survey</strong>. Partial sessions, abandoned flows, and users accessing via VPN or unmapped IPs are not captured at the DB level.</p>
-<p>Untracked user volume and dropout analytics are available via the <strong>Cotton / GA4 reporting layer</strong> (Looker Studio).</p>`,
-    },
-    'kpi-global-archetype': {
+'kpi-global-archetype': {
       title: 'Top archetype',
       body: `<p>The professional archetype assigned most frequently across all completions in the selected period, with the active filters applied.</p>
 <p>The number in parentheses shows how many people belong to that archetype. The <strong>8 Beyond archetypes</strong> are: The Captain, The Pioneer, The Problem Solver, The Connector, The Pragmatist, The Craftsman, The Strategist, The Collaborator.</p>`,
@@ -811,13 +797,7 @@
 <p>This chart helps identify <strong>geographic patterns</strong>: countries with similar profiles, markets dominated by a single archetype, or countries with a particularly balanced distribution.</p>
 <p>The chart responds to the active <strong>audience</strong> and <strong>date range</strong> filters.</p>`,
     },
-    'chart-dropout': {
-      title: 'Dropout Funnel by Question',
-      body: `<p>This chart is <strong>not available</strong> from the Perabite database.</p>
-<p>Dropout data requires tracking of partial sessions — specifically, knowing at which question a user stopped without completing the survey. Perabite records a database entry <strong>only on survey completion</strong>, so abandoned sessions are not captured.</p>
-<p>Dropout funnel analytics are available via the <strong>Cotton / GA4 reporting layer</strong> (Looker Studio).</p>`,
-    },
-    'chart-country-deviation': {
+'chart-country-deviation': {
       title: 'Deviation from Global Average',
       body: `<p>Horizontal bar chart with <strong>positive and negative values</strong> showing, for the selected country, how much each archetype deviates from the global distribution.</p>
 <p>The value shown is the <strong>deviation in percentage points (pp)</strong>: positive (blue) means that archetype is more represented in the country than the global average; negative (red) means it is less represented.</p>
@@ -870,24 +850,6 @@
         state.target = btn.dataset.target;
         refresh();
       });
-    });
-
-    // More button (mobile accordion per i toggles)
-    const moreBtn = $('filtersMoreBtn');
-    const togglesPanel = $('filtersToggles');
-    if (moreBtn && togglesPanel) {
-      moreBtn.addEventListener('click', () => {
-        const open = togglesPanel.classList.toggle('dash-filters__toggles--open');
-        moreBtn.setAttribute('aria-expanded', open);
-        moreBtn.textContent = open ? 'Less ▴' : 'More ▾';
-        requestAnimationFrame(syncFilterBarHeight);
-      });
-    }
-
-    // Toggle prelaunch
-    $('togglePrelaunch').addEventListener('change', e => {
-      state.includePrelaunch = e.target.checked;
-      refresh();
     });
 
     // Combobox bespoke
@@ -1001,12 +963,11 @@
   // KPI strip — copia i valori dalle card e la mostra/nasconde via Observer
   // -------------------------------------------------------------------------
   function syncKpiStrip() {
-    $('kpiStripTotal').textContent        = $('kpiTotal').textContent;
-    $('kpiStripCompletion').textContent   = $('kpiCompletion').textContent;
-    $('kpiStripArchetype').textContent    = $('kpiTopArchetype').textContent;
-    $('kpiStripCountries').textContent    = $('kpiCountries').textContent;
+    $('kpiStripTotal').textContent          = $('kpiTotal').textContent;
+    $('kpiStripArchetype').textContent      = $('kpiTopArchetype').textContent;
+    $('kpiStripCountries').textContent      = $('kpiCountries').textContent;
     $('kpiStripCountriesLabel').textContent = $('kpiCountriesLabel').textContent;
-    $('kpiStripContext').textContent      = $('sectionTitle').textContent;
+    $('kpiStripContext').textContent        = $('sectionTitle').textContent;
   }
 
   function syncFilterBarHeight() {

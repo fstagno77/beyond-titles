@@ -45,17 +45,6 @@
           <button class="segmented-control__button" data-target="b2c">B2C</button>
           <button class="segmented-control__button" data-target="0">General</button>
         </div>
-        <button class="dash-filters__more-btn" id="filtersMoreBtn" aria-expanded="false">More ▾</button>
-      </div>
-
-      <!-- Toggles (desktop: inline; mobile: accordion) -->
-      <div class="dash-filters__toggles" id="filtersToggles">
-        <div class="dash-filters__group">
-          <label class="dash-filters__label dash-filters__toggle-label">
-            <input type="checkbox" id="togglePrelaunch" class="dash-filters__checkbox">
-            Include pre-launch
-          </label>
-        </div>
       </div>
 
       <!-- JSON actions -->
@@ -92,11 +81,7 @@
           <span class="kpi-strip__value" id="kpiStripTotal">—</span>
           <span class="kpi-strip__label">Completions</span>
         </div>
-        <div class="kpi-strip__item">
-          <span class="kpi-strip__value" id="kpiStripCompletion">—</span>
-          <span class="kpi-strip__label">Untracked users</span>
-        </div>
-        <div class="kpi-strip__item">
+<div class="kpi-strip__item">
           <span class="kpi-strip__value" id="kpiStripArchetype">—</span>
           <span class="kpi-strip__label">Top archetype</span>
         </div>
@@ -125,13 +110,7 @@
             <span class="kpi-card__value" id="kpiTotal">—</span>
             <span class="kpi-card__label">Completions</span>
           </div>
-          <div class="kpi-card kpi-card--placeholder">
-            <button class="help-btn" data-help="kpi-global-completion" aria-label="Informazioni">?</button>
-            <span class="kpi-card__value" id="kpiCompletion">—</span>
-            <span class="kpi-card__label">Untracked users</span>
-            <span class="kpi-card__note">VPN / unmapped IP &middot; via Cotton</span>
-          </div>
-          <div class="kpi-card">
+<div class="kpi-card">
             <button class="help-btn" data-help="kpi-global-archetype" aria-label="Informazioni">?</button>
             <span class="kpi-card__value kpi-card__value--archetype" id="kpiTopArchetype">—</span>
             <span class="kpi-card__label">Top archetype</span>
@@ -231,22 +210,7 @@
           </div>
         </div>
 
-        <!-- Charts row 6 — Dropout Funnel (placeholder — dati non disponibili da DB) -->
-        <div class="chart-grid chart-grid--1col">
-          <div class="chart-card">
-            <div class="chart-card__header">
-              <h3 class="chart-card__title">Dropout Funnel by Question</h3>
-              <button class="help-btn help-btn--inline" data-help="chart-dropout" aria-label="Informazioni">?</button>
-            </div>
-            <div class="chart-card__wrap chart-card__wrap--placeholder">
-              <div class="chart-placeholder">
-                <span class="chart-placeholder__label">Dropout data available via Cotton / GA4 reporting</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Charts row 7 — Completions by Country full width (static — all countries) -->
+<!-- Charts row 7 — Completions by Country full width (static — all countries) -->
         <div class="chart-grid chart-grid--1col">
           <div class="chart-card">
             <div class="chart-card__header">
@@ -314,7 +278,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 
-  <script src="js/charts.js?v=5"></script>
-  <script src="js/dashboard.js?v=12"></script>
+  <script src="js/charts.js?v=6"></script>
+  <script src="js/dashboard.js?v=13"></script>
 </body>
 </html>

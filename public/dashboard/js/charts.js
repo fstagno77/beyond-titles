@@ -807,60 +807,6 @@ const DashCharts = (function () {
   }
 
   // -------------------------------------------------------------------------
-  // 12. Funnel abbandono per domanda — bar verticale (globale)
-  // -------------------------------------------------------------------------
-  function initDropoutFunnel() {
-    const ctx = document.getElementById('chartDropout').getContext('2d');
-    const questions = ['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q8','Q9'];
-    charts.dropoutFunnel = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: questions,
-        datasets: [{
-          label: 'Users who dropped out',
-          data: new Array(9).fill(0),
-          backgroundColor: questions.map((_, i) =>
-            hexToRgba('#e74c3c', 0.35 + i * 0.07)
-          ),
-          borderColor: '#e74c3c',
-          borderWidth: 1,
-          borderRadius: 4,
-        }],
-      },
-      options: {
-        ...BASE_OPTIONS,
-        scales: {
-          x: { grid: { display: false }, ticks: { font: { size: 12 } } },
-          y: { grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } } },
-        },
-        plugins: {
-          ...BASE_OPTIONS.plugins,
-          datalabels: {
-            anchor: 'end',
-            align: 'end',
-            formatter: v => v >= 1000 ? (v / 1000).toFixed(1) + 'k' : v,
-            font: { size: 11, weight: '600' },
-            color: '#555',
-          },
-          tooltip: {
-            callbacks: {
-              label: ctx => ' ' + ctx.parsed.y.toLocaleString('en-GB') + ' users dropped out at this question',
-            },
-          },
-        },
-      },
-      plugins: [ChartDataLabels],
-    });
-  }
-
-  function updateDropoutFunnel(dropoutByQ) {
-    const c = charts.dropoutFunnel;
-    const questions = ['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q8','Q9'];
-    c.data.datasets[0].data = questions.map(q => dropoutByQ[q] ?? 0);
-    c.update();
-  }
-
-  // -------------------------------------------------------------------------
   // 13. Analisi Q11 Tiebreaker — bar orizzontale (globale)
   // -------------------------------------------------------------------------
   function initTiebreaker() {
@@ -938,7 +884,6 @@ const DashCharts = (function () {
     initTiebreaker();
     initCompletionRate();
     initHeatmap();
-    // initDropoutFunnel: canvas rimosso dall'HTML — sostituito con placeholder statico
     initCtryQuestions();
   }
 
@@ -955,7 +900,6 @@ const DashCharts = (function () {
     updateCompletionRate,
     updateTiebreaker,
     updateHeatmap,
-    updateDropoutFunnel,
     updateCtryArchetypes,
     updateCtryTrend,
     updateCtryQuestions,

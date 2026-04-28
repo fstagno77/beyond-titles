@@ -25,15 +25,54 @@
 
   <!-- Date range picker popup -->
   <div class="date-picker" id="datePicker" hidden>
-    <div class="date-picker__header">
-      <button class="date-picker__nav" id="dpPrevMonth" aria-label="Previous month">&#8592;</button>
-      <span class="date-picker__month-label" id="dpMonthLabel">—</span>
-      <button class="date-picker__nav" id="dpNextMonth" aria-label="Next month">&#8594;</button>
-    </div>
-    <div class="date-picker__grid" id="dpGrid"></div>
-    <div class="date-picker__footer">
-      <button class="date-picker__reset" id="dpReset">Reset</button>
-      <span class="date-picker__hint" id="dpHint">Select start date</span>
+    <div class="date-picker__panels">
+      <!-- Sinistra: preset -->
+      <div class="date-picker__presets">
+        <button class="date-picker__preset" data-preset="7d">Last 7 days</button>
+        <button class="date-picker__preset" data-preset="30d">Last 30 days</button>
+        <button class="date-picker__preset" data-preset="90d">Last 90 days</button>
+        <button class="date-picker__preset" data-preset="all">Full period</button>
+      </div>
+      <!-- Destra: doppio calendario + input + footer -->
+      <div class="date-picker__calendars">
+        <div class="date-picker__months">
+          <!-- Mese 1 -->
+          <div class="date-picker__month">
+            <div class="date-picker__month-header">
+              <button class="date-picker__nav" id="dpPrevMonth" aria-label="Previous month">&#8592;</button>
+              <span class="date-picker__month-label" id="dpMonthLabel">—</span>
+              <span></span>
+            </div>
+            <div class="date-picker__grid" id="dpGrid"></div>
+          </div>
+          <!-- Mese 2 -->
+          <div class="date-picker__month">
+            <div class="date-picker__month-header">
+              <span></span>
+              <span class="date-picker__month-label" id="dpMonthLabel2">—</span>
+              <button class="date-picker__nav" id="dpNextMonth" aria-label="Next month">&#8594;</button>
+            </div>
+            <div class="date-picker__grid" id="dpGrid2"></div>
+          </div>
+        </div>
+        <!-- Input date testuali -->
+        <div class="date-picker__inputs">
+          <div class="date-picker__input-group">
+            <label class="date-picker__input-label">From</label>
+            <span class="date-picker__input-value" id="dpFromValue">—</span>
+          </div>
+          <span class="date-picker__input-sep">—</span>
+          <div class="date-picker__input-group">
+            <label class="date-picker__input-label">To</label>
+            <span class="date-picker__input-value" id="dpToValue">—</span>
+          </div>
+        </div>
+        <!-- Footer -->
+        <div class="date-picker__footer">
+          <button class="date-picker__reset" id="dpReset">Reset</button>
+          <button class="date-picker__apply" id="dpApply">Apply</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -52,10 +91,17 @@
         </div>
       </div>
 
-      <!-- JSON actions -->
-      <div class="dash-filters__group">
-        <button class="dash-filters__json-btn" id="btnViewJson" title="View JSON structure">{ } Structure</button>
-        <button class="dash-filters__json-btn" id="btnDownloadJson" title="Download mock_survey_results.json">&#8595; Download dataset</button>
+      <!-- Download dropdown -->
+      <div class="dash-filters__group dash-filters__group--download">
+        <div class="download-dropdown" id="downloadDropdown">
+          <button class="dash-filters__download-btn" id="btnDownload" aria-haspopup="true" aria-expanded="false">
+            &#8595; Download
+          </button>
+          <ul class="download-dropdown__menu" id="downloadMenu" role="menu" hidden>
+            <li role="menuitem"><button class="download-dropdown__item" id="btnDownloadCsv">CSV</button></li>
+            <li role="menuitem"><button class="download-dropdown__item" id="btnDownloadPdf">PDF</button></li>
+          </ul>
+        </div>
       </div>
 
       <!-- Country navigator -->
@@ -120,10 +166,11 @@
             <span class="kpi-card__value kpi-card__value--archetype" id="kpiTopArchetype">—</span>
             <span class="kpi-card__label">Top archetype</span>
           </div>
-          <div class="kpi-card">
+          <div class="kpi-card" id="kpiCardCountries">
             <button class="help-btn" data-help="kpi-global-countries" aria-label="Informazioni">?</button>
             <span class="kpi-card__value" id="kpiCountries">—</span>
             <span class="kpi-card__label" id="kpiCountriesLabel">Active countries</span>
+            <span class="kpi-card__note" id="kpiCountriesNote">Includes 'Other'</span>
           </div>
         </div>
 
@@ -161,6 +208,7 @@
               <h3 class="chart-card__title" id="titleTopCountries">All Countries</h3>
               <button class="help-btn help-btn--inline" data-help="chart-global-countries" aria-label="Informazioni">?</button>
             </div>
+            <p class="chart-card__note">Includes responses mapped to 'Other' (unrecognised or unmapped country codes)</p>
             <div class="chart-card__wrap chart-card__wrap--countries">
               <canvas id="chartTopCountries"></canvas>
             </div>
@@ -215,19 +263,6 @@
           </div>
         </div>
 
-<!-- Charts row 7 — Completions by Country full width (static — all countries) -->
-        <div class="chart-grid chart-grid--1col">
-          <div class="chart-card">
-            <div class="chart-card__header">
-              <h3 class="chart-card__title">Completions by Country</h3>
-              <button class="help-btn help-btn--inline" data-help="chart-completion-rate" aria-label="Informazioni">?</button>
-            </div>
-            <div class="chart-card__wrap chart-card__wrap--completion">
-              <canvas id="chartCompletionRate"></canvas>
-            </div>
-          </div>
-        </div>
-
         <!-- Charts row 8 — Heatmap full width (static — all countries) -->
         <div class="chart-grid chart-grid--1col">
           <div class="chart-card">
@@ -249,23 +284,6 @@
     <span>Beyond &copy; Gi Group &mdash; mock data for demonstration purposes</span>
   </footer>
 
-  <!-- ===== JSON VIEWER MODAL ===== -->
-  <div class="json-modal" id="jsonModal" hidden role="dialog" aria-modal="true" aria-labelledby="jsonModalTitle">
-    <div class="json-modal__backdrop" id="jsonModalBackdrop"></div>
-    <div class="json-modal__dialog">
-      <div class="json-modal__header">
-        <h4 class="json-modal__title" id="jsonModalTitle">JSON Structure</h4>
-        <div class="json-modal__header-actions">
-          <button class="json-modal__copy-btn" id="jsonModalCopy">Copy</button>
-          <button class="help-modal__close" id="jsonModalClose" aria-label="Close">&#x2715;</button>
-        </div>
-      </div>
-      <div class="json-modal__body">
-        <pre class="json-modal__pre" id="jsonModalPre"></pre>
-      </div>
-    </div>
-  </div>
-
   <!-- ===== HELP MODAL ===== -->
   <div class="help-modal" id="helpModal" hidden role="dialog" aria-modal="true" aria-labelledby="helpModalTitle">
     <div class="help-modal__backdrop" id="helpModalBackdrop"></div>
@@ -283,7 +301,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 
-  <script src="js/charts.js?v=7"></script>
-  <script src="js/dashboard.js?v=14"></script>
+  <script src="js/charts.js?v=8"></script>
+  <script src="js/dashboard.js?v=15"></script>
 </body>
 </html>

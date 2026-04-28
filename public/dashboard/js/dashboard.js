@@ -18,16 +18,17 @@
     raw: null,          // oggetto dashboard_data.json completo
     target: 'all',      // 'all' | 'b2b' | 'b2c' | '0'
     country: null,      // country code selezionata
-    compareGlobal: false,
     dateFrom: null,     // ISO date string "YYYY-MM-DD" o null
     dateTo: null,       // ISO date string "YYYY-MM-DD" o null
   };
 
   // Stato interno del date picker
-  let _dpSelStart  = null;   // "YYYY-MM-DD" — primo click in corso
-  let _dpHover     = null;   // data sotto il cursore durante selezione
-  let _dpViewYear  = null;   // anno del mese visualizzato
-  let _dpViewMonth = null;   // mese (0-11) del mese visualizzato
+  let _dpSelStart   = null;   // "YYYY-MM-DD" — primo click in corso
+  let _dpHover      = null;   // data sotto il cursore durante selezione
+  let _dpViewYear   = null;   // anno del mese visualizzato (mese 1)
+  let _dpViewMonth  = null;   // mese (0-11) del mese visualizzato (mese 1)
+  let _dpViewYear2  = null;   // anno del secondo mese
+  let _dpViewMonth2 = null;   // mese (0-11) del secondo mese
 
   // Stato interno del combobox country
   let _comboItems = [];   // [{ value, label }, ...]
@@ -36,35 +37,6 @@
   // -------------------------------------------------------------------------
   // Utility
   // -------------------------------------------------------------------------
-  // JSON structure helper — mostra schema senza dati grezzi
-  function jsonStructure(obj, depth, maxDepth) {
-    depth = depth || 0;
-    maxDepth = (maxDepth !== undefined) ? maxDepth : 3;
-    if (obj === null) return 'null';
-    if (Array.isArray(obj)) {
-      if (obj.length === 0) return '[]';
-      const inner = '  '.repeat(depth + 1);
-      const sample = jsonStructure(obj[0], depth + 1, maxDepth);
-      return `[\n${inner}/* Array(${obj.length}) */ ${sample}\n${'  '.repeat(depth)}]`;
-    }
-    if (typeof obj === 'object') {
-      if (depth >= maxDepth) {
-        const keys = Object.keys(obj);
-        return `{ /* ${keys.length} keys: ${keys.slice(0, 6).join(', ')}${keys.length > 6 ? ', …' : ''} */ }`;
-      }
-      const indent = '  '.repeat(depth);
-      const inner  = '  '.repeat(depth + 1);
-      const entries = Object.keys(obj).map(k =>
-        `${inner}"${k}": ${jsonStructure(obj[k], depth + 1, maxDepth)}`
-      );
-      return `{\n${entries.join(',\n')}\n${indent}}`;
-    }
-    if (typeof obj === 'string') {
-      return obj.length > 50 ? `"${obj.slice(0, 50)}…"` : `"${obj}"`;
-    }
-    return String(obj);
-  }
-
   function fmt(n) {
     if (n == null) return '—';
     const r = Math.round(n);
@@ -100,13 +72,6 @@
     if (a < b) return -1;
     if (a > b) return 1;
     return 0;
-  }
-
-  // -------------------------------------------------------------------------
-  // Chiave slice — sempre 'default'
-  // -------------------------------------------------------------------------
-  function sliceKey() {
-    return 'default';
   }
 
   function getGlobalSlice() {
@@ -212,10 +177,9 @@
   // -------------------------------------------------------------------------
   function getCountryCounts() {
     const t  = state.target;
-    const sk = sliceKey();
     const result = {};
     state.raw.meta.countries.forEach(code => {
-      const cs = state.raw.countries[code][sk];
+      const cs = state.raw.countries[code]['default'];
       if (!cs) return;
       result[code] = t === 'all' ? cs.total : (cs.by_target[t] ?? 0);
     });
@@ -275,6 +239,7 @@
     $('kpiTopArchetype').textContent   = fmtArchKpi(archetypesByTarget(slice, t, archOverride));
     $('kpiCountries').textContent      = fmt(d.meta.countries.length);
     $('kpiCountriesLabel').textContent = 'Active countries';
+    $('kpiCardCountries').hidden = false;
     syncKpiStrip();
   }
 
@@ -304,8 +269,7 @@
       : null;
     $('kpiTotal').textContent          = fmt(ctryFiltered);
     $('kpiTopArchetype').textContent   = fmtArchKpi(archetypesByTarget(slice, t, ctryArchOverride));
-    $('kpiCountries').textContent      = pct(ctryFiltered, globalFiltered);
-    $('kpiCountriesLabel').textContent = 'Share of total';
+    $('kpiCardCountries').hidden = true;
     syncKpiStrip();
   }
 
@@ -331,14 +295,19 @@
   // Popola il selettore country
   // -------------------------------------------------------------------------
   const COUNTRY_NAMES = {
-    ar:'Argentina', be:'Belgio', bg:'Bulgaria', br:'Brasile',
-    ch:'Svizzera', cn:'Cina', co:'Colombia', cz:'Rep. Ceca',
-    de:'Germania', dk:'Danimarca', es:'Spagna', fr:'Francia',
-    gb:'Regno Unito', hk:'Hong Kong', hr:'Croazia', hu:'Ungheria',
-    ie:'Irlanda', in:'India', it:'Italia', lt:'Lituania',
-    me:'Montenegro', nl:'Paesi Bassi', no:'Norvegia', pl:'Polonia',
-    pt:'Portogallo', ro:'Romania', rs:'Serbia', sk:'Slovacchia', tr:'Turchia',
-    other:'Other',
+    ar: 'Argentina',    be: 'Belgium',       bg: 'Bulgaria',      br: 'Brazil',
+    ch: 'Switzerland',  cn: 'China',         co: 'Colombia',      cz: 'Czech Republic',
+    de: 'Germany',      dk: 'Denmark',       es: 'Spain',         fr: 'France',
+    gb: 'United Kingdom', hk: 'Hong Kong',   hr: 'Croatia',       hu: 'Hungary',
+    ie: 'Ireland',      in: 'India',         it: 'Italia',        lt: 'Lithuania',
+    me: 'Montenegro',   nl: 'Netherlands',   no: 'Norway',        pl: 'Poland',
+    pt: 'Portugal',     ro: 'Romania',       rs: 'Serbia',        sk: 'Slovakia',
+    tr: 'Turkey',       other: 'Other',
+  };
+
+  // Esposta globalmente per charts.js
+  window.DashboardUtils = {
+    countryName: code => COUNTRY_NAMES[code] ?? code.toUpperCase(),
   };
 
   // -------------------------------------------------------------------------
@@ -441,13 +410,6 @@
   // -------------------------------------------------------------------------
   // Refresh completo dei grafici e KPI
   // -------------------------------------------------------------------------
-  function getCompletionRateData() {
-    return state.raw.meta.countries.map(code => ({
-      country: code,
-      total: state.raw.countries[code]?.default?.total ?? 0,
-    }));
-  }
-
   function getQuestionAnswers() {
     const slice = (state.country && state.country !== 'global')
       ? getCountrySlice(state.country)
@@ -468,11 +430,10 @@
   // -------------------------------------------------------------------------
   function getHeatmapData() {
     const isFiltered = !!(state.dateFrom || state.dateTo);
-    const sk = sliceKey();
     const heatmap = {};
     const totals  = [];
     state.raw.meta.countries.forEach(code => {
-      const cs = state.raw.countries[code][sk];
+      const cs = state.raw.countries[code]['default'];
       if (!cs) return;
       const archOverride = isFiltered ? dailyAggregated(cs).by_archetype : null;
       heatmap[code] = archetypesByTarget(cs, state.target, archOverride);
@@ -515,7 +476,6 @@
     DashCharts.updateGlobalAudience(isFiltered ? globalAgg.by_target : globalSlice.by_target);
     DashCharts.updateTopCountries(isFiltered ? globalAgg.by_country : getCountryCounts());
     DashCharts.updateGlobalTrend(dailyFiltered(globalSlice));
-    DashCharts.updateCompletionRate(getCompletionRateData());
 
     const tbAnalytics = state.raw.analytics;
     DashCharts.updateTiebreakerRate(tbAnalytics.tiebreaker_count, state.raw.meta.slice_counts.default);
@@ -594,25 +554,22 @@
     return grid;
   }
 
-  function renderDatePicker() {
-    const picker = $('datePicker');
-    if (!picker) return;
+  // Calcola anno e mese del secondo calendario (mese successivo a _dpViewMonth)
+  function syncSecondMonth() {
+    if (_dpViewMonth === 11) {
+      _dpViewMonth2 = 0;
+      _dpViewYear2  = _dpViewYear + 1;
+    } else {
+      _dpViewMonth2 = _dpViewMonth + 1;
+      _dpViewYear2  = _dpViewYear;
+    }
+  }
 
-    const year  = _dpViewYear;
-    const month = _dpViewMonth;
-    const grid  = buildMonthGrid(year, month);
-
-    const minDate = state.raw.meta.date_range.min;
-    const maxDate = state.raw.meta.date_range.max;
-
-    // Header
-    $('dpMonthLabel').textContent = MONTH_NAMES[month] + ' ' + year;
-
-    // Grid
-    const gridEl = $('dpGrid');
+  // Costruisce e renderizza la griglia di un mese in un elemento DOM
+  function renderMonthGrid(gridEl, year, month, minDate, maxDate) {
+    const grid = buildMonthGrid(year, month);
     gridEl.innerHTML = '';
 
-    // Intestazioni giorni
     DAY_HEADERS.forEach(h => {
       const hdr = document.createElement('div');
       hdr.className = 'dp-day-hdr';
@@ -620,7 +577,6 @@
       gridEl.appendChild(hdr);
     });
 
-    // Celle giorni
     grid.forEach(dateStr => {
       const cell = document.createElement('button');
       cell.type = 'button';
@@ -638,7 +594,6 @@
 
       const isOutOfRange = dateStr < minDate || dateStr > maxDate;
 
-      // Determina lo stato di selezione
       let lo = null, hi = null;
       if (_dpSelStart) {
         const end = _dpHover || _dpSelStart;
@@ -649,9 +604,9 @@
         hi = state.dateTo || state.dateFrom;
       }
 
-      const isStart    = lo && dateStr === lo;
-      const isEnd      = hi && dateStr === hi && hi !== lo;
-      const isInRange  = lo && hi && dateStr > lo && dateStr < hi;
+      const isStart   = lo && dateStr === lo;
+      const isEnd     = hi && dateStr === hi && hi !== lo;
+      const isInRange = lo && hi && dateStr > lo && dateStr < hi;
 
       let cls = 'dp-day';
       if (isOutOfRange) cls += ' dp-day--disabled';
@@ -662,20 +617,31 @@
       cell.className = cls;
       if (isOutOfRange) cell.disabled = true;
 
-      // eventi gestiti via delegation su #dpGrid — non aggiungere listener per cella
-
       gridEl.appendChild(cell);
     });
+  }
 
-    // Hint
-    const hint = $('dpHint');
-    if (_dpSelStart) {
-      hint.textContent = 'Click end date';
-    } else if (state.dateFrom) {
-      hint.textContent = fmtShort(state.dateFrom) + ' — ' + (state.dateTo ? fmtShort(state.dateTo) : '…');
-    } else {
-      hint.textContent = 'Select start date';
-    }
+  function renderDatePicker() {
+    const picker = $('datePicker');
+    if (!picker) return;
+
+    syncSecondMonth();
+
+    const minDate = state.raw.meta.date_range.min;
+    const maxDate = state.raw.meta.date_range.max;
+
+    // Header mesi
+    $('dpMonthLabel').textContent  = MONTH_NAMES[_dpViewMonth]  + ' ' + _dpViewYear;
+    $('dpMonthLabel2').textContent = MONTH_NAMES[_dpViewMonth2] + ' ' + _dpViewYear2;
+
+    // Griglia mese 1
+    renderMonthGrid($('dpGrid'),  _dpViewYear,  _dpViewMonth,  minDate, maxDate);
+    // Griglia mese 2
+    renderMonthGrid($('dpGrid2'), _dpViewYear2, _dpViewMonth2, minDate, maxDate);
+
+    // Input from/to
+    $('dpFromValue').textContent = state.dateFrom ? fmtFull(state.dateFrom) : '—';
+    $('dpToValue').textContent   = state.dateTo   ? fmtFull(state.dateTo)   : '—';
   }
 
   function onDayClick(dateStr) {
@@ -701,11 +667,7 @@
 
   let _dpGridListenersAttached = false;
 
-  function attachGridDelegation() {
-    if (_dpGridListenersAttached) return;
-    _dpGridListenersAttached = true;
-    const gridEl = $('dpGrid');
-
+  function attachGridListeners(gridEl) {
     gridEl.addEventListener('click', e => {
       e.stopPropagation();
       const cell = e.target.closest('button[data-date]');
@@ -730,6 +692,13 @@
     });
   }
 
+  function attachGridDelegation() {
+    if (_dpGridListenersAttached) return;
+    _dpGridListenersAttached = true;
+    attachGridListeners($('dpGrid'));
+    attachGridListeners($('dpGrid2'));
+  }
+
   function openDatePicker() {
     if (state.dateFrom) {
       const d = new Date(state.dateFrom + 'T00:00:00');
@@ -747,14 +716,14 @@
     const dp  = $('datePicker');
     const btn = $('dateRangePicker');
     dp.hidden = false;
-    // Posiziona sotto il bottone, allineato a sinistra
+    // Posiziona sotto il bottone — picker più largo (~620px), allineato a destra
     const rect = btn.getBoundingClientRect();
-    const dpW  = dp.offsetWidth;
-    let left   = rect.left;
-    // Evita overflow a destra
+    const dpW  = dp.offsetWidth || 620;
+    let left   = rect.right - dpW;
+    if (left < 8) left = 8;
     if (left + dpW > window.innerWidth - 8) left = window.innerWidth - dpW - 8;
-    dp.style.top  = (rect.bottom + 6) + 'px';
-    dp.style.left = left + 'px';
+    dp.style.top   = (rect.bottom + 6) + 'px';
+    dp.style.left  = left + 'px';
     dp.style.right = 'auto';
     $('dateRangePicker').setAttribute('aria-expanded', 'true');
     attachGridDelegation();
@@ -851,12 +820,6 @@
       title: 'Audience Split — selected country',
       body: `<p>Doughnut chart showing the breakdown of completions in the selected country by audience segment: <strong>B2B</strong>, <strong>B2C</strong>, <strong>General</strong>.</p>
 <p>Compare this with the global Audience Split to understand whether the local audience mix differs from the average, and to inform the country's survey distribution strategy.</p>`,
-    },
-    'chart-completion-rate': {
-      title: 'Completions by Country',
-      body: `<p>Horizontal bar chart showing the <strong>absolute number of completed surveys</strong> for each country, sorted from highest to lowest.</p>
-<p>Only completed records are counted — this reflects the data available from the Perabite database. Abandoned sessions are not recorded at the DB level and therefore cannot be included.</p>
-<p><em>Note: this data is fixed and does not respond to audience or date range filters.</em></p>`,
     },
     'chart-tiebreaker-rate': {
       title: 'Tiebreaker Rate',
@@ -989,7 +952,7 @@
       else closeDatePicker();
     });
 
-    // Date picker — navigazione mese
+    // Date picker — navigazione mese (agisce sul primo mese, il secondo si aggiorna di conseguenza)
     $('dpPrevMonth').addEventListener('click', e => {
       e.stopPropagation();
       _dpViewMonth--;
@@ -1016,6 +979,44 @@
       refresh();
     });
 
+    // Date picker — apply
+    $('dpApply').addEventListener('click', () => {
+      if (_dpSelStart) {
+        // L'utente ha cliccato solo la data di inizio — completa con stessa data
+        state.dateFrom = _dpSelStart;
+        state.dateTo   = _dpSelStart;
+        _dpSelStart = null;
+      }
+      closeDatePicker();
+      renderMeta();
+      refresh();
+    });
+
+    // Date picker — preset rapidi
+    document.querySelectorAll('.date-picker__preset').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const preset = btn.dataset.preset;
+        const maxDate = state.raw.meta.date_range.max;
+        if (preset === 'all') {
+          state.dateFrom = null;
+          state.dateTo   = null;
+        } else {
+          const days = preset === '7d' ? 7 : preset === '30d' ? 30 : 90;
+          const to = new Date(maxDate + 'T00:00:00');
+          const from = new Date(to);
+          from.setDate(from.getDate() - (days - 1));
+          state.dateFrom = from.toISOString().slice(0, 10);
+          state.dateTo   = maxDate;
+        }
+        _dpSelStart = null;
+        _dpHover    = null;
+        closeDatePicker();
+        renderMeta();
+        refresh();
+      });
+    });
+
     // Chiudi popup cliccando fuori
     document.addEventListener('click', e => {
       const dp = $('datePicker');
@@ -1029,39 +1030,32 @@
     // Chiudi popup con Escape
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && !$('datePicker').hidden) closeDatePicker();
-      if (e.key === 'Escape' && !$('jsonModal').hidden) $('jsonModal').hidden = true;
     });
 
-    // JSON viewer
-    $('btnViewJson').addEventListener('click', () => {
-      $('jsonModalTitle').textContent = 'JSON Structure — dashboard_data.json';
-      $('jsonModalPre').textContent = jsonStructure(state.raw);
-      $('jsonModal').hidden = false;
-      $('jsonModalClose').focus();
+    // Download dropdown
+    $('btnDownload').addEventListener('click', e => {
+      e.stopPropagation();
+      const menu = $('downloadMenu');
+      const isOpen = !menu.hidden;
+      menu.hidden = isOpen;
+      $('btnDownload').setAttribute('aria-expanded', String(!isOpen));
     });
-
-    $('jsonModalClose').addEventListener('click', () => { $('jsonModal').hidden = true; });
-    $('jsonModalBackdrop').addEventListener('click', () => { $('jsonModal').hidden = true; });
-
-    // Copy JSON structure
-    $('jsonModalCopy').addEventListener('click', () => {
-      const btn = $('jsonModalCopy');
-      navigator.clipboard.writeText($('jsonModalPre').textContent).then(() => {
-        btn.textContent = 'Copied!';
-        btn.classList.add('json-modal__copy-btn--copied');
-        setTimeout(() => {
-          btn.textContent = 'Copy';
-          btn.classList.remove('json-modal__copy-btn--copied');
-        }, 2000);
-      });
+    $('btnDownloadCsv').addEventListener('click', () => {
+      $('downloadMenu').hidden = true;
+      $('btnDownload').setAttribute('aria-expanded', 'false');
+      console.log('[Download] CSV requested — not yet implemented');
     });
-
-    // Full dataset download
-    $('btnDownloadJson').addEventListener('click', () => {
-      const a    = document.createElement('a');
-      a.href     = '../../data/mock_survey_results.json';
-      a.download = 'mock_survey_results.json';
-      a.click();
+    $('btnDownloadPdf').addEventListener('click', () => {
+      $('downloadMenu').hidden = true;
+      $('btnDownload').setAttribute('aria-expanded', 'false');
+      console.log('[Download] PDF requested — not yet implemented');
+    });
+    // Chiudi dropdown cliccando fuori
+    document.addEventListener('click', e => {
+      if (!$('downloadDropdown')?.contains(e.target)) {
+        $('downloadMenu').hidden = true;
+        $('btnDownload')?.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 
@@ -1071,6 +1065,9 @@
   function syncKpiStrip() {
     $('kpiStripTotal').textContent          = $('kpiTotal').textContent;
     $('kpiStripArchetype').textContent      = $('kpiTopArchetype').textContent;
+    const kpiCard = $('kpiCardCountries');
+    const stripItem = $('kpiStripCountries')?.closest('.kpi-strip__item');
+    if (stripItem) stripItem.hidden = !!(kpiCard && kpiCard.hidden);
     $('kpiStripCountries').textContent      = $('kpiCountries').textContent;
     $('kpiStripCountriesLabel').textContent = $('kpiCountriesLabel').textContent;
     $('kpiStripContext').textContent        = $('sectionTitle').textContent;

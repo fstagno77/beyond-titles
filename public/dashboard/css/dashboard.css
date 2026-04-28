@@ -110,15 +110,8 @@
   display: contents;
 }
 
-/* JSON buttons in filters bar */
-.dash-filters__group--right {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.dash-filters__json-btn {
+/* Download dropdown */
+.dash-filters__download-btn {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   background: transparent;
@@ -130,124 +123,159 @@
   transition: background 0.15s, color 0.15s, border-color 0.15s;
   white-space: nowrap;
 }
-
-.dash-filters__json-btn:hover {
+.dash-filters__download-btn:hover {
   background: var(--color-background);
   color: var(--color-text-primary);
   border-color: var(--color-text-secondary);
 }
-
-/* JSON viewer modal */
-.json-modal[hidden] {
-  display: none;
-}
-
-.json-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.json-modal__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.json-modal__dialog {
+.download-dropdown {
   position: relative;
+}
+.download-dropdown__menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 200;
   background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  min-width: 120px;
+}
+.download-dropdown__item {
+  width: 100%;
+  padding: 8px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.download-dropdown__item:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+/* Date range picker popup — layout GA4 (preset + doppio calendario) */
+.date-picker {
+  position: fixed;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  width: min(860px, 92vw);
-  max-height: 82vh;
+  z-index: 200;
+  overflow: hidden;
+  width: 620px;
+  max-width: calc(100vw - 16px);
+}
+.date-picker__panels {
+  display: flex;
+}
+.date-picker__presets {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  padding: 12px 8px;
+  border-right: 1px solid var(--color-border-light);
+  gap: 2px;
+  min-width: 140px;
 }
-
-.json-modal__header {
+.date-picker__preset {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
+}
+.date-picker__preset:hover,
+.date-picker__preset--active {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+.date-picker__calendars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 8px;
+}
+.date-picker__months {
+  display: flex;
+  gap: 16px;
+}
+.date-picker__month {
+  flex: 1;
+}
+.date-picker__month-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
-  border-bottom: 1px solid var(--color-border);
-  flex-shrink: 0;
+  margin-bottom: 6px;
 }
-
-.json-modal__title {
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  margin: 0;
-}
-
-.json-modal__header-actions {
+.date-picker__inputs {
   display: flex;
   align-items: center;
   gap: 8px;
+  padding: 8px 0 4px;
+  border-top: 1px solid var(--color-border-light);
 }
-
-.json-modal__copy-btn {
-  font-size: 12px;
-  font-family: var(--font-family);
-  color: var(--color-text-secondary);
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: 4px 10px;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
-}
-
-.json-modal__copy-btn:hover {
-  color: var(--color-text-primary);
-  background: var(--color-border);
-}
-
-.json-modal__copy-btn--copied {
-  color: #27ae60;
-  border-color: #27ae60;
-}
-
-.json-modal__body {
-  overflow-y: auto;
+.date-picker__input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   flex: 1;
 }
-
-.json-modal__pre {
-  margin: 0;
-  padding: 20px;
-  font-size: 12px;
-  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+.date-picker__input-label {
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+}
+.date-picker__input-value {
+  font-size: var(--font-size-sm);
   color: var(--color-text-primary);
-  line-height: 1.7;
-  white-space: pre;
-  overflow-x: auto;
-}
-
-/* Date range picker popup — calendario mensile */
-.date-picker {
-  position: fixed;
-  top: var(--dash-header-height);
-  right: var(--spacing-lg);
-  background: var(--color-surface);
+  padding: 4px 8px;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  width: 280px;
-  z-index: 200;
-  overflow: hidden;
+  border-radius: var(--radius-sm);
+  min-width: 110px;
 }
-
-.date-picker__header {
+.date-picker__input-sep {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  margin-top: 16px;
+}
+.date-picker__footer {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 12px 8px;
-  border-bottom: 1px solid var(--color-border-light);
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 4px;
+}
+.date-picker__apply {
+  padding: 5px 16px;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  transition: background 0.15s;
+}
+.date-picker__apply:hover {
+  background: #0046a0;
 }
 
 .date-picker__nav {
@@ -281,7 +309,7 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 0;
-  padding: 6px 8px;
+  padding: 0 2px;
 }
 
 .dp-day-hdr {
@@ -299,11 +327,11 @@
   background: none;
   border: none;
   border-radius: 50%;
-  font-size: var(--font-size-sm);
+  font-size: 12px;
   font-family: var(--font-family);
   color: var(--color-text-primary);
   cursor: pointer;
-  height: 32px;
+  height: 28px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -342,15 +370,6 @@
 .dp-day--end   { border-radius: 0 50% 50% 0;  }
 .dp-day--start.dp-day--end { border-radius: 50%; }
 
-.date-picker__footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px var(--spacing-md);
-  border-top: 1px solid var(--color-border-light);
-  gap: var(--spacing-sm);
-}
-
 .date-picker__reset {
   padding: 4px 10px;
   font-size: var(--font-size-sm);
@@ -365,13 +384,6 @@
 .date-picker__reset:hover {
   background: var(--color-background);
   color: var(--color-text-primary);
-}
-
-.date-picker__hint {
-  font-size: 11px;
-  color: var(--color-text-muted);
-  flex: 1;
-  text-align: right;
 }
 
 
@@ -679,11 +691,6 @@
   height: 320px;
 }
 
-/* Completion rate: 29 paesi in horizontal bar — altezza proporzionale */
-.chart-card__wrap--completion {
-  height: 560px;
-}
-
 /* Heatmap 29 paesi × 8 archetipi stacked — serve altezza generosa */
 .chart-card__wrap--heatmap {
   height: 680px;
@@ -852,6 +859,14 @@
   gap: var(--spacing-sm);
 }
 
+/* Nota testuale sotto l'header di una chart card */
+.chart-card__note {
+  font-size: 11px;
+  color: var(--color-text-muted, #aaa);
+  margin: -4px 0 0;
+  line-height: 1.4;
+}
+
 /* Badge "full period" per grafici non filtrabili per data */
 .period-note {
   display: inline-block;
@@ -1001,10 +1016,6 @@
     height: auto;
     padding: 8px var(--spacing-md);
     gap: 0;
-  }
-  /* Nasconde i bottoni JSON su mobile */
-  .dash-filters__group:has(.dash-filters__json-btn) {
-    display: none;
   }
   /* Nasconde la label "Audience" su mobile */
   .dash-filters__group:has(.segmented-control--small) > .dash-filters__label {

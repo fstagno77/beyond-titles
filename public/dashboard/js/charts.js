@@ -65,6 +65,21 @@ const DashCharts = (function () {
     collaboratore:'The Collaborator',
   };
 
+  const COUNTRY_NAMES = {
+    ar: 'Argentina',    be: 'Belgium',       bg: 'Bulgaria',      br: 'Brazil',
+    ch: 'Switzerland',  cn: 'China',         co: 'Colombia',      cz: 'Czech Republic',
+    de: 'Germany',      dk: 'Denmark',       es: 'Spain',         fr: 'France',
+    gb: 'United Kingdom', hk: 'Hong Kong',   hr: 'Croatia',       hu: 'Hungary',
+    ie: 'Ireland',      in: 'India',         it: 'Italia',        lt: 'Lithuania',
+    me: 'Montenegro',   nl: 'Netherlands',   no: 'Norway',        pl: 'Poland',
+    pt: 'Portugal',     ro: 'Romania',       rs: 'Serbia',        sk: 'Slovakia',
+    tr: 'Turkey',       other: 'Other',
+  };
+
+  function countryName(code) {
+    return COUNTRY_NAMES[code] ?? code.toUpperCase();
+  }
+
   function archLabels() {
     return ARCHETYPES_ORDER.map(k => ARCH_NAMES[k]);
   }
@@ -227,7 +242,7 @@ const DashCharts = (function () {
       options: {
         ...BASE_OPTIONS,
         scales: {
-          x: { grid: { display: false }, ticks: { font: { size: 12 }, maxRotation: 0 } },
+          x: { grid: { display: false }, ticks: { font: { size: 10 }, maxRotation: 45, minRotation: 45, autoSkip: false } },
           y: { grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } } },
         },
         plugins: {
@@ -238,6 +253,12 @@ const DashCharts = (function () {
             formatter: v => v >= 1000 ? (v / 1000).toFixed(1) + 'k' : v,
             font: { size: 11, weight: '600' },
             color: '#555',
+          },
+          tooltip: {
+            callbacks: {
+              title: items => countryName(items[0].label.toLowerCase()),
+              label: ctx => ' ' + ctx.parsed.y.toLocaleString('en-GB') + ' completions',
+            },
           },
         },
       },
@@ -329,132 +350,6 @@ const DashCharts = (function () {
   }
 
   // -------------------------------------------------------------------------
-  // 5. Archetypes country — bar orizzontale (con linea media globale opzionale)
-  // -------------------------------------------------------------------------
-  function initCtryArchetypes() {
-    const ctx = document.getElementById('chartCtryArchetypes').getContext('2d');
-    charts.ctryArchetypes = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: archLabels(),
-        datasets: [
-          {
-            label: 'Country',
-            data: new Array(8).fill(0),
-            backgroundColor: archColors(0.85),
-            borderColor: archColors(),
-            borderWidth: 1,
-            borderRadius: 4,
-          },
-          {
-            label: 'Global Average',
-            data: new Array(8).fill(0),
-            type: 'line',
-            borderColor: '#e74c3c',
-            borderWidth: 2,
-            borderDash: [6, 3],
-            pointRadius: 4,
-            fill: false,
-            hidden: true,
-            datalabels: { display: false },
-          },
-        ],
-      },
-      options: {
-        ...BASE_OPTIONS,
-        indexAxis: 'y',
-        scales: {
-          x: { grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } } },
-          y: { grid: { display: false }, ticks: { font: { size: 12 } } },
-        },
-        plugins: {
-          ...BASE_OPTIONS.plugins,
-          legend: {
-            display: true,
-            labels: { font: { size: 11 } },
-          },
-          datalabels: DATALABELS_BAR,
-        },
-      },
-      plugins: [ChartDataLabels],
-    });
-  }
-
-  function updateCtryArchetypes(byArch, globalByArch) {
-    const c = charts.ctryArchetypes;
-    c.data.datasets[0].data = archValues(byArch);
-    if (globalByArch) {
-      // Normalizza i valori globali alla stessa scala (percentuali)
-      const localTotal = Object.values(byArch).reduce((s, v) => s + v, 0);
-      const globalTotal = Object.values(globalByArch).reduce((s, v) => s + v, 0);
-      c.data.datasets[1].data = archValues(globalByArch).map(v =>
-        globalTotal ? Math.round(v / globalTotal * localTotal) : 0
-      );
-      c.data.datasets[1].hidden = false;
-    } else {
-      c.data.datasets[1].hidden = true;
-    }
-    c.update();
-  }
-
-  // -------------------------------------------------------------------------
-  // 6. Trend settimanale country — line
-  // -------------------------------------------------------------------------
-  function initCtryTrend() {
-    const ctx = document.getElementById('chartCtryTrend').getContext('2d');
-    charts.ctryTrend = new Chart(ctx, {
-      type: 'line',
-      data: {
-        datasets: [{
-          label: 'Completions/day',
-          data: [],
-          borderColor: '#27ae60',
-          backgroundColor: hexToRgba('#27ae60', 0.08),
-          borderWidth: 2,
-          fill: true,
-          tension: 0.3,
-          pointRadius: 3,
-          pointHoverRadius: 5,
-        }],
-      },
-      options: {
-        ...BASE_OPTIONS,
-        scales: {
-          x: {
-            type: 'time',
-            time: { unit: 'day', tooltipFormat: 'dd MMM yyyy' },
-            grid: { display: false },
-            ticks: { font: { size: 11 }, maxTicksLimit: 8 },
-          },
-          y: {
-            grid: { color: '#f0f0f0' },
-            ticks: { font: { size: 11 } },
-          },
-        },
-        plugins: {
-          ...BASE_OPTIONS.plugins,
-          datalabels: { display: false },
-        },
-      },
-      plugins: [ChartDataLabels],
-    });
-  }
-
-  function updateCtryTrend(daily) {
-    const c = charts.ctryTrend;
-    const useWeekly = daily.length > 60;
-    const data = useWeekly ? aggregateByWeek(daily) : daily;
-
-    c.data.datasets[0].label = useWeekly ? 'Completions/week' : 'Completions/day';
-    c.data.datasets[0].data  = data.map(d => ({
-      x: new Date(d.date + 'T00:00:00'),
-      y: d.count,
-    }));
-    c.options.scales.x.time.unit = useWeekly ? 'week' : 'day';
-    c.update();
-  }
-
-  // -------------------------------------------------------------------------
   // 7. Distribuzione risposte Q1–Q10 — bar gruppato
   // -------------------------------------------------------------------------
   function initCtryQuestions() {
@@ -525,47 +420,6 @@ const DashCharts = (function () {
   }
 
   // -------------------------------------------------------------------------
-  // 8. Audience country — doughnut
-  // -------------------------------------------------------------------------
-  function initCtryAudience() {
-    const ctx = document.getElementById('chartCtryAudience').getContext('2d');
-    const keys = ['b2b', 'b2c', '0'];
-    charts.ctryAudience = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: keys.map(k => TARGET_LABELS[k]),
-        datasets: [{
-          data: new Array(3).fill(0),
-          backgroundColor: keys.map(k => TARGET_COLORS[k]),
-          borderWidth: 2,
-          borderColor: '#fff',
-          hoverOffset: 6,
-        }],
-      },
-      options: {
-        ...BASE_OPTIONS,
-        cutout: '60%',
-        plugins: {
-          ...BASE_OPTIONS.plugins,
-          legend: {
-            display: true,
-            position: 'right',
-            labels: { font: { size: 12 }, padding: 12 },
-          },
-          datalabels: DATALABELS_DOUGHNUT,
-        },
-      },
-      plugins: [ChartDataLabels],
-    });
-  }
-
-  function updateCtryAudience(byTarget) {
-    const c = charts.ctryAudience;
-    c.data.datasets[0].data = ['b2b', 'b2c', '0'].map(k => byTarget[k] ?? 0);
-    c.update();
-  }
-
-  // -------------------------------------------------------------------------
   // 9. Tiebreaker Rate — doughnut (quanti completamenti hanno avuto spareggio)
   // -------------------------------------------------------------------------
   function initTiebreakerRate() {
@@ -602,72 +456,6 @@ const DashCharts = (function () {
   function updateTiebreakerRate(tiebreakerCount, totalCompleted) {
     const c = charts.tiebreakerRate;
     c.data.datasets[0].data = [tiebreakerCount, Math.max(0, totalCompleted - tiebreakerCount)];
-    c.update();
-  }
-
-  // -------------------------------------------------------------------------
-  // 10. Completions by Country — bar orizzontale, conteggio assoluto
-  // Precedentemente "Completion Rate by Country" — rimosso perché richiede
-  // dati di sessioni abbandonate non disponibili nel DB Perabite.
-  // Il grafico mostra ora il numero assoluto di completamenti per paese (fisso).
-  // -------------------------------------------------------------------------
-  function initCompletionRate() {
-    const ctx = document.getElementById('chartCompletionRate').getContext('2d');
-    charts.completionRate = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: [],
-        datasets: [
-          {
-            label: 'Completions',
-            data: [],
-            backgroundColor: hexToRgba('#0057FF', 0.75),
-            borderColor: '#0057FF',
-            borderWidth: 1,
-            borderRadius: 4,
-          },
-        ],
-      },
-      options: {
-        ...BASE_OPTIONS,
-        indexAxis: 'y',
-        scales: {
-          x: {
-            min: 0,
-            grid: { color: '#f0f0f0' },
-            ticks: { font: { size: 11 } },
-          },
-          y: { grid: { display: false }, ticks: { font: { size: 11 } } },
-        },
-        plugins: {
-          ...BASE_OPTIONS.plugins,
-          legend: { display: false },
-          datalabels: {
-            anchor: 'end',
-            align: 'end',
-            formatter: v => (typeof v === 'number' && v > 0
-              ? (v >= 1000 ? (v / 1000).toFixed(1) + 'k' : v)
-              : ''),
-            font: { size: 10, weight: '600' },
-            color: '#555',
-            padding: { right: 4 },
-          },
-          tooltip: {
-            callbacks: {
-              label: ctx => ' ' + ctx.parsed.x.toLocaleString('en-GB') + ' completions',
-            },
-          },
-        },
-      },
-      plugins: [ChartDataLabels],
-    });
-  }
-
-  function updateCompletionRate(countryTotals) {
-    const c = charts.completionRate;
-    const sorted = [...countryTotals].sort((a, b) => b.total - a.total);
-    c.data.labels = sorted.map(d => d.country.toUpperCase());
-    c.data.datasets[0].data = sorted.map(d => d.total);
     c.update();
   }
 
@@ -722,6 +510,7 @@ const DashCharts = (function () {
           },
           tooltip: {
             callbacks: {
+              title: items => countryName(items[0].label.toLowerCase()),
               label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.x.toFixed(1) + '%',
             },
           },
@@ -744,80 +533,6 @@ const DashCharts = (function () {
         return Math.round((ac[arch] ?? 0) / tot * 1000) / 10;
       });
     });
-    c.update();
-  }
-
-  // -------------------------------------------------------------------------
-  // 11. Indice di deviazione dal globale — bar ± orizzontale (country)
-  // -------------------------------------------------------------------------
-  function initCtryDeviation() {
-    const ctx = document.getElementById('chartCtryDeviation').getContext('2d');
-    charts.ctryDeviation = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: archLabels(),
-        datasets: [{
-          label: 'Deviation from global avg (pp)',
-          data: new Array(8).fill(0),
-          backgroundColor: new Array(8).fill(hexToRgba('#0056b3', 0.75)),
-          borderColor: new Array(8).fill('#0056b3'),
-          borderWidth: 1,
-          borderRadius: 4,
-        }],
-      },
-      options: {
-        ...BASE_OPTIONS,
-        indexAxis: 'y',
-        scales: {
-          x: {
-            grid: { color: '#f0f0f0' },
-            ticks: {
-              font: { size: 11 },
-              callback: v => (v > 0 ? '+' : '') + v.toFixed(1) + ' pts',
-            },
-          },
-          y: { grid: { display: false }, ticks: { font: { size: 12 } } },
-        },
-        plugins: {
-          ...BASE_OPTIONS.plugins,
-          datalabels: {
-            anchor: ctx => ctx.dataset.data[ctx.dataIndex] >= 0 ? 'end' : 'start',
-            align:  ctx => ctx.dataset.data[ctx.dataIndex] >= 0 ? 'end' : 'start',
-            formatter: v => (v > 0 ? '+' : '') + v.toFixed(1) + ' pts',
-            font: { size: 11, weight: '600' },
-            color: '#555',
-            padding: { left: 4, right: 4 },
-          },
-          tooltip: {
-            callbacks: {
-              label: ctx => {
-                const v = ctx.parsed.x;
-                return ' ' + (v > 0 ? '+' : '') + v.toFixed(1) + ' pts vs global average';
-              },
-            },
-          },
-        },
-      },
-      plugins: [ChartDataLabels],
-    });
-  }
-
-  function updateCtryDeviation(ctryByArch, globalByArch) {
-    const c = charts.ctryDeviation;
-    const ctryTotal   = Object.values(ctryByArch).reduce((s, v) => s + v, 0);
-    const globalTotal = Object.values(globalByArch).reduce((s, v) => s + v, 0);
-    const deviations  = ARCHETYPES_ORDER.map(arch => {
-      const cp = ctryTotal   ? (ctryByArch[arch]   ?? 0) / ctryTotal   * 100 : 0;
-      const gp = globalTotal ? (globalByArch[arch] ?? 0) / globalTotal * 100 : 0;
-      return Math.round((cp - gp) * 10) / 10;
-    });
-    c.data.datasets[0].data = deviations;
-    c.data.datasets[0].backgroundColor = deviations.map(v =>
-      v >= 0 ? hexToRgba('#0056b3', 0.75) : hexToRgba('#e74c3c', 0.65)
-    );
-    c.data.datasets[0].borderColor = deviations.map(v =>
-      v >= 0 ? '#0056b3' : '#e74c3c'
-    );
     c.update();
   }
 
@@ -897,7 +612,6 @@ const DashCharts = (function () {
     initGlobalTrend();
     initTiebreakerRate();
     initTiebreaker();
-    initCompletionRate();
     initHeatmap();
     initCtryQuestions();
   }
@@ -912,14 +626,9 @@ const DashCharts = (function () {
     updateTopCountries,
     updateGlobalTrend,
     updateTiebreakerRate,
-    updateCompletionRate,
     updateTiebreaker,
     updateHeatmap,
-    updateCtryArchetypes,
-    updateCtryTrend,
     updateCtryQuestions,
-    updateCtryAudience,
-    updateCtryDeviation,
   };
 
 })();
